@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
                     Dashboard routes
 -------------------------------------------------------*/
 Route::get('/', function () {
-    return view('addashboard.crm.index');
+    return view('dashboard.crm.index');
 });
 
 Route::get('/analytics', function () {
