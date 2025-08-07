@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\ModelsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,22 @@ Route::prefix('/admin/colors')->name('colors.')->group(function () {
     Route::get('/{color}', [ColorController::class, 'destroy'])->name('destroy');
     Route::get('/trashed', [ColorController::class, 'trashed'])->name('trashed');
     Route::post('/{color}/restore', [ColorController::class, 'restore'])->name('restore');
+});
+
+/*-------------------------------------------------------
+                    modelos routes
+-------------------------------------------------------*/
+
+Route::prefix('/admin/models')->name('models.')->group(function () {
+    Route::get('/', [ModelsController::class, 'index'])->name('index');
+    Route::get('/create', [ModelsController::class, 'create'])->name('create');
+    Route::post('/', [ModelsController::class, 'store'])->name('store');
+    Route::get('modelView/{models}', [ModelsController::class, 'show'])->name('show');
+    Route::get('modelEdit/{models}/edit', [ModelsController::class, 'edit'])->name('edit');
+    Route::put('/{models}', [ModelsController::class, 'update'])->name('update');
+    Route::get('/{models}', [ModelsController::class, 'destroy'])->name('destroy');
+    Route::get('/trashed', [ModelsController::class, 'trashed'])->name('trashed');
+    Route::post('/{model}/restore', [ModelsController::class, 'restore'])->name('restore');
 });
 
 

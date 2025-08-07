@@ -71,7 +71,7 @@
                         <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceCreate">Colors Create</a></li>
                     </ul>
                 </li>
-                <!-- <li class="nxl-item nxl-hasmenu">
+               {{--  <!-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-users"></i></span>
                         <span class="nxl-mtext">Customers</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -82,7 +82,7 @@
                         <li class="nxl-item"><a class="nxl-link" href="/customers/customersCreate">Customers Create</a></li>
                     </ul>
                 </li> -->
-                <li class="nxl-item nxl-hasmenu">
+                {{-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-alert-circle"></i></span>
                         <span class="nxl-mtext">Leads</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -92,7 +92,7 @@
                         <li class="nxl-item"><a class="nxl-link" href="/leads/leadsView">Leads View</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="/leads/leadsCreate">Leads Create</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <!-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-briefcase"></i></span>
@@ -104,7 +104,7 @@
                         <li class="nxl-item"><a class="nxl-link" href="/projects/projectsCreate">Projects Create</a></li>
                     </ul>
                 </li> -->
-                <li class="nxl-item nxl-hasmenu">
+                {{-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-layout"></i></span>
                         <span class="nxl-mtext">Widgets</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -205,8 +205,8 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
-<!--                 <li class="nxl-item nxl-hasmenu">
+                </li> --}}
+<!--                 <li class="nxl-item nxl-hasmenu"> --}}
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-life-buoy"></i></span>
                         <span class="nxl-mtext">Help Center</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>

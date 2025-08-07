@@ -34,7 +34,7 @@
                         <li class="nxl-item"><a class="nxl-link" href="/Reports/reportsTimesheets">Timesheets Report</a></li>
                     </ul>
                 </li>
-                <li class="nxl-item nxl-hasmenu">
+                <!-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-send"></i></span>
                         <span class="nxl-mtext">Applications</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -47,8 +47,8 @@
                         <li class="nxl-item"><a class="nxl-link" href="/Applications/appsStorage">Storage</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="/Applications/appsCalendar">Calendar</a></li>
                     </ul>
-                </li>
-                <li class="nxl-item nxl-hasmenu">
+                </li> -->
+                <!-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-at-sign"></i></span>
                         <span class="nxl-mtext">Proposal</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -59,19 +59,19 @@
                         <li class="nxl-item"><a class="nxl-link" href="/proposal/proposalEdit">Proposal Edit</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="/proposal/proposalCreate">Proposal Create</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
-                        <span class="nxl-mtext">Payment</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                        <span class="nxl-mtext">Cores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/payment">Payment</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Invoice View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceCreate">Invoice Create</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/payment">Colors</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Colors View</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceCreate">Colors Create</a></li>
                     </ul>
                 </li>
-                <li class="nxl-item nxl-hasmenu">
+               {{--  <!-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-users"></i></span>
                         <span class="nxl-mtext">Customers</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -81,8 +81,8 @@
                         <li class="nxl-item"><a class="nxl-link" href="/customers/customersView">Customers View</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="/customers/customersCreate">Customers Create</a></li>
                     </ul>
-                </li>
-                <li class="nxl-item nxl-hasmenu">
+                </li> -->
+                {{-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-alert-circle"></i></span>
                         <span class="nxl-mtext">Leads</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -92,8 +92,8 @@
                         <li class="nxl-item"><a class="nxl-link" href="/leads/leadsView">Leads View</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="/leads/leadsCreate">Leads Create</a></li>
                     </ul>
-                </li>
-                <li class="nxl-item nxl-hasmenu">
+                </li> --}}
+                <!-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-briefcase"></i></span>
                         <span class="nxl-mtext">Projects</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -103,8 +103,8 @@
                         <li class="nxl-item"><a class="nxl-link" href="/projects/projectsView">Projects View</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="/projects/projectsCreate">Projects Create</a></li>
                     </ul>
-                </li>
-                <li class="nxl-item nxl-hasmenu">
+                </li> -->
+                {{-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-layout"></i></span>
                         <span class="nxl-mtext">Widgets</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -205,8 +205,8 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
-                <li class="nxl-item nxl-hasmenu">
+                </li> --}}
+<!--                 <li class="nxl-item nxl-hasmenu"> --}}
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-life-buoy"></i></span>
                         <span class="nxl-mtext">Help Center</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -216,7 +216,7 @@
                         <li class="nxl-item"><a class="nxl-link" href="/Help/help-knowledgebase">KnowledgeBase</a></li>
                         <li class="nxl-item"><a class="nxl-link" href=".docs/documentations">Documentations</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
             <div class="card text-center">
                 <div class="card-body">
