@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ColorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,23 +21,41 @@ use Illuminate\Support\Facades\Route;
                     Dashboard routes
 -------------------------------------------------------*/
 Route::get('/', function () {
-    return view('addashboard.crm.index');
+    return view('admin.dashboard.crm.index');
 });
 
 Route::get('/analytics', function () {
-    return view('dashboard.Analytics.index');
+    return view('admin.dashboard.Analytics.index');
 });
+
+/*-------------------------------------------------------
+                    color routes
+-------------------------------------------------------*/
+
+Route::prefix('/admin/colors')->name('colors.')->group(function () {
+    Route::get('/', [ColorController::class, 'index'])->name('index');
+    Route::get('/create', [ColorController::class, 'create'])->name('create');
+    Route::post('/', [ColorController::class, 'store'])->name('store');
+    Route::get('colorView/{color}', [ColorController::class, 'show'])->name('show');
+    Route::get('colorEdit/{color}/edit', [ColorController::class, 'edit'])->name('edit');
+    Route::put('/{color}', [ColorController::class, 'update'])->name('update');
+    Route::get('/{color}', [ColorController::class, 'destroy'])->name('destroy');
+    Route::get('/trashed', [ColorController::class, 'trashed'])->name('trashed');
+    Route::post('/{color}/restore', [ColorController::class, 'restore'])->name('restore');
+});
+
+
 /*-------------------------------------------------------
                     Proposal routes
 -------------------------------------------------------*/
-Route::get('/proposal', function () {
+/*Route::get('/proposal', function () {
 
 
 
     return view('proposal.proposal.index');
 
 
-});
+}); 
 
 
 Route::get('/proposal/proposalView', function () {
@@ -69,7 +88,7 @@ Route::get('/proposal/proposalCreate', function () {
                     reports routes
 -------------------------------------------------------*/
 
-Route::get('/Reports/reportsSales', function () {
+/*Route::get('/Reports/reportsSales', function () {
 
 
     return view('reports.sales.index');
@@ -102,7 +121,7 @@ Route::get('/Reports/reportsTimesheets', function () {
                     aplications routes
 -------------------------------------------------------*/
 
-Route::get('/Applications/appsChat', function () {
+/*Route::get('/Applications/appsChat', function () {
 
 
     return view('applications.chat.index');
@@ -149,7 +168,7 @@ Route::get('/Applications/appsCalendar', function () {
                     customers routes
 -------------------------------------------------------*/
 
-Route::get('/customers', function(){
+/*Route::get('/customers', function(){
 
     return view('customers.customers.index');
 
@@ -163,7 +182,7 @@ Route::get('/customers/customersCreate', function(){
 
     return view('customers.customersCreate.index');
 
-});
+}); 
 
 /*-------------------------------------------------------
                     payment routes
@@ -190,7 +209,7 @@ Route::get('/payment/invoiceCreate', function(){
                     widgets routes
 -------------------------------------------------------*/
 
-Route::get('/widgets/lists', function () {
+/*Route::get('/widgets/lists', function () {
     return view('widgets.lists.index');
 });
 
@@ -210,18 +229,4 @@ Route::get('/widgets/statistics', function () {
     return view('widgets.statistics.index');
 });
 
-/*-------------------------------------------------------
-                    color routes
--------------------------------------------------------*/
 
-Route::prefix('colors')->name('colors.')->group(function () {
-    Route::get('/', [ColorController::class, 'index'])->name('index');
-    Route::get('/create', [ColorController::class, 'create'])->name('create');
-    Route::post('/', [ColorController::class, 'store'])->name('store');
-    Route::get('/{color}', [ColorController::class, 'show'])->name('show');
-    Route::get('/{color}/edit', [ColorController::class, 'edit'])->name('edit');
-    Route::put('/{color}', [ColorController::class, 'update'])->name('update');
-    Route::delete('/{color}', [ColorController::class, 'destroy'])->name('destroy');
-    Route::get('/trashed', [ColorController::class, 'trashed'])->name('trashed');
-    Route::post('/{color}/restore', [ColorController::class, 'restore'])->name('restore');
-});
