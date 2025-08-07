@@ -251,7 +251,7 @@
                                                         </a>
                                                         <ul class="dropdown-menu">
                                                             <li>
-                                                                <a class="dropdown-item" href="javascript:void(0)">
+                                                                <a class="dropdown-item" href="{{ route('colors.edit', ['color' => $color]) }}">
                                                                     <i class="feather feather-edit-3 me-3"></i>
                                                                     <span>Edit</span>
                                                                 </a>

@@ -7,11 +7,11 @@
     <div class="page-header">
         <div class="page-header-left d-flex align-items-center">
             <div class="page-header-title">
-                <h5 class="m-b-10">Invoice</h5>
+                <h5 class="m-b-10">Cor</h5>
             </div>
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Create</li>
+                <li class="breadcrumb-item">Editar</li>
             </ul>
         </div>
         <div class="page-header-right ms-auto">
@@ -23,13 +23,13 @@
                     </a>
                 </div>
                 <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                    <a href="javascript:void(0);" class="btn btn-light-brand successAlertMessage">
+                <!--<a href="javascript:void(0);" class="btn btn-light-brand successAlertMessage">
                         <i class="feather-layers me-2"></i>
                         <span>Save as Draft</span>
-                    </a>
+                    </a>  -->
                     <a href="javascript:void(0);" class="btn btn-primary successAlertMessage">
                         <i class="feather-save me-2"></i>
-                        <span>Save Invoice</span>
+                        <span>Salvar Cor</span>
                     </a>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 <div class="card invoice-container">
                     <div class="card-header">
                         <h5>Cadastro de Cor</h5>
-                        <div class="dropdown">
+                     <!--<div class="dropdown">
                             <a href="javascript:void(0)" class="btn btn-light-brand dropdown-toggle" data-bs-toggle="dropdown" data-bs-offset="0,25">Invoice Templates</a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -77,7 +77,7 @@
                                     <a href="javascript:void(0);" class="dropdown-item">Delete Template</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-body p-0">
                         <div class="px-4 pt-4">
@@ -230,19 +230,47 @@
                         </div>
                         <hr class="border-dashed"> -->
                         
-                        <div class="px-2 pb-2">
-                            <div class="form-group row mb-3">
-                                <label for="Nome" class="col-sm-1 col-form-label">Nome</label>
-                                <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="Nome" placeholder="Nome da cor">
-                                </div>
-                            </div>
+                                <form action="{{ route('colors.update', ['color' => $color->id]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
 
-                            <div class="form-group">
-                                <label for="Descrição" class="form-label">Descrição</label>
-                                <textarea rows="6" class="form-control" id="InvoicDescriçãoeNote" placeholder="Fale sobre este cor"></textarea>
-                            </div>
-                        </div>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
+                                <div class="row">
+                                    {{-- Nome --}}
+                                    <div class="col-lg-4 mb-4">
+                                        <label class="form-label">Nome da Cor</label>
+                                        <input type="text" name="name" class="form-control"
+                                            value="{{ old('nome') }}" placeholder="Ex: Cinza, Azul...">
+                                    </div>
+
+                                    {{-- Data de Cadastro --}}
+                                    <div class="col-lg-5 mb-3">
+                                        <label class="form-label">Data de Cadastro</label>
+                                        <input type="date" name="date" class="form-control" value="{{ old('date') }}">
+                                    </div>
+
+                                    {{-- Descrição --}}
+                                    <div class="col-12 mb-4">
+                                        <label class="form-label">Descrição</label>
+                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $category->description ?? '') }}</textarea>
+                                    </div>
+
+                                    {{-- Botão de Enviar --}}
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary"> Salvar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                     </div>
                 </div>
             </div> 

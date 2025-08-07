@@ -73,9 +73,10 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+ public function edit(Color $color)
     {
         //
+        return view('admin.colors.colorEdit.index', ['color' => $color]);
     }
 
     /**
@@ -85,9 +86,26 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Color $color)
     {
         //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:1000',
+            'date' => 'nullable|date',
+        ], [
+            'name.required' => 'O nome é obrigátorio.',
+            'description.max' => 'O campo descrição não pode ter mais de 1000 caracteres.',
+            'date.date' => 'A data deve ser uma data válida.',
+        ]);
+
+        $color->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'date' => $request->date,
+        ]);
+
+        return redirect()->route('admin.colors.index')->with('success', 'Cor atualizada com sucesso!');
     }
 
     /**
