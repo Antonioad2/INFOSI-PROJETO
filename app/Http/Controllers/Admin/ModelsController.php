@@ -75,10 +75,12 @@ class ModelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Models $models)
     {
         //
+        return view('admin.models.modelEdit.index', ['model' => $models]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -87,9 +89,25 @@ class ModelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Models $models)
     {
         //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:1000',
+            'date' => 'nullable|date',
+        ], [
+            'name.required' => 'O nome é obrigátorio.',
+            'description.max' => 'O campo descrição não pode ter mais de 1000 caracteres.',
+            'date.date' => 'A data deve ser uma data válida.',
+        ]);
+
+        $models->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'date' => $request->date,
+        ]);
+        return redirect()->route('models.index')->with('success', 'Modelo atualizada com sucesso!');
     }
 
     /**
@@ -103,7 +121,7 @@ class ModelsController extends Controller
         //
         $models->delete();
 
-        return redirect()->route('admin.models.index')->with('success', 'Modelo removida com sucesso!');
+        return redirect()->route('models.index')->with('success', 'Modelo removida com sucesso!');
         //
 
     }

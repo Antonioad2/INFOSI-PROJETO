@@ -105,7 +105,7 @@ class ColorController extends Controller
             'date' => $request->date,
         ]);
 
-        return redirect()->route('admin.colors.index')->with('success', 'Cor atualizada com sucesso!');
+        return redirect()->route('colors.index')->with('success', 'Cor atualizada com sucesso!');
     }
 
     /**
@@ -119,7 +119,7 @@ class ColorController extends Controller
         //
         $color->delete();
 
-        return redirect()->route('admin.colors.index')->with('success', 'Cor removida com sucesso!');
+        return redirect()->route('colors.index')->with('success', 'Cor removida com sucesso!');
         //
 
     }

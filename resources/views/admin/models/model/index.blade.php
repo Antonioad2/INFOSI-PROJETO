@@ -242,7 +242,7 @@
                                             <td class="fw-bold text-dark">{{ $model->date ? \Carbon\Carbon::parse($model->date)->format('d/m/Y') : 'N/A' }}</td>
                                             <td>
                                                 <div class="hstack gap-2 justify-content-end">
-                                                    <a href="{{ route('models.show', ['model' => $model]) }}" class="avatar-text avatar-md">
+                                                    <a href="{{ route('models.show', $model) }}" class="avatar-text avatar-md">
                                                         <i class="feather feather-eye"></i>
                                                     </a>
                                                     <div class="dropdown">
@@ -251,7 +251,7 @@
                                                         </a>
                                                         <ul class="dropdown-menu">
                                                             <li>
-                                                                <a class="dropdown-item" href="javascript:void(0)">
+                                                                <a class="dropdown-item" href="{{ route('models.edit', $model) }}">
                                                                     <i class="feather feather-edit-3 me-3"></i>
                                                                     <span>Edit</span>
                                                                 </a>
@@ -283,7 +283,7 @@
                                                             </li> -->
                                                             <li class="dropdown-divider"></li>
                                                             <li>
-                                                                <a class="dropdown-item" href="{{ route('models.destroy', ['model' => $model]) }}">
+                                                                <a class="dropdown-item" href="{{ route('models.destroy', $model) }}">
                                                                     <i class="feather feather-trash-2 me-3"></i>
                                                                     <span>Delete</span>
                                                                 </a>
