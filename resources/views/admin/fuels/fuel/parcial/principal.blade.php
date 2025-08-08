@@ -2,7 +2,8 @@
 <html lang="zxx">
 
 
-<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/invoice-view.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:35 GMT -->
+<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/payment.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:35 GMT -->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
@@ -12,7 +13,7 @@
     <meta name="author" content="WRAPCODERS">
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
-    <title>Duralux || Brand View</title>
+    <title>@yield('title')</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/images/favicon.ico')}}">
@@ -22,6 +23,7 @@
     <!--! END: Bootstrap CSS-->
     <!--! BEGIN: Vendors CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('assets/vendors/css/vendors.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/vendors/css/dataTables.bs5.min.css')}}">
     <!--! END: Vendors CSS-->
     <!--! BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/theme.min.css')}}">
@@ -35,22 +37,30 @@
 </head>
 
 <body>
-    @include('admin.brands.brandView.parcial.header')
-    @include('admin.brands.brandView.parcial.menu')
-    <main class="nxl-container">
-        @yield('content-brandView')
-        @include('admin.brands.brandView.parcial.footer')
-    </main>
-    @include('admin.brands.brandView.parcial.thema')
 
-<!--! BEGIN: Vendors JS !-->
+    @include('admin.colors.color.parcial.header')
+    @include('admin.colors.color.parcial.menu')
+    <main class="nxl-container">
+        @yield('content-color')
+        @include('admin.colors.color.parcial.footer')
+    </main>
+    @include('admin.colors.color.parcial.thema')
+
+    <!--! ================================================================ !-->
+    <!--! [End] Theme Customizer !-->
+    <!--! ================================================================ !-->
+    <!--! ================================================================ !-->
+    <!--! Footer Script !-->
+    <!--! ================================================================ !-->
+    <!--! BEGIN: Vendors JS !-->
     <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>
     <!-- vendors.min.js {always must need to be top} -->
-    <script src="{{ url('assets/vendors/js/jquery.print.min.js')}}"></script>
+    <script src="{{ url('assets/vendors/js/dataTables.min.js')}}"></script>
+    <script src="{{ url('assets/vendors/js/dataTables.bs5.min.js')}}"></script>
     <!--! END: Vendors JS !-->
     <!--! BEGIN: Apps Init  !-->
     <script src="{{ url('assets/js/common-init.min.js')}}"></script>
-    <script src="{{ url('assets/js/invoice-view-init.min.js')}}"></script>
+    <script src="{{ url('assets/js/payment-init.min.js')}}"></script>
     <!--! END: Apps Init !-->
     <!--! BEGIN: Theme Customizer  !-->
     <script src="{{ url('assets/js/theme-customizer-init.min.js')}}"></script>
@@ -58,5 +68,6 @@
 </body>
 
 
-<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/invoice-view.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:36 GMT -->
+<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/payment.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:35 GMT -->
+
 </html>

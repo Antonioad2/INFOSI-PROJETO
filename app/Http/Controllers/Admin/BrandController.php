@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Color;
+use App\Model\Brand; // Import the Brand model
 
-class ColorController extends Controller
+
+class BrandController extends Controller
 {
     //
     public function index()
     {
-        $colors = Color::all();
-        return view('admin.colors.color.index', compact('colors'));
+        $brands = Brand::all();
+        return view('admin.brands.brand.index', compact('brands'));
     }
 
     /**
@@ -22,7 +23,7 @@ class ColorController extends Controller
      */
     public function create()
     {
-        return view('admin.colors.colorCreate.index');
+        return view('admin.brands.brandCreate.index');
     }
 
     /**
@@ -44,13 +45,13 @@ class ColorController extends Controller
             'description.max' => 'The description may not be greater than 1000 characters.',
             'date.date' => 'The date must be a valid date.',
         ]);
-        Color::create([
+        Brand::create([
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
         ]);
 
-        return redirect()->route('colors.index')->with('success', 'Cor criada com sucesso!');
+        return redirect()->route('brands.index')->with('success', 'Marca criada com sucesso!');
     }
 
     /**
@@ -59,10 +60,10 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Color $color)
+    public function show(Brand $brand)
     {
-        $color = Color::findOrFail($color->id);
-        return view('admin.colors.colorView.index', compact('color')); // Caminho diferente para view única
+        $brand = Brand::findOrFail($brand->id);
+        return view('admin.brands.brandView.index', compact('brand')); // Caminho diferente para view única
         //
 
     }
@@ -73,10 +74,10 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
- public function edit(Color $color)
+ public function edit(Brand $brand)
     {
         //
-        return view('admin.colors.colorEdit.index', ['color' => $color]);
+        return view('admin.brands.brandEdit.index', ['brand' => $brand]);
     }
 
     /**
@@ -86,7 +87,7 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Color $color)
+    public function update(Request $request, Brand $brand)
     {
         //
         $request->validate([
@@ -99,13 +100,13 @@ class ColorController extends Controller
             'date.date' => 'A data deve ser uma data válida.',
         ]);
 
-        $color->update([
+        $brand->update([
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
         ]);
 
-        return redirect()->route('colors.index')->with('success', 'Cor atualizada com sucesso!');
+        return redirect()->route('brands.index')->with('success', 'Marca atualizada com sucesso!');
     }
 
     /**
@@ -114,14 +115,13 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Color $color)
+    public function destroy(Brand $brand)
     {
         //
-        $color->delete();
+        $brand->delete();
 
-        return redirect()->route('colors.index')->with('success', 'Cor removida com sucesso!');
+        return redirect()->route('brands.index')->with('success', 'Marca removida com sucesso!');
         //
 
     }
-
 }

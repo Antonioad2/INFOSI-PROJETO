@@ -17,7 +17,7 @@ class Models extends Migration
         //
             Schema::create('models', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name')->nullable();
             $table->string('description')->unique();
             $table->date('date')->nullable();
             $table->timestamps();

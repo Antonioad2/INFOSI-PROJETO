@@ -3,9 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\SoftDeletes;     
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Colors extends Migration
+class Fuels extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class Colors extends Migration
     public function up()
     {
         //
-        Schema::create('colors', function (Blueprint $table) {
+            Schema::create('fuels', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('description')->unique();
@@ -33,6 +33,6 @@ class Colors extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('colors');
+        Schema::dropIfExists('fuels');
     }
 }

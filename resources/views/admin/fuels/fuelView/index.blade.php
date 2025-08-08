@@ -1,13 +1,13 @@
-@extends('admin.brands.brandView.layout.principal')
-@section('title', 'Duralux || Brands View')
-@section('content-brandView')
+@extends('admin.fuels.fuelView.layout.principal')
+@section('title', 'Duralux || Fuel View')
+@section('content-fuelView')
 
 <div class="nxl-content">
     <!-- [ page-header ] start -->
     <div class="page-header">
         <div class="page-header-left d-flex align-items-center">
             <div class="page-header-title">
-                <h5 class="m-b-10">Marcas</h5>
+                <h5 class="m-b-10">Combustíveis</h5>
             </div>
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -106,7 +106,7 @@
                             </a>
                         </div>
                     </div> -->
-                    <a href="{{ route('brands.create') }}" class="btn btn-primary">
+                    <a href="{{ route('fuels.create') }}" class="btn btn-primary">
                         <i class="feather-plus me-2"></i>
                         <span>Novo Casdastro</span>
                     </a>
@@ -200,18 +200,18 @@
                     <div class="mb-4 d-flex align-items-center justify-content-between">
                         <h5 class="fw-bold mb-0">
                             <span class="d-block mb-2">Informações Gerais:</span>
-                            <span class="fs-12 fw-normal text-muted d-block">Informações Gerais sobre este Modelo</span>
+                            <span class="fs-12 fw-normal text-muted d-block">Informações Gerais sobre este Combustível</span>
                         </h5>
-                        <a href="javascript:void(0);" class="btn btn-sm btn-light-brand">Edit Lead</a>
+                        <a href="{{ route('fuels.edit', $fuel) }}" class="btn btn-sm btn-light-brand">Edit Lead</a>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-lg-2 fw-medium">Nome da Marca</div>
+                        <div class="col-lg-2 fw-medium">Nome do Combustível</div>
                         <div class="col-lg-10 hstack gap-1">
                             <a href="javascript:void(0);" class="hstack gap-2">
                                 <div class="avatar-text avatar-sm">
                                     <i class="feather-git-commit"></i>
                                 </div>
-                                <span>{{$brand->name}}</span>
+                                <span>{{$fuel->name}}</span>
                             </a>
                         </div>
                     </div>
@@ -255,7 +255,7 @@
                                 <div class="avatar-text avatar-sm">
                                     <i class="feather-clock"></i>
                                 </div>
-                                <span>{{$brand->date}}</span>
+                                <span>{{$fuel->date}}</span>
                             </a>
                         </div>
                     <!-- </div>
@@ -287,7 +287,7 @@
                     </div> -->
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Descrição</div>
-                        <div class="col-lg-10 hstack gap-1">{{$brand->description}}</div>
+                        <div class="col-lg-10 hstack gap-1">{{$fuel->description}}</div>
                     </div>
                 </div>
 

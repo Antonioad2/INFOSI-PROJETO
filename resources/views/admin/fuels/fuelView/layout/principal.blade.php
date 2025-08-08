@@ -12,7 +12,7 @@
     <meta name="author" content="WRAPCODERS">
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
-    <title>Duralux || Brand View</title>
+    <title>Duralux || Fuel View</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/images/favicon.ico')}}">
@@ -35,13 +35,13 @@
 </head>
 
 <body>
-    @include('admin.brands.brandView.parcial.header')
-    @include('admin.brands.brandView.parcial.menu')
+    @include('admin.fuels.fuelView.parcial.header')
+    @include('admin.fuels.fuelView.parcial.menu')
     <main class="nxl-container">
-        @yield('content-brandView')
-        @include('admin.brands.brandView.parcial.footer')
+        @yield('content-fuelView')
+        @include('admin.fuels.fuelView.parcial.footer')
     </main>
-    @include('admin.brands.brandView.parcial.thema')
+    @include('admin.fuels.fuelView.parcial.thema')
 
 <!--! BEGIN: Vendors JS !-->
     <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>

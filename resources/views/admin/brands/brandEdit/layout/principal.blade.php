@@ -38,13 +38,13 @@
 </head>
 
 <body>
-    @include('admin.colors.colorEdit.parcial.header')
-    @include('admin.colors.colorEdit.parcial.menu')
+    @include('admin.brands.brandEdit.parcial.header')
+    @include('admin.brands.brandEdit.parcial.menu')
     <main class="nxl-container">
-        @yield('content-colorEdit')
-        @include('admin.colors.colorEdit.parcial.footer')
+        @yield('content-brandEdit')
+        @include('admin.brands.brandEdit.parcial.footer')
     </main>
-    @include('admin.colors.colorEdit.parcial.thema')
+    @include('admin.brands.brandEdit.parcial.thema')
 
 <!--! BEGIN: Vendors JS !-->
     <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>

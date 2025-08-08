@@ -1,13 +1,13 @@
-@extends('admin.brands.brandCreate.layout.principal')
-@section('title', 'Duralux || Brand Create')
-@section('content-brandCreate')
+@extends('admin.fuels.fuelCreate.layout.principal')
+@section('title', 'Duralux || Fuel Create')
+@section('content-fuelCreate')
 
 <div class="nxl-content">
     <!-- [ page-header ] start -->
     <div class="page-header">
         <div class="page-header-left d-flex align-items-center">
             <div class="page-header-title">
-                <h5 class="m-b-10">Marcas</h5>
+                <h5 class="m-b-10">Combustíveis</h5>
             </div>
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -29,7 +29,7 @@
                     </a>  -->
                     <a href="javascript:void(0);" class="btn btn-primary successAlertMessage">
                         <i class="feather-save me-2"></i>
-                        <span>Salvar Marca</span>
+                        <span>Salvar Combustível</span>
                     </a>
                 </div>
             </div>
@@ -47,7 +47,7 @@
             <div class="col-xl-16">
                 <div class="card invoice-container">
                     <div class="card-header">
-                        <h5>Cadastro de Marca</h5>
+                        <h5>Cadastro de Combustível</h5>
                      <!--<div class="dropdown">
                             <a href="javascript:void(0)" class="btn btn-light-brand dropdown-toggle" data-bs-toggle="dropdown" data-bs-offset="0,25">Invoice Templates</a>
                             <ul class="dropdown-menu">
@@ -230,7 +230,7 @@
                         </div>
                         <hr class="border-dashed"> -->
                         
-                                <form action="{{ route('brands.store') }}" method="POST">
+                                <form action="{{ route('fuels.store') }}" method="POST">
                                 @csrf
                                 @method('POST')
 
@@ -249,7 +249,7 @@
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nome da Marca</label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ old('name') }}" placeholder="Ex: Kia, Toyota...">
+                                            value="{{ old('name') }}" placeholder="Ex: Gasóleo, Gasolina...">
                                     </div>
 
                                     {{-- Data de Cadastro --}}
@@ -261,7 +261,7 @@
                                     {{-- Descrição --}}
                                     <div class="col-12 mb-4">
                                         <label class="form-label">Descrição</label>
-                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $brands->description ?? '') }}</textarea>
+                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $fuels->description ?? '') }}</textarea>
                                     </div>
 
                                     {{-- Botão de Enviar --}}

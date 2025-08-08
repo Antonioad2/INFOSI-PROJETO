@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ModelsController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\FuelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +58,39 @@ Route::prefix('/admin/models')->name('models.')->group(function () {
     Route::put('/{models}', [ModelsController::class, 'update'])->name('update');
     Route::get('/{models}', [ModelsController::class, 'destroy'])->name('destroy');
     Route::get('/trashed', [ModelsController::class, 'trashed'])->name('trashed');
-    Route::post('/{model}/restore', [ModelsController::class, 'restore'])->name('restore');
+    Route::post('/{models}/restore', [ModelsController::class, 'restore'])->name('restore');
+});
+
+/*-------------------------------------------------------
+                    brand routes
+-------------------------------------------------------*/
+
+Route::prefix('/admin/brands')->name('brands.')->group(function () {
+    Route::get('/', [BrandController::class, 'index'])->name('index');
+    Route::get('/create', [BrandController::class, 'create'])->name('create');
+    Route::post('/', [BrandController::class, 'store'])->name('store');
+    Route::get('brandView/{brand}', [BrandController::class, 'show'])->name('show');
+    Route::get('brandEdit/{brand}/edit', [BrandController::class, 'edit'])->name('edit');
+    Route::put('/{brand}', [BrandController::class, 'update'])->name('update');
+    Route::get('/{brand}', [BrandController::class, 'destroy'])->name('destroy');
+    Route::get('/trashed', [BrandController::class, 'trashed'])->name('trashed');
+    Route::post('/{brand}/restore', [BrandController::class, 'restore'])->name('restore');
+});
+
+/*-------------------------------------------------------
+                    fuel routes
+-------------------------------------------------------*/
+
+Route::prefix('/admin/fuels')->name('fuels.')->group(function () {
+    Route::get('/', [FuelController::class, 'index'])->name('index');
+    Route::get('/create', [FuelController::class, 'create'])->name('create');
+    Route::post('/', [FuelController::class, 'store'])->name('store');
+    Route::get('fuelView/{fuel}', [FuelController::class, 'show'])->name('show');
+    Route::get('fuelEdit/{fuel}/edit', [FuelController::class, 'edit'])->name('edit');
+    Route::put('/{fuel}', [FuelController::class, 'update'])->name('update');
+    Route::get('/{fuel}', [FuelController::class, 'destroy'])->name('destroy');
+    Route::get('/trashed', [FuelController::class, 'trashed'])->name('trashed');
+    Route::post('/{fuel}/restore', [FuelController::class, 'restore'])->name('restore');
 });
 
 

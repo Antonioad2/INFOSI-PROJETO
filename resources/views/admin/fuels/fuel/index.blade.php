@@ -1,17 +1,17 @@
-@extends('admin.brands.brand.layout.principal')
-@section('title', 'Duralux || Marcas')
-@section('content-brands')
+@extends('admin.fuels.fuel.layout.principal')
+@section('title', 'Duralux || Fuels')
+@section('content-fuel')
 
 <div class="nxl-content">
     <!-- [ page-header ] start -->
     <div class="page-header">
         <div class="page-header-left d-flex align-items-center">
             <div class="page-header-title">
-                <h5 class="m-b-10">Marcas</h5>
+                <h5 class="m-b-10">Combustíveis</h5>
             </div>
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Marcas</li>
+                <li class="breadcrumb-item">Combustíveis</li>
             </ul>
         </div>
         <div class="page-header-right ms-auto">
@@ -106,7 +106,7 @@
                             </a>
                         </div>
                     </div> -->
-                    <a href="{{ route('brands.create') }}" class="btn btn-primary">
+                    <a href="{{ route('fuels.create') }}" class="btn btn-primary">
                         <i class="feather-plus me-2"></i>
                         <span>Novo Cadastro</span>
                     </a>
@@ -216,7 +216,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($brands as $brand)
+                                    @foreach($fuels as $fuel)
                                         <tr class="single-item">
                                             <td>
                                                 <div class="item-checkbox ms-1">
@@ -226,23 +226,23 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td><a href="{{ route('brands.create') }}" class="fw-bold">{{$brand->id}}</a></td>
+                                            <td><a href="{{ route('fuels.create') }}" class="fw-bold">{{$fuel->id}}</a></td>
                                             <td>
                                                 <a href="javascript:void(0)" class="hstack gap-3">
                                                     <div class="avatar-image avatar-md">
                                                         <img src="assets/images/avatar/1.png" alt="" class="img-fluid">
                                                     </div>
                                                     <div>
-                                                        <span class="text-truncate-1-line">{{$brand->name}}</span>
+                                                        <span class="text-truncate-1-line">{{$fuel->name}}</span>
                                                         
                                                     </div>
                                                 </a>
                                             </td>
-                                            <td class="fw-bold text-dark">{{$brand->description}}</td>
-                                            <td class="fw-bold text-dark">{{ $brand->date ? \Carbon\Carbon::parse($brand->date)->format('d/m/Y') : 'N/A' }}</td>
+                                            <td class="fw-bold text-dark">{{$fuel->description}}</td>
+                                            <td class="fw-bold text-dark">{{ $fuel->date ? \Carbon\Carbon::parse($fuel->date)->format('d/m/Y') : 'N/A' }}</td>
                                             <td>
                                                 <div class="hstack gap-2 justify-content-end">
-                                                    <a href="{{ route('brands.show', $brand) }}" class="avatar-text avatar-md">
+                                                    <a href="{{ route('fuels.show', $fuel) }}" class="avatar-text avatar-md">
                                                         <i class="feather feather-eye"></i>
                                                     </a>
                                                     <div class="dropdown">
@@ -251,7 +251,7 @@
                                                         </a>
                                                         <ul class="dropdown-menu">
                                                             <li>
-                                                                <a class="dropdown-item" href="{{ route('brands.edit', $brand) }}">
+                                                                <a class="dropdown-item" href="{{ route('fuels.edit', $fuel) }}">
                                                                     <i class="feather feather-edit-3 me-3"></i>
                                                                     <span>Edit</span>
                                                                 </a>
@@ -283,7 +283,7 @@
                                                             </li> -->
                                                             <li class="dropdown-divider"></li>
                                                             <li>
-                                                                <a class="dropdown-item" href="{{ route('brands.destroy', $brand) }}">
+                                                                <a class="dropdown-item" href="{{ route('fuels.destroy', $fuel) }}">
                                                                     <i class="feather feather-trash-2 me-3"></i>
                                                                     <span>Delete</span>
                                                                 </a>

@@ -1,17 +1,18 @@
-@extends('admin.brands.brandCreate.layout.principal')
-@section('title', 'Duralux || Brand Create')
-@section('content-brandCreate')
+@extends('admin.fuels.fuelEdit.layout.principal')
+@section('title', 'Duralux || Fuel Edit')
+@section('content-fuelEdit')
+
 
 <div class="nxl-content">
     <!-- [ page-header ] start -->
     <div class="page-header">
         <div class="page-header-left d-flex align-items-center">
             <div class="page-header-title">
-                <h5 class="m-b-10">Marcas</h5>
+                <h5 class="m-b-10">Combustíveis</h5>
             </div>
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Criar</li>
+                <li class="breadcrumb-item">Editar</li>
             </ul>
         </div>
         <div class="page-header-right ms-auto">
@@ -29,7 +30,7 @@
                     </a>  -->
                     <a href="javascript:void(0);" class="btn btn-primary successAlertMessage">
                         <i class="feather-save me-2"></i>
-                        <span>Salvar Marca</span>
+                        <span>Salvar Combustível</span>
                     </a>
                 </div>
             </div>
@@ -47,7 +48,7 @@
             <div class="col-xl-16">
                 <div class="card invoice-container">
                     <div class="card-header">
-                        <h5>Cadastro de Marca</h5>
+                        <h5>Cadastro de Combustíveis</h5>
                      <!--<div class="dropdown">
                             <a href="javascript:void(0)" class="btn btn-light-brand dropdown-toggle" data-bs-toggle="dropdown" data-bs-offset="0,25">Invoice Templates</a>
                             <ul class="dropdown-menu">
@@ -230,9 +231,9 @@
                         </div>
                         <hr class="border-dashed"> -->
                         
-                                <form action="{{ route('brands.store') }}" method="POST">
+                                <form action="{{ route('fuels.update', ['fuel' => $fuel->id]) }}" method="POST">
                                 @csrf
-                                @method('POST')
+                                @method('PUT')
 
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
@@ -249,7 +250,7 @@
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nome da Marca</label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ old('name') }}" placeholder="Ex: Kia, Toyota...">
+                                            value="{{ old('nome') }}" placeholder="Ex: Gasóleo, Gasolina...">
                                     </div>
 
                                     {{-- Data de Cadastro --}}
@@ -261,7 +262,7 @@
                                     {{-- Descrição --}}
                                     <div class="col-12 mb-4">
                                         <label class="form-label">Descrição</label>
-                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $brands->description ?? '') }}</textarea>
+                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $fuels->description ?? '') }}</textarea>
                                     </div>
 
                                     {{-- Botão de Enviar --}}
@@ -348,10 +349,10 @@
                                     <input type="text" class="form-control input-credit-card" placeholder="Card Number">
                                     <div class="hstack justify-content-end gap-1 mt-1 input-credit-card-type">
                                         <div class="amex">
-                                            <i class="fs-12 fa-brands fa-cc-amex"></i>
+                                            <i class="fs-12 fa-fuels fa-cc-amex"></i>
                                         </div>
                                         <div class="mastercard">
-                                            <i class="fs-12 fa-brands fa-cc-mastercard"></i>
+                                            <i class="fs-12 fa-fuels fa-cc-mastercard"></i>
                                         </div>
                                         <div class="visa">
                                             <i class="fs-12 fa-brands fa-cc-visa"></i>
