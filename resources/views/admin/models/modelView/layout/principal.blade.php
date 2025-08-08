@@ -35,13 +35,13 @@
 </head>
 
 <body>
-    @include('admin.models.modelView.parcial.header')
-    @include('admin.models.modelView.parcial.menu')
+    @include('admin._parcial.header')
+    @include('admin._parcial.menu')
     <main class="nxl-container">
         @yield('content-modelView')
-        @include('admin.models.modelView.parcial.footer')
+        @include('admin._parcial.footer')
     </main>
-    @include('admin.models.modelView.parcial.thema')
+    @include('admin._parcial.thema')
 
 <!--! BEGIN: Vendors JS !-->
     <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>

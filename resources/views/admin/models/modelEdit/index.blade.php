@@ -250,19 +250,19 @@
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nome do Modelo</label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ old('nome') }}" placeholder="Ex: Cinza, Azul...">
+                                            value="{{ old('name', $model->name) }}" placeholder="Ex: Cinza, Azul...">
                                     </div>
 
                                     {{-- Data de Cadastro --}}
                                     <div class="col-lg-5 mb-3">
                                         <label class="form-label">Data de Cadastro</label>
-                                        <input type="date" name="date" class="form-control" value="{{ old('date') }}">
+                                        <input type="date" name="date" class="form-control" value="{{ old('date', $model->date) }}">
                                     </div>
 
                                     {{-- Descrição --}}
                                     <div class="col-12 mb-4">
                                         <label class="form-label">Descrição</label>
-                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $model->description ?? '') }}</textarea>
+                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $model->description ?? '' ) }}</textarea>
                                     </div>
 
                                     {{-- Botão de Enviar --}}

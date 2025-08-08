@@ -38,13 +38,13 @@
 </head>
 
 <body>
-    @include('admin.models.modelCreate.parcial.header')
-    @include('admin.models.modelCreate.parcial.menu')
+    @include('admin._parcial.header')
+    @include('admin._parcial.menu')
     <main class="nxl-container">
         @yield('content-modelCreate')
-        @include('admin.models.modelCreate.parcial.footer')
+        @include('admin._parcial.footer')
     </main>
-    @include('admin.models.modelCreate.parcial.thema')
+    @include('admin._parcial.thema')
 
 <!--! BEGIN: Vendors JS !-->
     <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>

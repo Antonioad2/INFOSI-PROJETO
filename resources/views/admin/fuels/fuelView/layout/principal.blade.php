@@ -35,13 +35,13 @@
 </head>
 
 <body>
-    @include('admin.fuels.fuelView.parcial.header')
-    @include('admin.fuels.fuelView.parcial.menu')
+    @include('admin._parcial.header')
+    @include('admin._parcial.menu')
     <main class="nxl-container">
         @yield('content-fuelView')
-        @include('admin.fuels.fuelView.parcial.footer')
+        @include('admin._parcial.footer')
     </main>
-    @include('admin.fuels.fuelView.parcial.thema')
+    @include('admin._parcial.thema')
 
 <!--! BEGIN: Vendors JS !-->
     <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>

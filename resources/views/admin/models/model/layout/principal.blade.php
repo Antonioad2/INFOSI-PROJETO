@@ -38,13 +38,13 @@
 
 <body>
 
-    @include('admin.models.model.parcial.header')
-    @include('admin.models.model.parcial.menu')
+    @include('admin._parcial.header')
+    @include('admin._parcial.menu')
     <main class="nxl-container">
         @yield('content-model')
-        @include('admin.models.model.parcial.footer')
+        @include('admin._parcial.footer')
     </main>
-    @include('admin.models.model.parcial.thema')
+    @include('admin._parcial.thema')
 
     <!--! ================================================================ !-->
     <!--! [End] Theme Customizer !-->

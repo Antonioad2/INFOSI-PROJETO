@@ -60,17 +60,60 @@
                         <li class="nxl-item"><a class="nxl-link" href="/proposal/proposalCreate">Proposal Create</a></li>
                     </ul>
                 </li> -->
+
+                {{--Lista de Cores--}}
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
                         <span class="nxl-mtext">Cores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/payment">Colors</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Colors View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceCreate">Colors Create</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.index')}}">Colors</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="">Colors View</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.create')}}">Colors Create</a></li>
                     </ul>
                 </li>
+
+                {{--Lista de Modelo--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
+                        <span class="nxl-mtext">Modelos</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.index')}}">Modelos</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Modelos View</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.create')}}">Modelos Create</a></li>
+                    </ul>
+                </li>
+
+                {{--Lista de Marcas--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
+                        <span class="nxl-mtext">Marcas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.index')}}">Marcas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Marcas View</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.create')}}">Marcas Create</a></li>
+                    </ul>
+                </li>
+
+                {{--Lista de Combustíveis--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
+                        <span class="nxl-mtext">Combustíveis</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Combustíveis</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Combustíveis View</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Combustíveis Create</a></li>
+                    </ul>
+                </li>
+
+
                {{--  <!-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-users"></i></span>

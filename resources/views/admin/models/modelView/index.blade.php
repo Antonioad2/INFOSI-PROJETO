@@ -202,7 +202,7 @@
                             <span class="d-block mb-2">Informações Gerais:</span>
                             <span class="fs-12 fw-normal text-muted d-block">Informações Gerais sobre este Modelo</span>
                         </h5>
-                        <a href="javascript:void(0);" class="btn btn-sm btn-light-brand">Edit Lead</a>
+                        <a href="{{ route('models.edit', $model)}}" class="btn btn-sm btn-light-brand">Editar Modelo</a>
                     </div>
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Nome do Modelo</div>

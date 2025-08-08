@@ -38,13 +38,13 @@
 
 <body>
 
-    @include('admin.colors.color.parcial.header')
-    @include('admin.colors.color.parcial.menu')
+    @include('admin._parcial.header')
+    @include('admin._parcial.menu')
     <main class="nxl-container">
         @yield('content-color')
-        @include('admin.colors.color.parcial.footer')
+        @include('admin._parcial.footer')
     </main>
-    @include('admin.colors.color.parcial.thema')
+    @include('admin._parcial.thema')
 
     <!--! ================================================================ !-->
     <!--! [End] Theme Customizer !-->

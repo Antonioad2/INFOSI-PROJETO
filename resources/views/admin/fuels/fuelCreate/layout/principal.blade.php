@@ -38,13 +38,13 @@
 </head>
 
 <body>
-    @include('admin.fuels.fuelCreate.parcial.header')
-    @include('admin.fuels.fuelCreate.parcial.menu')
+    @include('admin._parcial.header')
+    @include('admin._parcial.menu')
     <main class="nxl-container">
         @yield('content-fuelCreate')
-        @include('admin.fuels.fuelCreate.parcial.footer')
+        @include('admin._parcial.footer')
     </main>
-    @include('admin.fuels.fuelCreate.parcial.thema')
+    @include('admin._parcial.thema')
 
 <!--! BEGIN: Vendors JS !-->
     <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>

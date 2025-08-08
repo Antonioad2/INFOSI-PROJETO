@@ -247,7 +247,7 @@
                                 <div class="row">
                                     {{-- Nome --}}
                                     <div class="col-lg-4 mb-4">
-                                        <label class="form-label">Nome da Marca</label>
+                                        <label class="form-label">Nome do Combustível</label>
                                         <input type="text" name="name" class="form-control"
                                             value="{{ old('name') }}" placeholder="Ex: Gasóleo, Gasolina...">
                                     </div>
