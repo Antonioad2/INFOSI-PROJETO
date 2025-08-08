@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Models extends Migration
+class CreateColorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class Models extends Migration
      */
     public function up()
     {
-        //
-            Schema::create('models', function (Blueprint $table) {
+        Schema::create('colors', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('description')->unique();
@@ -32,7 +31,6 @@ class Models extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('models');
+        Schema::dropIfExists('colors');
     }
 }

@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Brands extends Migration
+class CreateBrandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class Brands extends Migration
      */
     public function up()
     {
-        //
-            Schema::create('brands', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('description')->unique();
@@ -32,7 +31,6 @@ class Brands extends Migration
      */
     public function down()
     {
-        //
         Schema::dropIfExists('brands');
     }
 }
