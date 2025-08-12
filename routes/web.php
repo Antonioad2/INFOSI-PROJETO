@@ -277,5 +277,5 @@ Route::get('/widgets/miscellaneous', function () {
 Route::get('/widgets/statistics', function () {
     return view('widgets.statistics.index');
 });
-
+*/
 

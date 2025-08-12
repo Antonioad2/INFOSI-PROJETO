@@ -35,13 +35,13 @@
 
 <body>
     @include('admin.dashboard.crm.parcial.header')
-    @include('admin.dashboard.crm.parcial.menu')
+    @include('admin._parcial.menu')
 
     <main class="nxl-container">
         @yield('content-crm')
 
-        @include('admin.dashboard.crm.parcial.thema')
-        @include('admin.dashboard.crm.parcial.footer')
+        @include('admin._parcial.thema')
+        @include('admin._parcial.footer')
     </main>
 
 
