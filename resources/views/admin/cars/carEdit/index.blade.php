@@ -1,6 +1,6 @@
-@extends('admin.colors.colorEdit.layout.principal')
-@section('title', 'Duralux || Color Edit')
-@section('content-colorEdit')
+@extends('admin.cars.carEdit.layout.principal')
+@section('title', 'Duralux || Carro Edit')
+@section('content-carEdit')
 
 <div class="nxl-content">
     <!-- [ page-header ] start -->
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         
-                                <form action="{{ route('colors.update', ['color' => $color->id]) }}" method="POST">
+                                <form action="{{ route('cars.update', ['car' => $car->id]) }}" method="POST">
                                 @csrf
                                 @method('PUT')
 
@@ -86,19 +86,19 @@
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nome da Cor</label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ old('name', $color->name) }}" placeholder="Ex: Cinza, Azul...">
+                                            value="{{ old('name', $car->name) }}" placeholder="Ex: Cinza, Azul...">
                                     </div>
 
                                     {{-- Data de Cadastro --}}
                                     <div class="col-lg-5 mb-3">
                                         <label class="form-label">Data de Cadastro</label>
-                                        <input type="date" name="date" class="form-control" value="{{ old('date', $color->date) }}">
+                                        <input type="date" name="date" class="form-control" value="{{ old('date', $car->date) }}">
                                     </div>
 
                                     {{-- Descrição --}}
                                     <div class="col-12 mb-4">
                                         <label class="form-label">Descrição</label>
-                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $color->description ?? '') }}</textarea>
+                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $car->description ?? '') }}</textarea>
                                     </div>
 
                                     {{-- Botão de Enviar --}}
