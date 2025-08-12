@@ -113,8 +113,22 @@
                     </ul>
                 </li>
 
+                 {{--Lista de Carros--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
+                        <span class="nxl-mtext">Carros</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.index')}}">Carros</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Carros View</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.create')}}">Carros Create</a></li>
+                    </ul>
+                </li>
 
-               {{--  <!-- <li class="nxl-item nxl-hasmenu">
+
+
+               {{--  <!-- <li class="nxl-item nxl-hasmenu"> 
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-users"></i></span>
                         <span class="nxl-mtext">Customers</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
@@ -124,7 +138,17 @@
                         <li class="nxl-item"><a class="nxl-link" href="/customers/customersView">Customers View</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="/customers/customersCreate">Customers Create</a></li>
                     </ul>
-                </li> -->
+                </li> --> --}}
+                {{-- <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-clipboard"></i></span>
+                        <span class="nxl-mtext">Tasks</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="/tasks">Tasks</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/tasks/tasksView">Tasks View</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/tasks/tasksCreate">Tasks Create</a></li>
+                    </ul> --}}
                 {{-- <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-alert-circle"></i></span>

@@ -5,7 +5,8 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ModelsController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\FuelController;
-
+use App\Http\Controllers\Admin\CarController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,13 +22,16 @@ use App\Http\Controllers\Admin\FuelController;
 /*-------------------------------------------------------
                     Dashboard routes
 -------------------------------------------------------*/
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('admin.dashboard.crm.index');
 });
 
 Route::get('/analytics', function () {
     return view('admin.dashboard.Analytics.index');
-});
+});*/
+
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
 
 /*-------------------------------------------------------
                     color routes
@@ -93,6 +97,15 @@ Route::prefix('/admin/fuels')->name('fuels.')->group(function () {
     Route::post('/{fuel}/restore', [FuelController::class, 'restore'])->name('restore');
 });
 
+Route::prefix('/admin/cars')->name('cars.')->group(function () {
+    Route::get('/', [CarController::class, 'index'])->name('index');
+    Route::get('/create', [CarController::class, 'create'])->name('create');
+    Route::post('/', [CarController::class, 'store'])->name('store');
+    Route::get('carView/{car}', [CarController::class, 'show'])->name('show');
+    Route::get('carEdit/{car}/edit', [CarController::class, 'edit'])->name('edit');
+    Route::put('/{car}', [CarController::class, 'update'])->name('update');
+    Route::get('/{car}', [CarController::class, 'destroy'])->name('destroy');
+});
 
 /*-------------------------------------------------------
                     Proposal routes
@@ -131,7 +144,7 @@ Route::get('/proposal/proposalCreate', function () {
     return view('proposal.proposalCreate.index');
 
 
-});
+});*/
 
 /*-------------------------------------------------------
                     reports routes
@@ -164,7 +177,7 @@ Route::get('/Reports/reportsTimesheets', function () {
     return view('reports.timesheets.index');
 
 
-});
+});*/
 
 /*-------------------------------------------------------
                     aplications routes
@@ -211,7 +224,7 @@ Route::get('/Applications/appsCalendar', function () {
     return view('applications.calendar.index');
 
 
-});
+});*/
 
 /*-------------------------------------------------------
                     customers routes
@@ -231,7 +244,7 @@ Route::get('/customers/customersCreate', function(){
 
     return view('customers.customersCreate.index');
 
-}); 
+}); */
 
 /*-------------------------------------------------------
                     payment routes
@@ -276,6 +289,6 @@ Route::get('/widgets/miscellaneous', function () {
 
 Route::get('/widgets/statistics', function () {
     return view('widgets.statistics.index');
-});
-*/
+});*/
+
 
