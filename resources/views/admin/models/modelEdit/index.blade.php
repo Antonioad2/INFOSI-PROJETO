@@ -30,7 +30,7 @@
                     </a>  -->
                     <a href="javascript:void(0);" class="btn btn-primary successAlertMessage">
                         <i class="feather-save me-2"></i>
-                        <span>Salvar Modelo</span>
+                        <span>Atualizar Modelo</span>
                     </a>
                 </div>
             </div>
@@ -267,7 +267,7 @@
 
                                     {{-- Botão de Enviar --}}
                                     <div class="col-12">
-                                        <button type="submit" class="btn btn-primary"> Salvar
+                                        <button type="submit" class="btn btn-primary"> Atualizar Modelo
                                         </button>
                                     </div>
                                 </div>
