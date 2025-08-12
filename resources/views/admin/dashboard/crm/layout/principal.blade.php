@@ -40,8 +40,8 @@
     <main class="nxl-container">
         @yield('content-crm')
 
-        @include('admin.dashboard.crm.parcial.thema')
-        @include('admin.dashboard.crm.parcial.footer')
+        @include('admin._parcial.thema')
+        @include('admin._parcial.footer')
     </main>
 
 
