@@ -1,119 +1,143 @@
 @extends('admin.cars.carEdit.layout.principal')
-@section('title', 'Duralux || Carro Edit')
-@section('content-carEdit')
 
+@section('title', 'Duralux || Carro edit')
+@section('content-carEdit')
 <div class="nxl-content">
-    <!-- [ page-header ] start -->
     <div class="page-header">
-        <div class="page-header-left d-flex align-items-center">
-            <div class="page-header-title">
-                <h5 class="m-b-10">Cor</h5>
-            </div>
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Editar</li>
-            </ul>
+        <div class="page-header-title">
+            <h5 class="m-b-10">Editar Carro</h5>
         </div>
-        <div class="page-header-right ms-auto">
-            <div class="page-header-right-items">
-                <div class="d-flex d-md-none">
-                    <a href="javascript:void(0)" class="page-header-right-close-toggle">
-                        <i class="feather-arrow-left me-2"></i>
-                        <span>Back</span>
-                    </a>
-                </div>
-                <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                <!--<a href="javascript:void(0);" class="btn btn-light-brand successAlertMessage">
-                        <i class="feather-layers me-2"></i>
-                        <span>Save as Draft</span>
-                    </a>  -->
-                    <a href="javascript:void(0);" class="btn btn-primary successAlertMessage">
-                        <i class="feather-save me-2"></i>
-                        <span>Salvar Cor</span>
-                    </a>
-                </div>
-            </div>
-            <div class="d-md-none d-flex align-items-center">
-                <a href="javascript:void(0)" class="page-header-right-open-toggle">
-                    <i class="feather-align-right fs-20"></i>
-                </a>
-            </div>
-        </div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+            <li class="breadcrumb-item">Carro</li>
+            <li class="breadcrumb-item active">Editar</li>
+        </ul>
     </div>
-    <!-- [ page-header ] end -->
-    <!-- [ Main Content ] start -->
+
     <div class="main-content">
         <div class="row">
-            <div class="col-xl-16">
-                <div class="card invoice-container">
-                    <div class="card-header">
-                        <h5>Cadastro de Cor</h5>
-                    
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="px-4 pt-4">
-                            <div class="d-md-flex align-items-center justify-content-between">
-                                <div class="mb-4 mb-md-0 your-brand">
-                                    <div class="wd-100 ht-100 position-relative overflow-hidden border border-gray-2 rounded">
-                                        <img src="{{ url('assets/images/logo-abbr.png')}}" class="upload-pic img-fluid rounded h-100 w-100" alt="">
-                                        <div class="position-absolute start-50 top-50 end-0 bottom-0 translate-middle h-100 w-100 hstack align-items-center justify-content-center c-pointer upload-button">
-                                            <i class="feather feather-camera" aria-hidden="true"></i>
-                                        </div>
-                                        <input class="file-upload" type="file" accept="image/*">
-                                    </div>
-                                    <div class="fs-12 text-muted mt-2">* Upload your brand</div>
-                                </div>
-                               
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
-                        </div>
-                        
-                                <form action="{{ route('cars.update', ['car' => $car->id]) }}" method="POST">
-                                @csrf
-                                @method('PUT')
+                        @endif
 
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                        <form action="{{ route('cars.update', $car->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
 
-                                <div class="row">
-                                    {{-- Nome --}}
-                                    <div class="col-lg-4 mb-4">
-                                        <label class="form-label">Nome da Cor</label>
-                                        <input type="text" name="name" class="form-control"
-                                            value="{{ old('name', $car->name) }}" placeholder="Ex: Cinza, Azul...">
-                                    </div>
-
-                                    {{-- Data de Cadastro --}}
-                                    <div class="col-lg-5 mb-3">
-                                        <label class="form-label">Data de Cadastro</label>
-                                        <input type="date" name="date" class="form-control" value="{{ old('date', $car->date) }}">
-                                    </div>
-
-                                    {{-- Descrição --}}
-                                    <div class="col-12 mb-4">
-                                        <label class="form-label">Descrição</label>
-                                        <textarea name="description" class="form-control" rows="4" placeholder="Escreve uma descrição...">{{ old('description', $car->description ?? '') }}</textarea>
-                                    </div>
-
-                                    {{-- Botão de Enviar --}}
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary"> Salvar
-                                        </button>
-                                    </div>
+                            <div class="row">
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Marca</label>
+                                    <select name="brand_id" class="form-control">
+                                        <option value="">Selecione a Marca</option>
+                                        @foreach($brands as $brand)
+                                            <option value="{{ $brand->id }}" {{ old('brand_id', $car->brand_id) == $brand->id ? 'selected' : '' }}>{{ $brand->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                            </form>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Modelo</label>
+                                    <select name="models_id" class="form-control">
+                                        <option value="">Selecione o Modelo</option>
+                                        @foreach($models as $model)
+                                            <option value="{{ $model->id }}" {{ old('models_id', $car->models_id) == $model->id ? 'selected' : '' }}>{{ $model->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Cor</label>
+                                    <select name="color_id" class="form-control">
+                                        <option value="">Selecione a Cor</option>
+                                        @foreach($colors as $color)
+                                            <option value="{{ $color->id }}" {{ old('color_id', $car->color_id) == $color->id ? 'selected' : '' }}>{{ $color->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Combustível</label>
+                                    <select name="fuel_id" class="form-control">
+                                        <option value="">Selecione o Tipo</option>
+                                        @foreach($fuels as $fuel)
+                                            <option value="{{ $fuel->id }}" {{ old('fuel_id', $car->fuel_id) == $fuel->id ? 'selected' : '' }}>{{ $fuel->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Categoria</label>
+                                    <select name="category" class="form-control">
+                                        <option value="Luxury" {{ old('category', $car->category) == 'Luxury' ? 'selected' : '' }}>Luxo</option>
+                                        <option value="Standard" {{ old('category', $car->category) == 'Standard' ? 'selected' : '' }}>Padrão</option>
+                                        <option value="Economy" {{ old('category', $car->category) == 'Economy' ? 'selected' : '' }}>Econômico</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Número de Chassi</label>
+                                    <input type="text" name="chassi" class="form-control" value="{{ old('chassi', $car->chassi) }}">
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Placa ou Matricula</label>
+                                    <input type="text" name="license_plate" class="form-control" value="{{ old('license_plate', $car->license_plate) }}">
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Data de Fabricação</label>
+                                    <input type="date" name="manufacture_date" class="form-control" value="{{ old('manufacture_date', $car->manufacture_date) }}">
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Data de Registro</label>
+                                    <input type="date" name="registration_date" class="form-control" value="{{ old('registration_date', $car->registration_date) }}">
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Seguro</label>
+                                    <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance', $car->car_insurance) }}">
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Foto</label>
+                                    @if($car->image)
+                                        <div class="mb-2">
+                                            <img src="{{ asset('storage/' . $car->image) }}" alt="Car Image" style="max-width: 100px; max-height: 100px;">
+                                            <p class="text-muted">Imagem atual</p>
+                                        </div>
+                                    @endif
+                                    <input type="file" name="image" class="form-control" accept="image/*">
+                                    <small class="text-muted">Deixe em branco para manter a imagem atual.</small>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Documento do Carro</label>
+                                    <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance') }}">
+                                </div>
+                                 <div class="col-lg-12 mb-3">
+                                    <label class="form-label">Observações</label>
+                                    <textarea name="observations" class="form-control" rows="3">{{ old('observations', $car->observations) }}</textarea>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <button type="submit" class="btn btn-primary">Atualizar</button>
+                                    {{-- <a href="{{ route('cars.index') }}" class="btn btn-secondary">Cancelar</a> --}}
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </div> 
-           
+            </div>
         </div>
     </div>
-    <!-- [ Main Content ] end -->
 </div>
 @endsection

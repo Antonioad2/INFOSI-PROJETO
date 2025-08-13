@@ -109,22 +109,33 @@ class CarController extends Controller
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
             'license_plate'     => 'required|string|unique:cars,license_plate,' . $car->id,
-            'image'             => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'image'             => 'nullable|image|mimes:jpg,jpeg,pdf,png|max:2048',
             'value'             => 'required|numeric|min:0',
             'car_insurance'     => 'nullable|string',
+            'car_insurance_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'car_document'      => 'required|string|max:255',
+            'car_document_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        if ($request->hasFile('image')) {
-            if ($car->image) {
-                Storage::disk('public')->delete($car->image);
-            }
-            $validated['image'] = $request->file('image')->store('cars', 'public');
-        }
-
-        $car->update($validated);
-
-        return redirect()->route('cars.index')->with('success', 'Carro atualizado com sucesso!');
+       if ($request->hasFile('car_insurance_image')) {
+        $path = $request->file('car_insurance_image')->store('insurance_images', 'public');
+        $validated['car_insurance_image'] = $path;
     }
+
+    if ($request->hasFile('car_document_image')) {
+        $path = $request->file('car_document_image')->store('document_images', 'public');
+        $validated['car_document_image'] = $path;
+    }
+
+    if ($request->hasFile('image')) {
+        $path = $request->file('image')->store('car_images', 'public');
+        $validated['image'] = $path;
+    }
+
+    // Salvar no banco de dados
+    Car::create($validated);
+
+    return redirect()->route('cars.index')->with('success', 'Carro cadastrado com sucesso!'); }
 
     /**
      * Remove um carro
