@@ -26,6 +26,8 @@ class Car extends Model
         'car_insurance_upload',
         'car_document',
         'car_document_upload',
+        'inspection_date',
+        'inspection_document_upload',
     ];
 
     public function models()

@@ -32,6 +32,8 @@ class CreateCarsTable extends Migration
             $table->string('car_insurance_upload')->nullable();
             $table->string('car_document')->nullable();
             $table->string('car_document_upload')->nullable();
+            $table->date('inspection_date')->nullable();
+            $table->string('inspection_document_upload')->nullable();
             $table->timestamps();
         });
     }

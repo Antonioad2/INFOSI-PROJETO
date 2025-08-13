@@ -144,10 +144,7 @@
                                     <small class="form-text text-muted">Deixe em branco para manter o arquivo atual.</small>
                                 </div>
 
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Valor</label>
-                                    <input type="number" name="value" class="form-control" value="{{ old('value', $car->value) }}" step="0.01">
-                                </div>
+                                
 
                                 <div class="col-lg-12 mb-3">
                                     <label class="form-label">Observações</label>

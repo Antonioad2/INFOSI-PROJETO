@@ -57,6 +57,8 @@ class CarController extends Controller
             'car_insurance_upload' => 'nullable|mimes:pdf|max:2048',
             'car_document'      => 'required|string|max:255',  
             'car_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'inspection_date'   => 'nullable|date',
+            'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
@@ -116,6 +118,8 @@ class CarController extends Controller
             'car_insurance_upload' => 'nullable|mimes:pdf|max:2048',
             'car_document'      => 'required|string|max:255',
             'car_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'inspection_date'   => 'nullable|date',
+            'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
         ]);
 
         if ($request->hasFile('car_insurance_upload')) {
