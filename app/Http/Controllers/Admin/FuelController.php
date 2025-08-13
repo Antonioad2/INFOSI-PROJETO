@@ -4,15 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Color;
+use App\Model\Fuel; // Import the Fuel model
 
-class ColorController extends Controller
+class FuelController extends Controller
 {
     //
     public function index()
     {
-        $colors = Color::all();
-        return view('admin.colors.color.index', compact('colors'));
+        $fuels = Fuel::all();
+        return view('admin.fuels.fuel.index', compact('fuels'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ColorController extends Controller
      */
     public function create()
     {
-        return view('admin.colors.colorCreate.index');
+        return view('admin.fuels.fuelCreate.index');
     }
 
     /**
@@ -44,13 +44,13 @@ class ColorController extends Controller
             'description.max' => 'The description may not be greater than 1000 characters.',
             'date.date' => 'The date must be a valid date.',
         ]);
-        Color::create([
+        Fuel::create([
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
         ]);
 
-        return redirect()->route('colors.index')->with('success', 'Cor criada com sucesso!');
+        return redirect()->route('fuels.index')->with('success', 'Marca criada com sucesso!');
     }
 
     /**
@@ -59,11 +59,12 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Color $color)
+    public function show(Fuel $fuel)
     {
-        $color = Color::findOrFail($color->id);
-        return view('admin.colors.colorView.index', compact('color')); // Caminho diferente para view única
+        $fuel = fuel::findOrFail($fuel->id);
+        return view('admin.fuels.fuelView.index', compact('fuel')); // Caminho diferente para view única
         //
+
     }
 
     /**
@@ -72,10 +73,10 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
- public function edit(Color $color)
+ public function edit(Fuel $fuel)
     {
         //
-        return view('admin.colors.colorEdit.index', ['color' => $color]);
+        return view('admin.fuels.fuelEdit.index', ['fuel' => $fuel]);
     }
 
     /**
@@ -85,7 +86,7 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Color $color)
+    public function update(Request $request, Fuel $fuel)
     {
         //
         $request->validate([
@@ -98,13 +99,13 @@ class ColorController extends Controller
             'date.date' => 'A data deve ser uma data válida.',
         ]);
 
-        $color->update([
+        $fuel->update([
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
         ]);
 
-        return redirect()->route('colors.index')->with('success', 'Cor atualizada com sucesso!');
+        return redirect()->route('fuels.index')->with('success', 'Marca atualizada com sucesso!');
     }
 
     /**
@@ -113,14 +114,13 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Color $color)
+    public function destroy(Fuel $fuel)
     {
         //
-        $color->delete();
+        $fuel->delete();
 
-        return redirect()->route('colors.index')->with('success', 'Cor removida com sucesso!');
+        return redirect()->route('fuels.index')->with('success', 'Marca removida com sucesso!');
         //
 
     }
-
 }

@@ -4,15 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Color;
+use App\Model\Models; // Assuming you have a Models model
 
-class ColorController extends Controller
+class ModelsController extends Controller
 {
     //
-    public function index()
+     public function index()
     {
-        $colors = Color::all();
-        return view('admin.colors.color.index', compact('colors'));
+        $models = Models::all();
+        return view('admin.models.model.index', compact('models'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ColorController extends Controller
      */
     public function create()
     {
-        return view('admin.colors.colorCreate.index');
+        return view('admin.models.modelCreate.index');
     }
 
     /**
@@ -44,13 +44,13 @@ class ColorController extends Controller
             'description.max' => 'The description may not be greater than 1000 characters.',
             'date.date' => 'The date must be a valid date.',
         ]);
-        Color::create([
+        Models::create([
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
         ]);
 
-        return redirect()->route('colors.index')->with('success', 'Cor criada com sucesso!');
+        return redirect()->route('models.index')->with('success', 'Modelo criada com sucesso!');
     }
 
     /**
@@ -59,12 +59,15 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Color $color)
+    public function show(Models $models)
     {
-        $color = Color::findOrFail($color->id);
-        return view('admin.colors.colorView.index', compact('color')); // Caminho diferente para view única
         //
+        $model = Models::findOrFail($models->id);
+        return view('admin.models.modelView.index', compact('model')); // Caminho diferente para view única
+        //
+
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -72,11 +75,12 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
- public function edit(Color $color)
+    public function edit(Models $models)
     {
         //
-        return view('admin.colors.colorEdit.index', ['color' => $color]);
+        return view('admin.models.modelEdit.index', ['model' => $models]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -85,7 +89,7 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Color $color)
+    public function update(Request $request, Models $models)
     {
         //
         $request->validate([
@@ -98,13 +102,12 @@ class ColorController extends Controller
             'date.date' => 'A data deve ser uma data válida.',
         ]);
 
-        $color->update([
+        $models->update([
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
         ]);
-
-        return redirect()->route('colors.index')->with('success', 'Cor atualizada com sucesso!');
+        return redirect()->route('models.index')->with('success', 'Modelo atualizada com sucesso!');
     }
 
     /**
@@ -113,14 +116,13 @@ class ColorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Color $color)
+    public function destroy(Models $models)
     {
         //
-        $color->delete();
+        $models->delete();
 
-        return redirect()->route('colors.index')->with('success', 'Cor removida com sucesso!');
+        return redirect()->route('models.index')->with('success', 'Modelo removida com sucesso!');
         //
 
     }
-
 }

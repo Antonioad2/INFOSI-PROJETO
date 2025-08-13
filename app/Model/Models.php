@@ -5,13 +5,18 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Color extends Model
+class Models extends Model
 {
     //
     use SoftDeletes;
     protected $fillable = [
         'name', 
-        'date',
-        'description'
+        'description', 
+        'date'
     ];
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }

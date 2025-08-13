@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
-<<<<<<<< HEAD:resources/views/color/color/Layout/principal.blade.php
 
 <!-- Mirrored from bestwpware.com/html/tf/duralux-demo/payment.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:35 GMT -->
 
-========
->>>>>>>> Braulio:resources/views/admin/dashboard/Analytics/layout/principal.blade.php
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
@@ -19,7 +16,7 @@
     <title>@yield('title')</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/images/favicon.ico')}}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/images/favicon.ico')}}">
     <!--! END: Favicon-->
     <!--! BEGIN: Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/bootstrap.min.css')}}">
@@ -40,24 +37,14 @@
 </head>
 
 <body>
-    @include('admin.dashboard.Analytics.parcial.header')
-    @include('admin.dashboard.Analytics.parcial.menu')
 
+    @include('admin._parcial.header')
+    @include('admin._parcial.menu')
     <main class="nxl-container">
-        @yield('content-Analytics')
-
-        @include('admin.dashboard.Analytics.parcial.thema')
-        @include('admin.dashboard.Analytics.parcial.footer')
+        @yield('content-model')
+        @include('admin._parcial.footer')
     </main>
-
-<<<<<<<< HEAD:resources/views/color/color/Layout/principal.blade.php
-    @include('color.color.parcial.header')
-    @include('color.color.parcial.menu')
-    <main class="nxl-container">
-        @yield('content-color')
-        @include('color.color.parcial.footer')
-    </main>
-    @include('color.color.parcial.thema')
+    @include('admin._parcial.thema')
 
     <!--! ================================================================ !-->
     <!--! [End] Theme Customizer !-->
@@ -66,10 +53,6 @@
     <!--! Footer Script !-->
     <!--! ================================================================ !-->
     <!--! BEGIN: Vendors JS !-->
-========
-
-
->>>>>>>> Braulio:resources/views/admin/dashboard/Analytics/layout/principal.blade.php
     <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>
     <!-- vendors.min.js {always must need to be top} -->
     <script src="{{ url('assets/vendors/js/dataTables.min.js')}}"></script>
@@ -85,10 +68,6 @@
 </body>
 
 
-<<<<<<<< HEAD:resources/views/color/color/Layout/principal.blade.php
 <!-- Mirrored from bestwpware.com/html/tf/duralux-demo/payment.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:35 GMT -->
-========
-<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:17:58 GMT -->
->>>>>>>> Braulio:resources/views/admin/dashboard/Analytics/layout/principal.blade.php
 
 </html>
