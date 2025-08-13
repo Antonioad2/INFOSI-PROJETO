@@ -20,7 +20,7 @@
     @include('admin._parcial.header')
     @include('admin._parcial.menu')
     <main class="nxl-container">
-        @yield('content-car')
+        @yield('content-carEdit')
         @include('admin._parcial.footer')
     </main>
     @include('admin._parcial.thema')

@@ -64,7 +64,6 @@ class ColorController extends Controller
         $color = Color::findOrFail($color->id);
         return view('admin.colors.colorView.index', compact('color')); // Caminho diferente para view única
         //
-
     }
 
     /**

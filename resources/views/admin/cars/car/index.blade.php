@@ -81,7 +81,7 @@
                                                         <img src="assets/images/avatar/1.png" alt="" class="img-fluid">
                                                     </div>
                                                     <div>
-                                                        <span class="text-truncate-1-line">{{$car->Marca}}</span>
+                                                        <span class="text-truncate-1-line">{{$car->brand->name}}</span>
                                                         
                                                     </div>
                                                 </a>
@@ -92,13 +92,13 @@
                                                         <img src="assets/images/avatar/1.png" alt="" class="img-fluid">
                                                     </div>
                                                     <div>
-                                                        <span class="text-truncate-1-line">{{$car->Modelo}}</span>
+                                                        <span class="text-truncate-1-line">{{$car->models->name}}</span>
                                                         
                                                     </div>
                                                 </a>
                                             </td>
-                                            <td class="fw-bold text-dark">{{$car->description}}</td>
-                                            <td class="fw-bold text-dark">{{ $car->date ? \Carbon\Carbon::parse($car->date)->format('d/m/Y') : 'N/A' }}</td>
+                                            <td class="fw-bold text-dark">{{$car->observations}}</td>
+                                            <td class="fw-bold text-dark">{{ $car->registration_date ? \Carbon\Carbon::parse($car->registration_date)->format('d/m/Y') : 'N/A' }}</td>
                                             <td>
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <a href="{{ route('cars.show', ['car' => $car]) }}" class="avatar-text avatar-md">

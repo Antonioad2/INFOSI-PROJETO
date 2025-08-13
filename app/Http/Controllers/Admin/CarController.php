@@ -17,22 +17,23 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::with(['brand', 'color', 'fuel', 'models'])->get();
         return view('admin.cars.car.index', compact('cars'));
     }
+
 
     /**
      * Mostra o formulário de criação
      */
     public function create()
-{
-    $brands = Brand::all();
-    $models = Models::all();
-    $colors = Color::all();
-    $fuels  = Fuel::all();
+    {
+        $brands = Brand::all();
+        $models = Models::all();
+        $colors = Color::all();
+        $fuels  = Fuel::all();
 
-    return view('admin.cars.carCreate.index', compact('brands', 'models', 'colors', 'fuels'));
-}
+        return view('admin.cars.carCreate.index', compact('brands', 'models', 'colors', 'fuels'));  
+    }
 
 
     /**
@@ -71,7 +72,7 @@ class CarController extends Controller
     public function show($id)
     {
         $car = Car::findOrFail($id);
-        $car->load(['brand', 'model', 'color', 'fuel']);
+        $car->load(['brand', 'models', 'color', 'fuel']);
         return view('admin.cars.carView.index', compact('car'));
     }
 
