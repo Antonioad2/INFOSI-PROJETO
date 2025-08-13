@@ -55,6 +55,9 @@ class CarController extends Controller
             'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'value'             => 'required|numeric|min:0',
             'car_insurance'     => 'nullable|string',
+            'car_insurance_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'car_document'      => 'required|string|max:255',
+            'car_document_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         if ($request->hasFile('image')) {

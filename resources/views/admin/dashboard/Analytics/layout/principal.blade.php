@@ -50,7 +50,6 @@
         @include('admin.dashboard.Analytics.parcial.footer')
     </main>
 
-<<<<<<<< HEAD:resources/views/color/color/Layout/principal.blade.php
     @include('color.color.parcial.header')
     @include('color.color.parcial.menu')
     <main class="nxl-container">
@@ -66,10 +65,7 @@
     <!--! Footer Script !-->
     <!--! ================================================================ !-->
     <!--! BEGIN: Vendors JS !-->
-========
 
-
->>>>>>>> Braulio:resources/views/admin/dashboard/Analytics/layout/principal.blade.php
     <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>
     <!-- vendors.min.js {always must need to be top} -->
     <script src="{{ url('assets/vendors/js/dataTables.min.js')}}"></script>
@@ -85,10 +81,10 @@
 </body>
 
 
-<<<<<<<< HEAD:resources/views/color/color/Layout/principal.blade.php
+
 <!-- Mirrored from bestwpware.com/html/tf/duralux-demo/payment.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:35 GMT -->
-========
+
 <!-- Mirrored from bestwpware.com/html/tf/duralux-demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:17:58 GMT -->
->>>>>>>> Braulio:resources/views/admin/dashboard/Analytics/layout/principal.blade.php
+
 
 </html>
