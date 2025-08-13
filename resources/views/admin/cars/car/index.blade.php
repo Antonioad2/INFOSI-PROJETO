@@ -97,7 +97,7 @@
                                                     </div>
                                                 </a>
                                             </td>
-                                            <td class="fw-bold text-dark">{{$car->observations}}</td>
+                                            <td class="fw-bold text-dark">{{ $car->short_description = \Str::limit($car->observations, 40)}}</td>
                                             <td class="fw-bold text-dark">{{ $car->registration_date ? \Carbon\Carbon::parse($car->registration_date)->format('d/m/Y') : 'N/A' }}</td>
                                             <td>
                                                 <div class="hstack gap-2 justify-content-end">

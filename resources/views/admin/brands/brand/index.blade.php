@@ -238,7 +238,7 @@
                                                     </div>
                                                 </a>
                                             </td>
-                                            <td class="fw-bold text-dark">{{$brand->description}}</td>
+                                            <td class="fw-bold text-dark">{{ $brand->short_description = \Str::limit($brand->description, 40)}}</td>
                                             <td class="fw-bold text-dark">{{ $brand->date ? \Carbon\Carbon::parse($brand->date)->format('d/m/Y') : 'N/A' }}</td>
                                             <td>
                                                 <div class="hstack gap-2 justify-content-end">
