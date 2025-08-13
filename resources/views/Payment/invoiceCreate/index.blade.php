@@ -120,7 +120,7 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group mb-3">
-                                    <label for="InvoiceProduct" class="form-label">Invoice Product</label>
+                                    <label for="InvoiceProduct" class="form-label">Invoice 5Product</label>
                                     <input type="text" class="form-control" id="InvoiceProduct" placeholder="Product Name">
                                 </div>
                             </div>

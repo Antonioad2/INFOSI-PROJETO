@@ -63,6 +63,18 @@
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
+                        <span class="nxl-mtext">COR</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{route('colors.index')}}" >CORES</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{route('colors.create')}}">Cor Ver</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{route('colors.show')}}">Criar Cor</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{route('colors.edit')}}">Editar Cor</a></li>
+                    </ul>
+                </li>
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
                         <span class="nxl-mtext">Payment</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
