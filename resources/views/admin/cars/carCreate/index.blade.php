@@ -107,7 +107,7 @@
                                     <label class="form-label">Seguro</label>
                                     <div class="input-group">
                                         <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance') }}" placeholder="Número do Seguro">
-                                        <input type="file" name="car_insurance_image" class="form-control" accept="image/*" style="border-left: 1px solid #ced4da;">
+                                        <input type="file" name="car_insurance_upload" class="form-control" accept="application/pdf" style="border-left: 1px solid #ced4da;">
                                     </div>
                                 </div>
 
@@ -116,7 +116,7 @@
                                     <label class="form-label">Documento do Carro</label>
                                     <div class="input-group">
                                         <input type="text" name="car_document" class="form-control" value="{{ old('car_document') }}" placeholder="Número do Documento">
-                                        <input type="file" name="car_document_image" class="form-control" accept="image/*" style="border-left: 1px solid #ced4da;">
+                                        <input type="file" name="car_document_upload" class="form-control" accept="application/pdf" style="border-left: 1px solid #ced4da;">
                                     </div>
                                 </div>
 

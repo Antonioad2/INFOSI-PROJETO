@@ -22,11 +22,10 @@ class Car extends Model
         'observations',
         'license_plate',
         'image',
-        'value',
         'car_insurance',
-        'car_insurance_image',
+        'car_insurance_upload',
         'car_document',
-        'car_document_image'
+        'car_document_upload',
     ];
 
     public function models()

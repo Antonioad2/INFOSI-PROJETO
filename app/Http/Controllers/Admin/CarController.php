@@ -53,8 +53,10 @@ class CarController extends Controller
             'observations'      => 'nullable|string',
             'license_plate'     => 'required|string|unique:cars,license_plate',
             'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'value'             => 'required|numeric|min:0',
             'car_insurance'     => 'nullable|string',
+            'car_insurance_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_document'      => 'required|string|max:255',  
+            'car_document_upload' => 'nullable|mimes:pdf|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
@@ -110,21 +112,20 @@ class CarController extends Controller
             'observations'      => 'nullable|string',
             'license_plate'     => 'required|string|unique:cars,license_plate,' . $car->id,
             'image'             => 'nullable|image|mimes:jpg,jpeg,pdf,png|max:2048',
-            'value'             => 'required|numeric|min:0',
             'car_insurance'     => 'nullable|string',
-            'car_insurance_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'car_insurance_upload' => 'nullable|mimes:pdf|max:2048',
             'car_document'      => 'required|string|max:255',
-            'car_document_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'car_document_upload' => 'nullable|mimes:pdf|max:2048',
         ]);
 
-       if ($request->hasFile('car_insurance_image')) {
-            $path = $request->file('car_insurance_image')->store('insurance_images', 'public');
-            $validated['car_insurance_image'] = $path;
+        if ($request->hasFile('car_insurance_upload')) {
+            $path = $request->file('car_insurance_upload')->store('insurance_documents', 'public');
+            $validated['car_insurance_upload'] = $path;
         }
 
-        if ($request->hasFile('car_document_image')) {
-            $path = $request->file('car_document_image')->store('document_images', 'public');
-            $validated['car_document_image'] = $path;
+        if ($request->hasFile('car_document_upload')) {
+            $path = $request->file('car_document_upload')->store('car_documents', 'public');
+            $validated['car_document_upload'] = $path;
         }
 
         if ($request->hasFile('image')) {
