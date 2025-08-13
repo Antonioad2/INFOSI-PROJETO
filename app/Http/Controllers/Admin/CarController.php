@@ -118,19 +118,19 @@ class CarController extends Controller
         ]);
 
        if ($request->hasFile('car_insurance_image')) {
-        $path = $request->file('car_insurance_image')->store('insurance_images', 'public');
-        $validated['car_insurance_image'] = $path;
-    }
+            $path = $request->file('car_insurance_image')->store('insurance_images', 'public');
+            $validated['car_insurance_image'] = $path;
+        }
 
-    if ($request->hasFile('car_document_image')) {
-        $path = $request->file('car_document_image')->store('document_images', 'public');
-        $validated['car_document_image'] = $path;
-    }
+        if ($request->hasFile('car_document_image')) {
+            $path = $request->file('car_document_image')->store('document_images', 'public');
+            $validated['car_document_image'] = $path;
+        }
 
-    if ($request->hasFile('image')) {
-        $path = $request->file('image')->store('car_images', 'public');
-        $validated['image'] = $path;
-    }
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('car_images', 'public');
+            $validated['image'] = $path;
+        }
 
     // Salvar no banco de dados
     Car::create($validated);
