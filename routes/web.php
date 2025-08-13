@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\ModelsController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\FuelController;
+use App\Http\Controllers\Admin\CarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +29,7 @@ Route::get('/', function () {
 
 Route::get('/analytics', function () {
     return view('admin.dashboard.Analytics.index');
-});*/
+});
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
