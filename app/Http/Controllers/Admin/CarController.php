@@ -18,9 +18,10 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::with(['brand', 'color', 'fuel', 'models'])->get();
         return view('admin.cars.car.index', compact('cars'));
     }
+
 
     /**
      * Mostra o formulário de criação
@@ -83,6 +84,7 @@ class CarController extends Controller
     public function show($id)
     {
         $car = Car::findOrFail($id);
+        $car->load(['brand', 'models', 'color', 'fuel']);
         return view('admin.cars.carView.index', compact('car'));
     }
 
@@ -126,36 +128,28 @@ class CarController extends Controller
             'car_document_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // Handle file uploads and delete old files if new ones are uploaded
-        if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($car->image) {
-                Storage::disk('public')->delete($car->image);
-            }
-            $validated['image'] = $request->file('image')->store('car_images', 'public');
-        }
 
-        if ($request->hasFile('car_insurance_image')) {
-            // Delete old insurance image if exists
-            if ($car->car_insurance_image) {
-                Storage::disk('public')->delete($car->car_insurance_image);
-            }
-            $validated['car_insurance_image'] = $request->file('car_insurance_image')->store('insurance_images', 'public');
+     
+       if ($request->hasFile('car_insurance_image')) {
+            $path = $request->file('car_insurance_image')->store('insurance_images', 'public');
+            $validated['car_insurance_image'] = $path;
         }
 
         if ($request->hasFile('car_document_image')) {
-            // Delete old document image if exists
-            if ($car->car_document_image) {
-                Storage::disk('public')->delete($car->car_document_image);
-            }
-            $validated['car_document_image'] = $request->file('car_document_image')->store('document_images', 'public');
+            $path = $request->file('car_document_image')->store('document_images', 'public');
+            $validated['car_document_image'] = $path;
         }
 
-        // Update the car record
-        $car->update($validated);
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('car_images', 'public');
+            $validated['image'] = $path;
+        }
 
-        return redirect()->route('cars.index')->with('success', 'Carro atualizado com sucesso!');
-    }
+    // Salvar no banco de dados
+    Car::create($validated);
+
+    return redirect()->route('cars.index')->with('success', 'Carro cadastrado com sucesso!'); }
+
 
     /**
      * Remove um carro

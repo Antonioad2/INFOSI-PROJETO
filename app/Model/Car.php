@@ -4,6 +4,8 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
+
 class Car extends Model
 {
     //
@@ -37,7 +39,7 @@ class Car extends Model
     }
     public function brand()
     {
-        return $this->modelo->brand;      
+        return $this->belongsTo(Brand::class);      
 }
     public function fuel()
     {
