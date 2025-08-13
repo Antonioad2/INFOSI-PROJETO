@@ -14,4 +14,6 @@ class Brand extends Model
         'description', 
         'date'
     ];
+
+    
 }

@@ -14,4 +14,9 @@ class Models extends Model
         'description', 
         'date'
     ];
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }

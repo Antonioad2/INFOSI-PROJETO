@@ -30,6 +30,9 @@ class CreateCarsTable extends Migration
             $table->string('image')->nullable();
             $table->decimal('value', 10, 2);
             $table->string('car_insurance')->nullable();
+            $table->string('car_insurance_image')->nullable();
+            $table->string('car_document')->nullable();
+            $table->string('car_document_image')->nullable();
             $table->timestamps();
         });
     }

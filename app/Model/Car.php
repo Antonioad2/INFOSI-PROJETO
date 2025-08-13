@@ -21,7 +21,10 @@ class Car extends Model
         'license_plate',
         'image',
         'value',
-        'car_insurance'
+        'car_insurance',
+        'car_insurance_image',
+        'car_document',
+        'car_document_image'
     ];
 
     public function models()
