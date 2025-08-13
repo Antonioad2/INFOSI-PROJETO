@@ -88,7 +88,7 @@
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Placa ou Matricula</label>
+                                    <label class="form-label">Placa ou Matrícula</label>
                                     <input type="text" name="license_plate" class="form-control" value="{{ old('license_plate') }}">
                                 </div>
 
@@ -102,26 +102,37 @@
                                     <input type="date" name="registration_date" class="form-control" value="{{ old('registration_date') }}">
                                 </div>
 
+                                <!-- Campo combinado para Seguro -->
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Seguro</label>
-                                    <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance') }}">
+                                    <div class="input-group">
+                                        <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance') }}" placeholder="Número do Seguro">
+                                        <input type="file" name="car_insurance_image" class="form-control" accept="image/*" style="border-left: 1px solid #ced4da;">
+                                    </div>
                                 </div>
 
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Foto</label>
-                                    <input type="file" name="image" class="form-control" accept="image/*">
-                                </div>
+                                <!-- Campo combinado para Documento do Carro -->
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Documento do Carro</label>
-                                    <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance') }}">
+                                    <div class="input-group">
+                                        <input type="text" name="car_document" class="form-control" value="{{ old('car_document') }}" placeholder="Número do Documento">
+                                        <input type="file" name="car_document_image" class="form-control" accept="image/*" style="border-left: 1px solid #ced4da;">
+                                    </div>
                                 </div>
+
+                                <!-- Campo de Foto mantido separado -->
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Foto do Carro</label>
+                                    <input type="file" name="image" class="form-control" accept="image/*">
+                                </div>
+
                                 <div class="col-lg-12 mb-3">
                                     <label class="form-label">Observações</label>
                                     <textarea name="observations" class="form-control" rows="3">{{ old('observations') }}</textarea>
                                 </div>
+
                                 <div class="col-lg-12">
                                     <button type="submit" class="btn btn-primary">Salvar</button>
-                                    {{-- <a href="{{ route('cars.index') }}" class="btn btn-secondary">Cancelar</a> --}}
                                 </div>
                             </div>
                         </form>
