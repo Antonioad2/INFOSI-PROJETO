@@ -1,6 +1,6 @@
 @extends('admin.cars.carEdit.layout.principal')
 
-@section('title', 'Duralux || Carro edit')
+@section('title', 'Duralux || Editar Carro')
 @section('content-carEdit')
 <div class="nxl-content">
     <div class="page-header">
@@ -79,7 +79,7 @@
                                     <select name="category" class="form-control">
                                         <option value="Luxury" {{ old('category', $car->category) == 'Luxury' ? 'selected' : '' }}>Luxo</option>
                                         <option value="Standard" {{ old('category', $car->category) == 'Standard' ? 'selected' : '' }}>Padrão</option>
-                                        <option value="Economy" {{ old('category', $car->category) == 'Economy' ? 'selected' : '' }}>Econômico</option>
+                                        <option value="Economy" {{ old('category', $car->category) == 'Economy' ? 'selected' : '' }}>-Econômico</option>
                                     </select>
                                 </div>
 
@@ -89,7 +89,7 @@
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Placa ou Matricula</label>
+                                    <label class="form-label">Placa ou Matrícula</label>
                                     <input type="text" name="license_plate" class="form-control" value="{{ old('license_plate', $car->license_plate) }}">
                                 </div>
 
@@ -103,34 +103,60 @@
                                     <input type="date" name="registration_date" class="form-control" value="{{ old('registration_date', $car->registration_date) }}">
                                 </div>
 
+                                <!-- Campo combinado para Seguro -->
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Seguro</label>
-                                    <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance', $car->car_insurance) }}">
+                                    <div class="input-group">
+                                        <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance', $car->car_insurance) }}" placeholder="Número do Seguro">
+                                        <input type="file" name="car_insurance_image" class="form-control" accept="image/*,.pdf" style="border-left: 1px solid #ced4da;">
+                                    </div>
+                                    @if ($car->car_insurance_image)
+                                        <small class="form-text text-muted">Arquivo atual: <a href="{{ Storage::url($car->car_insurance_image) }}" target="_blank">Ver arquivo</a></small>
+                                    @endif
+                                </div>
+
+                                <!-- Campo combinado para Documento do Carro -->
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Documento do Carro</label>
+                                    <div class="input-group">
+                                        <input type="text" name="car_document" class="form-control" value="{{ old('car_document', $car->car_document) }}" placeholder="Número do Documento">
+                                        <input type="file" name="car_document_image" class="form-control" accept="image/*,.pdf" style="border-left: 1px solid #ced4da;">
+                                    </div>
+                                    @if ($car->car_document_image)
+                                        <small class="form-text text-muted">Arquivo atual: <a href="{{ Storage::url($car->car_document_image) }}" target="_blank">Ver arquivo</a></small>
+                                    @endif
+                                </div>
+
+                                <!-- Campo de Foto mantido separado -->
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Foto do Carro</label>
+                                    @if($car->image)
+                                        <div class="mb-2">
+                                            @if (in_array(pathinfo($car->image, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png']))
+                                                <img src="{{ Storage::url($car->image) }}" alt="Car Image" style="max-width: 100px; max-height: 100px;">
+                                            @else
+                                                <a href="{{ Storage::url($car->image) }}" target="_blank">Ver arquivo (PDF)</a>
+                                            @endif
+                                            <p class="text-muted">Arquivo atual</p>
+                                        </div>
+                                    @endif
+                                    <input type="file" name="image" class="form-control" accept="image/*,.pdf">
+                                    <small class="form-text text-muted">Deixe em branco para manter o arquivo atual.</small>
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Foto</label>
-                                    @if($car->image)
-                                        <div class="mb-2">
-                                            <img src="{{ asset('storage/' . $car->image) }}" alt="Car Image" style="max-width: 100px; max-height: 100px;">
-                                            <p class="text-muted">Imagem atual</p>
-                                        </div>
-                                    @endif
-                                    <input type="file" name="image" class="form-control" accept="image/*">
-                                    <small class="text-muted">Deixe em branco para manter a imagem atual.</small>
+                                    <label class="form-label">Valor</label>
+                                    <input type="number" name="value" class="form-control" value="{{ old('value', $car->value) }}" step="0.01">
                                 </div>
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Documento do Carro</label>
-                                    <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance') }}">
-                                </div>
-                                 <div class="col-lg-12 mb-3">
+
+                                <div class="col-lg-12 mb-3">
                                     <label class="form-label">Observações</label>
                                     <textarea name="observations" class="form-control" rows="3">{{ old('observations', $car->observations) }}</textarea>
                                 </div>
 
                                 <div class="col-lg-12">
                                     <button type="submit" class="btn btn-primary">Atualizar</button>
-                                    {{-- <a href="{{ route('cars.index') }}" class="btn btn-secondary">Cancelar</a> --}}
+                                    <a href="{{ route('cars.index') }}" class="btn btn-secondary">Cancelar</a>
                                 </div>
                             </div>
                         </form>
