@@ -321,9 +321,10 @@
                         <div class="col-lg-2 fw-medium">Tags</div>
                         <div class="col-lg-10 hstack gap-1"><a href="javascript:void(0);" class="badge bg-soft-primary text-primary">VIP</a><a href="javascript:void(0);" class="badge bg-soft-success text-success">High Rated</a><a href="javascript:void(0);" class="badge bg-soft-warning text-warning">Promotions</a><a href="javascript:void(0);" class="badge bg-soft-danger text-danger">Team</a><a href="javascript:void(0);" class="badge bg-soft-teal text-teal">Updates</a></div>
                     </div> -->
+                    
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Descrição</div>
-                        <div class="col-lg-10 hstack gap-1">{{$car->observations}}</div>
+                        <div class="col-lg-8 hstack gap-1">{{$car->observations}}</div>
                     </div>
                 </div>
 
