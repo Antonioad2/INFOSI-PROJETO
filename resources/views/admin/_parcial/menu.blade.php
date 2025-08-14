@@ -61,15 +61,15 @@
                     </ul>
                 </li> -->
 
-               {{--Lista de Cores--}}
+                {{--Lista de Marcas--}}
 <li class="nxl-item nxl-hasmenu">
     <a href="javascript:void(0);" class="nxl-link">
-        <span class="nxl-micon"><i class="feather-square"></i></span>
-        <span class="nxl-mtext">Cores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+        <span class="nxl-micon"><i class="feather-tag"></i></span>
+        <span class="nxl-mtext">Marcas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
     </a>
     <ul class="nxl-submenu">
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.index')}}">Ver Cores</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.create')}}">Criar Cores</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.index')}}">Ver Marcas</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.create')}}">Criar Marcas</a></li>
     </ul>
 </li>
 
@@ -85,18 +85,6 @@
     </ul>
 </li>
 
-{{--Lista de Marcas--}}
-<li class="nxl-item nxl-hasmenu">
-    <a href="javascript:void(0);" class="nxl-link">
-        <span class="nxl-micon"><i class="feather-tag"></i></span>
-        <span class="nxl-mtext">Marcas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-    </a>
-    <ul class="nxl-submenu">
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.index')}}">Ver Marcas</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.create')}}">Criar Marcas</a></li>
-    </ul>
-</li>
-
 {{--Lista de Combustíveis--}}
 <li class="nxl-item nxl-hasmenu">
     <a href="javascript:void(0);" class="nxl-link">
@@ -104,6 +92,30 @@
         <span class="nxl-mtext">Combustíveis</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
     </a>
     <ul class="nxl-submenu">
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Ver Combustíveis</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Combustíveis</a></li>
+    </ul>
+</li>
+
+               {{--Lista de Cores--}}
+<li class="nxl-item nxl-hasmenu">
+    <a href="javascript:void(0);" class="nxl-link">
+        <span class="nxl-micon"><i class="feather-square"></i></span>
+        <span class="nxl-mtext">Cores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+    </a>
+    <ul class="nxl-submenu">
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.index')}}">Ver Cores</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.create')}}">Criar Cores</a></li>
+    </ul>
+</li>
+
+{{--Lista de Fornecedores--}}
+<li class="nxl-item nxl-hasmenu">
+    <a href="javascript:void(0);" class="nxl-link">
+        <span class="nxl-micon"><i class="feather-users"></i></span>
+        <span class="nxl-mtext">Fornecedores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+    </a>
+     <ul class="nxl-submenu">
         <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Ver Combustíveis</a></li>
         <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Combustíveis</a></li>
     </ul>
