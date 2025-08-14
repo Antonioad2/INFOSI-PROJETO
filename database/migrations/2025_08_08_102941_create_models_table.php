@@ -20,6 +20,7 @@ class CreateModelsTable extends Migration
             $table->string('name')->nullable();
             $table->string('description')->unique();
             $table->date('date')->nullable();
+            $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

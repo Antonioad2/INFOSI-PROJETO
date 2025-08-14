@@ -61,71 +61,65 @@
                     </ul>
                 </li> -->
 
-                {{--Lista de Cores--}}
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
-                        <span class="nxl-mtext">Cores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.index')}}">Colors</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="">Colors View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.create')}}">Colors Create</a></li>
-                    </ul>
-                </li>
+               {{--Lista de Cores--}}
+<li class="nxl-item nxl-hasmenu">
+    <a href="javascript:void(0);" class="nxl-link">
+        <span class="nxl-micon"><i class="feather-square"></i></span>
+        <span class="nxl-mtext">Cores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+    </a>
+    <ul class="nxl-submenu">
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.index')}}">Ver Cores</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.create')}}">Criar Cores</a></li>
+    </ul>
+</li>
 
-                {{--Lista de Modelo--}}
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
-                        <span class="nxl-mtext">Modelos</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.index')}}">Modelos</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Modelos View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.create')}}">Modelos Create</a></li>
-                    </ul>
-                </li>
+{{--Lista de Modelo--}}
+<li class="nxl-item nxl-hasmenu">
+    <a href="javascript:void(0);" class="nxl-link">
+        <span class="nxl-micon"><i class="feather-box"></i></span>
+        <span class="nxl-mtext">Modelos</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+    </a>
+    <ul class="nxl-submenu">
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.index')}}">Ver Modelos</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.create')}}">Criar Modelos</a></li>
+    </ul>
+</li>
 
-                {{--Lista de Marcas--}}
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
-                        <span class="nxl-mtext">Marcas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.index')}}">Marcas</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Marcas View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.create')}}">Marcas Create</a></li>
-                    </ul>
-                </li>
+{{--Lista de Marcas--}}
+<li class="nxl-item nxl-hasmenu">
+    <a href="javascript:void(0);" class="nxl-link">
+        <span class="nxl-micon"><i class="feather-tag"></i></span>
+        <span class="nxl-mtext">Marcas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+    </a>
+    <ul class="nxl-submenu">
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.index')}}">Ver Marcas</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.create')}}">Criar Marcas</a></li>
+    </ul>
+</li>
 
-                {{--Lista de Combustíveis--}}
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
-                        <span class="nxl-mtext">Combustíveis</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Combustíveis</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Combustíveis View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Combustíveis Create</a></li>
-                    </ul>
-                </li>
+{{--Lista de Combustíveis--}}
+<li class="nxl-item nxl-hasmenu">
+    <a href="javascript:void(0);" class="nxl-link">
+        <span class="nxl-micon"><i class="feather-droplet"></i></span>
+        <span class="nxl-mtext">Combustíveis</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+    </a>
+    <ul class="nxl-submenu">
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Ver Combustíveis</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Combustíveis</a></li>
+    </ul>
+</li>
 
-                 {{--Lista de Carros--}}
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-dollar-sign"></i></span>
-                        <span class="nxl-mtext">Carros</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.index')}}">Carros</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/payment/invoiceView">Carros View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.create')}}">Carros Create</a></li>
-                    </ul>
-                </li>
-
+{{--Lista de Carros--}}
+<li class="nxl-item nxl-hasmenu">
+    <a href="javascript:void(0);" class="nxl-link">
+        <span class="nxl-micon"><i class="feather-truck"></i></span>
+        <span class="nxl-mtext">Carros</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+    </a>
+    <ul class="nxl-submenu">
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.index')}}">Ver Carros</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.create')}}">Criar Carros</a></li>
+    </ul>
+</li>
 
 
                {{--  <!-- <li class="nxl-item nxl-hasmenu"> 

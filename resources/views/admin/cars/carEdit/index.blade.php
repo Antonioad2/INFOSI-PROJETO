@@ -143,8 +143,17 @@
                                     <input type="file" name="image" class="form-control" accept="image/*,.pdf">
                                     <small class="form-text text-muted">Deixe em branco para manter o arquivo atual.</small>
                                 </div>
-
-                                
+                                 <!-- Campo combinado para Inspeção -->
+                                <div class="col-lg-12 mb-3">
+                                    <label class="form-label">Inspeção</label>
+                                    <div class="input-group">
+                                        <input type="date" name="inspection_date" class="form-control" value="{{ old('inspection_date', $car->inspection_date) }}" placeholder="Data da Inspeção">
+                                        <input type="file" name="inspection_document_upload" class="form-control" accept="application/pdf" style="border-left: 1px solid #ced4da;">
+                                    </div>
+                                    @if ($car->inspection_document_upload)
+                                        <small class="form-text text-muted">Arquivo atual: <a href="{{ Storage::url($car->inspection_document_upload) }}" target="_blank">Ver arquivo</a></small>
+                                    @endif
+                                </div>
 
                                 <div class="col-lg-12 mb-3">
                                     <label class="form-label">Observações</label>
@@ -153,7 +162,7 @@
 
                                 <div class="col-lg-12">
                                     <button type="submit" class="btn btn-primary">Atualizar</button>
-                                    <a href="{{ route('cars.index') }}" class="btn btn-secondary">Cancelar</a>
+                                  {{-- <a href="{{ route('cars.index') }}" class="btn btn-secondary">Cancelar</a> --}}
                                 </div>
                             </div>
                         </form>
