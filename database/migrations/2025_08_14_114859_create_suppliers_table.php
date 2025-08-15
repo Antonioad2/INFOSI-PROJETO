@@ -24,11 +24,8 @@ class CreateSuppliersTable extends Migration
             $table->string('vehicle_logbook_upload')->nullable();
             $table->string('bi')->nullable();
             $table->string('bi_upload')->nullable();
-            $table->string('image')->nullable();
             $table->string('address')->nullable();
-            $table->string('city')->nullable();
-            $table->string('country')->nullable();
-            $table->foreignId('automobile_id')->nullable()->constrained('automobiles')->onDelete('cascade');
+            $table->date('registration_date')->nullable();
             $table->timestamps();
         });
     }

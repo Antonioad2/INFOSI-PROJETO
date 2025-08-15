@@ -15,14 +15,14 @@ class Supplier extends Model
         'phone',
         'nif',
         'vehicle_logbook_upload',
+        'bi',
         'bi_upload',
-        'image',
         'address',
-        'city',
-        'country',    
+        'car_id',
+        'registration_date'
     ];
-    public function automobiles()
+    public function cars()
     {
-        return $this->hasMany(Automobile::class);
+        return $this->hasMany(Car::class, 'supplier_id');
     }
 }

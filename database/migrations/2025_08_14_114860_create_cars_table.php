@@ -23,6 +23,7 @@ class CreateCarsTable extends Migration
             $table->foreignId('color_id')->constrained('colors')->onDelete('cascade');
             $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
             $table->foreignId('fuel_id')->constrained('fuels')->onDelete('cascade');
+            $table->foreignId('supplier_id')->nullable()->constrained('suppliers')->onDelete('cascade');
             $table->date('manufacture_date');
             $table->date('registration_date');
             $table->string('observations')->nullable();
