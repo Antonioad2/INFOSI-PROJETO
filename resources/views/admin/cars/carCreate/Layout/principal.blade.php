@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <meta name="keyword" content="">
     <meta name="author" content="WRAPCODERS">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
     <title>@yield('title')</title>
@@ -113,6 +114,11 @@
             $("#total_amount").val((tax_sum + total).toFixed(2));
         }
     </script>
+
+    <!--! Alterar o input de modelo com base na marca selecionada !-->
+    @stack('scripts')
+
+
 </body>
 
 

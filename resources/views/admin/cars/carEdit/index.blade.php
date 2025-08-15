@@ -78,7 +78,7 @@
                                     <label class="form-label">Categoria</label>
                                     <select name="category" class="form-control">
                                         <option value="Luxury" {{ old('category', $car->category) == 'Luxury' ? 'selected' : '' }}>Luxo</option>
-                                        <option value="Standard" {{ old('category', $car->category) == 'Standard' ? 'selected' : '' }}>Padrão</option>
+                                        <option value="Standard" {{ old('category', $car->category) == 'Standard' ? 'selected' : '' }}>Padrão / Intermediário</option>
                                         <option value="Economy" {{ old('category', $car->category) == 'Economy' ? 'selected' : '' }}>-Econômico</option>
                                     </select>
                                 </div>

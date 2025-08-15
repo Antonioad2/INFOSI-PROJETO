@@ -85,6 +85,11 @@ class ModelsController extends Controller
         return redirect()->route('models.index')->with('success', 'Modelo atualizado com sucesso!');
     }
 
+    public function getModelsByBrand($brandId)
+    {
+        $models = Models::where('brand_id', $brandId)->get();
+        return response()->json($models);
+    }
 
     public function destroy(Models $models)
     {

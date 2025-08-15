@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\FuelController;
 use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\DashboardController;
+use App\Model\Models;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -106,6 +108,10 @@ Route::prefix('/admin/cars')->name('cars.')->group(function () {
     Route::put('/{car}', [CarController::class, 'update'])->name('update');
     Route::get('/{car}', [CarController::class, 'destroy'])->name('destroy');
 });
+
+Route::get('/get-models-by-brand/{brandId}', [ModelsController::class, 'getModelsByBrand']);
+
+
 
 /*-------------------------------------------------------
                     Proposal routes
