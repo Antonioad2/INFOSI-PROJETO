@@ -173,3 +173,43 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $(document).ready(function() {
+        $('select[name="brand_id"]').on('change', function() {
+            var brandId = $(this).val();
+            var modelSelect = $('select[name="models_id"]');
+
+            modelSelect.html('<option value="">Carregando...</option>');
+
+            if (brandId) {
+                $.ajax({
+                    url: '/get-models-by-brand/' + brandId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        modelSelect.empty();
+                        modelSelect.append('<option value="">Selecione o Modelo</option>');
+                        $.each(data, function(key, value) {
+                            modelSelect.append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    },
+                    error: function() {
+                        modelSelect.html('<option value="">Erro ao carregar modelos</option>');
+                    }
+                });
+            } else {
+                modelSelect.html('<option value="">Selecione a Marca primeiro</option>');
+            }
+        });
+    });
+</script>
+@endpush

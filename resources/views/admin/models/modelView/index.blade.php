@@ -58,11 +58,6 @@
                         </h5>
                         <div class="hstack gap-2">
                             <a href="{{ route('models.edit', $model) }}" class="btn btn-sm btn-light-brand">Editar Modelo</a>
-                            <form action="{{ route('models.destroy', $model) }}" method="POST" class="d-inline" onsubmit="return confirm('Tem certeza que deseja excluir este modelo?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Excluir Modelo</button>
-                            </form>
                         </div>
                     </div>
                     <div class="row mb-4">
