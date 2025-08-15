@@ -46,19 +46,21 @@ class ModelsController extends Controller
         return redirect()->route('models.index')->with('success', 'Modelso criado com sucesso!');
     }
 
-    public function show(Models $model)
+    public function show(Models $models)
     {
-        $model = Models::with('brand')->findOrFail($model->id); // Eager load brand
+        $model = $models;
         return view('admin.models.modelView.index', compact('model'));
     }
 
-    public function edit(Models $model)
+    public function edit(Models $models)
     {
-        $brands = Brand::all(); // Fetch all brands for dropdown
+        $model = $models;
+        $brands = Brand::all();
+
         return view('admin.models.modelEdit.index', compact('model', 'brands'));
     }
 
-    public function update(Request $request, Models $model)
+    public function update(Request $request, Models $models)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -73,19 +75,20 @@ class ModelsController extends Controller
             'brand_id.exists' => 'A marca selecionada não existe.',
         ]);
 
-        $model->update([
+        $models->update([
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
             'brand_id' => $request->brand_id,
         ]);
 
-        return redirect()->route('models.index')->with('success', 'Modelso atualizado com sucesso!');
+        return redirect()->route('models.index')->with('success', 'Modelo atualizado com sucesso!');
     }
 
-    public function destroy(Models $model)
+
+    public function destroy(Models $models)
     {
-        $model->delete();
+        $models->delete();
         return redirect()->route('models.index')->with('success', 'Modelso removido com sucesso!');
     }
 }

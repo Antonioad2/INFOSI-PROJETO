@@ -137,8 +137,8 @@ class CarController extends Controller
             $validated['image'] = $path;
         }
 
-    // Salvar no banco de dados
-    Car::create($validated);
+        // Salvar no banco de dados
+        Car::create($validated);
 
     return redirect()->route('cars.index')->with('success', 'Carro cadastrado com sucesso!'); }
 

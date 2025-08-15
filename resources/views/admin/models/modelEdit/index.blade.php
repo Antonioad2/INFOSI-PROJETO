@@ -61,7 +61,7 @@
                             </div>
                         </div>
 
-                        <form action="{{ route('models.update', ['model' => $model->id]) }}" method="POST" id="model-edit-form" enctype="multipart/form-data">
+                        <form action="{{ route('models.update', ['models' => $model->id]) }}" method="POST" id="model-edit-form" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
