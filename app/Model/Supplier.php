@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class Supplier extends Model
 {
     //
@@ -21,8 +22,5 @@ class Supplier extends Model
         'city',
         'country',    
     ];
-    public function automobiles()
-    {
-        return $this->hasMany(Automobile::class);
-    }
+
 }
