@@ -83,14 +83,16 @@
                                     </select>
                                 </div>
 
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Número de Chassi</label>
-                                    <input type="text" name="chassi" class="form-control" value="{{ old('chassi', $car->chassi) }}">
+                                <!-- Mostrar o chassi, mas não permitir edição -->
+                                <div class="form-group">
+                                    <label for="chassi">Número do Chassi</label>
+                                    <input type="text" class="form-control" value="{{ $car->chassi }}" readonly>
                                 </div>
+
 
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Placa ou Matrícula</label>
-                                    <input type="text" name="license_plate" class="form-control" value="{{ old('license_plate', $car->license_plate) }}">
+                                    <input type="text" class="form-control" value="{{$car->license_plate}}" readonly>>
                                 </div>
 
                                 <div class="col-lg-4 mb-3">

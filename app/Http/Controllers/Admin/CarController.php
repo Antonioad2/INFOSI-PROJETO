@@ -61,14 +61,38 @@ class CarController extends Controller
             'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
         ]);
 
+        // Diretórios
+        $uploadPath = public_path('uploads');
+
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('cars', 'public');
+            $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
+            $request->image->move($uploadPath . '/car_images', $fileName);
+            $validated['image'] = 'uploads/car_images/' . $fileName;
+        }
+
+        if ($request->hasFile('car_insurance_upload')) {
+            $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
+            $request->car_insurance_upload->move($uploadPath . '/insurance_documents', $fileName);
+            $validated['car_insurance_upload'] = 'uploads/insurance_documents/' . $fileName;
+        }
+
+        if ($request->hasFile('car_document_upload')) {
+            $fileName = time() . '_document.' . $request->car_document_upload->getClientOriginalExtension();
+            $request->car_document_upload->move($uploadPath . '/car_documents', $fileName);
+            $validated['car_document_upload'] = 'uploads/car_documents/' . $fileName;
+        }
+
+        if ($request->hasFile('inspection_document_upload')) {
+            $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
+            $request->inspection_document_upload->move($uploadPath . '/inspection_documents', $fileName);
+            $validated['inspection_document_upload'] = 'uploads/inspection_documents/' . $fileName;
         }
 
         Car::create($validated);
 
         return redirect()->route('cars.index')->with('success', 'Carro criado com sucesso!');
     }
+
 
     /**
      * Mostra os detalhes de um carro
@@ -103,7 +127,6 @@ class CarController extends Controller
         $car = Car::findOrFail($id);
 
         $validated = $request->validate([
-            'chassi'            => 'required|string|unique:cars,chassi,' . $car->id,
             'category'          => 'required|in:Luxury,Standard,Economy',
             'models_id'         => 'required|exists:models,id',
             'color_id'          => 'required|exists:colors,id',
@@ -112,35 +135,46 @@ class CarController extends Controller
             'manufacture_date'  => 'required|date',
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
-            'license_plate'     => 'required|string|unique:cars,license_plate,' . $car->id,
-            'image'             => 'nullable|image|mimes:jpg,jpeg,pdf,png|max:2048',
+            'image'             => 'nullable|image|mimes:jpg,jpeg,png,pdf|max:2048',
             'car_insurance'     => 'nullable|string',
-            'car_insurance_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_insurance_upload' => 'nullable|mimes:pdf',
             'car_document'      => 'required|string|max:255',
-            'car_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_document_upload' => 'nullable|mimes:pdf,doc,docx',
             'inspection_date'   => 'nullable|date',
-            'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'inspection_document_upload' => 'nullable|mimes:pdf,doc,docx',
         ]);
 
+        $uploadPath = public_path('uploads');
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
+            $request->image->move($uploadPath . '/car_images', $fileName);
+            $validated['image'] = 'uploads/car_images/' . $fileName;
+        }
+
         if ($request->hasFile('car_insurance_upload')) {
-            $path = $request->file('car_insurance_upload')->store('insurance_documents', 'public');
-            $validated['car_insurance_upload'] = $path;
+            $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
+            $request->car_insurance_upload->move($uploadPath . '/insurance_documents', $fileName);
+            $validated['car_insurance_upload'] = 'uploads/insurance_documents/' . $fileName;
         }
 
         if ($request->hasFile('car_document_upload')) {
-            $path = $request->file('car_document_upload')->store('car_documents', 'public');
-            $validated['car_document_upload'] = $path;
+            $fileName = time() . '_document.' . $request->car_document_upload->getClientOriginalExtension();
+            $request->car_document_upload->move($uploadPath . '/car_documents', $fileName);
+            $validated['car_document_upload'] = 'uploads/car_documents/' . $fileName;
         }
 
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('car_images', 'public');
-            $validated['image'] = $path;
+        if ($request->hasFile('inspection_document_upload')) {
+            $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
+            $request->inspection_document_upload->move($uploadPath . '/inspection_documents', $fileName);
+            $validated['inspection_document_upload'] = 'uploads/inspection_documents/' . $fileName;
         }
 
-        // Salvar no banco de dados
-        Car::create($validated);
+        $car->update($validated);
 
-    return redirect()->route('cars.index')->with('success', 'Carro cadastrado com sucesso!'); }
+        return redirect()->route('cars.index')->with('success', 'Carro atualizado com sucesso!');
+    }
+
 
     /**
      * Remove um carro
