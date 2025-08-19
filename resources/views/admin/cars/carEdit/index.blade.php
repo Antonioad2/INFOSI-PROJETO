@@ -1,4 +1,5 @@
 @extends('admin.cars.carEdit.layout.principal')
+
 @section('title', 'Duralux || Editar Carro')
 @section('content-carEdit')
 <div class="nxl-content">
@@ -34,114 +35,62 @@
 
                             <div class="row">
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Fornecedor <span class="text-danger">*</span></label>
-                                    <select name="supplier_id" class="form-control" required>
-                                        <option value="">Selecione o Fornecedor</option>
-                                        @foreach($suppliers as $supplier)
-                                            <option value="{{ $supplier->id }}" {{ old('supplier_id', $car->supplier_id) == $supplier->id ? 'selected' : '' }}>{{ $supplier->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('supplier_id')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Marca <span class="text-danger">*</span></label>
-                                    <select name="brand_id" class="form-control" required>
+                                    <label class="form-label">Marca</label>
+                                    <select name="brand_id" class="form-control">
                                         <option value="">Selecione a Marca</option>
                                         @foreach($brands as $brand)
                                             <option value="{{ $brand->id }}" {{ old('brand_id', $car->brand_id) == $brand->id ? 'selected' : '' }}>{{ $brand->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('brand_id')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Modelo <span class="text-danger">*</span></label>
-                                    <select name="models_id" class="form-control" required>
+                                    <label class="form-label">Modelo</label>
+                                    <select name="models_id" class="form-control">
                                         <option value="">Selecione o Modelo</option>
                                         @foreach($models as $model)
                                             <option value="{{ $model->id }}" {{ old('models_id', $car->models_id) == $model->id ? 'selected' : '' }}>{{ $model->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('models_id')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Cor <span class="text-danger">*</span></label>
-                                    <select name="color_id" class="form-control" required>
+                                    <label class="form-label">Cor</label>
+                                    <select name="color_id" class="form-control">
                                         <option value="">Selecione a Cor</option>
                                         @foreach($colors as $color)
                                             <option value="{{ $color->id }}" {{ old('color_id', $car->color_id) == $color->id ? 'selected' : '' }}>{{ $color->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('color_id')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Combustível <span class="text-danger">*</span></label>
-                                    <select name="fuel_id" class="form-control" required>
+                                    <label class="form-label">Combustível</label>
+                                    <select name="fuel_id" class="form-control">
                                         <option value="">Selecione o Tipo</option>
                                         @foreach($fuels as $fuel)
-                                            <option value="{{ $fuel->id }}" {{ old('fuel_id', $car->fuel_id) == $color->id ? 'selected' : '' }}>{{ $fuel->name }}</option>
+                                            <option value="{{ $fuel->id }}" {{ old('fuel_id', $car->fuel_id) == $fuel->id ? 'selected' : '' }}>{{ $fuel->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('fuel_id')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Categoria <span class="text-danger">*</span></label>
-                                    <select name="category" class="form-control" required>
+                                    <label class="form-label">Categoria</label>
+                                    <select name="category" class="form-control">
                                         <option value="Luxury" {{ old('category', $car->category) == 'Luxury' ? 'selected' : '' }}>Luxo</option>
                                         <option value="Standard" {{ old('category', $car->category) == 'Standard' ? 'selected' : '' }}>Padrão / Intermediário</option>
-                                        <option value="Economy" {{ old('category', $car->category) == 'Economy' ? 'selected' : '' }}>Econômico</option>
+                                        <option value="Economy" {{ old('category', $car->category) == 'Economy' ? 'selected' : '' }}>-Econômico</option>
                                     </select>
-                                    @error('category')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
-<<<<<<< HEAD
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Número de Chassi <span class="text-danger">*</span></label>
-                                    <input type="text" name="chassi" class="form-control" value="{{ old('chassi', $car->chassi) }}" required>
-                                    @error('chassi')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-=======
                                 <!-- Mostrar o chassi, mas não permitir edição -->
                                 <div class="form-group">
                                     <label for="chassi">Número do Chassi</label>
                                     <input type="text" class="form-control" value="{{ $car->chassi }}" readonly>
->>>>>>> origin/Braulio
                                 </div>
 
 
                                 <div class="col-lg-4 mb-3">
-<<<<<<< HEAD
-                                    <label class="form-label">Placa ou Matrícula <span class="text-danger">*</span></label>
-                                    <input type="text" name="license_plate" class="form-control" value="{{ old('license_plate', $car->license_plate) }}" required>
-                                    @error('license_plate')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Data de Fabricação <span class="text-danger">*</span></label>
-                                    <input type="date" name="manufacture_date" class="form-control" value="{{ old('manufacture_date', $car->manufacture_date) }}" required>
-                                    @error('manufacture_date')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-=======
                                     <label class="form-label">Placa ou Matrícula</label>
                                     <input type="text" class="form-control" value="{{$car->license_plate}}" readonly>
                                 </div>
@@ -156,18 +105,10 @@
                                             </option>
                                         @endfor
                                     </select>
->>>>>>> origin/Braulio
                                 </div>
 
 
                                 <div class="col-lg-4 mb-3">
-<<<<<<< HEAD
-                                    <label class="form-label">Data de Registro <span class="text-danger">*</span></label>
-                                    <input type="date" name="registration_date" class="form-control" value="{{ old('registration_date', $car->registration_date) }}" required>
-                                    @error('registration_date')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-=======
                                     <label class="form-label">Data de Atualização</label>
                                     <input
                                         type="date"
@@ -176,91 +117,70 @@
                                         value="{{ old('registration_date', $car->registration_date ?? now()->format('Y-m-d')) }}"
                                         min="{{ now()->format('Y-m-d') }}"
                                     >
->>>>>>> origin/Braulio
                                 </div>
 
+                                <!-- Campo combinado para Seguro -->
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Seguro</label>
                                     <div class="input-group">
                                         <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance', $car->car_insurance) }}" placeholder="Número do Seguro">
-                                        <input type="file" name="car_insurance_upload" class="form-control" accept="application/pdf">
+                                        <input type="file" name="car_insurance_image" class="form-control" accept="image/*,.pdf" style="border-left: 1px solid #ced4da;">
                                     </div>
-                                    @if ($car->car_insurance_upload)
-                                        <small class="form-text text-muted">Arquivo atual: <a href="{{ Storage::url($car->car_insurance_upload) }}" target="_blank">Ver arquivo</a></small>
+                                    @if ($car->car_insurance_image)
+                                        <small class="form-text text-muted">Arquivo atual: <a href="{{ Storage::url($car->car_insurance_image) }}" target="_blank">Ver arquivo</a></small>
                                     @endif
-                                    @error('car_insurance')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                    @error('car_insurance_upload')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
+                                <!-- Campo combinado para Documento do Carro -->
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Documento do Carro <span class="text-danger">*</span></label>
+                                    <label class="form-label">Documento do Carro</label>
                                     <div class="input-group">
-                                        <input type="text" name="car_document" class="form-control" value="{{ old('car_document', $car->car_document) }}" placeholder="Número do Documento" required>
-                                        <input type="file" name="car_document_upload" class="form-control" accept="application/pdf">
+                                        <input type="text" name="car_document" class="form-control" value="{{ old('car_document', $car->car_document) }}" placeholder="Número do Documento">
+                                        <input type="file" name="car_document_image" class="form-control" accept="image/*,.pdf" style="border-left: 1px solid #ced4da;">
                                     </div>
-                                    @if ($car->car_document_upload)
-                                        <small class="form-text text-muted">Arquivo atual: <a href="{{ Storage::url($car->car_document_upload) }}" target="_blank">Ver arquivo</a></small>
+                                    @if ($car->car_document_image)
+                                        <small class="form-text text-muted">Arquivo atual: <a href="{{ Storage::url($car->car_document_image) }}" target="_blank">Ver arquivo</a></small>
                                     @endif
-                                    @error('car_document')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                    @error('car_document_upload')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
+                                <!-- Campo de Foto mantido separado -->
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Foto do Carro</label>
                                     @if($car->image)
                                         <div class="mb-2">
-                                            <img src="{{ Storage::url($car->image) }}" alt="Car Image" style="max-width: 100px; max-height: 100px;">
+                                            @if (in_array(pathinfo($car->image, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png']))
+                                                <img src="{{ Storage::url($car->image) }}" alt="Car Image" style="max-width: 100px; max-height: 100px;">
+                                            @else
+                                                <a href="{{ Storage::url($car->image) }}" target="_blank">Ver arquivo (PDF)</a>
+                                            @endif
                                             <p class="text-muted">Arquivo atual</p>
                                         </div>
                                     @endif
-                                    <input type="file" name="image" class="form-control" accept="image/*">
+                                    <input type="file" name="image" class="form-control" accept="image/*,.pdf">
                                     <small class="form-text text-muted">Deixe em branco para manter o arquivo atual.</small>
-                                    @error('image')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
-<<<<<<< HEAD
-=======
 
                                  <!-- Campo combinado para Inspeção -->
->>>>>>> origin/Braulio
                                 <div class="col-lg-12 mb-3">
                                     <label class="form-label">Inspeção</label>
                                     <div class="input-group">
                                         <input type="date" name="inspection_date" class="form-control" value="{{ old('inspection_date', $car->inspection_date) }}" placeholder="Data da Inspeção">
-                                        <input type="file" name="inspection_document_upload" class="form-control" accept="application/pdf">
+                                        <input type="file" name="inspection_document_upload" class="form-control" accept="application/pdf" style="border-left: 1px solid #ced4da;">
                                     </div>
                                     @if ($car->inspection_document_upload)
                                         <small class="form-text text-muted">Arquivo atual: <a href="{{ Storage::url($car->inspection_document_upload) }}" target="_blank">Ver arquivo</a></small>
                                     @endif
-                                    @error('inspection_date')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                    @error('inspection_document_upload')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
                                 <div class="col-lg-12 mb-3">
                                     <label class="form-label">Observações</label>
                                     <textarea name="observations" class="form-control" rows="3">{{ old('observations', $car->observations) }}</textarea>
-                                    @error('observations')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
                                 </div>
 
                                 <div class="col-lg-12">
                                     <button type="submit" class="btn btn-primary">Atualizar</button>
-                                    <a href="{{ route('cars.index') }}" class="btn btn-secondary">Cancelar</a>
+                                  {{-- <a href="{{ route('cars.index') }}" class="btn btn-secondary">Cancelar</a> --}}
                                 </div>
                             </div>
                         </form>
@@ -310,8 +230,4 @@
         });
     });
 </script>
-<<<<<<< HEAD
 @endpush
-=======
-@endpush
->>>>>>> origin/Braulio
