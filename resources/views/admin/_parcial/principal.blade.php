@@ -2,8 +2,6 @@
 <html lang="zxx">
 
 
-<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/payment.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:35 GMT -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
@@ -66,8 +64,5 @@
     <script src="{{ url('assets/js/theme-customizer-init.min.js')}}"></script>
     <!--! END: Theme Customizer !-->
 </body>
-
-
-<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/payment.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:35 GMT -->
 
 </html>

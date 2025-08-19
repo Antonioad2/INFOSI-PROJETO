@@ -34,263 +34,81 @@
                         <li class="nxl-item"><a class="nxl-link" href="/Reports/reportsTimesheets">Timesheets Report</a></li>
                     </ul>
                 </li>
-                <!-- <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-send"></i></span>
-                        <span class="nxl-mtext">Applications</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/Applications/appsChat">Chat</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Applications/appsEmail">Email</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Applications/appsTasks">Tasks</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Applications/appsNotes">Notes</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Applications/appsStorage">Storage</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Applications/appsCalendar">Calendar</a></li>
-                    </ul>
-                </li> -->
-                <!-- <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-at-sign"></i></span>
-                        <span class="nxl-mtext">Proposal</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/proposal">Proposal</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/proposal/proposalView">Proposal View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/proposal/proposalEdit">Proposal Edit</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/proposal/proposalCreate">Proposal Create</a></li>
-                    </ul>
-                </li> -->
 
                 {{--Lista de Marcas--}}
-<li class="nxl-item nxl-hasmenu">
-    <a href="javascript:void(0);" class="nxl-link">
-        <span class="nxl-micon"><i class="feather-tag"></i></span>
-        <span class="nxl-mtext">Marcas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-    </a>
-    <ul class="nxl-submenu">
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.index')}}">Ver Marcas</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.create')}}">Criar Marcas</a></li>
-    </ul>
-</li>
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-tag"></i></span>
+                        <span class="nxl-mtext">Marcas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.index')}}">Ver Marcas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.create')}}">Criar Marcas</a></li>
+                    </ul>
+                </li>
 
-{{--Lista de Modelo--}}
-<li class="nxl-item nxl-hasmenu">
-    <a href="javascript:void(0);" class="nxl-link">
-        <span class="nxl-micon"><i class="feather-box"></i></span>
-        <span class="nxl-mtext">Modelos</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-    </a>
-    <ul class="nxl-submenu">
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.index')}}">Ver Modelos</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.create')}}">Criar Modelos</a></li>
-    </ul>
-</li>
+                {{--Lista de Modelo--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-box"></i></span>
+                        <span class="nxl-mtext">Modelos</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.index')}}">Ver Modelos</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.create')}}">Criar Modelos</a></li>
+                    </ul>
+                </li>
 
-{{--Lista de Combustíveis--}}
-<li class="nxl-item nxl-hasmenu">
-    <a href="javascript:void(0);" class="nxl-link">
-        <span class="nxl-micon"><i class="feather-droplet"></i></span>
-        <span class="nxl-mtext">Combustíveis</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-    </a>
-    <ul class="nxl-submenu">
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Ver Combustíveis</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Combustíveis</a></li>
-    </ul>
-</li>
+                {{--Lista de Combustíveis--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-droplet"></i></span>
+                        <span class="nxl-mtext">Combustíveis</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Ver Combustíveis</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Combustíveis</a></li>
+                    </ul>
+                </li>
 
-               {{--Lista de Cores--}}
-<li class="nxl-item nxl-hasmenu">
-    <a href="javascript:void(0);" class="nxl-link">
-        <span class="nxl-micon"><i class="feather-square"></i></span>
-        <span class="nxl-mtext">Cores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-    </a>
-    <ul class="nxl-submenu">
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.index')}}">Ver Cores</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.create')}}">Criar Cores</a></li>
-    </ul>
-</li>
+                            {{--Lista de Cores--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-square"></i></span>
+                        <span class="nxl-mtext">Cores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.index')}}">Ver Cores</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.create')}}">Criar Cores</a></li>
+                    </ul>
+                </li>
 
-{{--Lista de Fornecedores--}}
-<li class="nxl-item nxl-hasmenu">
-    <a href="javascript:void(0);" class="nxl-link">
-        <span class="nxl-micon"><i class="feather-users"></i></span>
-        <span class="nxl-mtext">Fornecedores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-    </a>
-     <ul class="nxl-submenu">
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Ver Combustíveis</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Combustíveis</a></li>
-    </ul>
-</li>
-
-{{--Lista de Carros--}}
-<li class="nxl-item nxl-hasmenu">
-    <a href="javascript:void(0);" class="nxl-link">
-        <span class="nxl-micon"><i class="feather-truck"></i></span>
-        <span class="nxl-mtext">Carros</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-    </a>
-    <ul class="nxl-submenu">
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.index')}}">Ver Carros</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.create')}}">Criar Carros</a></li>
-    </ul>
-</li>
-
-
-               {{--  <!-- <li class="nxl-item nxl-hasmenu"> 
+                {{--Lista de Fornecedores--}}
+                <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-users"></i></span>
-                        <span class="nxl-mtext">Customers</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                        <span class="nxl-mtext">Fornecedores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/customers">Customers</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/customers/customersView">Customers View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/customers/customersCreate">Customers Create</a></li>
-                    </ul>
-                </li> --> --}}
-                {{-- <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-clipboard"></i></span>
-                        <span class="nxl-mtext">Tasks</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/tasks">Tasks</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/tasks/tasksView">Tasks View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/tasks/tasksCreate">Tasks Create</a></li>
-                    </ul> --}}
-                {{-- <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-alert-circle"></i></span>
-                        <span class="nxl-mtext">Leads</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/leads">Leads</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/leads/leadsView">Leads View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/leads/leadsCreate">Leads Create</a></li>
-                    </ul>
-                </li> --}}
-                <!-- <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-briefcase"></i></span>
-                        <span class="nxl-mtext">Projects</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/projects">Projects</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/projects/projectsView">Projects View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/projects/projectsCreate">Projects Create</a></li>
-                    </ul>
-                </li> -->
-                {{-- <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-layout"></i></span>
-                        <span class="nxl-mtext">Widgets</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/Widgets/widgetsLists">Lists</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Widgets/widgetsTables">Tables</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Widgets/widgetsCharts">Charts</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Widgets/widgetsStatistics">Statistics</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Widgets/widgetsMiscellaneous">Miscellaneous</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Ver Combustíveis</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Combustíveis</a></li>
                     </ul>
                 </li>
+
+                {{--Lista de Carros--}}
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-settings"></i></span>
-                        <span class="nxl-mtext">Settings</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                        <span class="nxl-micon"><i class="feather-truck"></i></span>
+                        <span class="nxl-mtext">Carros</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsGeneral">General</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsSeo">SEO</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsTags">Tags</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsEmail">Email</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsTasks">Tasks</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsLeads">Leads</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsSupport">Support</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsFinance">Finance</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsGateways">Gateways</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsCustomers">Customers</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsLocalization">Localization</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsRecaptcha">reCAPTCHA</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Settings/settingsMiscellaneous">Miscellaneous</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.index')}}">Ver Carros</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.create')}}">Criar Carros</a></li>
                     </ul>
                 </li>
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-power"></i></span>
-                        <span class="nxl-mtext">Authentication</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item nxl-hasmenu">
-                            <a href="javascript:void(0);" class="nxl-link">
-                                <span class="nxl-mtext">Login</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                            </a>
-                            <ul class="nxl-submenu">
-                                <li class="nxl-item"><a class="nxl-link" href="/Login/authLoginCover">Cover</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Login/authLoginMinimal">Minimal</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Login/authLoginCreative">Creative</a></li>
-                            </ul>
-                        </li>
-                        <li class="nxl-item nxl-hasmenu">
-                            <a href="javascript:void(0);" class="nxl-link">
-                                <span class="nxl-mtext">Register</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                            </a>
-                            <ul class="nxl-submenu">
-                                <li class="nxl-item"><a class="nxl-link" href="/Register/authRegisterCover">Cover</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Register/authRegisterMinimal">Minimal</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Register/authRegisterCreative">Creative</a></li>
-                            </ul>
-                        </li>
-                        <li class="nxl-item nxl-hasmenu">
-                            <a href="javascript:void(0);" class="nxl-link">
-                                <span class="nxl-mtext">Error-404</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                            </a>
-                            <ul class="nxl-submenu">
-                                <li class="nxl-item"><a class="nxl-link" href="/Error/auth404cover">Cover</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Error/auth404minimal">Minimal</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Error/auth404creative">Creative</a></li>
-                            </ul>
-                        </li>
-                        <li class="nxl-item nxl-hasmenu">
-                            <a href="javascript:void(0);" class="nxl-link">
-                                <span class="nxl-mtext">Reset Pass</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                            </a>
-                            <ul class="nxl-submenu">
-                                <li class="nxl-item"><a class="nxl-link" href="/Reset/authResetCover">Cover</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Reset/authResetMinimal">Minimal</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Reset/authResetCreative">Creative</a></li>
-                            </ul>
-                        </li>
-                        <li class="nxl-item nxl-hasmenu">
-                            <a href="javascript:void(0);" class="nxl-link">
-                                <span class="nxl-mtext">Verify OTP</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                            </a>
-                            <ul class="nxl-submenu">
-                                <li class="nxl-item"><a class="nxl-link" href="/VerifyOTP/authVerifyCover">Cover</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/VerifyOTP/authVerifyMinimal">Minimal</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/VerifyOTP/authVerifyCreative">Creative</a></li>
-                            </ul>
-                        </li>
-                        <li class="nxl-item nxl-hasmenu">
-                            <a href="javascript:void(0);" class="nxl-link">
-                                <span class="nxl-mtext">Maintenance</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                            </a>
-                            <ul class="nxl-submenu">
-                                <li class="nxl-item"><a class="nxl-link" href="/Maintenance/authMaintenanceCover">Cover</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Maintenance/authMaintenanceMinimal">Minimal</a></li>
-                                <li class="nxl-item"><a class="nxl-link" href="/Maintenance/authMaintenanceCreative">Creative</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li> --}}
-<!--                 <li class="nxl-item nxl-hasmenu"> --}}
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-life-buoy"></i></span>
-                        <span class="nxl-mtext">Help Center</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="#/">Support</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Help/help-knowledgebase">KnowledgeBase</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href=".docs/documentations">Documentations</a></li>
-                    </ul>
-                </li> -->
+
             </ul>
+
             <div class="card text-center">
                 <div class="card-body">
                     <i class="feather-sunrise fs-4 text-dark"></i>
@@ -299,6 +117,7 @@
                     <a href="javascript:void(0);" class="btn btn-primary text-dark w-100">Download Now</a>
                 </div>
             </div>
+            
         </div>
     </div>
 </nav>

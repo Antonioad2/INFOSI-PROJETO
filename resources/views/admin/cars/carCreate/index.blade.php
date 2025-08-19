@@ -143,7 +143,7 @@
                                 <div class="col-lg-12 mb-3">
                                     <label class="form-label">Inspeção</label>
                                     <div class="input-group">
-                                        <input type="date" name="inspection_date" class="form-control" value="{{ old('inspection_date') }}" placeholder="Data da Inspeção">
+                                        <input type="date" name="inspection_date" class="form-control" value="{{ old('inspection_date', $car->inspection_date ?? now()->format('Y-m-d')) }}" placeholder="Data da Inspeção">
                                         <input type="file" name="inspection_document_upload" class="form-control" accept="application/pdf" style="border-left: 1px solid #ced4da;">
                                     </div>
                                 </div>
