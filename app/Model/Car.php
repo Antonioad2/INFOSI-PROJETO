@@ -17,6 +17,7 @@ class Car extends Model
         'color_id',
         'brand_id',
         'fuel_id',
+        'supplier_id',
         'manufacture_date',
         'registration_date',
         'observations',

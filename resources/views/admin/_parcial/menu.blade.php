@@ -116,8 +116,8 @@
         <span class="nxl-mtext">Fornecedores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
     </a>
      <ul class="nxl-submenu">
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Ver Combustíveis</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Combustíveis</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.index')}}">Ver Fornecedores</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Fornecedores</a></li>
     </ul>
 </li>
 

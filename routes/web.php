@@ -7,18 +7,10 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\FuelController;
 use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\SupplierController;
 use App\Model\Models;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 
 /*-------------------------------------------------------
@@ -111,7 +103,15 @@ Route::prefix('/admin/cars')->name('cars.')->group(function () {
 
 Route::get('/get-models-by-brand/{brandId}', [ModelsController::class, 'getModelsByBrand']);
 
-
+Route::prefix('/admin/suppliers')->name('suppliers.')->group(function () {
+    Route::get('/', [SupplierController::class, 'index'])->name('index');
+    Route::get('/create', [SupplierController::class, 'create'])->name('create');
+    Route::post('/', [SupplierController::class, 'store'])->name('store');
+    Route::get('supplierView/{supplier}', [SupplierController::class, 'show'])->name('show');
+    Route::get('supplierEdit/{supplier}/edit', [SupplierController::class, 'edit'])->name('edit');
+    Route::put('/{supplier}', [SupplierController::class, 'update'])->name('update');
+    Route::get('/{supplier}', [SupplierController::class, 'destroy'])->name('destroy');
+});
 
 /*-------------------------------------------------------
                     Proposal routes
