@@ -79,15 +79,19 @@
                                             </td>
                                             <td><a href="{{ route('suppliers.show', $supplier) }}" class="fw-bold">{{ $supplier->id }}</a></td>
                                             <td>
-                                                <a href="javascript:void(0)" class="hstack gap-3">
-                                                    <div class="avatar-image avatar-md">
-                                                        <img src="{{ asset('assets/images/avatar/default.png') }}" alt="Fornecedor" class="img-fluid">
-                                                    </div>
-                                                    <div>
-                                                        <span class="text-truncate-1-line">{{ $supplier->name }}</span>
-                                                    </div>
-                                                </a>
+                                               <a href="javascript:void(0)" class="hstack gap-3">
+                                                       <div class="avatar-image avatar-md">
+                                                 <img src="{{ $supplier->photo ? asset('storage/' . $supplier->photo) : asset('assets/images/avatar/default.png') }}" 
+                                                   alt="Fornecedor" 
+                                                      class="img-fluid rounded-circle" 
+                                                          style="width:40px; height:40px; object-fit:cover;">
+                                                           </div>
+                                                          <div>
+                                                     <span class="text-truncate-1-line">{{ $supplier->name }}</span>
+                                                          </div>
+                                                     </a>
                                             </td>
+
                                             <td>{{ $supplier->email }}</td>
                                             <td>{{ $supplier->phone ?? '-' }}</td>
                                             <td>{{ $supplier->nif ?? '-' }}</td>

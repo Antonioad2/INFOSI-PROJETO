@@ -11,7 +11,6 @@ class SupplierController extends Controller
 {
     public function index()
     {
-        // Lista fornecedores com contagem de carros
         $suppliers = Supplier::withCount('cars')->get();
         return view('admin.suppliers.supplier.index', compact('suppliers'));
     }
@@ -33,6 +32,7 @@ class SupplierController extends Controller
             'bi_upload'              => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:4096',
             'address'                => 'nullable|string|max:255',
             'registration_date'      => 'nullable|date',
+            'photo'                  => 'nullable|file|mimes:jpg,jpeg,png|max:4096', // Added photo validation
         ]);
 
         // Uploads
@@ -41,6 +41,9 @@ class SupplierController extends Controller
         }
         if ($request->hasFile('bi_upload')) {
             $validated['bi_upload'] = $request->file('bi_upload')->store('suppliers/bi', 'public');
+        }
+        if ($request->hasFile('photo')) {
+            $validated['photo'] = $request->file('photo')->store('suppliers/photos', 'public');
         }
 
         Supplier::create($validated);
@@ -74,6 +77,7 @@ class SupplierController extends Controller
             'bi_upload'              => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:4096',
             'address'                => 'nullable|string|max:255',
             'registration_date'      => 'nullable|date',
+            'photo'                  => 'nullable|file|mimes:jpg,jpeg,png|max:4096', // Added photo validation
         ]);
 
         // Substituir arquivos se houver novo upload
@@ -89,6 +93,13 @@ class SupplierController extends Controller
                 Storage::disk('public')->delete($supplier->bi_upload);
             }
             $validated['bi_upload'] = $request->file('bi_upload')->store('suppliers/bi', 'public');
+        }
+
+        if ($request->hasFile('photo')) {
+            if ($supplier->photo) {
+                Storage::disk('public')->delete($supplier->photo);
+            }
+            $validated['photo'] = $request->file('photo')->store('suppliers/photos', 'public');
         }
 
         $supplier->update($validated);
@@ -111,6 +122,9 @@ class SupplierController extends Controller
         }
         if ($supplier->bi_upload) {
             Storage::disk('public')->delete($supplier->bi_upload);
+        }
+        if ($supplier->photo) {
+            Storage::disk('public')->delete($supplier->photo);
         }
 
         $supplier->delete();

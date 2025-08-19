@@ -117,7 +117,7 @@
     </a>
      <ul class="nxl-submenu">
         <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.index')}}">Ver Fornecedores</a></li>
-        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Criar Fornecedores</a></li>
+        <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.create')}}">Criar Fornecedores</a></li>
     </ul>
 </li>
 

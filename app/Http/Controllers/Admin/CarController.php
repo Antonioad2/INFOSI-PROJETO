@@ -61,7 +61,6 @@ class CarController extends Controller
             'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
         ]);
 
-<<<<<<< HEAD
         // Diretórios
         $uploadPath = public_path('uploads');
 
@@ -87,13 +86,6 @@ class CarController extends Controller
             $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
             $request->inspection_document_upload->move($uploadPath . '/inspection_documents', $fileName);
             $validated['inspection_document_upload'] = 'uploads/inspection_documents/' . $fileName;
-=======
-        // Upload de ficheiros
-        foreach (['image', 'car_insurance_upload', 'car_document_upload', 'inspection_document_upload'] as $fileField) {
-            if ($request->hasFile($fileField)) {
-                $validated[$fileField] = $request->file($fileField)->store('cars', 'public');
-            }
->>>>>>> 71f62faa092641ca162b8624c18186df93becf31
         }
 
         Car::create($validated);
@@ -101,13 +93,10 @@ class CarController extends Controller
         return redirect()->route('cars.index')->with('success', 'Carro criado com sucesso!');
     }
 
-<<<<<<< HEAD
 
     /**
      * Mostra os detalhes de um carro
      */
-=======
->>>>>>> 71f62faa092641ca162b8624c18186df93becf31
     public function show($id)
     {
         $car = Car::findOrFail($id);
@@ -146,12 +135,7 @@ class CarController extends Controller
             'manufacture_date'  => 'required|unsignedSmallInteger',
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
-<<<<<<< HEAD
             'image'             => 'nullable|image|mimes:jpg,jpeg,png,pdf|max:2048',
-=======
-            'license_plate'     => 'required|string|unique:cars,license_plate,' . $car->id,
-            'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
->>>>>>> 71f62faa092641ca162b8624c18186df93becf31
             'car_insurance'     => 'nullable|string',
             'car_insurance_upload' => 'nullable|mimes:pdf',
             'car_document'      => 'required|string|max:255',
@@ -160,7 +144,6 @@ class CarController extends Controller
             'inspection_document_upload' => 'nullable|mimes:pdf,doc,docx',
         ]);
 
-<<<<<<< HEAD
         $uploadPath = public_path('uploads');
 
         if ($request->hasFile('image')) {
@@ -185,15 +168,6 @@ class CarController extends Controller
             $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
             $request->inspection_document_upload->move($uploadPath . '/inspection_documents', $fileName);
             $validated['inspection_document_upload'] = 'uploads/inspection_documents/' . $fileName;
-=======
-        foreach (['image', 'car_insurance_upload', 'car_document_upload', 'inspection_document_upload'] as $fileField) {
-            if ($request->hasFile($fileField)) {
-                if ($car->$fileField) {
-                    Storage::disk('public')->delete($car->$fileField);
-                }
-                $validated[$fileField] = $request->file($fileField)->store('cars', 'public');
-            }
->>>>>>> 71f62faa092641ca162b8624c18186df93becf31
         }
 
         $car->update($validated);
@@ -201,13 +175,10 @@ class CarController extends Controller
         return redirect()->route('cars.index')->with('success', 'Carro atualizado com sucesso!');
     }
 
-<<<<<<< HEAD
 
     /**
      * Remove um carro
      */
-=======
->>>>>>> 71f62faa092641ca162b8624c18186df93becf31
     public function destroy($id)
     {
         $car = Car::findOrFail($id);

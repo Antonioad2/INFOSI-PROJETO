@@ -22,6 +22,7 @@ class CreateSuppliersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('nif', 20)->nullable();
             $table->string('vehicle_logbook_upload')->nullable();
+            $table->string('photo');
             $table->string('bi')->nullable();
             $table->string('bi_upload')->nullable();
             $table->string('address')->nullable();

@@ -15,6 +15,7 @@ class Supplier extends Model
         'phone',
         'nif',
         'vehicle_logbook_upload',
+        'photo',
         'bi',
         'bi_upload',
         'address',
