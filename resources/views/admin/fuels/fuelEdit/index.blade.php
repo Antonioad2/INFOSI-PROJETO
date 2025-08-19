@@ -253,10 +253,16 @@
                                             value="{{ old('name', $fuel->name) }}" placeholder="Ex: Gasóleo, Gasolina...">
                                     </div>
 
-                                    {{-- Data de Cadastro --}}
-                                    <div class="col-lg-5 mb-3">
-                                        <label class="form-label">Data de Cadastro</label>
-                                        <input type="date" name="date" class="form-control" value="{{ old('date', $fuel->date) }}">
+                                    {{-- Data de Atualização --}}
+                                    <div class="col-lg-4 mb-3">
+                                        <label class="form-label">Data de Atualização</label>
+                                        <input
+                                            type="date"
+                                            name="date"
+                                            class="form-control"
+                                            value="{{ old('date', $fuel->date ?? now()->format('Y-m-d')) }}"
+                                            min="{{ now()->format('Y-m-d') }}"
+                                        >
                                     </div>
 
                                     {{-- Descrição --}}

@@ -1,35 +1,44 @@
 <?php
-namespace App\Http\Controllers\Admin;
 
+namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\Brand;
 use App\Model\Models;
 use App\Model\Color;
 use App\Model\Fuel;
 use App\Model\Car;
-use App\Model\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
+    /**
+     * Lista todos os carros
+     */
     public function index()
     {
-        $cars = Car::with(['brand', 'color', 'fuel', 'models', 'supplier'])->get();
+        $cars = Car::with(['brand', 'color', 'fuel', 'models'])->get();
         return view('admin.cars.car.index', compact('cars'));
     }
 
+
+    /**
+     * Mostra o formulário de criação
+     */
     public function create()
     {
-        $brands    = Brand::all();
-        $models    = Models::all();
-        $colors    = Color::all();
-        $fuels     = Fuel::all();
-        $suppliers = Supplier::all();
+        $brands = Brand::all();
+        $models = Models::all();
+        $colors = Color::all();
+        $fuels  = Fuel::all();
 
-        return view('admin.cars.carCreate.index', compact('brands', 'models', 'colors', 'fuels', 'suppliers'));  
+        return view('admin.cars.carCreate.index', compact('brands', 'models', 'colors', 'fuels'));  
     }
 
+
+    /**
+     * Salva um novo carro
+     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -39,8 +48,7 @@ class CarController extends Controller
             'color_id'          => 'required|exists:colors,id',
             'brand_id'          => 'required|exists:brands,id',
             'fuel_id'           => 'required|exists:fuels,id',
-            'supplier_id'       => 'required|exists:suppliers,id',
-            'manufacture_date'  => 'required|date',
+            'manufacture_date' => 'required|integer|between:2010,' . now()->year,
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
             'license_plate'     => 'required|string|unique:cars,license_plate',
@@ -53,11 +61,31 @@ class CarController extends Controller
             'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
         ]);
 
-        // Upload de ficheiros
-        foreach (['image', 'car_insurance_upload', 'car_document_upload', 'inspection_document_upload'] as $fileField) {
-            if ($request->hasFile($fileField)) {
-                $validated[$fileField] = $request->file($fileField)->store('cars', 'public');
-            }
+        // Diretórios
+        $uploadPath = public_path('uploads');
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
+            $request->image->move($uploadPath . '/car_images', $fileName);
+            $validated['image'] = 'uploads/car_images/' . $fileName;
+        }
+
+        if ($request->hasFile('car_insurance_upload')) {
+            $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
+            $request->car_insurance_upload->move($uploadPath . '/insurance_documents', $fileName);
+            $validated['car_insurance_upload'] = 'uploads/insurance_documents/' . $fileName;
+        }
+
+        if ($request->hasFile('car_document_upload')) {
+            $fileName = time() . '_document.' . $request->car_document_upload->getClientOriginalExtension();
+            $request->car_document_upload->move($uploadPath . '/car_documents', $fileName);
+            $validated['car_document_upload'] = 'uploads/car_documents/' . $fileName;
+        }
+
+        if ($request->hasFile('inspection_document_upload')) {
+            $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
+            $request->inspection_document_upload->move($uploadPath . '/inspection_documents', $fileName);
+            $validated['inspection_document_upload'] = 'uploads/inspection_documents/' . $fileName;
         }
 
         Car::create($validated);
@@ -65,56 +93,81 @@ class CarController extends Controller
         return redirect()->route('cars.index')->with('success', 'Carro criado com sucesso!');
     }
 
+
+    /**
+     * Mostra os detalhes de um carro
+     */
     public function show($id)
     {
-        $car = Car::with(['brand', 'models', 'color', 'fuel', 'supplier'])->findOrFail($id);
+        $car = Car::findOrFail($id);
+        $car->load(['brand', 'models', 'color', 'fuel']);
         return view('admin.cars.carView.index', compact('car'));
     }
 
+    /**
+     * Mostra o formulário de edição
+     */
     public function edit($id)
-    {
-        $car       = Car::findOrFail($id);
-        $brands    = Brand::all();
-        $models    = Models::all();
-        $colors    = Color::all();
-        $fuels     = Fuel::all();
-        $suppliers = Supplier::all();
+{
+    $car    = Car::findOrFail($id);
+    $brands = Brand::all();
+    $models = Models::all();
+    $colors = Color::all();
+    $fuels  = Fuel::all();
 
-        return view('admin.cars.carEdit.index', compact('car', 'brands', 'models', 'colors', 'fuels', 'suppliers'));
-    }
+    return view('admin.cars.carEdit.index', compact('car', 'brands', 'models', 'colors', 'fuels'));
+}
 
+
+    /**
+     * Atualiza um carro
+     */
     public function update(Request $request, $id)
     {
         $car = Car::findOrFail($id);
 
         $validated = $request->validate([
-            'chassi'            => 'required|string|unique:cars,chassi,' . $car->id,
             'category'          => 'required|in:Luxury,Standard,Economy',
             'models_id'         => 'required|exists:models,id',
             'color_id'          => 'required|exists:colors,id',
             'brand_id'          => 'required|exists:brands,id',
             'fuel_id'           => 'required|exists:fuels,id',
-            'supplier_id'       => 'required|exists:suppliers,id',
-            'manufacture_date'  => 'required|date',
+            'manufacture_date'  => 'required|unsignedSmallInteger',
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
-            'license_plate'     => 'required|string|unique:cars,license_plate,' . $car->id,
-            'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'image'             => 'nullable|image|mimes:jpg,jpeg,png,pdf|max:2048',
             'car_insurance'     => 'nullable|string',
-            'car_insurance_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_insurance_upload' => 'nullable|mimes:pdf',
             'car_document'      => 'required|string|max:255',
-            'car_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_document_upload' => 'nullable|mimes:pdf,doc,docx',
             'inspection_date'   => 'nullable|date',
-            'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'inspection_document_upload' => 'nullable|mimes:pdf,doc,docx',
         ]);
 
-        foreach (['image', 'car_insurance_upload', 'car_document_upload', 'inspection_document_upload'] as $fileField) {
-            if ($request->hasFile($fileField)) {
-                if ($car->$fileField) {
-                    Storage::disk('public')->delete($car->$fileField);
-                }
-                $validated[$fileField] = $request->file($fileField)->store('cars', 'public');
-            }
+        $uploadPath = public_path('uploads');
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
+            $request->image->move($uploadPath . '/car_images', $fileName);
+            $validated['image'] = 'uploads/car_images/' . $fileName;
+        }
+
+        if ($request->hasFile('car_insurance_upload')) {
+            $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
+            $request->car_insurance_upload->move($uploadPath . '/insurance_documents', $fileName);
+            $validated['car_insurance_upload'] = 'uploads/insurance_documents/' . $fileName;
+        }
+
+        if ($request->hasFile('car_document_upload')) {
+            $fileName = time() . '_document.' . $request->car_document_upload->getClientOriginalExtension();
+            $request->car_document_upload->move($uploadPath . '/car_documents', $fileName);
+            $validated['car_document_upload'] = 'uploads/car_documents/' . $fileName;
+        }
+
+        if ($request->hasFile('inspection_document_upload')) {
+            $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
+            $request->inspection_document_upload->move($uploadPath . '/inspection_documents', $fileName);
+            $validated['inspection_document_upload'] = 'uploads/inspection_documents/' . $fileName;
         }
 
         $car->update($validated);
@@ -122,14 +175,16 @@ class CarController extends Controller
         return redirect()->route('cars.index')->with('success', 'Carro atualizado com sucesso!');
     }
 
+
+    /**
+     * Remove um carro
+     */
     public function destroy($id)
     {
         $car = Car::findOrFail($id);
 
-        foreach (['image', 'car_insurance_upload', 'car_document_upload', 'inspection_document_upload'] as $fileField) {
-            if ($car->$fileField) {
-                Storage::disk('public')->delete($car->$fileField);
-            }
+        if ($car->image) {
+            Storage::disk('public')->delete($car->image);
         }
 
         $car->delete();

@@ -48,8 +48,5 @@ class Car extends Model
     {
         return $this->belongsTo(Fuel::class);
     }
-    public function suppliers()
-    {
-        return $this->belongsTo(Supplier::class, 'supplier_id');
-    }
+
 }

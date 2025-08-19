@@ -110,15 +110,24 @@
                                     @enderror
                                 </div>
 
+<<<<<<< HEAD
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Número de Chassi <span class="text-danger">*</span></label>
                                     <input type="text" name="chassi" class="form-control" value="{{ old('chassi', $car->chassi) }}" required>
                                     @error('chassi')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
+=======
+                                <!-- Mostrar o chassi, mas não permitir edição -->
+                                <div class="form-group">
+                                    <label for="chassi">Número do Chassi</label>
+                                    <input type="text" class="form-control" value="{{ $car->chassi }}" readonly>
+>>>>>>> origin/Braulio
                                 </div>
 
+
                                 <div class="col-lg-4 mb-3">
+<<<<<<< HEAD
                                     <label class="form-label">Placa ou Matrícula <span class="text-danger">*</span></label>
                                     <input type="text" name="license_plate" class="form-control" value="{{ old('license_plate', $car->license_plate) }}" required>
                                     @error('license_plate')
@@ -132,14 +141,42 @@
                                     @error('manufacture_date')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
+=======
+                                    <label class="form-label">Placa ou Matrícula</label>
+                                    <input type="text" class="form-control" value="{{$car->license_plate}}" readonly>
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Ano de Fabricação</label>
+                                    <select name="manufacture_date" class="form-control">
+                                        <option value="">Selecione o ano</option>
+                                        @for ($year = now()->year; $year >= 2010; $year--)
+                                            <option value="{{ $year }}" {{ old('manufacture_date', \Carbon\Carbon::parse($car->manufacture_date)->format('Y')) == $year ? 'selected' : '' }}>
+                                                {{ $year }}
+                                            </option>
+                                        @endfor
+                                    </select>
+>>>>>>> origin/Braulio
+                                </div>
+
+
+                                <div class="col-lg-4 mb-3">
+<<<<<<< HEAD
                                     <label class="form-label">Data de Registro <span class="text-danger">*</span></label>
                                     <input type="date" name="registration_date" class="form-control" value="{{ old('registration_date', $car->registration_date) }}" required>
                                     @error('registration_date')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
+=======
+                                    <label class="form-label">Data de Atualização</label>
+                                    <input
+                                        type="date"
+                                        name="registration_date"
+                                        class="form-control"
+                                        value="{{ old('registration_date', $car->registration_date ?? now()->format('Y-m-d')) }}"
+                                        min="{{ now()->format('Y-m-d') }}"
+                                    >
+>>>>>>> origin/Braulio
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
@@ -191,6 +228,11 @@
                                     @enderror
                                 </div>
 
+<<<<<<< HEAD
+=======
+
+                                 <!-- Campo combinado para Inspeção -->
+>>>>>>> origin/Braulio
                                 <div class="col-lg-12 mb-3">
                                     <label class="form-label">Inspeção</label>
                                     <div class="input-group">
@@ -268,4 +310,8 @@
         });
     });
 </script>
+<<<<<<< HEAD
 @endpush
+=======
+@endpush
+>>>>>>> origin/Braulio
