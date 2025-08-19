@@ -92,17 +92,31 @@
 
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Placa ou Matrícula</label>
-                                    <input type="text" class="form-control" value="{{$car->license_plate}}" readonly>>
+                                    <input type="text" class="form-control" value="{{$car->license_plate}}" readonly>
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Data de Fabricação</label>
-                                    <input type="date" name="manufacture_date" class="form-control" value="{{ old('manufacture_date', $car->manufacture_date) }}">
+                                    <label class="form-label">Ano de Fabricação</label>
+                                    <select name="manufacture_date" class="form-control">
+                                        <option value="">Selecione o ano</option>
+                                        @for ($year = now()->year; $year >= 2010; $year--)
+                                            <option value="{{ $year }}" {{ old('manufacture_date', \Carbon\Carbon::parse($car->manufacture_date)->format('Y')) == $year ? 'selected' : '' }}>
+                                                {{ $year }}
+                                            </option>
+                                        @endfor
+                                    </select>
                                 </div>
 
+
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Data de Registro</label>
-                                    <input type="date" name="registration_date" class="form-control" value="{{ old('registration_date', $car->registration_date) }}">
+                                    <label class="form-label">Data de Atualização</label>
+                                    <input
+                                        type="date"
+                                        name="registration_date"
+                                        class="form-control"
+                                        value="{{ old('registration_date', $car->registration_date ?? now()->format('Y-m-d')) }}"
+                                        min="{{ now()->format('Y-m-d') }}"
+                                    >
                                 </div>
 
                                 <!-- Campo combinado para Seguro -->
@@ -145,6 +159,8 @@
                                     <input type="file" name="image" class="form-control" accept="image/*,.pdf">
                                     <small class="form-text text-muted">Deixe em branco para manter o arquivo atual.</small>
                                 </div>
+
+
                                  <!-- Campo combinado para Inspeção -->
                                 <div class="col-lg-12 mb-3">
                                     <label class="form-label">Inspeção</label>

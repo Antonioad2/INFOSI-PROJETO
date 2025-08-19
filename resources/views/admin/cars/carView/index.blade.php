@@ -106,7 +106,7 @@
                             </a>
                         </div>
                     </div> -->
-                    <a href="invoice-create.html" class="btn btn-primary">
+                    <a href="{{ route('cars.create', $car)}}" class="btn btn-primary">
                         <i class="feather-plus me-2"></i>
                         <span>Novo Casdastro</span>
                     </a>
@@ -386,7 +386,7 @@
                         @if($car->image)
                             <div class="hstack gap-2">
                                 <div class="avatar-image avatar-sm">
-                                    <img src="{{ asset($car->image) }}" alt="Car Image" class="img-fluid">
+                                    <a href="{{ asset($car->image) }}" target="_blank">Imagem do carro ({{ $car->image }})</a>
                                 </div>
                                 <span>Imagem do Carro</span>
                             </div>
