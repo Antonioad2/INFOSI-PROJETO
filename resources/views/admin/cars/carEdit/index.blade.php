@@ -110,20 +110,33 @@
                                     @enderror
                                 </div>
 
+<<<<<<< HEAD
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Número de Chassi <span class="text-danger">*</span></label>
                                     <input type="text" name="chassi" class="form-control" value="{{ old('chassi', $car->chassi) }}" required>
                                     @error('chassi')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
+=======
+                                <!-- Mostrar o chassi, mas não permitir edição -->
+                                <div class="form-group">
+                                    <label for="chassi">Número do Chassi</label>
+                                    <input type="text" class="form-control" value="{{ $car->chassi }}" readonly>
+>>>>>>> origin/Braulio
                                 </div>
 
+
                                 <div class="col-lg-4 mb-3">
+<<<<<<< HEAD
                                     <label class="form-label">Placa ou Matrícula <span class="text-danger">*</span></label>
                                     <input type="text" name="license_plate" class="form-control" value="{{ old('license_plate', $car->license_plate) }}" required>
                                     @error('license_plate')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
+=======
+                                    <label class="form-label">Placa ou Matrícula</label>
+                                    <input type="text" class="form-control" value="{{$car->license_plate}}" readonly>>
+>>>>>>> origin/Braulio
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
@@ -268,4 +281,8 @@
         });
     });
 </script>
+<<<<<<< HEAD
 @endpush
+=======
+@endpush
+>>>>>>> origin/Braulio

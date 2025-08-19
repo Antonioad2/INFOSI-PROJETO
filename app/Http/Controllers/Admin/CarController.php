@@ -88,7 +88,6 @@ class CarController extends Controller
         $car = Car::findOrFail($id);
 
         $validated = $request->validate([
-            'chassi'            => 'required|string|unique:cars,chassi,' . $car->id,
             'category'          => 'required|in:Luxury,Standard,Economy',
             'models_id'         => 'required|exists:models,id',
             'color_id'          => 'required|exists:colors,id',
@@ -101,11 +100,11 @@ class CarController extends Controller
             'license_plate'     => 'required|string|unique:cars,license_plate,' . $car->id,
             'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'car_insurance'     => 'nullable|string',
-            'car_insurance_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_insurance_upload' => 'nullable|mimes:pdf',
             'car_document'      => 'required|string|max:255',
-            'car_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_document_upload' => 'nullable|mimes:pdf,doc,docx',
             'inspection_date'   => 'nullable|date',
-            'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'inspection_document_upload' => 'nullable|mimes:pdf,doc,docx',
         ]);
 
         foreach (['image', 'car_insurance_upload', 'car_document_upload', 'inspection_document_upload'] as $fileField) {
