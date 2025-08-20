@@ -74,6 +74,16 @@
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Fornecedor</label>
+                                    <select name="supplier_id" class="form-control">
+                                        <option value="">Selecione o Fornecedor</option>
+                                        @foreach($suppliers as $supplier)
+                                            <option value="{{ $supplier->id }}" {{ old('supplier_id') == $supplier->id ? 'selected' : '' }}>{{ $supplier->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
                                     <label class="form-label">Categoria</label>
                                     <select name="category" class="form-control">
                                         <option value="Luxury" {{ old('category') == 'Luxury' ? 'selected' : '' }}>Luxo</option>

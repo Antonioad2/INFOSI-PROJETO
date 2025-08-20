@@ -28,8 +28,7 @@ class Car extends Model
         'car_document',
         'car_document_upload',
         'inspection_date',
-        'inspection_document_upload',
-        'supplier_id'
+        'inspection_document_upload'
     ];
 
     public function models()
@@ -43,10 +42,14 @@ class Car extends Model
     public function brand()
     {
         return $this->belongsTo(Brand::class);      
-}
+    }
     public function fuel()
     {
         return $this->belongsTo(Fuel::class);
+    }
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
     }
 
 }

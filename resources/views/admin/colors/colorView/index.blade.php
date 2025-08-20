@@ -24,7 +24,7 @@
                 </div>
                 
                 <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                    <a href="invoice-create.html" class="btn btn-primary">
+                    <a href="{{ route('colors.create')}}" class="btn btn-primary">
                         <i class="feather-plus me-2"></i>
                         <span>Novo Casdastro</span>
                     </a>

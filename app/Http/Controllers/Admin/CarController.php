@@ -6,6 +6,7 @@ use App\Model\Brand;
 use App\Model\Models;
 use App\Model\Color;
 use App\Model\Fuel;
+use App\Model\Supplier;
 use App\Model\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -31,8 +32,9 @@ class CarController extends Controller
         $models = Models::all();
         $colors = Color::all();
         $fuels  = Fuel::all();
+        $suppliers = Supplier::all(); // Adicionando fornecedores para o formulário
 
-        return view('admin.cars.carCreate.index', compact('brands', 'models', 'colors', 'fuels'));  
+        return view('admin.cars.carCreate.index', compact('brands', 'models', 'colors', 'fuels', 'suppliers'));  
     }
 
 
@@ -48,6 +50,7 @@ class CarController extends Controller
             'color_id'          => 'required|exists:colors,id',
             'brand_id'          => 'required|exists:brands,id',
             'fuel_id'           => 'required|exists:fuels,id',
+            'supplier_id'      => 'nullable|exists:suppliers,id',
             'manufacture_date' => 'required|integer|between:2010,' . now()->year,
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
@@ -132,6 +135,7 @@ class CarController extends Controller
             'color_id'          => 'required|exists:colors,id',
             'brand_id'          => 'required|exists:brands,id',
             'fuel_id'           => 'required|exists:fuels,id',
+            'supplier_id'      => 'nullable|exists:suppliers,id',
             'manufacture_date'  => 'required|unsignedSmallInteger',
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
