@@ -41,7 +41,12 @@
                                         <img src="{{ url('assets/user/img/logo/black-logo.svg')}}" alt="logo-img">
                                     </a>
                                 </div>
-                               
+                                <div class="mean__menu-wrapper">
+                                    <div class="main-menu">
+                                    @include('site.home.menu')
+                                    
+                                    </div>
+                                </div>
                             </div>
                             <div class="header-right d-flex justify-content-end align-items-center">
                                 <div class="icon-items">

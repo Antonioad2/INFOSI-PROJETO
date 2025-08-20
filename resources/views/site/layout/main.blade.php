@@ -164,7 +164,6 @@
 
         <!-- Header Section Start -->
         @include('site.home.header')
-        @include('site.home.menu')  
         <!-- Search Area Start -->
         <div class="search-wrap">
             <div class="search-inner">
