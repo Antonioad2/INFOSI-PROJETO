@@ -241,6 +241,7 @@
                                             </h1>
                                        </div>
 
+                                       {{-- Pesquisa de Carros --}}
                                        <form action="">
                                             <div class="row">
                                                 {{-- Input Local de levantamento --}}
@@ -264,7 +265,7 @@
 
                                                 {{-- Input Data e hora de devolução --}}
                                                 <div class="col-lg-4 mb-3">
-                                                    <label class="form-label">Data e Hora de levantamento</label>
+                                                    <label class="form-label">Data e Hora de devolução</label>
                                                     <input
                                                         type="date"
                                                         name="date"
