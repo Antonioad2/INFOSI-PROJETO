@@ -1,6 +1,4 @@
-                 <div class="mean__menu-wrapper">
-                                    <div class="main-menu">
-                                        <nav id="mobile-menu">
+<nav id="mobile-menu">
                                             <ul>
                                                 <li class="has-dropdown active menu-thumb">
                                                     <a href="index-3.html">
@@ -53,5 +51,3 @@
                                                 </li>
                                             </ul>
                                         </nav>
-                                    </div>
-                                </div>
