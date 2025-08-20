@@ -194,8 +194,8 @@
             </div>
             <div class="swiper hero-slider-3">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="hero-image bg-cover" style="background-image: url('assets/user/img/hero/hero-3.jpg')">
+                    <div class="swiper-slide"> 
+                        <div class="hero-image bg-cover" style="background-image: url('{{ asset('assets/user/img/hero/hero-3.jpg') }}')">
                             <div class="line-shape" data-animation="slideInLeft" data-duration="3s" data-delay="2.1s">
                                 <img src="{{ url('assets/user/img/hero/line-shape-1.png')}}" alt="shape-img">
                             </div>
@@ -240,6 +240,48 @@
                                                 with car rental
                                             </h1>
                                        </div>
+
+                                       <form action="">
+                                            <div class="row">
+                                                {{-- Input Local de levantamento --}}
+                                                <div class="col-lg-4 mb-4">
+                                                    <label class="form-label">Local de levantamento</label>
+                                                    <input type="text" name="name" class="form-control"
+                                                        value="{{ old('nome') }}" placeholder="Ex: Luanda, Angola">
+                                                </div>
+
+                                                {{-- Input Data e hora de levantamento --}}
+                                                <div class="col-lg-4 mb-3">
+                                                    <label class="form-label">Data e Hora de levantamento</label>
+                                                    <input
+                                                        type="date"
+                                                        name="date"
+                                                        class="form-control"
+                                                        value="{{ old('date', $color->date ?? now()->format('Y-m-d')) }}"
+                                                        min="{{ now()->format('Y-m-d') }}"
+                                                    >
+                                                </div>
+
+                                                {{-- Input Data e hora de devolução --}}
+                                                <div class="col-lg-4 mb-3">
+                                                    <label class="form-label">Data e Hora de levantamento</label>
+                                                    <input
+                                                        type="date"
+                                                        name="date"
+                                                        class="form-control"
+                                                        value="{{ old('date', $color->date ?? now()->format('Y-m-d')) }}"
+                                                        min="{{ now()->format('Y-m-d') }}"
+                                                    >
+                                                </div>
+
+                                                {{-- Botão de Enviar --}}
+                                                <div class="col-12">
+                                                    <button type="submit" class="btn btn-primary"> Salvar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                       </form>
+
                                     </div>
                                 </div>
                             </div>
