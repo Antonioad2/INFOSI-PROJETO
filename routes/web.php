@@ -110,7 +110,7 @@ Route::prefix('/admin/suppliers')->name('suppliers.')->group(function () {
     Route::get('supplierView/{supplier}', [SupplierController::class, 'show'])->name('show');
     Route::get('supplierEdit/{supplier}/edit', [SupplierController::class, 'edit'])->name('edit');
     Route::put('/{supplier}', [SupplierController::class, 'update'])->name('update');
-    Route::get('/{supplier}', [SupplierController::class, 'destroy'])->name('destroy');
+    Route::delete('/{supplier}', [SupplierController::class, 'destroy'])->name('destroy');
 });
 
 /*-------------------------------------------------------

@@ -36,6 +36,9 @@ class SupplierController extends Controller
         ]);
 
         // Uploads
+        $uploadPath = public_path('uploads');
+
+
         if ($request->hasFile('vehicle_logbook_upload')) {
             $validated['vehicle_logbook_upload'] = $request->file('vehicle_logbook_upload')->store('suppliers/logbooks', 'public');
         }

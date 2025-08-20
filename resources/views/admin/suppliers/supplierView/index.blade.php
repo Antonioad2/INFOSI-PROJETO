@@ -146,11 +146,37 @@
                             </a>
                         </div>
                     </div>
-
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">B.I</div>
+                        <div class="col-lg-10 hstack gap-1">{{$supplier->bi}}</div>
+                    </div>
+                     <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">B.I</div>
+                        <div class="col-lg-10 hstack gap-1">{{$supplier->bi_upload}}</div>
+                     </div>
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Contacto</div>
                         <div class="col-lg-10 hstack gap-1">{{$supplier->phone}}</div>
                     </div>
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Endereço</div>
+                        <div class="col-lg-10 hstack gap-1">{{$supplier->address}}</div>  
+                    </div> 
+
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Carro</div>
+                        <div class="col-lg-10 hstack gap-1">{{$supplier->car_id}}</div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Data de Criação</div>
+                        <div class="col-lg-10 hstack gap-1">{{$supplier->created_at->format('d/m/Y')}}</div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Documento do carro</div>
+                        <div class="col-lg-10 hstack gap-1">{{$supplier->vehicle_logbook_upload}}</div>
+                     </div>
+                     
+
                 </div>
             </div>
         </div>
