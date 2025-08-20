@@ -36,7 +36,7 @@ class SupplierController extends Controller
         ]);
 
         // Uploads
-        $uploadPath = public_path('uploads');
+      
 
 
         if ($request->hasFile('vehicle_logbook_upload')) {
