@@ -173,7 +173,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Data de criação</div>
                         <div class="col-lg-10 hstack gap-1">
