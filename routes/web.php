@@ -23,6 +23,9 @@ use App\Model\Models;
 Route::get('/analytics', function () {
     return view('admin.dashboard.Analytics.index');
 });*/
+Route::get('/site/home',function (){
+    return view('Site.home.main');
+});
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
