@@ -118,7 +118,8 @@
                                                                     <span>Editar</span>
                                                                 </a>
                                                             </li>
-                                                            <li class="dropdown-divider"></li>
+                                                
+                                                         <li class="dropdown-divider"></li>
                                                             <li>
                                                                 <form action="{{ route('suppliers.destroy', $supplier) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este fornecedor?');">
                                                                     @csrf

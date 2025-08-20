@@ -23,6 +23,9 @@ use App\Model\Models;
 Route::get('/analytics', function () {
     return view('admin.dashboard.Analytics.index');
 });*/
+Route::get('/site/home',function (){
+    return view('Site.home.main');
+});
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
@@ -110,7 +113,7 @@ Route::prefix('/admin/suppliers')->name('suppliers.')->group(function () {
     Route::get('supplierView/{supplier}', [SupplierController::class, 'show'])->name('show');
     Route::get('supplierEdit/{supplier}/edit', [SupplierController::class, 'edit'])->name('edit');
     Route::put('/{supplier}', [SupplierController::class, 'update'])->name('update');
-    Route::get('/{supplier}', [SupplierController::class, 'destroy'])->name('destroy');
+    Route::delete('/{supplier}', [SupplierController::class, 'destroy'])->name('destroy');
 });
 
 
