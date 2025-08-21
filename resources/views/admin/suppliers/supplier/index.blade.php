@@ -45,7 +45,7 @@
                 <div class="card stretch stretch-full">
                     <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="supplierList">
+                            <table class="table table-hover" id="paymentList">
                                 <thead>
                                     <tr>
                                         <th class="wd-30">
@@ -81,14 +81,18 @@
                                             <td>
                                                <a href="javascript:void(0)" class="hstack gap-3">
                                                        <div class="avatar-image avatar-md">
-                                                 <img src="{{ $supplier->photo ? asset('storage/' . $supplier->photo) : asset('assets/images/avatar/default.png') }}" 
-                                                   alt="Fornecedor" 
-                                                      class="img-fluid rounded-circle" 
-                                                          style="width:40px; height:40px; object-fit:cover;">
-                                                           </div>
-                                                          <div>
-                                                     <span class="text-truncate-1-line">{{ $supplier->name }}</span>
-                                                          </div>
+
+                                                            <img src="{{ asset('uploads/supplier/supplier_photo/' . $supplier->photo) }}" 
+                                                                class="img-fluid" 
+                                                                alt="Fornecedor" 
+                                                                style="width:80px; height:80px; object-fit:cover;"
+                                                            >
+                                                        </div>
+
+                                                        <div>
+                                                            <span class="text-truncate-1-line">{{ $supplier->name }}</span>
+                                                            
+                                                        </div>
                                                      </a>
                                             </td>
 
@@ -102,15 +106,16 @@
                                                 {{ $supplier->registration_date ? \Carbon\Carbon::parse($supplier->registration_date)->format('d/m/Y') : 'N/A' }}
                                             </td>
                                             <td>
-                                                
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <a href="{{ route('suppliers.show', $supplier) }}" class="avatar-text avatar-md">
                                                         <i class="feather feather-eye"></i>
                                                     </a>
+
                                                     <div class="dropdown">
                                                         <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="dropdown" data-bs-offset="0,21">
                                                             <i class="feather feather-more-horizontal"></i>
                                                         </a>
+
                                                         <ul class="dropdown-menu">
                                                             <li>
                                                                 <a class="dropdown-item" href="{{ route('suppliers.edit', $supplier) }}">
@@ -119,7 +124,7 @@
                                                                 </a>
                                                             </li>
                                                 
-                                                         <li class="dropdown-divider"></li>
+                                                            <li class="dropdown-divider"></li>
                                                             <li>
                                                                 <form action="{{ route('suppliers.destroy', $supplier) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este fornecedor?');">
                                                                     @csrf

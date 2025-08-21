@@ -69,25 +69,25 @@ class CarController extends Controller
 
         if ($request->hasFile('image')) {
             $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
-            $request->image->move($uploadPath . '/car_images', $fileName);
+            $request->image->move($uploadPath . '/car/car_images', $fileName);
             $validated['image'] = $fileName;
         }
 
         if ($request->hasFile('car_insurance_upload')) {
             $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
-            $request->car_insurance_upload->move($uploadPath . '/insurance_documents', $fileName);
+            $request->car_insurance_upload->move($uploadPath . '/car/insurance_documents', $fileName);
             $validated['car_insurance_upload'] = $fileName;
         }
 
         if ($request->hasFile('car_document_upload')) {
             $fileName = time() . '_document.' . $request->car_document_upload->getClientOriginalExtension();
-            $request->car_document_upload->move($uploadPath . '/car_documents', $fileName);
+            $request->car_document_upload->move($uploadPath . '/car/car_documents', $fileName);
             $validated['car_document_upload'] = $fileName;
         }
 
         if ($request->hasFile('inspection_document_upload')) {
             $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
-            $request->inspection_document_upload->move($uploadPath . '/inspection_documents', $fileName);
+            $request->inspection_document_upload->move($uploadPath . '/car/inspection_documents', $fileName);
             $validated['inspection_document_upload'] = $fileName;
         }
 
@@ -152,25 +152,25 @@ class CarController extends Controller
 
         if ($request->hasFile('image')) {
             $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
-            $request->image->move($uploadPath . '/car_images', $fileName);
+            $request->image->move($uploadPath . '/car/car_images', $fileName);
             $validated['image'] = $fileName;
         }
 
         if ($request->hasFile('car_insurance_upload')) {
             $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
-            $request->car_insurance_upload->move($uploadPath . '/insurance_documents', $fileName);
+            $request->car_insurance_upload->move($uploadPath . '/car/insurance_documents', $fileName);
             $validated['car_insurance_upload'] = $fileName;
         }
 
         if ($request->hasFile('car_document_upload')) {
             $fileName = time() . '_document.' . $request->car_document_upload->getClientOriginalExtension();
-            $request->car_document_upload->move($uploadPath . '/car_documents', $fileName);
+            $request->car_document_upload->move($uploadPath . '/car/car_documents', $fileName);
             $validated['car_document_upload'] = $fileName;
         }
 
         if ($request->hasFile('inspection_document_upload')) {
             $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
-            $request->inspection_document_upload->move($uploadPath . '/inspection_documents', $fileName);
+            $request->inspection_document_upload->move($uploadPath . '/car/inspection_documents', $fileName);
             $validated['inspection_document_upload'] = $fileName;
         }
 

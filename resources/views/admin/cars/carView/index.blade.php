@@ -199,7 +199,7 @@
                                 <div class="avatar-text avatar-sm">
                                     <i class="feather-file-text"></i>
                                 </div>
-                                <a href="{{ asset('uploads/insurance_documents/' . $car->car_insurance_upload) }}" target="_blank">Seguro ({{ $car->car_insurance }})</a>
+                                <a href="{{ asset('uploads/car/insurance_documents/' . $car->car_insurance_upload) }}" target="_blank">Seguro ({{ $car->car_insurance }})</a>
                             </div>
                         @else
                             <span>Sem documento de seguro</span>
@@ -216,7 +216,7 @@
                                 <div class="avatar-text avatar-sm">
                                     <i class="feather-file-text"></i>
                                 </div>
-                                <a href="{{ asset('uploads/car_documents/' . $car->car_document_upload) }}" target="_blank">Documento do Carro ({{ $car->car_document }})</a>
+                                <a href="{{ asset('uploads/car/car_documents/' . $car->car_document_upload) }}" target="_blank">Documento do Carro ({{ $car->car_document }})</a>
                             </div>
                         @else
                             <span>Sem documento do carro</span>
@@ -232,7 +232,7 @@
                                 <div class="avatar-text avatar-sm">
                                     <i class="feather-file-text"></i>
                                 </div>
-                                <a href="{{ asset('uploads/inspection_documents/' . $car->inspection_document_upload) }}" target="_blank">Documento de Inspeção ({{ $car->inspection_date }})</a>
+                                <a href="{{ asset('uploads/car/inspection_documents/' . $car->inspection_document_upload) }}" target="_blank">Documento de Inspeção ({{ $car->inspection_date }})</a>
                             </div>
                         @else
                             <span>Sem documento de inspeção</span>
@@ -248,8 +248,8 @@
                         @if($car->image)
                             <div class="hstack gap-2">
                                 <div class="avatar-image">
-                                    <a href="{{ asset('uploads/car_images/' . $car->image) }}">
-                                        <img src="{{ asset('uploads/car_images/' . $car->image) }}" alt="Car Image" width="50" height="50" class="img-fluid">
+                                    <a href="{{ asset('uploads/car/car_images/' . $car->image) }}">
+                                        <img src="{{ asset('uploads/car/car_images/' . $car->image) }}" alt="Car Image" width="50" height="50" class="img-fluid">
                                     </a>
                                 </div>
                                 <span>Imagem do Carro</span>
