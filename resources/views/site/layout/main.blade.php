@@ -226,7 +226,7 @@
                         <div class="col-xl-6 col-lg-6">
                             <div class="search-booking-content">
                                 <div class="section-title">
-                                    <img src="{{ url('assets/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
+                                    <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
                                     <span class="wow fadeInUp" data-wow-delay=".2s">Get to know us</span>
                                     <h2 class="wow fadeInUp" data-wow-delay=".4s">
                                         Search Book & <br>
@@ -239,7 +239,7 @@
                                 <div class="icon-area">
                                     <div class="icon-items wow fadeInUp" data-wow-delay=".3s">
                                         <div class="icon">
-                                            <img src="assets/img/feature-benefit/icon-1.png" alt="icon-img">
+                                            <img src="{{ url('assets/user/img/feature-benefit/icon-1.png')}}" alt="icon-img">
                                         </div>
                                         <h4>
                                             Easier & <br>
@@ -248,7 +248,7 @@
                                     </div>
                                     <div class="icon-items wow fadeInUp" data-wow-delay=".5s">
                                         <div class="icon">
-                                            <img src="assets/img/feature-benefit/icon-2.png" alt="icon-img">
+                                            <img src="{{ url('assets/user/img/feature-benefit/icon-2.png')}}" alt="icon-img">
                                         </div>
                                         <h4>
                                             Too Many <br>
