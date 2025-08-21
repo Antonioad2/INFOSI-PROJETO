@@ -215,6 +215,136 @@
         </div>
     </section>
 
+     <!-- Search Booking Section Start -->
+        <section class="search-booking-section section-padding">
+            <div class="container">
+                <div class="search-booking-wrapper">
+                    <div class="booking-man float-bob-x">
+                        <img src="{{ url('assets/user/img/booking-man.png')}}" alt="img">
+                    </div>
+                    <div class="row g-4 justify-content-between">
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="search-booking-content">
+                                <div class="section-title">
+                                    <img src="{{ url('assets/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
+                                    <span class="wow fadeInUp" data-wow-delay=".2s">Get to know us</span>
+                                    <h2 class="wow fadeInUp" data-wow-delay=".4s">
+                                        Search Book & <br>
+                                        Rent Vehicle Easily
+                                    </h2>
+                                </div>
+                                <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".6s">
+                                    Lorem ipsum is simply ipun txns mane so dummy text of free <br> available in market the printing and typesetting industry has <br> been the industry's standard dummy text ever.
+                                </p>
+                                <div class="icon-area">
+                                    <div class="icon-items wow fadeInUp" data-wow-delay=".3s">
+                                        <div class="icon">
+                                            <img src="assets/img/feature-benefit/icon-1.png" alt="icon-img">
+                                        </div>
+                                        <h4>
+                                            Easier & <br>
+                                            Faster Bookings
+                                        </h4>
+                                    </div>
+                                    <div class="icon-items wow fadeInUp" data-wow-delay=".5s">
+                                        <div class="icon">
+                                            <img src="assets/img/feature-benefit/icon-2.png" alt="icon-img">
+                                        </div>
+                                        <h4>
+                                            Too Many <br>
+                                            Pickup Locations
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="product-search-area">
+                                <form action="#" id="contact-form" method="POST">
+                                   <div class="row g-4">
+                                    <div class="col-md-12">
+                                        <div class="pickup-items">
+                                            <label class="field-label">Pickup Location</label>
+                                            <div class="category-oneadjust">
+                                                <select name="cate" class="category">
+                                                    <option value="1">
+                                                        Broklyn Street
+                                                    </option>
+                                                    <option value="1">
+                                                        Houston
+                                                    </option>
+                                                    <option value="1">
+                                                        Texas
+                                                    </option>
+                                                    <option value="1">
+                                                        New York
+                                                    </option>
+                                                    <option value="1">
+                                                        Other Location
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-12">
+                                            <div class="pickup-items">
+                                                <label class="field-label">Pick-up Date</label>
+                                                <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                    <input class="form-control" type="text" placeholder="Check in" readonly>
+                                                    <span class="input-group-addon"> <i class="fa-solid fa-calendar-days"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="pickup-items">
+                                                <label class="field-label">Drop-off Date</label>
+                                                <div id="datepicker2" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                    <input class="form-control" type="text" placeholder="Check in" readonly>
+                                                    <span class="input-group-addon"> <i class="fa-solid fa-calendar-days"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="pickup-items">
+                                                <label class="field-label">Car Type</label>
+                                                <div class="category-oneadjust">
+                                                    <select name="cate" class="category">
+                                                        <option value="1">
+                                                            cars
+                                                        </option>
+                                                        <option value="1">
+                                                            sedan
+                                                        </option>
+                                                        <option value="1">
+                                                            sports
+                                                        </option>
+                                                        <option value="1">
+                                                            jeep
+                                                        </option>
+                                                        <option value="1">
+                                                            limousine
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="pickup-items">
+                                               <button type="submit" class="theme-btn">
+                                                     Find a Car
+                                               </button>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
     <!-- Pick Up Location Section Start -->
     <div class="pickup-loaction-area bg-cover" style="background-image: url('assets/img/brand-bg.png')" >
         <div class="container">
@@ -255,41 +385,27 @@
                     </div>
                 </div>
             </div>
-            <div class="pickup-wrapper wow fadeInUp" data-wow-delay=".4s" style="background-color: #ff3726 ; color: white"  >
-                <form action="" class="car-search-form">
-                    <div class="row g-4 align-items-end" >
-                        <!-- Input Local de levantamento -->
-                        <div class="col-lg-3 mb-6">
-                            <label class="form-label">Local de Levantamento</label>
-                            <input type="text" name="location" class="form-control custom-input" value="{{ old('location') }}" placeholder="Ex: Luanda, Angola">
-                        </div>
-                        <!-- Input Data e hora de levantamento -->
-                        <div class="col-lg-3 mb-6">
-                            <label class="form-label">Data e Hora de Levantamento</label>
-                            <input type="datetime-local" name="pickup_datetime" class="form-control custom-input" value="{{ old('pickup_datetime', now()->format('Y-m-d\TH:i')) }}" min="{{ now()->format('Y-m-d\TH:i') }}">
-                        </div>
-                        <!-- Input Data e hora de devolução -->
-                        <div class="col-lg-3 mb-6">
-                            <label class="form-label">Data e Hora de Devolução</label>
-                            <input type="datetime-local" name="dropoff_datetime" class="form-control custom-input" value="{{ old('dropoff_datetime', now()->addDay()->format('Y-m-d\TH:i')) }}" min="{{ now()->format('Y-m-d\TH:i') }}">
-                        </div>
 
-                        <!-- Input Tipo de Carro -->
-                        <div class="col-lg-3 mb-6">
-                            <label class="form-label">Bairro</label>
-                            <input type="text" name="location" class="form-control custom-input" value="{{ old('location') }}" placeholder="Ex: Paraiso">
 
-                        </div>
-                        <!-- Botão de Enviar -->
-                        <div class="col-lg-12 mb-3">
-                            <button type="submit" class="btn btn-primary custom-btn w-100">Pesquisar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+
+
+
+
+
+
+
+
+
             
         </div>
     </div>
+
+
+
+
+
+
+
 
     <!-- Search Booking Section Start -->
     <section class="feature-benefit section section-padding fix">

@@ -12,28 +12,28 @@
                                                     </ul>-->
                                                 </li>
                                                 <li>
-                                                    <a href="about.html">About Us</a>
+                                                    <a href="about.html">Sobre Nós</a>
                                                 </li>
                                                 <li class="has-dropdown">
                                                     <a href="news.html">
-                                                        Pages
+                                                        Páginas
                                                         <i class="fas fa-angle-down"></i>
                                                     </a>
                                                     <ul class="submenu">
-                                                        <li><a href="gallery.html">Gallery</a></li>
+                                                        <li><a href="gallery.html">Galeria</a></li>
                                                         <li><a href="faq.html">Faq's</a></li>
                                                     </ul>
                                                 </li>
                                                 <li>
                                                     <a href="program-details.html">
-                                                        Cars
+                                                        Carros
                                                         <i class="fas fa-angle-down"></i>
                                                     </a>
                                                     <ul class="submenu">
                                                         <li><a href="car-grid.html">Car Grid</a></li>
-                                                        <li><a href="car-list.html">Car List</a></li>
+                                                        <li><a href="car-list.html">Lista dos Carros</a></li>
                                                         <li><a href="car-list-sidebar.html">Car Sidebar</a></li>
-                                                        <li><a href="car-details.html">Car Details</a></li>
+                                                        <li><a href="car-details.html">Detalhe do carro</a></li>
                                                     </ul>
                                                 </li>
                                                 <li>
@@ -43,11 +43,11 @@
                                                     </a>
                                                     <ul class="submenu">
                                                         <li><a href="news.html">Blog</a></li>
-                                                        <li><a href="news-details.html">Blog Details</a></li>
+                                                        <li><a href="news-details.html">Detalhe do Blog</a></li>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="contact.html">Contact</a>
+                                                    <a href="contact.html">Contacto</a>
                                                 </li>
                                             </ul>
                                         </nav>
