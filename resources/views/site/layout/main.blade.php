@@ -216,7 +216,7 @@
     </section>
 
     <!-- Pick Up Location Section Start -->
-    <div class="pickup-loaction-area bg-cover" style="background-image: url('assets/img/brand-bg.png')">
+    <div class="pickup-loaction-area bg-cover" style="background-image: url('assets/img/brand-bg.png')" >
         <div class="container">
             <div class="brand-wrapper pt-80 pb-80">
                 <div class="swiper brand-slider">
@@ -255,33 +255,33 @@
                     </div>
                 </div>
             </div>
-            <div class="pickup-wrapper wow fadeInUp" data-wow-delay=".4s">
+            <div class="pickup-wrapper wow fadeInUp" data-wow-delay=".4s" style="background-color: #ff3726 ; color: white"  >
                 <form action="" class="car-search-form">
-                    <div class="row g-4 align-items-end">
+                    <div class="row g-4 align-items-end" >
                         <!-- Input Local de levantamento -->
-                        <div class="col-lg-4 mb-3">
+                        <div class="col-lg-3 mb-6">
                             <label class="form-label">Local de Levantamento</label>
                             <input type="text" name="location" class="form-control custom-input" value="{{ old('location') }}" placeholder="Ex: Luanda, Angola">
                         </div>
                         <!-- Input Data e hora de levantamento -->
-                        <div class="col-lg-4 mb-3">
+                        <div class="col-lg-3 mb-6">
                             <label class="form-label">Data e Hora de Levantamento</label>
                             <input type="datetime-local" name="pickup_datetime" class="form-control custom-input" value="{{ old('pickup_datetime', now()->format('Y-m-d\TH:i')) }}" min="{{ now()->format('Y-m-d\TH:i') }}">
                         </div>
                         <!-- Input Data e hora de devolução -->
-                        <div class="col-lg-4 mb-3">
+                        <div class="col-lg-3 mb-6">
                             <label class="form-label">Data e Hora de Devolução</label>
                             <input type="datetime-local" name="dropoff_datetime" class="form-control custom-input" value="{{ old('dropoff_datetime', now()->addDay()->format('Y-m-d\TH:i')) }}" min="{{ now()->format('Y-m-d\TH:i') }}">
                         </div>
 
                         <!-- Input Tipo de Carro -->
-                        <div class="col-lg-4 mb-3">
+                        <div class="col-lg-3 mb-6">
                             <label class="form-label">Bairro</label>
                             <input type="text" name="location" class="form-control custom-input" value="{{ old('location') }}" placeholder="Ex: Paraiso">
 
                         </div>
                         <!-- Botão de Enviar -->
-                        <div class="col-lg-4 mb-3">
+                        <div class="col-lg-12 mb-3">
                             <button type="submit" class="btn btn-primary custom-btn w-100">Pesquisar</button>
                         </div>
                     </div>
