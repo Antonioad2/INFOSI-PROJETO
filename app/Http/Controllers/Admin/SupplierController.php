@@ -35,18 +35,25 @@ class SupplierController extends Controller
             'photo'                  => 'nullable|file|mimes:jpg,jpeg,png|max:4096', // Added photo validation
         ]);
 
-        // Uploads
-      
-
+        // Diretórios
+        $uploadPath = public_path('uploads');
 
         if ($request->hasFile('vehicle_logbook_upload')) {
-            $validated['vehicle_logbook_upload'] = $request->file('vehicle_logbook_upload')->store('suppliers/logbooks', 'public');
+            $fileName = time() . '_document.' . $request->vehicle_logbook_upload->getClientOriginalExtension();
+            $request->vehicle_logbook_upload->move($uploadPath . '/supplier/vehicle_logbook_upload', $fileName);
+            $validated['vehicle_logbook_upload'] = $fileName;
         }
+
         if ($request->hasFile('bi_upload')) {
-            $validated['bi_upload'] = $request->file('bi_upload')->store('suppliers/bi', 'public');
+            $fileName = time() . '_document.' . $request->bi_upload->getClientOriginalExtension();
+            $request->bi_upload->move($uploadPath . '/supplier/supplier_bi_upload', $fileName);
+            $validated['bi_upload'] = $fileName;
         }
+
         if ($request->hasFile('photo')) {
-            $validated['photo'] = $request->file('photo')->store('suppliers/photos', 'public');
+            $fileName = time() . '_image.' . $request->photo->getClientOriginalExtension();
+            $request->photo->move($uploadPath . '/supplier/supplier_photo', $fileName);
+            $validated['photo'] = $fileName;
         }
 
         Supplier::create($validated);
@@ -83,26 +90,25 @@ class SupplierController extends Controller
             'photo'                  => 'nullable|file|mimes:jpg,jpeg,png|max:4096', // Added photo validation
         ]);
 
-        // Substituir arquivos se houver novo upload
+        // Diretórios
+        $uploadPath = public_path('uploads');
+
         if ($request->hasFile('vehicle_logbook_upload')) {
-            if ($supplier->vehicle_logbook_upload) {
-                Storage::disk('public')->delete($supplier->vehicle_logbook_upload);
-            }
-            $validated['vehicle_logbook_upload'] = $request->file('vehicle_logbook_upload')->store('suppliers/logbooks', 'public');
+            $fileName = time() . '_document.' . $request->vehicle_logbook_upload->getClientOriginalExtension();
+            $request->vehicle_logbook_upload->move($uploadPath . '/supplier/vehicle_logbook_upload', $fileName);
+            $validated['vehicle_logbook_upload'] = $fileName;
         }
 
         if ($request->hasFile('bi_upload')) {
-            if ($supplier->bi_upload) {
-                Storage::disk('public')->delete($supplier->bi_upload);
-            }
-            $validated['bi_upload'] = $request->file('bi_upload')->store('suppliers/bi', 'public');
+            $fileName = time() . '_document.' . $request->bi_upload->getClientOriginalExtension();
+            $request->bi_upload->move($uploadPath . '/supplier/supplier_bi_upload', $fileName);
+            $validated['bi_upload'] = $fileName;
         }
 
         if ($request->hasFile('photo')) {
-            if ($supplier->photo) {
-                Storage::disk('public')->delete($supplier->photo);
-            }
-            $validated['photo'] = $request->file('photo')->store('suppliers/photos', 'public');
+            $fileName = time() . '_image.' . $request->photo->getClientOriginalExtension();
+            $request->photo->move($uploadPath . '/supplier/supplier_photo', $fileName);
+            $validated['photo'] = $fileName;
         }
 
         $supplier->update($validated);

@@ -92,6 +92,7 @@
                                                     <a href="{{ route('brands.show', $brand) }}" class="avatar-text avatar-md">
                                                         <i class="feather feather-eye"></i>
                                                     </a>
+                                                    
                                                     <div class="dropdown">
                                                         <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="dropdown" data-bs-offset="0,21">
                                                             <i class="feather feather-more-horizontal"></i>
