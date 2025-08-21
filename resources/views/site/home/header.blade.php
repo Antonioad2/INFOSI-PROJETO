@@ -44,7 +44,6 @@
                                 <div class="mean__menu-wrapper">
                                     <div class="main-menu">
                                     @include('site.home.menu')
-                                    
                                     </div>
                                 </div>
                             </div>
