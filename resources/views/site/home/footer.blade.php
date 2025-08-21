@@ -5,7 +5,7 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                             <div class="single-footer-widget shape-map">
                                 <div class="widget-head">
-                                    <h4>Contact</h4>
+                                    <h4>Contacto</h4>
                                 </div>
                                 <div class="footer-content">
                                     <p>
@@ -28,32 +28,32 @@
                         <div class="col-xl-2 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                             <div class="single-footer-widget">
                                 <div class="widget-head">
-                                    <h4>Contact</h4>
+                                    <h4>Contacto</h4>
                                 </div>
                                 <ul class="list-items">
                                     <li>
                                         <a href="about.html"> 
-                                            About Us
+                                            Sobre Nós
                                         </a>
                                     </li>
                                     <li>
                                         <a href="car-details.html">
-                                            New Cars
+                                            Nova Carro
                                         </a>
                                     </li>
                                     <li>
                                         <a href="news-details.html">
-                                            Latest News
+                                            Últimas Notícias
                                         </a>
                                     </li>
                                     <li>
                                         <a href="gallery.html">
-                                            Gallery
+                                            Galeria
                                         </a>
                                     </li>
                                     <li>
                                         <a href="contact.html">
-                                            Contact
+                                            Contacto
                                         </a>
                                     </li>
                                 </ul>
@@ -62,7 +62,7 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
                             <div class="single-footer-widget">
                                 <div class="widget-head">
-                                    <h4>Gallery</h4>
+                                    <h4>Galeria</h4>
                                 </div>
                                 <div class="footer-gallery">
                                     <div class="gallery-wrap">
