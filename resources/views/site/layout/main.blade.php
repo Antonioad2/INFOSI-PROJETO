@@ -216,7 +216,7 @@
     </section>
 
     <!-- Pick Up Location Section Start -->
-    <div class="pickup-loaction-area bg-cover" style="background-image: url('assets/img/brand-bg.png')">
+    <div class="pickup-loaction-area bg-cover" style="background-image: url('assets/img/brand-bg.png')" >
         <div class="container">
             <div class="brand-wrapper pt-80 pb-80">
                 <div class="swiper brand-slider">
@@ -255,9 +255,9 @@
                     </div>
                 </div>
             </div>
-            <div class="pickup-wrapper wow fadeInUp" data-wow-delay=".4s">
+            <div class="pickup-wrapper wow fadeInUp" data-wow-delay=".4s" style="background-color: #ff3726 ; color: white"  >
                 <form action="" class="car-search-form">
-                    <div class="row g-4 align-items-end">
+                    <div class="row g-4 align-items-end" >
                         <!-- Input Local de levantamento -->
                         <div class="col-lg-3 mb-6">
                             <label class="form-label">Local de Levantamento</label>
