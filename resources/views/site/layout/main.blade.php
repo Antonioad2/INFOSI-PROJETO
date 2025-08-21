@@ -264,23 +264,23 @@
                                    <div class="row g-4">
                                     <div class="col-md-12">
                                         <div class="pickup-items">
-                                            <label class="field-label">Pickup Location</label>
+                                            <label class="field-label">Local do Levantamento</label>
                                             <div class="category-oneadjust">
                                                 <select name="cate" class="category">
                                                     <option value="1">
-                                                        Broklyn Street
+                                                        Luanda
                                                     </option>
                                                     <option value="1">
-                                                        Houston
+                                                        Benguela
                                                     </option>
                                                     <option value="1">
-                                                        Texas
+                                                        Huambo
                                                     </option>
                                                     <option value="1">
-                                                        New York
+                                                        Cabinda
                                                     </option>
                                                     <option value="1">
-                                                        Other Location
+                                                        Outras Localidades
                                                     </option>
                                                 </select>
                                             </div>
@@ -288,7 +288,7 @@
                                     </div>
                                         <div class="col-md-12">
                                             <div class="pickup-items">
-                                                <label class="field-label">Pick-up Date</label>
+                                                <label class="field-label">Tempo de Receber</label>
                                                 <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
                                                     <input class="form-control" type="text" placeholder="Check in" readonly>
                                                     <span class="input-group-addon"> <i class="fa-solid fa-calendar-days"></i></span>
@@ -297,7 +297,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="pickup-items">
-                                                <label class="field-label">Drop-off Date</label>
+                                                <label class="field-label">Tempo de Entrega</label>
                                                 <div id="datepicker2" class="input-group date" data-date-format="dd-mm-yyyy">
                                                     <input class="form-control" type="text" placeholder="Check in" readonly>
                                                     <span class="input-group-addon"> <i class="fa-solid fa-calendar-days"></i></span>
@@ -306,23 +306,18 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="pickup-items">
-                                                <label class="field-label">Car Type</label>
+                                                <label class="field-label">Tipos de Carro</label>
                                                 <div class="category-oneadjust">
                                                     <select name="cate" class="category">
+                                                    
                                                         <option value="1">
-                                                            cars
+                                                            Luxo
                                                         </option>
                                                         <option value="1">
-                                                            sedan
+                                                            Padrão/Intermediario
                                                         </option>
                                                         <option value="1">
-                                                            sports
-                                                        </option>
-                                                        <option value="1">
-                                                            jeep
-                                                        </option>
-                                                        <option value="1">
-                                                            limousine
+                                                            Econômico
                                                         </option>
                                                     </select>
                                                 </div>
@@ -331,7 +326,7 @@
                                         <div class="col-md-12">
                                             <div class="pickup-items">
                                                <button type="submit" class="theme-btn">
-                                                     Find a Car
+                                                     Encontra um Carros
                                                </button>
                                             </div>
                                         </div>
