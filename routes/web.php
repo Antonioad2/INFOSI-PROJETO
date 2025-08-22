@@ -17,13 +17,9 @@ use App\Model\Models;
                     Site routes
 -------------------------------------------------------*/
 
-Route::get('/',function (){
-    return view('site.home.index');
-});
-
 Route::get('/', [HomeController::class, 'index'])->name('site.home');
-
 Route::get('/reservation', [HomeController::class, 'reservation'])->name('site.reservation');
+Route::get('/car-details', [HomeController::class, 'carDetails'])->name('site.car_details');
 
 
 

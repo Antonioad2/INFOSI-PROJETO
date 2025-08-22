@@ -225,22 +225,6 @@
                                             
                                             <div class="col-md-12">
                                                 <div class="pickup-items">
-                                                    <label class="field-label">Tipo de Carros</label>
-                                                    <div class="category-oneadjust">
-                                                         <select name="car_id" class="category">
-                                                            <option value="">Selecione um carro</option>
-                                                            @foreach($cars as $car)
-                                                                <option value="{{ $car->id }}" 
-                                                                    {{ old('id') == $car->id ? 'selected' : '' }}>
-                                                                    {{ $car->brand->name }} - {{ $car->models->name }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="pickup-items">
                                                 <button type="submit" class="theme-btn">
                                                         Encontre Seu Carro <i class="fa-solid fa-arrow-right ps-1"></i>
                                                 </button>

@@ -24,32 +24,75 @@
             </div>
         </div>
 
-<div class="container mt-4">
-    <h3>Carros encontrados</h3>
+        <!-- Car Rentals Section Start -->
+        <section class="car-list-section section-padding fix">
+            <div class="container">
+                <h3 class="mb-4">Carros encontrados</h3>
 
-    @if($cars->isEmpty())
-        <p>Nenhum carro disponível para os critérios informados.</p>
-    @else
-        <div class="row">
-            @foreach($cars as $car)
-                <div class="col-md-4 mb-3">
-                    <div class="card shadow-sm">
-                        <img src="{{ asset('uploads/car/car_images/' . $car->image) }}" class="card-img-top" alt="Carro">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $car->brand->name ?? '' }} {{ $car->models->name ?? '' }}</h5>
-                            <p class="card-text">
-                                Categoria: {{ $car->category }} <br>
-                                Cor: {{ $car->color->name ?? '' }} <br>
-                                Combustível: {{ $car->fuel->name ?? '' }}
-                            </p>
-                            <a href="#" class="btn btn-primary">Reservar</a>
+                @if($cars->isEmpty())
+                    <p>Nenhum carro disponível para os critérios informados.</p>
+                @else
+                    <div class="car-list-wrapper">
+                        <div class="row g-4">
+                            @foreach($cars as $car)
+                                <div class="col-lg-12">
+                                    <div class="car-list-items">
+                                        <div class="car-image bg-cover" 
+                                            style="background-image: url('{{ asset('uploads/car/car_images/' . $car->image) }}');">
+                                            <div class="post-cat">
+                                                Modelo de {{ $car->manufacture_date }}
+                                            </div>
+                                        </div>
+                                        <div class="car-content">
+                                            <div class="star">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <span>0 Reviews</span>
+                                            </div>
+                                            <h6 class="price">
+                                                R$ {{ number_format($car->price_per_day, 2, ',', '.') ?? '---' }} 
+                                                <span>/ Dia</span>
+                                            </h6>
+                                            <h3>
+                                                <a href="#">
+                                                    {{ $car->brand->name ?? '' }} {{ $car->models->name ?? '' }}
+                                                </a>
+                                            </h3>
+                                            <p>
+                                                Categoria: {{ $car->category ?? '' }} <br>
+                                                Cor: {{ $car->color->name ?? '' }} <br>
+                                                Combustível: {{ $car->fuel->name ?? '' }}
+                                            </p>
+                                            <ul class="icon-items">
+                                                <li>
+                                                    <img src="{{ asset('assets/user/img/car/seat.svg') }}" alt="img" class="me-1">
+                                                    {{ $car->seats ?? '---' }} Lugares
+                                                </li>
+                                                <li>
+                                                    <img src="{{ asset('assets/user/img/car/door.svg') }}" alt="img" class="me-1">
+                                                    {{ $car->doors ?? '---' }} Portas
+                                                </li>
+                                                <li>
+                                                    <img src="{{ asset('assets/user/img/car/automatic.svg') }}" alt="img" class="me-1">
+                                                    {{ $car->transmission ?? '---' }}
+                                                </li>
+                                                <li>
+                                                    <img src="{{ asset('assets/user/img/car/petrol.svg') }}" alt="img" class="me-1">
+                                                    {{ $car->fuel->name ?? '---' }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
-    @endif
-</div>
+                @endif
+            </div>
+        </section>
 
 
     </div>

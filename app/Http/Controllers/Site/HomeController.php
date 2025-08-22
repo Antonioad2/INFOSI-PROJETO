@@ -10,11 +10,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Pega todos os carros do banco
-        $cars = Car::with(['brand', 'models'])->get();
-
         // Envia para a view
-        return view('site.home.index', compact('cars'));
+        return view('site.home.index');
     }
 
     public function reservation(Request $request)
@@ -26,19 +23,19 @@ class HomeController extends Controller
         $carId    = $request->input('car_id'); // id do carro selecionado
 
         // Query inicial
-        $query = Car::with(['brand', 'models']);
+        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->get();
 
-        // Filtro por carro específico
-        if ($carId) {
-            $query->where('id', $carId);
-        }
-
-        $cars = $query->get();
 
         // Retorna para a view de listagem
         return view('site.home.reservation.index', compact('cars', 'local', 'dataRetira', 'dataDev'));
     }
 
+    public function carDetails()
+    {
+        // Envia para a view
+        
+        return view('site.home.car_details.index');
+    }
     
 }
 
