@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ModelsController;
 use App\Http\Controllers\Admin\BrandController;
@@ -12,23 +13,28 @@ use App\Model\Models;
 
 
 
+/*-------------------------------------------------------
+                    Site routes
+-------------------------------------------------------*/
+
+Route::get('/',function (){
+    return view('site.home.index');
+});
+
+Route::get('/', [HomeController::class, 'index'])->name('site.home');
+
+Route::get('/reservation', [HomeController::class, 'reservation'])->name('site.reservation');
+
+
+
+
 
 /*-------------------------------------------------------
                     Dashboard routes
 -------------------------------------------------------*/
-/*Route::get('/', function () {
-    return view('admin.dashboard.crm.index');
-});
 
-Route::get('/analytics', function () {
-    return view('admin.dashboard.Analytics.index');
-});*/
-Route::get('/site',function (){
-    return view('site.layout.main');
-});
-
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
+Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('analytics');
 
 /*-------------------------------------------------------
                     color routes
