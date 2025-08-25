@@ -1,7 +1,7 @@
 @extends('site.home.car_details.layout.main')
 @section('content-reservation-car_details')
 
-    <!--<< Breadcrumb Section Start >>-->
+    <!--View para Exibição do caso escolhido para reserva-->
     <div>
         <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/user/img/bg-header-banner.jpg')">
             <div class="container">
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <!-- Car Details Section Start -->
+        <!-- Section para exibir od detalhes do carro -->
         <section class="car-details fix section-padding">
             <div class="container">
                 <div class="car-details-wrapper">

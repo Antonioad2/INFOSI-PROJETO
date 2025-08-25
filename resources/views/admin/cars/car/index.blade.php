@@ -77,27 +77,17 @@
                                             <td><a href="{{ route('cars.show', $car) }}" class="fw-bold">{{ $car->id }}</a></td>
                                             <td>
                                                 <a href="javascript:void(0)" class="hstack gap-3">
-                                                    <div class="avatar-image avatar-md">
-                                                        @if($car->image)
-                                                            <img src="{{ Storage::url($car->image) }}" alt="Car Image" class="img-fluid">
-                                                        @else
-                                                            <img src="{{ asset('assets/images/avatar/default.png') }}" alt="Default Image" class="img-fluid">
+                                                        @if($car->brand->image)
+                                                            <a href="{{ asset('uploads/brand/brand_logo/' . $car->brand->image) }}">
+                                                                <img src="{{ asset('uploads/brand/brand_logo/' . $car->brand->image) }}" alt="Brand Logo" width="50" height="50" class="img-fluid">
+                                                            </a>                                                                                                                  
+                                                            @else
+                                                                <span>Sem imagem do carro</span>
                                                         @endif
-                                                    </div>
-                                                    <div>
-                                                        <span class="text-truncate-1-line">{{ $car->brand->name }}</span>
-                                                    </div>
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="javascript:void(0)" class="hstack gap-3">
-                                                    <div class="avatar-image avatar-md">
-                                                        @if($car->image)
-                                                            <img src="{{ Storage::url($car->image) }}" alt="Car Image" class="img-fluid">
-                                                        @else
-                                                            <img src="{{ asset('assets/images/avatar/default.png') }}" alt="Default Image" class="img-fluid">
-                                                        @endif
-                                                    </div>
+                                                <a href="javascript:void(0)" class="hstack gap-3">                                                    
                                                     <div>
                                                         <span class="text-truncate-1-line">{{ $car->models->name }}</span>
                                                     </div>

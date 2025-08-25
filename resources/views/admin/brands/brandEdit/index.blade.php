@@ -246,6 +246,19 @@
                                 @endif
 
                                 <div class="row">
+
+                                 <!-- Campo de Foto mantido separado -->
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Logo da Marca</label>
+                                    @if($brand->image)
+                                            @if (in_array(pathinfo($brand->image, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'svg']))
+                                                <img src="{{ Storage::url($brand->image) }}" alt="brand Image" style="max-width: 100px; max-height: 100px;">
+                                            @endif
+                                    @endif
+                                    <input type="file" name="image" class="form-control" accept="image/*,.pdf">
+                                    <small class="form-text text-muted">Deixe em branco para manter o arquivo atual.</small>
+                                </div>
+
                                     {{-- Nome --}}
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Nome da Marca</label>

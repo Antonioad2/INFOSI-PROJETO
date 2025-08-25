@@ -1,7 +1,7 @@
 @extends('site.home.reservation.layout.main')
 @section('content-reservation')
 
-    <!--<< Breadcrumb Section Start >>-->
+    <!-- View para Listagem de Carros disponíveis -->
     <div>
         <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/user/img/bg-header-banner.jpg');">
             <div class="container">
@@ -24,14 +24,19 @@
             </div>
         </div>
 
-        <!-- Car Rentals Section Start -->
+        <!-- Cards Para Listagem de Carros disponíveis -->
         <section class="car-list-section section-padding fix">
             <div class="container">
-                <h3 class="mb-4">Carros encontrados</h3>
+                <h3 class="mb-4">Carros disponíveis</h3>
 
                 @if($cars->isEmpty())
+
+                     <!-- No caso da tabela cars estiver vazia(nenhum carro cadastrado) -->
                     <p>Nenhum carro disponível para os critérios informados.</p>
+
                 @else
+
+                    <!-- Caso encontre carros-->
                     <div class="car-list-wrapper">
                         <div class="row g-4">
                             @foreach($cars as $car)
@@ -69,11 +74,11 @@
                                             <ul class="icon-items">
                                                 <li>
                                                     <img src="{{ asset('assets/user/img/car/seat.svg') }}" alt="img" class="me-1">
-                                                    {{ $car->seats ?? '---' }} Lugares
+                                                    {{ $car->number_of_seats ?? '---' }} Lugares
                                                 </li>
                                                 <li>
                                                     <img src="{{ asset('assets/user/img/car/door.svg') }}" alt="img" class="me-1">
-                                                    {{ $car->doors ?? '---' }} Portas
+                                                    {{ $car->number_of_doors ?? '---' }} Portas
                                                 </li>
                                                 <li>
                                                     <img src="{{ asset('assets/user/img/car/automatic.svg') }}" alt="img" class="me-1">
@@ -96,5 +101,5 @@
 
 
     </div>
-    <!--<< Breadcrumb Section End >>-->
+    <!-- Fim da View -->
 @endsection

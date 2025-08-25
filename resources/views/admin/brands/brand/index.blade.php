@@ -56,6 +56,7 @@
                                             </div>
                                         </th>
                                         <th>ID</th>
+                                        <th>Logo</th>
                                         <th>Nome</th>
                                         <th>Descrição</th>
                                         <th>Data de Cadastro</th>
@@ -74,14 +75,20 @@
                                                 </div>
                                             </td>
                                             <td><a href="{{ route('brands.create') }}" class="fw-bold">{{$brand->id}}</a></td>
+
                                             <td>
-                                                <a href="javascript:void(0)" class="hstack gap-3">
-                                                    <div class="avatar-image avatar-md">
-                                                        <img src="assets/images/avatar/1.png" alt="" class="img-fluid">
-                                                    </div>
+                                                 @if($brand->image)
+                                                    <a href="{{ asset('uploads/brand/brand_logo/' . $brand->image) }}">
+                                                        <img src="{{ asset('uploads/brand/brand_logo/' . $brand->image) }}" alt="Brand Logo" width="50" height="50" class="img-fluid">
+                                                    </a>                                                                                                                  
+                                                    @else
+                                                        <span>Sem imagem do carro</span>
+                                                 @endif
+                                            </td>
+
+                                            <td>
                                                     <div>
                                                         <span class="text-truncate-1-line">{{$brand->name}}</span>
-                                                        
                                                     </div>
                                                 </a>
                                             </td>
