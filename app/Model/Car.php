@@ -17,16 +17,18 @@ class Car extends Model
         'color_id',
         'brand_id',
         'fuel_id',
+        'supplier_id',
         'manufacture_date',
         'registration_date',
         'observations',
         'license_plate',
         'image',
-        'value',
         'car_insurance',
-        'car_insurance_image',
+        'car_insurance_upload',
         'car_document',
-        'car_document_image'
+        'car_document_upload',
+        'inspection_date',
+        'inspection_document_upload'
     ];
 
     public function models()
@@ -40,10 +42,14 @@ class Car extends Model
     public function brand()
     {
         return $this->belongsTo(Brand::class);      
-}
+    }
     public function fuel()
     {
         return $this->belongsTo(Fuel::class);
     }
-   
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+
 }

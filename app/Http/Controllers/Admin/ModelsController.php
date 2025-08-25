@@ -4,125 +4,96 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Models; // Assuming you have a Models model
+use App\Model\Brand;
+use App\Model\Models; // Updated to singular Models
 
 class ModelsController extends Controller
 {
-    //
-     public function index()
+    public function index()
     {
-        $models = Models::all();
+        $models = Models::with('brand')->get(); // Eager load brand for display
         return view('admin.models.model.index', compact('models'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('admin.models.modelCreate.index');
+        $brands = Brand::all(); // Fetch all brands for dropdown
+        return view('admin.models.modelCreate.index', compact('brands'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
             'date' => 'nullable|date',
+            'brand_id' => 'required|exists:brands,id', // Ensure brand_id exists
         ], [
-            'name.required' => 'O nome é obrigátorio.',
-            'description.max' => 'The description may not be greater than 1000 characters.',
-            'date.date' => 'The date must be a valid date.',
+            'name.required' => 'O nome é obrigatório.',
+            'description.max' => 'A descrição não pode ter mais de 1000 caracteres.',
+            'date.date' => 'A data deve ser válida.',
+            'brand_id.required' => 'A marca é obrigatória.',
+            'brand_id.exists' => 'A marca selecionada não existe.',
         ]);
+
         Models::create([
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
+            'brand_id' => $request->brand_id,
         ]);
 
-        return redirect()->route('models.index')->with('success', 'Modelo criada com sucesso!');
+        return redirect()->route('models.index')->with('success', 'Modelso criado com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Models $models)
     {
-        //
-        $model = Models::findOrFail($models->id);
-        return view('admin.models.modelView.index', compact('model')); // Caminho diferente para view única
-        //
-
+        $model = $models;
+        return view('admin.models.modelView.index', compact('model'));
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Models $models)
     {
-        //
-        return view('admin.models.modelEdit.index', ['model' => $models]);
+        $model = $models;
+        $brands = Brand::all();
+
+        return view('admin.models.modelEdit.index', compact('model', 'brands'));
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Models $models)
     {
-        //
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
             'date' => 'nullable|date',
+            'brand_id' => 'required|exists:brands,id',
         ], [
-            'name.required' => 'O nome é obrigátorio.',
-            'description.max' => 'O campo descrição não pode ter mais de 1000 caracteres.',
-            'date.date' => 'A data deve ser uma data válida.',
+            'name.required' => 'O nome é obrigatório.',
+            'description.max' => 'A descrição não pode ter mais de 1000 caracteres.',
+            'date.date' => 'A data deve ser válida.',
+            'brand_id.required' => 'A marca é obrigatória.',
+            'brand_id.exists' => 'A marca selecionada não existe.',
         ]);
 
         $models->update([
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
+            'brand_id' => $request->brand_id,
         ]);
-        return redirect()->route('models.index')->with('success', 'Modelo atualizada com sucesso!');
+
+        return redirect()->route('models.index')->with('success', 'Modelo atualizado com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function getModelsByBrand($brandId)
+    {
+        $models = Models::where('brand_id', $brandId)->get();
+        return response()->json($models);
+    }
+
     public function destroy(Models $models)
     {
-        //
         $models->delete();
-
-        return redirect()->route('models.index')->with('success', 'Modelo removida com sucesso!');
-        //
-
+        return redirect()->route('models.index')->with('success', 'Modelso removido com sucesso!');
     }
 }

@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="keyword" content="">
     <meta name="author" content="WRAPCODERS">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/images/favicon.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/bootstrap.min.css') }}">
@@ -31,5 +32,8 @@
     <script src="{{ url('assets/vendors/js/cleave.min.js') }}"></script>
     <script src="{{ url('assets/js/common-init.min.js') }}"></script>
     <script src="{{ url('assets/js/theme-customizer-init.min.js') }}"></script>
+
+    @stack('scripts')
+
 </body>
 </html>

@@ -74,10 +74,20 @@
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Fornecedor</label>
+                                    <select name="supplier_id" class="form-control">
+                                        <option value="">Selecione o Fornecedor</option>
+                                        @foreach($suppliers as $supplier)
+                                            <option value="{{ $supplier->id }}" {{ old('supplier_id') == $supplier->id ? 'selected' : '' }}>{{ $supplier->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
                                     <label class="form-label">Categoria</label>
                                     <select name="category" class="form-control">
                                         <option value="Luxury" {{ old('category') == 'Luxury' ? 'selected' : '' }}>Luxo</option>
-                                        <option value="Standard" {{ old('category') == 'Standard' ? 'selected' : '' }}>Padrão</option>
+                                        <option value="Standard" {{ old('category') == 'Standard' ? 'selected' : '' }}>Padrão / Intermediário</option>
                                         <option value="Economy" {{ old('category') == 'Economy' ? 'selected' : '' }}>Econômico</option>
                                     </select>
                                 </div>
@@ -93,13 +103,26 @@
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
-                                    <label class="form-label">Data de Fabricação</label>
-                                    <input type="date" name="manufacture_date" class="form-control" value="{{ old('manufacture_date') }}">
+                                    <label class="form-label">Ano de Fabricação</label>
+                                    <select name="manufacture_date" class="form-control">
+                                        <option value="">Selecione o ano</option>
+                                        @for ($year = now()->year; $year >= 2010; $year--)
+                                            <option value="{{ $year }}" {{ old('manufacture_date') == $year ? 'selected' : '' }}>
+                                                {{ $year }}
+                                            </option>
+                                        @endfor
+                                    </select>
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Data de Registro</label>
-                                    <input type="date" name="registration_date" class="form-control" value="{{ old('registration_date') }}">
+                                    <input
+                                        type="date"
+                                        name="registration_date"
+                                        class="form-control"
+                                        value="{{ old('registration_date', $car->registration_date ?? now()->format('Y-m-d')) }}"
+                                        min="{{ now()->format('Y-m-d') }}"
+                                    >
                                 </div>
 
                                 <!-- Campo combinado para Seguro -->
@@ -107,7 +130,7 @@
                                     <label class="form-label">Seguro</label>
                                     <div class="input-group">
                                         <input type="text" name="car_insurance" class="form-control" value="{{ old('car_insurance') }}" placeholder="Número do Seguro">
-                                        <input type="file" name="car_insurance_image" class="form-control" accept="image/*" style="border-left: 1px solid #ced4da;">
+                                        <input type="file" name="car_insurance_upload" class="form-control" accept="application/pdf" style="border-left: 1px solid #ced4da;">
                                     </div>
                                 </div>
 
@@ -116,7 +139,7 @@
                                     <label class="form-label">Documento do Carro</label>
                                     <div class="input-group">
                                         <input type="text" name="car_document" class="form-control" value="{{ old('car_document') }}" placeholder="Número do Documento">
-                                        <input type="file" name="car_document_image" class="form-control" accept="image/*" style="border-left: 1px solid #ced4da;">
+                                        <input type="file" name="car_document_upload" class="form-control" accept="application/pdf" style="border-left: 1px solid #ced4da;">
                                     </div>
                                 </div>
 
@@ -124,6 +147,15 @@
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Foto do Carro</label>
                                     <input type="file" name="image" class="form-control" accept="image/*">
+                                </div>
+
+                                <!-- Campo combinado para Inspeção -->
+                                <div class="col-lg-12 mb-3">
+                                    <label class="form-label">Inspeção</label>
+                                    <div class="input-group">
+                                        <input type="date" name="inspection_date" class="form-control" value="{{ old('inspection_date', $car->inspection_date ?? now()->format('Y-m-d')) }}" placeholder="Data da Inspeção">
+                                        <input type="file" name="inspection_document_upload" class="form-control" accept="application/pdf" style="border-left: 1px solid #ced4da;">
+                                    </div>
                                 </div>
 
                                 <div class="col-lg-12 mb-3">
@@ -143,3 +175,43 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $(document).ready(function() {
+        $('select[name="brand_id"]').on('change', function() {
+            var brandId = $(this).val();
+            var modelSelect = $('select[name="models_id"]');
+
+            modelSelect.html('<option value="">Carregando...</option>');
+
+            if (brandId) {
+                $.ajax({
+                    url: '/get-models-by-brand/' + brandId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        modelSelect.empty();
+                        modelSelect.append('<option value="">Selecione o Modelo</option>');
+                        $.each(data, function(key, value) {
+                            modelSelect.append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    },
+                    error: function() {
+                        modelSelect.html('<option value="">Erro ao carregar modelos</option>');
+                    }
+                });
+            } else {
+                modelSelect.html('<option value="">Selecione a Marca primeiro</option>');
+            }
+        });
+    });
+</script>
+@endpush

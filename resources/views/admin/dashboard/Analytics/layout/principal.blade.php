@@ -40,14 +40,14 @@
 </head>
 
 <body>
-    @include('admin.dashboard.Analytics.parcial.header')
-    @include('admin.dashboard.Analytics.parcial.menu')
+    @include('admin._parcial.header')
+    @include('admin._parcial.menu')
 
     <main class="nxl-container">
         @yield('content-Analytics')
 
-        @include('admin.dashboard.Analytics.parcial.thema')
-        @include('admin.dashboard.Analytics.parcial.footer')
+        @include('admin._parcial.thema')
+        @include('admin._parcial.footer')
     </main>
 
     @include('color.color.parcial.header')

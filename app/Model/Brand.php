@@ -15,5 +15,8 @@ class Brand extends Model
         'date'
     ];
 
-    
+    public function models()
+    {
+        return $this->hasMany(Model::class , 'brand_id');
+    }
 }

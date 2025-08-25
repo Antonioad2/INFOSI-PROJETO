@@ -6,6 +6,7 @@ use App\Model\Brand;
 use App\Model\Models;
 use App\Model\Color;
 use App\Model\Fuel;
+use App\Model\Supplier;
 use App\Model\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -31,8 +32,9 @@ class CarController extends Controller
         $models = Models::all();
         $colors = Color::all();
         $fuels  = Fuel::all();
+        $suppliers = Supplier::all(); // Adicionando fornecedores para o formulário
 
-        return view('admin.cars.carCreate.index', compact('brands', 'models', 'colors', 'fuels'));  
+        return view('admin.cars.carCreate.index', compact('brands', 'models', 'colors', 'fuels', 'suppliers'));  
     }
 
 
@@ -48,26 +50,52 @@ class CarController extends Controller
             'color_id'          => 'required|exists:colors,id',
             'brand_id'          => 'required|exists:brands,id',
             'fuel_id'           => 'required|exists:fuels,id',
-            'manufacture_date'  => 'required|date',
+            'supplier_id'      => 'nullable|exists:suppliers,id',
+            'manufacture_date' => 'required|integer|between:2010,' . now()->year,
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
             'license_plate'     => 'required|string|unique:cars,license_plate',
             'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'value'             => 'required|numeric|min:0',
             'car_insurance'     => 'nullable|string',
-            'car_insurance_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'car_document'      => 'required|string|max:255',
-            'car_document_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'car_insurance_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_document'      => 'required|string|max:255',  
+            'car_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'inspection_date'   => 'nullable|date',
+            'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
         ]);
 
+        // Diretórios
+        $uploadPath = public_path('uploads');
+
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('cars', 'public');
+            $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
+            $request->image->move($uploadPath . '/car/car_images', $fileName);
+            $validated['image'] = $fileName;
+        }
+
+        if ($request->hasFile('car_insurance_upload')) {
+            $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
+            $request->car_insurance_upload->move($uploadPath . '/car/insurance_documents', $fileName);
+            $validated['car_insurance_upload'] = $fileName;
+        }
+
+        if ($request->hasFile('car_document_upload')) {
+            $fileName = time() . '_document.' . $request->car_document_upload->getClientOriginalExtension();
+            $request->car_document_upload->move($uploadPath . '/car/car_documents', $fileName);
+            $validated['car_document_upload'] = $fileName;
+        }
+
+        if ($request->hasFile('inspection_document_upload')) {
+            $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
+            $request->inspection_document_upload->move($uploadPath . '/car/inspection_documents', $fileName);
+            $validated['inspection_document_upload'] = $fileName;
         }
 
         Car::create($validated);
 
         return redirect()->route('cars.index')->with('success', 'Carro criado com sucesso!');
     }
+
 
     /**
      * Mostra os detalhes de um carro
@@ -102,43 +130,55 @@ class CarController extends Controller
         $car = Car::findOrFail($id);
 
         $validated = $request->validate([
-            'chassi'            => 'required|string|unique:cars,chassi,' . $car->id,
             'category'          => 'required|in:Luxury,Standard,Economy',
             'models_id'         => 'required|exists:models,id',
             'color_id'          => 'required|exists:colors,id',
             'brand_id'          => 'required|exists:brands,id',
             'fuel_id'           => 'required|exists:fuels,id',
-            'manufacture_date'  => 'required|date',
+            'supplier_id'      => 'nullable|exists:suppliers,id',
+            'manufacture_date'  => 'required|unsignedSmallInteger',
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
-            'license_plate'     => 'required|string|unique:cars,license_plate,' . $car->id,
-            'image'             => 'nullable|image|mimes:jpg,jpeg,pdf,png|max:2048',
-            'value'             => 'required|numeric|min:0',
+            'image'             => 'nullable|image|mimes:jpg,jpeg,png,pdf|max:2048',
             'car_insurance'     => 'nullable|string',
-            'car_insurance_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'car_insurance_upload' => 'nullable|mimes:pdf',
             'car_document'      => 'required|string|max:255',
-            'car_document_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'car_document_upload' => 'nullable|mimes:pdf,doc,docx',
+            'inspection_date'   => 'nullable|date',
+            'inspection_document_upload' => 'nullable|mimes:pdf,doc,docx',
         ]);
 
-       if ($request->hasFile('car_insurance_image')) {
-            $path = $request->file('car_insurance_image')->store('insurance_images', 'public');
-            $validated['car_insurance_image'] = $path;
-        }
-
-        if ($request->hasFile('car_document_image')) {
-            $path = $request->file('car_document_image')->store('document_images', 'public');
-            $validated['car_document_image'] = $path;
-        }
+        $uploadPath = public_path('uploads');
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('car_images', 'public');
-            $validated['image'] = $path;
+            $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
+            $request->image->move($uploadPath . '/car/car_images', $fileName);
+            $validated['image'] = $fileName;
         }
 
-    // Salvar no banco de dados
-    Car::create($validated);
+        if ($request->hasFile('car_insurance_upload')) {
+            $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
+            $request->car_insurance_upload->move($uploadPath . '/car/insurance_documents', $fileName);
+            $validated['car_insurance_upload'] = $fileName;
+        }
 
-    return redirect()->route('cars.index')->with('success', 'Carro cadastrado com sucesso!'); }
+        if ($request->hasFile('car_document_upload')) {
+            $fileName = time() . '_document.' . $request->car_document_upload->getClientOriginalExtension();
+            $request->car_document_upload->move($uploadPath . '/car/car_documents', $fileName);
+            $validated['car_document_upload'] = $fileName;
+        }
+
+        if ($request->hasFile('inspection_document_upload')) {
+            $fileName = time() . '_inspection.' . $request->inspection_document_upload->getClientOriginalExtension();
+            $request->inspection_document_upload->move($uploadPath . '/car/inspection_documents', $fileName);
+            $validated['inspection_document_upload'] = $fileName;
+        }
+
+        $car->update($validated);
+
+        return redirect()->route('cars.index')->with('success', 'Carro atualizado com sucesso!');
+    }
+
 
     /**
      * Remove um carro

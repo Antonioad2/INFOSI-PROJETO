@@ -253,9 +253,15 @@
                                     </div>
 
                                     {{-- Data de Cadastro --}}
-                                    <div class="col-lg-5 mb-3">
+                                    <div class="col-lg-4 mb-3">
                                         <label class="form-label">Data de Cadastro</label>
-                                        <input type="date" name="date" class="form-control" value="{{ old('date') }}">
+                                        <input
+                                            type="date"
+                                            name="date"
+                                            class="form-control"
+                                            value="{{ old('date', $color->date ?? now()->format('Y-m-d')) }}"
+                                            min="{{ now()->format('Y-m-d') }}"
+                                        >
                                     </div>
 
                                     {{-- Descrição --}}
