@@ -9,6 +9,7 @@
                     <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
                         <li>
                             <a href="index.html">
+                                
                                 Home
                             </a>
                         </li>
@@ -52,10 +53,15 @@
                                                 <i class="fa-solid fa-star"></i>
                                                 <span>0 Reviews</span>
                                             </div>
+                                            
                                             <h6 class="price">
                                                 R$ {{ number_format($car->price_per_day, 2, ',', '.') ?? '---' }} 
                                                 <span>/ Dia</span>
-                                            </h6>
+                                             <a href="{{ route('site.car_details', ['car_id' => $car->id]) }}" class="theme-btn">
+                                                    Ver Mais
+                                                </a>
+                                            </h6>  
+                                                                                      
                                             <h3>
                                                 <a href="#">
                                                     {{ $car->brand->name ?? '' }} {{ $car->models->name ?? '' }}
@@ -69,11 +75,11 @@
                                             <ul class="icon-items">
                                                 <li>
                                                     <img src="{{ asset('assets/user/img/car/seat.svg') }}" alt="img" class="me-1">
-                                                    {{ $car->seats ?? '---' }} Lugares
+                                                    {{ $car->number_of_seats ?? '---' }} Lugares
                                                 </li>
                                                 <li>
                                                     <img src="{{ asset('assets/user/img/car/door.svg') }}" alt="img" class="me-1">
-                                                    {{ $car->doors ?? '---' }} Portas
+                                                    {{ $car->number_of_doors ?? '---' }} Portas
                                                 </li>
                                                 <li>
                                                     <img src="{{ asset('assets/user/img/car/automatic.svg') }}" alt="img" class="me-1">
@@ -83,8 +89,11 @@
                                                     <img src="{{ asset('assets/user/img/car/petrol.svg') }}" alt="img" class="me-1">
                                                     {{ $car->fuel->name ?? '---' }}
                                                 </li>
+
                                             </ul>
+                                            
                                         </div>
+                                     
                                     </div>
                                 </div>
                             @endforeach

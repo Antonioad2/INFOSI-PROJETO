@@ -18,7 +18,7 @@ use App\Model\Models;
 
 Route::get('/', [HomeController::class, 'index'])->name('site.home');
 Route::get('/reservation', [HomeController::class, 'reservation'])->name('site.reservation');
-Route::get('/car-details', [HomeController::class, 'carDetails'])->name('site.car_details');
+Route::get('/car-details/{car_id}', [HomeController::class, 'carDetails'])->name('site.car_details');
 
 
 /*-------------------------------------------------------
