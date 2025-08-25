@@ -114,7 +114,7 @@
 
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Número de Assentos</label>
-                                    <input type="number" name="number_of_seats" class="form-control" value="{{ old('number_of_seats') }}" min="1" max="20" placeholder="Número de Assentos">
+                                    <input type="number" name="number_of_seats" class="form-control" value="{{ old('number_of_seats') }}" min="1" max="56" placeholder="Número de Assentos">
                                 </div>
 
                                 <div class="col-lg-4 mb-3">

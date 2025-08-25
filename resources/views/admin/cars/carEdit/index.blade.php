@@ -79,7 +79,7 @@
                                     <select name="category" class="form-control">
                                         <option value="Luxury" {{ old('category', $car->category) == 'Luxury' ? 'selected' : '' }}>Luxo</option>
                                         <option value="Standard" {{ old('category', $car->category) == 'Standard' ? 'selected' : '' }}>Padrão / Intermediário</option>
-                                        <option value="Economy" {{ old('category', $car->category) == 'Economy' ? 'selected' : '' }}>-Econômico</option>
+                                        <option value="Economy" {{ old('category', $car->category) == 'Economy' ? 'selected' : '' }}>Econômico</option>
                                     </select>
                                 </div>
 
@@ -93,6 +93,34 @@
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Placa ou Matrícula</label>
                                     <input type="text" class="form-control" value="{{$car->license_plate}}" readonly>
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Quilometragem</label>
+                                    <input type="number" name="mileage" class="form-control" value="{{ old('mileage') }}" placeholder="Quilometragem em km">
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                        <label class="form-label">Número de Portas</label>
+                                        <input type="number" name="number_of_doors" class="form-control" value="{{ old('number_of_doors') }}" min="1" max="10" placeholder="Número de Portas">
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Número de Assentos</label>
+                                    <input type="number" name="number_of_seats" class="form-control" value="{{ old('number_of_seats') }}" min="1" max="56" placeholder="Número de Assentos">
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Motor</label>
+                                    <input type="text" name="engine" class="form-control" value="{{ old('engine') }}" placeholder="Detalhes do Motor">
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Transmissão</label>
+                                    <select name="transmission" class="form-control">
+                                        <option value="Manual" {{ old('transmission') == 'Manual' ? 'selected' : '' }} >Manual</option>
+                                        <option value="Automático" {{ old('transmission') == 'Automático' ? 'selected' : '' }}>Automático</option>
+                                    </select>
                                 </div>
 
                                 <div class="col-lg-4 mb-3">
