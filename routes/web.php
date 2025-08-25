@@ -12,7 +12,6 @@ use App\Http\Controllers\Admin\SupplierController;
 use App\Model\Models;
 
 
-
 /*-------------------------------------------------------
                     Site routes
 -------------------------------------------------------*/
@@ -20,9 +19,6 @@ use App\Model\Models;
 Route::get('/', [HomeController::class, 'index'])->name('site.home');
 Route::get('/reservation', [HomeController::class, 'reservation'])->name('site.reservation');
 Route::get('/car-details', [HomeController::class, 'carDetails'])->name('site.car_details');
-
-
-
 
 
 /*-------------------------------------------------------
