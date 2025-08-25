@@ -24,6 +24,11 @@ class CreateCarsTable extends Migration
             $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
             $table->foreignId('fuel_id')->constrained('fuels')->onDelete('cascade');
             $table->foreignId('supplier_id')->nullable()->constrained('suppliers')->onDelete('cascade');
+            $table->integer('mileage')->nullable();
+            $table->integer('number_of_doors')->nullable();
+            $table->integer('number_of_seats')->nullable();
+            $table->string('engine')->nullable();
+            $table->enum('transmission', ['Manual', 'Automático'])->default('Manual');
             $table->date('manufacture_date');
             $table->date('registration_date');
             $table->string('observations')->nullable();
