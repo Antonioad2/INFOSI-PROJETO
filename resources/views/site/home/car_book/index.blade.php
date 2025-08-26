@@ -1,8 +1,8 @@
-@extends('site.home.car_details.layout.main')
-@section('content-car_details')
+@extends('site.home.car_book.layout.main')
+@section('content-car_book')
 
     <!--View para Exibição do caso escolhido para reserva-->
-     <div>
+    <div>
         <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/user/img/bg-header-banner.jpg')">
             <div class="container">
                 <div class="page-heading">
@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="car-booking-items">
                                 <div class="booking-header">
                                     <h3>Request for Booking</h3>
@@ -173,7 +173,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
+                       {{-- <div class="col-lg-4">
                             <div class="car-list-sidebar">
                                 <h4 class="title">Booking Form</h4>
                                 <form action="#" id="contact-form2" method="POST" class="contact-form-items">
@@ -246,81 +246,18 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <button type="submit" class="theme-btn"><a href="{{ route('site.car_book', ['car_id' => $car->id]) }}" >Book Now</a></button>
+                                                <button type="submit" class="theme-btn">Book Now</button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>
 
-        <!-- Car Rentals Section Start -->
-       {{--<section class="car-rentals-section-2 section-padding fix pt-0">
-            <div class="container">
-                <div class="section-title text-center">
-                    <img src="{{ url('assets/user/img/sub-icon.png') }}" alt="icon-img" class="wow fadeInUp">
-                    <span class="wow fadeInUp" data-wow-delay=".2s">Checkout our new cars</span>
-                    <h2 class="wow fadeInUp" data-wow-delay=".4s">
-                        Similar Cars Available
-                    </h2>
-                </div>
-                <div class="row">
-                    @foreach($cars->take(3) as $similarCar)
-                        @if($similarCar->id != $car->id)
-                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".{{ 3 + loop.index * 2 }}s">
-                                <div class="car-rentals-items">
-                                    <div class="car-image">
-                                        <img src="{{ asset('uploads/car/car_images/' . $similarCar->image) }}" alt="{{ $similarCar->brand->name ?? '' }} {{ $similarCar->models->name ?? '' }}">
-                                    </div>
-                                    <div class="car-content">
-                                        <div class="post-cat">
-                                            {{ $similarCar->manufacture_date ?? 'N/A' }} Model
-                                        </div>
-                                        <div class="star">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <span>0 Reviews</span>
-                                        </div>
-                                        <h4><a href="{{ route('site.car_details', ['car_id' => $similarCar->id]) }}">{{ $similarCar->brand->name ?? '' }} {{ $similarCar->models->name ?? '' }}</a></h4>
-                                        <h6>R$ {{ number_format($similarCar->price_per_day, 2, ',', '.') }} <span>/ Day</span></h6>
-                                        <div class="icon-items">
-                                            <ul>
-                                                <li>
-                                                    <img src="{{ url('assets/user/img/car/seat.svg') }}" alt="img" class="me-1">
-                                                    {{ $similarCar->number_of_seats ?? 'N/A' }} Seats
-                                                </li>
-                                                <li>
-                                                    <img src="{{ url('assets/user/img/car/door.svg') }}" alt="img" class="me-1">
-                                                    {{ $similarCar->number_of_doors ?? 'N/A' }} Doors
-                                                </li>
-                                            </ul>
-                                            <ul>
-                                                <li>
-                                                    <img src="{{ url('assets/user/img/car/automatic.svg') }}" alt="img" class="me-1">
-                                                    {{ $similarCar->transmission ?? 'N/A' }}
-                                                </li>
-                                                <li>
-                                                    <img src="{{ url('assets/user/img/car/petrol.svg') }}" alt="img" class="me-1">
-                                                    {{ $similarCar->fuel->name ?? 'N/A' }}
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <a href="{{ route('site.car_details', ['car_id' => $similarCar->id]) }}" class="theme-btn bg-color w-100 text-center">Book Now <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-        </section>--}}
     </div>
     <!--<< Breadcrumb Section End >>-->
 @endsection

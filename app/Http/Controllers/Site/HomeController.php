@@ -32,6 +32,16 @@ class HomeController extends Controller
         return view('site.home.reservation.index', compact('cars', 'local', 'dataRetira', 'dataDev'));
     }
 
+     public function carBook(Request $request)
+    {
+        $carId = $request->get('car_id');
+
+        // Busca o carro no banco
+        $car = Car::with(['brand', 'models'])->findOrFail($carId);
+
+        return view('site.home.car_book.index', compact('car'));
+    }
+
     public function carDetails($car_id)
 {
     // Fetch the car with its related data

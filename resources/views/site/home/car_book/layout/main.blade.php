@@ -88,7 +88,7 @@
         </div>
 
         @include('site._parcial.header')
-        @yield('content-car_details')
+        @yield('content-car_book')
         @include('site._parcial.footer')
 
         <!--<< All JS Plugins >>-->
