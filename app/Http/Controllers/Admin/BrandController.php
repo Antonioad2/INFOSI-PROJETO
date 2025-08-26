@@ -34,22 +34,23 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
             'description' => 'nullable|string|max:1000',
             'date' => 'nullable|date',
-        ], [
-            'name.required' => 'O nome é obrigátorio.',
-            'description.max' => 'The description may not be greater than 1000 characters.',
-            'date.date' => 'The date must be a valid date.',
         ]);
-        Brand::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'date' => $request->date,
-        ]);
+
+        // Diretórios
+        $uploadPath = public_path('uploads');
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
+            $request->image->move($uploadPath . '/brand/brand_logo', $fileName);
+            $validated['image'] = $fileName;
+        }
+
+        Brand::create($validated);
 
         return redirect()->route('brands.index')->with('success', 'Marca criada com sucesso!');
     }
@@ -87,21 +88,30 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, $id)
     {
         //
-        $request->validate([
+        $brand = Brand::findOrFail($id);
+
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
             'description' => 'nullable|string|max:1000',
             'date' => 'nullable|date',
-        ], [
-            'name.required' => 'O nome é obrigátorio.',
-            'description.max' => 'O campo descrição não pode ter mais de 1000 caracteres.',
-            'date.date' => 'A data deve ser uma data válida.',
         ]);
+
+        // Diretórios
+        $uploadPath = public_path('uploads');
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_image.' . $request->image->getClientOriginalExtension();
+            $request->image->move($uploadPath . '/brand/brand_logo', $fileName);
+            $validated['image'] = $fileName;
+        }
 
         $brand->update([
             'name' => $request->name,
+            'image' => $request->image,
             'description' => $request->description,
             'date' => $request->date,
         ]);

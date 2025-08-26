@@ -138,6 +138,18 @@
                     </div>
 
                     <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Logo da Marca</div>
+                        <div class="col-lg-10 hstack gap-1">
+                            @if($brand->image)
+                                <a href="{{ asset('uploads/brand/brand_logo/' . $brand->image) }}">
+                                    <img src="{{ asset('uploads/brand/brand_logo/' . $brand->image) }}" alt="Brand Logo" width="100" height="100" class="img-fluid">
+                                </a>                                                                                                                  
+                            @else
+                                <span>Sem imagem do carro</span>
+                            @endif
+                        </div>
+
+                    <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Data de criação</div>
                         <div class="col-lg-10 hstack gap-1">
                             <a href="javascript:void(0);" class="hstack gap-2">

@@ -8,6 +8,8 @@ use App\Model\Car;
 
 class HomeController extends Controller
 {
+
+ 
     public function index()
     {
         // Envia para a view
@@ -30,12 +32,30 @@ class HomeController extends Controller
         return view('site.home.reservation.index', compact('cars', 'local', 'dataRetira', 'dataDev'));
     }
 
-    public function carDetails()
+     public function carBook(Request $request)
     {
-        // Envia para a view
-        
-        return view('site.home.car_details.index');
+        $carId = $request->get('car_id');
+
+        // Busca o carro no banco
+        $car = Car::with(['brand', 'models'])->findOrFail($carId);
+
+        return view('site.home.car_book.index', compact('car'));
     }
-    
+
+    public function carDetails($car_id)
+{
+    // Fetch the car with its related data
+    $car = Car::with(['brand', 'models', 'color', 'fuel'])->findOrFail($car_id);
+
+    // Fetch similar cars (e.g., same category, excluding the current car)
+    $cars = Car::with(['brand', 'models', 'color', 'fuel'])
+        ->where('category', $car->category)
+        ->where('id', '!=', $car->id)
+        ->take(3)
+        ->get();
+
+    // Pass the car and similar cars to the view
+    return view('site.home.car_details.index', compact('car', 'cars'));
+}
 }
 
