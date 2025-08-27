@@ -27,7 +27,7 @@
 /* Estilos para o formulário de reserva */
 .car-details-wrapper-booking {
     width: 600px;
-    min-height: 500px;
+    min-height: 450px;
     margin-right: auto;
     margin-left: 5%;
     padding: 20px;              /* espaço interno */
@@ -98,12 +98,12 @@
 
 /* Estilos para a seção de pagamento */
 .payment-section {
-    margin-top: -30%;
+    margin-top: -35%;
 }
 
 .payment-wrapper {
     width: 50%;
-    margin-left: 5%;
+    margin-left: 6%;
     background: #fff;
     padding: 25px;
     border-radius: 10px;
@@ -141,6 +141,18 @@
 .form-clt select:focus,
 .form-clt input:focus {
     border-color: #007bff; /* mesma cor que já usas nos inputs */
+}
+.payment-form .theme-btn {
+    width: 100%;
+    padding: 12px;
+    background: #28a745; /* verde para pagamento */
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 /* FIM Estilos para a seção de pagamento */
 

@@ -95,6 +95,18 @@
                     </ul>
                 </li>
 
+                {{--Lista de Clientes--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-user"></i></span>
+                        <span class="nxl-mtext">Clientes</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.index')}}">Ver Clientes</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.create')}}">Criar Clientes</a></li>
+                    </ul>
+                </li>
+
                 {{--Lista de Carros--}}
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">

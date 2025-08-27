@@ -69,10 +69,6 @@
                                                     <input type="text" name="address" id="address" placeholder="Address">
                                                 </div>
                                             </div>
-
-                                            <div class="col-lg-12">
-                                                <button class="theme-btn" type="submit">Enviar</button>
-                                            </div>
                                         </div>
                                     </form>
                                 </div>

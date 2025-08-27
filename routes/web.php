@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\FuelController;
 use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Model\Models;
+use App\Http\Controllers\Admin\ClientController;
 
 
 /*-------------------------------------------------------
@@ -93,6 +94,10 @@ Route::prefix('/admin/fuels')->name('fuels.')->group(function () {
     Route::post('/{fuel}/restore', [FuelController::class, 'restore'])->name('restore');
 });
 
+/*-------------------------------------------------------
+                    car routes
+-------------------------------------------------------*/
+
 Route::prefix('/admin/cars')->name('cars.')->group(function () {
     Route::get('/', [CarController::class, 'index'])->name('index');
     Route::get('/create', [CarController::class, 'create'])->name('create');
@@ -105,6 +110,10 @@ Route::prefix('/admin/cars')->name('cars.')->group(function () {
 
 Route::get('/get-models-by-brand/{brandId}', [ModelsController::class, 'getModelsByBrand']);
 
+/*-------------------------------------------------------
+                    supplier routes
+-------------------------------------------------------*/
+
 Route::prefix('/admin/suppliers')->name('suppliers.')->group(function () {
     Route::get('/', [SupplierController::class, 'index'])->name('index');
     Route::get('/create', [SupplierController::class, 'create'])->name('create');
@@ -115,4 +124,17 @@ Route::prefix('/admin/suppliers')->name('suppliers.')->group(function () {
     Route::delete('/{supplier}', [SupplierController::class, 'destroy'])->name('destroy');
 });
 
+/*-------------------------------------------------------
+                    client routes
+-------------------------------------------------------*/
+
+Route::prefix('/admin/clients')->name('clients.')->group(function () {
+    Route::get('/', [ClientController::class, 'index'])->name('index');
+    Route::get('/create', [ClientController::class, 'create'])->name('create');
+    Route::post('/', [ClientController::class, 'store'])->name('store');
+    Route::get('clientView/{client}', [ClientController::class, 'show'])->name('show');
+    Route::get('clientEdit/{client}/edit', [ClientController::class, 'edit'])->name('edit');
+    Route::put('/{client}', [ClientController::class, 'update'])->name('update');
+    Route::delete('/{client}', [ClientController::class, 'destroy'])->name('destroy');
+});
 
