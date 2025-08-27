@@ -29,7 +29,7 @@
             <div class="container">
                 <div class="car-details-wrapper">
                     <div class="row g-5">
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <div class="car-details-items">
                                 <div class="car-image">
                                     <img src="{{ asset('uploads/car/car_images/' . $car->image) }}" alt="{{ $car->brand->name ?? '' }} {{ $car->models->name ?? '' }}">
@@ -172,10 +172,10 @@
                                 </form>
                             </div> --}}
                         </div>
-
-                        <div class="col-lg-4">
+                          <!-- FORMULARIO DE AGENDAMENTO DA RESERVA-->         
+                        <div class="col-lg-5">
                             <div class="car-list-sidebar">
-                                <h4 class="title">Booking Form</h4>
+                                <h4 class="title">Formulario de Reserva</h4>
                                 <form action="{{ route('site.car_book', ['car_id' => $car->id]) }}" 
                                     id="contact-form2" 
                                     method="POST" 
@@ -186,14 +186,19 @@
                                         <!-- Local -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <label class="label-text">Pick-up Location</label>
+                                                <label class="label-text">Localizaçao</label>
                                                 <div class="category-oneadjust">
-                                                    <select name="location" class="category" required>
-                                                        <option value="">Select Location</option>
-                                                        <option value="Houston">Houston</option>
-                                                        <option value="Texas">Texas</option>
-                                                        <option value="New York">New York</option>
-                                                        <option value="Other">Other Location</option>
+                                                   <select name="location" class="category" required>
+                                                        <option value="">Seleciona Localização</option>
+                                                        <option value="Belas">Belas</option>
+                                                        <option value="Cacuaco">Cacuaco</option>
+                                                        <option value="Cazenga">Cazenga</option>
+                                                        <option value="Icolo e Bengo">Icolo e Bengo</option>
+                                                        <option value="Luanda">Luanda</option>
+                                                        <option value="Kilamba Kiaxi">Kilamba Kiaxi</option>
+                                                        <option value="Quiçama">Quiçama</option>
+                                                        <option value="Talatona">Talatona</option>
+                                                        <option value="Viana">Viana</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -202,9 +207,9 @@
                                         <!-- Data de Pick-up -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <label class="label-text">Pick-up Date</label>
+                                                <label class="label-text">Data de Levantamento</label>
                                                 <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
-                                                    <input class="form-control" type="text" name="pickup_date" placeholder="Pick-up date" required>
+                                                    <input class="form-control" type="text" name="pickup_date" placeholder="Data de Levantamento" required>
                                                     <span class="input-group-addon"><i class="fa-solid fa-calendar-days"></i></span>
                                                 </div>
                                             </div>
@@ -213,9 +218,9 @@
                                         <!-- Data de Drop-off -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <label class="label-text">Drop-off Date</label>
+                                                <label class="label-text">Data de Entrega</label>
                                                 <div id="datepicker2" class="input-group date" data-date-format="dd-mm-yyyy">
-                                                    <input class="form-control" type="text" name="dropoff_date" placeholder="Drop-off date" required>
+                                                    <input class="form-control" type="text" name="Data_de_Entrega" placeholder="Data de Entrega" required>
                                                     <span class="input-group-addon"><i class="fa-solid fa-calendar-days"></i></span>
                                                 </div>
                                             </div>
@@ -224,7 +229,7 @@
                                         <!-- Quantidade -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <label class="label-text">Quantity</label>
+                                                <label class="label-text">Quantidade</label>
                                                 <div class="category-oneadjust">
                                                     <input type="number" name="quantity" class="category form-control" placeholder="Digite a quantidade" min="1" required>
                                                 </div>
@@ -232,36 +237,59 @@
                                         </div>
 
                                         <!-- Recursos extras -->
-                                        <div class="col-lg-12">
-                                            <div class="form-clt">
-                                                <label class="label-text">Resources</label>
-                                                <div class="input-save-items-area">
-                                                    <div class="input-save-items">
-                                                        <div class="input-save d-flex align-items-center mb-3">
-                                                            <input type="checkbox" class="form-check-input" name="resources[]" value="driver" id="driver">
-                                                            <label for="driver">Driver</label>
+                                       <div class="col-lg-12">
+                                                <div class="form-clt">
+                                                    <label class="label-text">Recursos adicionais</label>
+                                                    <div class="input-save-items-area">
+                                                        <div class="input-save-items">
+                                                            <div class="input-save d-flex align-items-center mb-3">
+                                                                <input type="checkbox" class="form-check-input" name="resources[]" value="driver" id="driver">
+                                                                <label for="driver">
+                                                                    <i class="fas fa-user-tie me-2"></i> Motorista
+                                                                </label>
+                                                            </div>
+                                                            <div class="input-save d-flex align-items-center mb-3">
+                                                                <input type="checkbox" class="form-check-input" name="resources[]" value="accident" id="accident">
+                                                                <label for="accident">
+                                                                    <i class="fas fa-ambulance me-2"></i> Proteção contra Acidentes
+                                                                </label>
+                                                            </div>
+                                                            <div class="input-save d-flex align-items-center mb-3">
+                                                                <input type="checkbox" class="form-check-input" name="resources[]" value="baby_seat" id="babySeat">
+                                                                <label for="babySeat">
+                                                                    <i class="fas fa-baby-carriage me-2"></i> Assento p/ Bebé
+                                                                </label>
+                                                            </div>
+                                                            <div class="input-save d-flex align-items-center">
+                                                                <input type="checkbox" class="form-check-input" name="resources[]" value="theft" id="theft">
+                                                                <label for="theft">
+                                                                    <i class="fas fa-shield-alt me-2"></i> Proteção contra Roubo
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                        <div class="input-save d-flex align-items-center">
-                                                            <input type="checkbox" class="form-check-input" name="resources[]" value="baby_seat" id="babySeat">
-                                                            <label for="babySeat">Baby Seat</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="input-save-items">
-                                                        <div class="input-save d-flex align-items-center mb-3">
-                                                            <label>$10.00 / Day</label>
-                                                        </div>
-                                                        <div class="input-save d-flex align-items-center">
-                                                            <label>$30.00 / Total</label>
+                                                        <div class="input-save-items">
+                                                            <div class="input-save d-flex align-items-center mb-3">
+                                                                <label>Kz1000 / Dia</label>
+                                                            </div>
+                                                            <div class="input-save d-flex align-items-center mb-3">
+                                                                <label>Kz1000 / Dia</label>
+                                                            </div>
+                                                            <div class="input-save d-flex align-items-center">
+                                                                <label>Kz1000 / Dia</label>
+                                                            </div>
+                                                            <div class="input-save d-flex align-items-center">
+                                                                <label>Kz1000 / Dia</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
 
                                         <!-- Botão -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <button type="submit" class="theme-btn">Book Now</button>
+                                                <button type="submit" class="theme-btn">Reservar Agora</button>
                                             </div>
                                         </div>
                                     </div>
