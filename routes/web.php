@@ -116,3 +116,12 @@ Route::prefix('/admin/suppliers')->name('suppliers.')->group(function () {
 });
 
 
+Route::prefix('/admin/drivers')->name('drivers.')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\DriverController::class, 'index'])->name('index');
+    Route::get('/create', [App\Http\Controllers\Admin\DriverController::class, 'create'])->name('create');
+    Route::post('/', [App\Http\Controllers\Admin\DriverController::class, 'store'])->name('store');
+    Route::get('driverView/{driver}', [App\Http\Controllers\Admin\DriverController::class, 'show'])->name('show');
+    Route::get('driverEdit/{driver}/edit', [App\Http\Controllers\Admin\DriverController::class, 'edit'])->name('edit');
+    Route::put('/{driver}', [App\Http\Controllers\Admin\DriverController::class, 'update'])->name('update');
+    Route::delete('/{driver}', [App\Http\Controllers\Admin\DriverController::class, 'destroy'])->name('destroy');
+});
