@@ -55,7 +55,7 @@ class ClientController extends Controller
         return redirect()->route('clients.index')->with('success', 'Fornecedor criado com sucesso!');
     }
 
-    public function show()
+    public function show($id)
     {
         $client = Client::find($id); 
         return view('admin.clients.clientView.index', compact('client'));
