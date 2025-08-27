@@ -3,7 +3,7 @@
 
     <!--View para Exibição do caso escolhido para reserva-->
      <div>
-        <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/user/img/bg-header-banner.jpg')">
+        <div class="breadcrumb-wrapper bg-cover" style="background-image: url('{{ asset('assets/user/img/bg-header-banner.jpg') }}')">
             <div class="container">
                 <div class="page-heading">
                     <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
 
-                            <div class="car-booking-items">
+{{--                             <div class="car-booking-items">
                                 <div class="booking-header">
                                     <h3>Request for Booking</h3>
                                     <p>Send your requirement to us. We will check email and contact you soon.</p>
@@ -170,7 +170,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="col-lg-4">
