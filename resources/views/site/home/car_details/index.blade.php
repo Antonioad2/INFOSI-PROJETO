@@ -131,46 +131,6 @@
                                     </div>
                                 </div>
                             </div>
-
-{{--                             <div class="car-booking-items">
-                                <div class="booking-header">
-                                    <h3>Request for Booking</h3>
-                                    <p>Send your requirement to us. We will check email and contact you soon.</p>
-                                </div>
-                                <form action="#" id="contact-form" method="POST" class="contact-form-items">
-                                    <div class="row g-4">
-                                        <div class="col-lg-6">
-                                            <div class="form-clt">
-                                                <label class="label-text">Your Name</label>
-                                                <input type="text" name="name" id="name" placeholder="Afzaal Islam">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-clt">
-                                                <label class="label-text">Email</label>
-                                                <input type="text" name="email" id="email" placeholder="pixydrops@gmail.com">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-clt">
-                                                <label class="label-text">Phone Number</label>
-                                                <input type="text" name="phone" id="phone" placeholder="+ 00 0000 - 000">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-clt">
-                                                <label class="label-text">Address</label>
-                                                <input type="text" name="address" id="address" placeholder="Address">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <button class="theme-btn" type="submit">
-                                                Send Request
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div> --}}
                         </div>
                           <!-- FORMULARIO DE AGENDAMENTO DA RESERVA-->         
                         <div class="col-lg-5">

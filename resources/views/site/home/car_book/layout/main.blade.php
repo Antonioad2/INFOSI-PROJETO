@@ -32,6 +32,8 @@
         <link rel="stylesheet" href="{{ url('assets/user/css/nice-select.css') }}">
         <!--<< Main.css >>-->
         <link rel="stylesheet" href="{{ url('assets/user/css/main.css') }}">
+        <!--<< CarBook.css >>-->
+        <link rel="stylesheet" href="{{ url('assets/user/css/car_book.css') }}">
     </head>
     <body>
 
