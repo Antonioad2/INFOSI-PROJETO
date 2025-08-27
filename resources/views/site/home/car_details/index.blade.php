@@ -45,13 +45,13 @@
                                     </div>
 
                                     <h3>{{ $car->brand->name ?? '' }} {{ $car->models->name ?? '' }}</h3>
-                                    <h6>R$ {{ number_format($car->price_per_day, 2, ',', '.') }} <span>/ Day</span></h6>
+                                    <h6>Kz {{ number_format($car->price_per_day, 2, ',', '.') }} <span>/ Dia</span></h6>
                                     <p class="mt-4 mb-4">
                                         {{ $car->observations ?? 'No description available.' }}
                                     </p>
 
                                     <div class="icon-details-area">
-                                        <h4>Key Features</h4>
+                                        <h4>Principais Características</h4>
                                         <div class="icon-details-main-items">
                                             <div class="icon-items">
                                                 <div class="icon">
