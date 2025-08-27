@@ -176,61 +176,74 @@
                         <div class="col-lg-4">
                             <div class="car-list-sidebar">
                                 <h4 class="title">Booking Form</h4>
-                                <form action="#" id="contact-form2" method="POST" class="contact-form-items">
+                                <form action="{{ route('site.car_book', ['car_id' => $car->id]) }}" 
+                                    id="contact-form2" 
+                                    method="POST" 
+                                    class="contact-form-items">
+                                    @csrf {{-- obrigatório em POST --}}
+
                                     <div class="row g-4">
+                                        <!-- Local -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
                                                 <label class="label-text">Pick-up Location</label>
                                                 <div class="category-oneadjust">
-                                                    <select name="cate" class="category">
-                                                        <option value="1">Select Location</option>
-                                                        <option value="1">Houston</option>
-                                                        <option value="1">Texas</option>
-                                                        <option value="1">New York</option>
-                                                        <option value="1">Other Location</option>
+                                                    <select name="location" class="category" required>
+                                                        <option value="">Select Location</option>
+                                                        <option value="Houston">Houston</option>
+                                                        <option value="Texas">Texas</option>
+                                                        <option value="New York">New York</option>
+                                                        <option value="Other">Other Location</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <!-- Data de Pick-up -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
                                                 <label class="label-text">Pick-up Date</label>
                                                 <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
-                                                    <input class="form-control" type="text" placeholder="Check in" readonly>
-                                                    <span class="input-group-addon"> <i class="fa-solid fa-calendar-days"></i></span>
+                                                    <input class="form-control" type="text" name="pickup_date" placeholder="Pick-up date" required>
+                                                    <span class="input-group-addon"><i class="fa-solid fa-calendar-days"></i></span>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <!-- Data de Drop-off -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
                                                 <label class="label-text">Drop-off Date</label>
                                                 <div id="datepicker2" class="input-group date" data-date-format="dd-mm-yyyy">
-                                                    <input class="form-control" type="text" placeholder="Check in" readonly>
-                                                    <span class="input-group-addon"> <i class="fa-solid fa-calendar-days"></i></span>
+                                                    <input class="form-control" type="text" name="dropoff_date" placeholder="Drop-off date" required>
+                                                    <span class="input-group-addon"><i class="fa-solid fa-calendar-days"></i></span>
                                                 </div>
                                             </div>
                                         </div>
-                                       <div class="col-lg-12">
-                                                          <div class="form-clt">
-                                           <label class="label-text">Quantity</label>
-                                              <div class="category-oneadjust">
-                                                                <input type="number" name="quantity" class="category form-control" placeholder="Digite a quantidade" >
-                                                         </div>
-                                                        </div>
-                                                </div>
 
+                                        <!-- Quantidade -->
+                                        <div class="col-lg-12">
+                                            <div class="form-clt">
+                                                <label class="label-text">Quantity</label>
+                                                <div class="category-oneadjust">
+                                                    <input type="number" name="quantity" class="category form-control" placeholder="Digite a quantidade" min="1" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Recursos extras -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
                                                 <label class="label-text">Resources</label>
                                                 <div class="input-save-items-area">
                                                     <div class="input-save-items">
                                                         <div class="input-save d-flex align-items-center mb-3">
-                                                            <input type="checkbox" class="form-check-input" name="save-for-next" id="saveForNext3">
-                                                            <label for="saveForNext3">Driver</label>
+                                                            <input type="checkbox" class="form-check-input" name="resources[]" value="driver" id="driver">
+                                                            <label for="driver">Driver</label>
                                                         </div>
                                                         <div class="input-save d-flex align-items-center">
-                                                            <input type="checkbox" class="form-check-input" name="save-for-next" id="saveForNext4">
-                                                            <label for="saveForNext4">Baby Seat</label>
+                                                            <input type="checkbox" class="form-check-input" name="resources[]" value="baby_seat" id="babySeat">
+                                                            <label for="babySeat">Baby Seat</label>
                                                         </div>
                                                     </div>
                                                     <div class="input-save-items">
@@ -244,13 +257,16 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <!-- Botão -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <button type="submit" class="theme-btn"><a href="{{ route('site.car_book', ['car_id' => $car->id]) }}" >Book Now</a></button>
+                                                <button type="submit" class="theme-btn">Book Now</button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
+
                             </div>
                         </div>
                     </div>
