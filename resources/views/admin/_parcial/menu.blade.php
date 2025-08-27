@@ -94,6 +94,16 @@
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.create')}}">Criar Fornecedores</a></li>
                     </ul>
                 </li>
+                {{--Lista de Motoristas--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="fas fa-user-tie"></i></span>
+                        <span class="nxl-mtext">Motoristas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('drivers.index')}}">Ver Motoristas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('drivers.create')}}">Criar Motoristas</a></li>
+                    </ul>
 
                 {{--Lista de Clientes--}}
                 <li class="nxl-item nxl-hasmenu">
