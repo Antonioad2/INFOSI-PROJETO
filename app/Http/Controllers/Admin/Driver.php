@@ -21,7 +21,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        return view('drivers.create');
+        return view('admin.drivers.driverCreate.create');
     }
 
     /**
@@ -32,8 +32,8 @@ class DriverController extends Controller
         $request->validate([
             'full_name' => 'required|string|max:255',
             'document_identification' => 'required|unique:drivers',
-            'id_image' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
-            'license_image' => 'required|image|mimes:jpg,jpeg,png,pdf|max:2048',
+            'id_image' => 'required|image|mimes:jpg,jpeg,png,pdf|max:5120',
+            'license_image' => 'required|image|mimes:jpg,jpeg,png,pdf|max:5120',
             'license_expiry_date' => 'required|date',
             'phone_number' => 'required|string|max:20',
             'gender' => 'nullable|in:male,female',
@@ -68,7 +68,7 @@ class DriverController extends Controller
      */
     public function show(Driver $driver)
     {
-        return view('drivers.show', compact('driver'));
+        return view('admin.drivers.driverView.index', compact('driver'));
     }
 
     /**
@@ -76,7 +76,7 @@ class DriverController extends Controller
      */
     public function edit(Driver $driver)
     {
-        return view('drivers.edit', compact('driver'));
+        return view('admin.drivers.driverEdit.index', compact('driver'));
     }
 
     /**
