@@ -11,4 +11,13 @@ class Reserve extends Model
     protected $fillable = [
         'client_id', 'car_id', 'start_date', 'end_date', 'total_amount', 'resource', 'status'
     ];
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
 }

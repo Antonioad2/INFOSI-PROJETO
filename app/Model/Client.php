@@ -19,4 +19,8 @@ class Client extends Model
         'driver_license', 
         'driver_license_upload'
     ];
+    public function reserves()
+    {
+        return $this->hasMany(Reserve::class);
+    }
 }
