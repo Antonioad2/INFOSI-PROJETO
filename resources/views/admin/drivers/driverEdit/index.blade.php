@@ -53,7 +53,7 @@
 
                                 <!-- Documento de Identificação -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="document_identification" class="form-label">Documento de Identificação <span class="text-danger">*</span></label>
+                                    <label for="document_identification" class="form-label">BI ou PASSPORTE<span class="text-danger">*</span></label>
                                     <input type="text" name="document_identification" id="document_identification" class="form-control @error('document_identification') is-invalid @enderror" value="{{ old('document_identification', $driver->document_identification) }}" required>
                                     @error('document_identification')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -101,21 +101,29 @@
                                 </div>
 
                                 <!-- Endereço -->
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="address" class="form-label">Endereço <span class="text-danger">*</span></label>
-                                    <textarea name="address" id="address" class="form-control @error('address') is-invalid @enderror" rows="4" required>{{ old('address', $driver->address) }}</textarea>
+                                    <textarea name="address" id="address" class="form-control @error('address') is-invalid @enderror" rows="1" required>{{ old('address', $driver->address) }}</textarea>
                                     @error('address')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-
+                                    <!-- Data de Expiração da Licença -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="license_expiry_date" class="form-label">Data de Expiração da Licença <span class="text-danger">*</span></label>
+                                    <input type="date" name="license_expiry_date" id="license_expiry_date" class="form-control @error('license_expiry_date') is-invalid @enderror" value="{{ old('license_expiry_date', $driver->license_expiry_date) }}" required>
+                                    @error('license_expiry_date')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
                                 <!-- Imagem de Identificação -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="id_image" class="form-label">Imagem de Identificação</label>
+                                    <label for="id_image" class="form-label">Imagem do BI/PASSPORTE</label>
                                     <input type="file" name="id_image" id="id_image" class="form-control @error('id_image') is-invalid @enderror" accept="image/*,application/pdf">
                                     @if($driver->id_image)
                                         <div class="mt-2">
                                             <strong>Imagem Atual:</strong>
+                                            <br>
                                             @if(Str::endsWith($driver->id_image, '.pdf'))
                                                 <a href="{{ asset('storage/'.$driver->id_image) }}" target="_blank">📄 Ver Documento</a>
                                             @else
@@ -132,11 +140,12 @@
 
                                 <!-- Imagem da Licença -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="license_image" class="form-label">Imagem da Licença</label>
+                                    <label for="license_image" class="form-label">Imagem da Carta de Condução</label>
                                     <input type="file" name="license_image" id="license_image" class="form-control @error('license_image') is-invalid @enderror" accept="image/*,application/pdf">
                                     @if($driver->license_image)
                                         <div class="mt-2">
                                             <strong>Imagem Atual:</strong>
+                                            <br>
                                             @if(Str::endsWith($driver->license_image, '.pdf'))
                                                 <a href="{{ asset('storage/'.$driver->license_image) }}" target="_blank">📄 Ver Licença</a>
                                             @else
@@ -151,14 +160,7 @@
                                     @enderror
                                 </div>
 
-                                <!-- Data de Expiração da Licença -->
-                                <div class="col-md-6 mb-3">
-                                    <label for="license_expiry_date" class="form-label">Data de Expiração da Licença <span class="text-danger">*</span></label>
-                                    <input type="date" name="license_expiry_date" id="license_expiry_date" class="form-control @error('license_expiry_date') is-invalid @enderror" value="{{ old('license_expiry_date', $driver->license_expiry_date) }}" required>
-                                    @error('license_expiry_date')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
+                              
                             </div>
 
                             <!-- Botões -->

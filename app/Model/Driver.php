@@ -17,6 +17,8 @@ class Driver extends Model
         'phone_number', 
         'email',
         'experience_years',
-
+        'gender',
+        'address',
+        
     ];
 }

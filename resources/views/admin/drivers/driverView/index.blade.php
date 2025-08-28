@@ -18,8 +18,8 @@
         <div class="page-header-right ms-auto">
             <div class="page-header-right-items">
                 <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                    <a href="{{ route('drivers.create', $driver) }}" class="btn btn-primary">
-                        <span>Novo Motorista</span>
+                    <a href="{{ route('drivers.edit', $driver) }}" class="btn btn-primary">
+                        <span>Editar Motorista</span>
                     </a>
                 </div>
             </div>
@@ -49,8 +49,9 @@
                                 <div class="mb-3">
                                     <strong>Telefone:</strong> {{ $driver->phone_number }}
                                 </div>
-                                <div class="mb-3">
-                                    <strong>Gênero:</strong> {{ $driver->gender ? ucfirst($driver->gender) : 'Não informado' }}
+                              <div class="mb-3">
+                                    <strong>Gênero:</strong> 
+                                    {{ $driver->gender ? ($driver->gender === 'male' ? 'Masculino' : 'Feminino') : 'Não informado' }}
                                 </div>
                                 <div class="mb-3">
                                     <strong>Endereço:</strong> {{ $driver->address ?? 'Não informado' }}
@@ -59,9 +60,7 @@
                             </div>
                             <div class="col-md-6">
                                 <h6 class="mb-3">Informações Profissionais</h6>
-                                <div class="mb-4 d-flex align-items-center justify-content-between">
-                                            <a href="{{ route('drivers.edit', $driver)}}" class="btn btn-sm btn-light-brand">Editar Motorista</a>
-                                </div>
+                                
                                 <div class="mb-3">
                                     <strong>Anos de Experiência:</strong> {{ $driver->experience_years }}
                                 </div>
@@ -73,6 +72,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <strong>Imagem da Carta de Condução:</strong>
+                                    <br>
                                     @if(Str::endsWith($driver->id_image, '.pdf'))
                                         <a href="{{ asset('storage/'.$driver->id_image) }}" target="_blank">📄 Ver Documento</a>
                                     @else
@@ -83,6 +83,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <strong>Imagem de BI/PASSPORTE:</strong>
+                                   <br> 
                                     @if(Str::endsWith($driver->license_image, '.pdf'))
                                         <a href="{{ asset('storage/'.$driver->license_image) }}" target="_blank">📄 Ver Licença</a>
                                     @else
@@ -91,6 +92,7 @@
                                         </a>
                                     @endif
                                 </div>
+                                <br>
                             </div>
                         </div>
                     </div>
