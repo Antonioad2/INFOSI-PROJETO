@@ -24,7 +24,8 @@ class CreateDriversTable extends Migration
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->string('email')->unique();
             $table->integer('experience_years')->default(0);
-            $table->string('address');
+            $table->string('address')->nullable();
+            $table->string('status')->default('active');
             $table->timestamps();
             $table->softDeletes();
         });

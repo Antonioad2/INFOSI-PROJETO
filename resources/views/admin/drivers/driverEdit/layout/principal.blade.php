@@ -41,7 +41,7 @@
     @include('admin._parcial.header')
     @include('admin._parcial.menu')
     <main class="nxl-container">
-        @yield('content-fuel')
+        @yield('content-driverEdit')
         @include('admin._parcial.footer')
     </main>
     @include('admin._parcial.thema')
