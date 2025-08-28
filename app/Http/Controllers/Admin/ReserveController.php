@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Reserve;
-use App\Models\Client;
-use App\Models\Car;
+use App\Model\Reserve;
+use App\Model\Client;
+use App\Model\Car;
 use Illuminate\Http\Request;
 
 class ReserveController extends Controller

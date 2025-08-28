@@ -147,3 +147,13 @@ Route::prefix('/admin/drivers')->name('drivers.')->group(function () {
     Route::put('/{driver}', [App\Http\Controllers\Admin\DriverController::class, 'update'])->name('update');
     Route::delete('/{driver}', [App\Http\Controllers\Admin\DriverController::class, 'destroy'])->name('destroy');
 });
+
+Route::prefix('/admin/reserves')->name('reserves.')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\ReserveController::class, 'index'])->name('index');
+    Route::get('/create', [App\Http\Controllers\Admin\ReserveController::class, 'create'])->name('create');
+    Route::post('/', [App\Http\Controllers\Admin\ReserveController::class, 'store'])->name('store');
+    Route::get('reserveView/{id}', [App\Http\Controllers\Admin\ReserveController::class, 'show'])->name('show');
+    Route::get('reserveEdit/{id}/edit', [App\Http\Controllers\Admin\ReserveController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [App\Http\Controllers\Admin\ReserveController::class, 'update'])->name('update');
+    Route::delete('/{id}', [App\Http\Controllers\Admin\ReserveController::class, 'destroy'])->name('destroy');
+});
