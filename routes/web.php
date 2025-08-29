@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Model\Models;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\DriverController;
 
 
 /*-------------------------------------------------------
@@ -139,11 +140,11 @@ Route::prefix('/admin/clients')->name('clients.')->group(function () {
 });
 
 Route::prefix('/admin/drivers')->name('drivers.')->group(function () {
-    Route::get('/', [App\Http\Controllers\Admin\DriverController::class, 'index'])->name('index');
-    Route::get('/create', [App\Http\Controllers\Admin\DriverController::class, 'create'])->name('create');
-    Route::post('/', [App\Http\Controllers\Admin\DriverController::class, 'store'])->name('store');
-    Route::get('driverView/{driver}', [App\Http\Controllers\Admin\DriverController::class, 'show'])->name('show');
-    Route::get('driverEdit/{driver}/edit', [App\Http\Controllers\Admin\DriverController::class, 'edit'])->name('edit');
-    Route::put('/{driver}', [App\Http\Controllers\Admin\DriverController::class, 'update'])->name('update');
-    Route::delete('/{driver}', [App\Http\Controllers\Admin\DriverController::class, 'destroy'])->name('destroy');
+    Route::get('/', [DriverController::class, 'index'])->name('index');
+    Route::get('/create', [DriverController::class, 'create'])->name('create');
+    Route::post('/', [DriverController::class, 'store'])->name('store');
+    Route::get('driverView/{driver}', [DriverController::class, 'show'])->name('show');
+    Route::get('driverEdit/{driver}/edit', [DriverController::class, 'edit'])->name('edit');
+    Route::put('/{driver}', [DriverController::class, 'update'])->name('update');
+    Route::delete('/{driver}', [DriverController::class, 'destroy'])->name('destroy');
 });
