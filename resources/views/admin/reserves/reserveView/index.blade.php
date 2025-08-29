@@ -28,7 +28,7 @@
                         <i class="feather-plus me-2"></i>
                         <span>Nova Reserva</span>
                     </a>
-                    <a href="{{ route('reserves.edit', $reserve->id) }}" class="btn btn-light-brand">Editar Reserva</a>
+
                 </div>
             </div>
             <div class="d-md-none d-flex align-items-center">
