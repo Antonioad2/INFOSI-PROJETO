@@ -121,20 +121,6 @@
                                         @enderror
                                     </div>
 
-                                    <!-- Resource -->
-                                    <div class="col-lg-4 mb-4">
-                                        <label class="form-label">Recurso</label>
-                                        <select name="resource" class="form-control @error('resource') is-invalid @enderror">
-                                            <option value="" {{ old('resource') == '' ? 'selected' : '' }}>Nenhum</option>
-                                            <option value="baby_seat" {{ old('resource') == 'baby_seat' ? 'selected' : '' }}>Cadeira de Bebê</option>
-                                            <option value="protected_theft" {{ old('resource') == 'protected_theft' ? 'selected' : '' }}>Proteção contra Roubo</option>
-                                            <option value="protected_accidents" {{ old('resource') == 'protected_accidents' ? 'selected' : '' }}>Proteção contra Acidentes</option>
-                                        </select>
-                                        @error('resource')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
                                     <!-- Status -->
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Status <span class="text-danger">*</span></label>
@@ -147,6 +133,59 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+
+                                    <!-- Resources -->
+                                    <div class="col-lg-12 mb-4">
+                                        <label class="form-label">Recursos adicionais</label>
+                                        <div class="d-flex flex-column">
+
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" name="resources[]" value="baby_seat"
+                                                    id="babySeat" {{ (is_array(old('resources')) && in_array('baby_seat', old('resources'))) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="babySeat">Cadeira de Bebê</label>
+                                            </div>
+
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" name="resources[]" value="protected_theft"
+                                                    id="protectedTheft" {{ (is_array(old('resources')) && in_array('protected_theft', old('resources'))) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="protectedTheft">Proteção contra Roubo</label>
+                                            </div>
+
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" name="resources[]" value="protected_accidents"
+                                                    id="protectedAccidents" {{ (is_array(old('resources')) && in_array('protected_accidents', old('resources'))) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="protectedAccidents">Proteção contra Acidentes</label>
+                                            </div>
+
+                                        </div>
+                                        @error('resources')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <!-- Driver Option -->
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" id="withDriver" class="form-check-input">
+                                        <label for="withDriver">Incluir Motorista</label>
+                                    </div>
+
+                                    <div id="driverSelect" style="display:none;">
+                                        <label class="form-label">Motorista</label>
+                                        <select name="driver_id" class="form-control">
+                                            <option value="">Selecione um motorista</option>
+                                            
+                                            @foreach($drivers as $driver)
+                                                <option value="{{ $driver->id }}">{{ $driver->full_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <script>
+                                        document.getElementById('withDriver').addEventListener('change', function() {
+                                            document.getElementById('driverSelect').style.display = this.checked ? 'block' : 'none';
+                                        });
+                                    </script>
+
 
                                     <!-- Submit Button -->
                                     <div class="col-12">

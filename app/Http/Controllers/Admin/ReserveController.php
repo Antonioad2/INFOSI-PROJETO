@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Reserve;
 use App\Model\Client;
 use App\Model\Car;
+use App\Model\Driver;
 use Illuminate\Http\Request;
 
 class ReserveController extends Controller
@@ -26,7 +27,8 @@ class ReserveController extends Controller
     {
         $clients = Client::all();
         $cars = Car::all();
-        return view('admin.reserves.reserveCreate.index', compact('clients', 'cars'));
+        $drivers = Driver::all();
+        return view('admin.reserves.reserveCreate.index', compact('clients', 'cars', 'drivers'));
     }
 
     /**
@@ -35,15 +37,27 @@ class ReserveController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'client_id'   => 'required|exists:clients,id',
-            'car_id'      => 'required|exists:cars,id',
-            'start_date'  => 'required|date',
-            'end_date'    => 'required|date|after_or_equal:start_date',
-            'total_amount'=> 'required|numeric|min:0',
-            'resource'    => 'nullable|in:baby_seat,protected_theft,protected_accidents',
+            'client_id'    => 'required|exists:clients,id',
+            'car_id'       => 'required|exists:cars,id',
+            'start_date'   => 'required|date',
+            'end_date'     => 'required|date|after_or_equal:start_date',
+            'total_amount' => 'required|numeric|min:0',
+            'resources'    => 'nullable|array',
+            'resources.*'  => 'in:baby_seat,protected_theft,protected_accidents,driver',
+            'driver_id'    => 'nullable|exists:drivers,id', // opcional
+            'status'       => 'nullable|in:in_progress,completed,cancelled'
         ]);
 
-        Reserve::create($request->all());
+        Reserve::create($request->only([
+            'client_id',
+            'car_id',
+            'start_date',
+            'end_date',
+            'total_amount',
+            'resources',
+            'driver_id',
+            'status'
+        ]));
 
         return redirect()->route('reserves.index')->with('success', 'Reserva criada com sucesso!');
     }
@@ -74,20 +88,31 @@ class ReserveController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'client_id'   => 'required|exists:clients,id',
-            'car_id'      => 'required|exists:cars,id',
-            'start_date'  => 'required|date',
-            'end_date'    => 'required|date|after_or_equal:start_date',
-            'total_amount'=> 'required|numeric|min:0',
-            'resource'    => 'nullable|in:baby_seat,protected_theft,protected_accidents',
-            'status'      => 'required|in:in_progress,completed,cancelled',
+            'client_id'    => 'required|exists:clients,id',
+            'car_id'       => 'required|exists:cars,id',
+            'start_date'   => 'required|date',
+            'end_date'     => 'required|date|after_or_equal:start_date',
+            'total_amount' => 'required|numeric|min:0',
+            'resources'    => 'nullable|array',
+            'resources.*'  => 'in:baby_seat,protected_theft,protected_accidents,driver',
+            'driver_id'    => 'nullable|exists:drivers,id',
+            'status'       => 'required|in:in_progress,completed,cancelled',
         ]);
 
         $reserve = Reserve::findOrFail($id);
-        $reserve->update($request->all());
+        $reserve->update($request->only([
+            'client_id',
+            'car_id',
+            'start_date',
+            'end_date',
+            'total_amount',
+            'resources',
+            'driver_id',
+            'status'
+        ]));
 
         return redirect()->route('reserves.index')->with('success', 'Reserva atualizada com sucesso!');
-    }
+}
 
     /**
      * Deletar reserva
