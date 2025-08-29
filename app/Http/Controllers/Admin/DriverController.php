@@ -21,7 +21,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        return view('admin.drivers.driverCreate.create');
+        return view('admin.drivers.driverCreate.index');
     }
 
     /**

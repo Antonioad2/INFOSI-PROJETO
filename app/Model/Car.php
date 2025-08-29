@@ -56,5 +56,8 @@ class Car extends Model
     {
         return $this->belongsTo(Supplier::class);
     }
-
+    public function reserves()
+    {
+        return $this->hasMany(Reserve::class);
+    }
 }

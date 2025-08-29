@@ -89,7 +89,7 @@
                                         <h6>R$ {{ number_format($car->price_per_day, 2, ',', '.') }} <span>/ Day</span></h6>
 
                                         <div class="icon-details-area">
-                                            <h4>Key Features</h4>
+                                            <h4>Principais Características</h4>
                                             <div class="icon-details-main-items">
                                                 <div class="icon-items">
                                                     <div class="icon"><img src="{{ url('assets/user/img/car/icon/07.png') }}" alt="img"></div>

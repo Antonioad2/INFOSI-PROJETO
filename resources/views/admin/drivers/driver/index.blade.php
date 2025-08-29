@@ -99,7 +99,7 @@
                                             </td>
                                             <td>{{ $driver->email }}</td>
                                             <td>{{ $driver->phone_number }}</td>
-                                            <td>{{ $driver->gender ?? '-' }}</td>
+                                            <td>{{ $driver->gender ? ($driver->gender == 'male' ? 'Masculino' : 'Feminino') : 'Não Informado' }}</td>
                                             <td>{{ $driver->experience_years }}</td>
                                             <td class="fw-bold text-dark">
                                                 {{ $driver->created_at ? $driver->created_at->format('d/m/Y') : 'N/A' }}

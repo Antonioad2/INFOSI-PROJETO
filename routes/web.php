@@ -12,6 +12,9 @@ use App\Http\Controllers\Admin\SupplierController;
 use App\Model\Models;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DriverController;
+use App\Models\Brand;
+use App\Http\Controllers\Admin\ReserveController;
+
 
 
 /*-------------------------------------------------------
@@ -147,4 +150,14 @@ Route::prefix('/admin/drivers')->name('drivers.')->group(function () {
     Route::get('driverEdit/{driver}/edit', [DriverController::class, 'edit'])->name('edit');
     Route::put('/{driver}', [DriverController::class, 'update'])->name('update');
     Route::delete('/{driver}', [DriverController::class, 'destroy'])->name('destroy');
+});
+
+Route::prefix('/admin/reserves')->name('reserves.')->group(function () {
+    Route::get('/', [ReserveController::class, 'index'])->name('index');
+    Route::get('/create', [ReserveController::class, 'create'])->name('create');
+    Route::post('/', [ReserveController::class, 'store'])->name('store');
+    Route::get('reserveView/{id}', [ReserveController::class, 'show'])->name('show');
+    Route::get('reserveEdit/{id}/edit', [ReserveController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [ReserveController::class, 'update'])->name('update');
+    Route::delete('/{id}', [ReserveController::class, 'destroy'])->name('destroy');
 });

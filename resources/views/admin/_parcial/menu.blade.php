@@ -116,6 +116,17 @@
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.create')}}">Criar Clientes</a></li>
                     </ul>
                 </li>
+                {{--Lista de Reservas--}}
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-calendar"></i></span>
+                        <span class="nxl-mtext">Reservas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('reserves.index')}}">Ver Reservas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('reserves.create')}}">Criar Reservas</a></li>
+                    </ul>
+                </li>
 
                 {{--Lista de Carros--}}
                 <li class="nxl-item nxl-hasmenu">
@@ -131,14 +142,14 @@
 
             </ul>
 
-            <div class="card text-center">
+            {{--<div class="card text-center">
                 <div class="card-body">
                     <i class="feather-sunrise fs-4 text-dark"></i>
                     <h6 class="mt-4 text-dark fw-bolder">Downloading Center</h6>
                     <p class="fs-11 my-3 text-dark">Duralux is a production ready CRM to get started up and running easily.</p>
                     <a href="javascript:void(0);" class="btn btn-primary text-dark w-100">Download Now</a>
                 </div>
-            </div>
+            </div>--}}
             
         </div>
     </div>
