@@ -79,7 +79,7 @@ class ReserveController extends Controller
         $reserve = Reserve::findOrFail($id);
         $clients = Client::all();
         $cars = Car::all();
-        return view('admin.reserves.reseveEdit.index', compact('reserve', 'clients', 'cars'));
+        return view('admin.reserves.reserveEdit.index', compact('reserve', 'clients', 'cars'));
     }
 
     /**

@@ -55,11 +55,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($reserves as $reserve)
+                                    @forelse($reserves as $reserve)
                                         <tr>
                                             <td>{{ $reserve->id }}</td>
                                             <td>{{ $reserve->client->name ?? 'N/A' }}</td>
-                                            <td>{{ $reserve->car->brand ?? 'N/A' }} - {{ $reserve->car->model ?? '' }}</td>
+                                              <td>
+                                                 @if($reserve->image)
+                                                    <a href="{{ asset('uploads/brand/brand_logo/' . $reserve->image) }}">
+                                                        <img src="{{ asset('uploads/brand/brand_logo/' . $reserve->image) }}" alt="Brand Logo" width="50" height="50" class="img-fluid">
+                                                    </a>                                                                                                                  
+                                                    @else
+                                                        <span>Sem imagem do carro</span>
+                                                 @endif
+                                            </td>
                                             <td>{{ \Carbon\Carbon::parse($reserve->start_date)->format('d/m/Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }}</td>
                                             <td>{{ number_format($reserve->total_amount, 2, ',', '.') }} KZ</td>
@@ -88,26 +96,41 @@
                                                     <a href="{{ route('reserves.show', $reserve->id) }}" class="avatar-text avatar-md">
                                                         <i class="feather feather-eye"></i>
                                                     </a>
-                                                    <a href="{{ route('reserves.edit', $reserve->id) }}" class="avatar-text avatar-md">
-                                                        <i class="feather feather-edit-3"></i>
-                                                    </a>
-                                                    <form action="{{ route('reserves.destroy', $reserve->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?')">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="avatar-text avatar-md border-0 bg-transparent">
-                                                            <i class="feather feather-trash-2 text-danger"></i>
-                                                        </button>
-                                                    </form>
+                                                    <div class="dropdown">
+                                                        <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="dropdown" data-bs-offset="0,21">
+                                                            <i class="feather feather-more-horizontal"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a class="dropdown-item" href="{{ route('reserves.edit', $reserve->id) }}">
+                                                                    <i class="feather feather-edit-3 me-3"></i>
+                                                                    <span>Editar</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="dropdown-divider"></li>
+                                                            <li>
+                                                                <form action="{{ route('reserves.destroy', $reserve->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta reserva?');">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="dropdown-item">
+                                                                        <i class="feather feather-trash-2 me-3"></i>
+                                                                        <span>Excluir</span>
+                                                                    </button>
+                                                                </form>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="9" class="text-center">Nenhuma reserva cadastrada.</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
-                        @if($reserves->isEmpty())
-                            <div class="p-3 text-center">Nenhuma reserva cadastrada.</div>
-                        @endif
                     </div>
                 </div>
             </div>
@@ -115,4 +138,25 @@
     </div>
     <!-- [ Main Content ] end -->
 </div>
+
+@section('scripts')
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#reserveList').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
+                },
+                pageLength: 10,
+                responsive: true,
+                columnDefs: [
+                    { orderable: false, targets: [8] }, // Desativa ordenação na coluna de ações
+                    { width: '50px', targets: [0] },   // Define largura fixa para ID
+                    { width: '120px', targets: [5, 6] } // Define largura para Valor Total e Recurso
+                ]
+            });
+        });
+    </script>
+@endsection
 @endsection
