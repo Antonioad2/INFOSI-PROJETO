@@ -249,7 +249,7 @@
                                         <!-- Botão -->
                                         <div class="col-lg-12">
                                             <div class="form-clt">
-                                                <button type="submit" class="theme-btn">Reservar Agora</button>
+                                                <button type="submit" class="theme-btn">Confirmar</button>
                                             </div>
                                         </div>
                                     </div>

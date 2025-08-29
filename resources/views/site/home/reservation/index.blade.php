@@ -63,7 +63,7 @@
                                                 R$ {{ number_format($car->price_per_day, 2, ',', '.') ?? '---' }} 
                                                 <span>/ Dia</span>
                                              <a href="{{ route('site.car_details', ['car_id' => $car->id]) }}" class="theme-btn">
-                                                    Reservar
+                                                    Selecionar
                                                 </a>
                                             </h6>  
                                                                                       
