@@ -16,6 +16,7 @@ class Reserve extends Model
         'end_date',
         'total_amount',
         'resources', // agora plural
+        'driver_id',
         'status'
     ];
 

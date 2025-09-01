@@ -51,6 +51,7 @@
                         </h5>
                         <a href="{{ route('reserves.edit', $reserve->id) }}" class="btn btn-sm btn-light-brand">Editar Reserva</a>
                     </div>
+
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Cliente</div>
                         <div class="col-lg-10 hstack gap-1">
@@ -62,6 +63,7 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Carro</div>
                         <div class="col-lg-10 hstack gap-1">
@@ -73,61 +75,82 @@
                             </a>
                         </div>
                     </div>
+
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Motorista</div>
+                        <div class="col-lg-10 hstack gap-1">
+                            <a href="javascript:void(0);" class="hstack gap-2">
+                                <div class="avatar-text avatar-sm">
+                                    <i class="feather-user-check"></i>
+                                </div>
+                                <span>
+                                    {{ $reserve->driver ? $reserve->driver->full_name : 'Sem motorista' }}
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Data de Início</div>
                         <div class="col-lg-10 hstack gap-1">
-                            <a href="javascript:void(0);" class="hstack gap-2">
-                                <div class="avatar-text avatar-sm">
-                                    <i class="feather-calendar"></i>
-                                </div>
-                                <span>{{ $reserve->start_date }}</span>
-                            </a>
+                            <div class="avatar-text avatar-sm">
+                                <i class="feather-calendar"></i>
+                            </div>
+                            <span>{{ \Carbon\Carbon::parse($reserve->start_date)->format('d/m/Y') }}</span>
                         </div>
                     </div>
+
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Data de Término</div>
                         <div class="col-lg-10 hstack gap-1">
-                            <a href="javascript:void(0);" class="hstack gap-2">
-                                <div class="avatar-text avatar-sm">
-                                    <i class="feather-calendar"></i>
-                                </div>
-                                <span>{{ $reserve->end_date }}</span>
-                            </a>
+                            <div class="avatar-text avatar-sm">
+                                <i class="feather-calendar"></i>
+                            </div>
+                            <span>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }}</span>
                         </div>
                     </div>
+
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Valor Total</div>
                         <div class="col-lg-10 hstack gap-1">
-                            <a href="javascript:void(0);" class="hstack gap-2">
-                                <div class="avatar-text avatar-sm">
-                                    <i class="feather-dollar-sign"></i>
-                                </div>
-                                <span>{{ number_format($reserve->total_amount, 2, ',', '.') }}</span>
-                            </a>
+                            <div class="avatar-text avatar-sm">
+                                <i class="feather-dollar-sign"></i>
+                            </div>
+                            <span>{{ number_format($reserve->total_amount, 2, ',', '.') }} Kz</span>
                         </div>
                     </div>
+
                     <div class="row mb-4">
-                        <div class="col-lg-2 fw-medium">Recurso</div>
-                        <div class="col-lg-10 hstack gap-1">
-                            <a href="javascript:void(0);" class="hstack gap-2">
-                                <div class="avatar-text avatar-sm">
-                                    <i class="feather-package"></i>
-                                </div>
-                                <span>{{ $reserve->resource ? ucfirst(str_replace('_', ' ', $reserve->resource)) : 'Nenhum' }}</span>
-                            </a>
+                        <div class="col-lg-2 fw-medium">Recursos</div>
+                        <div class="col-lg-10 hstack gap-2 flex-wrap">
+                            <div class="avatar-text avatar-sm">
+                                <i class="feather-package"></i>
+                            </div>
+                            @php
+                                $resources = json_decode($reserve->resources, true) ?? [];
+                            @endphp
+                            @if (count($resources) > 0)
+                                @foreach ($resources as $res)
+                                    <span class="badge bg-primary">
+                                        {{ config("resources.extras.$res.label") }}
+                                    </span>
+                                @endforeach
+                            @else
+                                <span>Nenhum</span>
+                            @endif
                         </div>
                     </div>
+
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Status</div>
                         <div class="col-lg-10 hstack gap-1">
-                            <a href="javascript:void(0);" class="hstack gap-2">
-                                <div class="avatar-text avatar-sm">
-                                    <i class="feather-info"></i>
-                                </div>
-                                <span>{{ ucfirst(str_replace('_', ' ', $reserve->status)) }}</span>
-                            </a>
+                            <div class="avatar-text avatar-sm">
+                                <i class="feather-info"></i>
+                            </div>
+                            <span>{{ ucfirst(str_replace('_', ' ', $reserve->status)) }}</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

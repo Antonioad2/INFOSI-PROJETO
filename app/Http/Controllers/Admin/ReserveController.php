@@ -55,21 +55,24 @@ class ReserveController extends Controller
                 ->diffInDays(\Carbon\Carbon::parse($request->end_date));
         $days = $days > 0 ? $days : 1;
 
-        $carTotal = $car->daily_price * $days;
+        $carTotal = $car->price * $days;
 
-        // Recursos (pegar do config)
+        // Recursos (extras)
         $resources = $request->resources ?? [];
-        $resourcesTotal = collect($resources)
-            ->sum(fn($r) => config("resources.extras.{$r}", 0));
 
-        // motorista (se selecionado)
+        $resourcesTotal = collect($resources)->sum(
+            fn($r) => config("resources.extras.{$r}.price", 0)
+        );
+
+        // Motorista
+        $driverTotal = 0;
         if ($request->driver_id) {
             $driver = Driver::findOrFail($request->driver_id);
             $driverTotal = $driver->daily_price * $days;
         }
 
-        // Total final
         $totalAmount = $carTotal + $resourcesTotal + $driverTotal;
+
 
         // Criar reserva — guardamos resources como JSON (array de keys)
         Reserve::create([

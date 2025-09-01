@@ -73,12 +73,19 @@
                                             <td>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }}</td>
                                             <td>{{ number_format($reserve->total_amount, 2, ',', '.') }} KZ</td>
                                             <td>
-                                                @if($reserve->resource == 'baby_seat')
-                                                    Assento de Bebê
-                                                @elseif($reserve->resource == 'protected_theft')
-                                                    Proteção Roubo
-                                                @elseif($reserve->resource == 'protected_accidents')
-                                                    Proteção Acidentes
+                                                @php
+                                                    $labels = [
+                                                        'baby_seat' => 'Cadeira de Bebê',
+                                                        'protected_theft' => 'Proteção contra Roubo',
+                                                        'protected_accidents' => 'Proteção contra Acidentes',
+                                                    ];
+
+                                                    // Decodifica o JSON para array
+                                                    $resources = is_string($reserve->resources) ? json_decode($reserve->resources, true) : $reserve->resources;
+                                                @endphp
+
+                                                @if(!empty($resources))
+                                                    {{ collect($resources)->map(fn($r) => $labels[$r] ?? $r)->implode(', ') }}
                                                 @else
                                                     Nenhum
                                                 @endif
