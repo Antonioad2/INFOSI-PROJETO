@@ -1,54 +1,18 @@
-.car-rentals-items {
-    width: 100%; /* Garante que todos os cards ocupem a mesma largura dentro do contêiner */
-    max-width: 350px; /* Define uma largura máxima fixa para consistência */
-    margin: 0 auto; /* Centraliza o card dentro da coluna */
-    box-sizing: border-box; /* Inclui padding e borda na largura total */
+.car-rentals-section-2 .row .con{
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.car-content {
+.car-rentals-section-2 .col-xl-4,
+.car-rentals-section-2 .col-lg-6,
+.car-rentals-section-2 .col-md-6 .icon{
+    display: flex;
+}
+
+.car-rentals-items .con{
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espaçamento uniforme entre elementos */
+    justify-content: space-between;
+    width: 100%;
 }
 
-.car-content h4 {
-    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
-    overflow: hidden; /* Esconde o texto que excede a largura */
-    text-overflow: ellipsis; /* Adiciona "..." para texto cortado */
-    max-width: 100%; /* Garante que o título não exceda o contêiner */
-}
-
-.car-content h6 {
-    white-space: nowrap; /* Evita quebra de linha no preço */
-}
-
-.icon-items ul {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os itens se ajustem em caso de espaço limitado */
-    gap: 10px; /* Espaçamento entre os itens */
-}
-
-.icon-items li {
-    flex: 1 1 45%; /* Divide os itens em duas colunas de tamanhos iguais */
-    white-space: nowrap; /* Evita quebra de linha nos itens */
-}
-
-.car-image img {
-    width: 100%; /* Imagem ocupa toda a largura do contêiner */
-    height: auto; /* Mantém a proporção */
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
-}
-
-/* Opcional: Definir altura mínima para uniformidade */
-.car-rentals-items {
-    min-height: 450px; /* Ajuste conforme necessário */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Garantir que o botão tenha largura consistente */
-.theme-btn {
-    width: 100% !important; /* Força o botão a ocupar toda a largura */
-    display: inline-block;
-    text-align: center;
-}
