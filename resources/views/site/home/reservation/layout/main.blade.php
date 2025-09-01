@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="{{ url('assets/user/css/nice-select.css') }}">
         <!--<< Main.css >>-->
         <link rel="stylesheet" href="{{ url('assets/user/css/main.css') }}">
+        <!--<< Responsive.css >>-->
     </head>
     <body>
 
