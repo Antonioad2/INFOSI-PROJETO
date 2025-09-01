@@ -91,38 +91,9 @@
                     </a>
                     <ul class="nxl-submenu">
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.index')}}">Ver Fornecedores</a></li>
-<<<<<<< HEAD
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.create')}}">Criar Fornecedores</a></li>
-                    </ul>
-                </li>
-                {{--Lista de Motoristas--}}
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="fas fa-user-tie"></i></span>
-                        <span class="nxl-mtext">Motoristas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('drivers.index')}}">Ver Motoristas</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('drivers.create')}}">Criar Motoristas</a></li>
-                    </ul>
-
-                {{--Lista de Clientes--}}
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-user"></i></span>
-                        <span class="nxl-mtext">Clientes</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.index')}}">Ver Clientes</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.create')}}">Criar Clientes</a></li>
-                    </ul>
-                </li>
-                
-=======
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.create')}}">Cadastrar Fornecedores</a></li>
                     </ul>
                 </li>
->>>>>>> 2adf105eaa2837a417dd036a50a2cbb6c3328ac3
 
                 {{--Lista de Carros--}}
                 <li class="nxl-item nxl-hasmenu">
@@ -156,17 +127,6 @@
                     <ul class="nxl-submenu">
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.index')}}">Ver Clientes</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.create')}}">Cadastrar Clientes</a></li>
-                    </ul>
-                </li>
-                {{--Lista de Reservas--}}
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-calendar"></i></span>
-                        <span class="nxl-mtext">Reservas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('reserves.index')}}">Ver Reservas</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('reserves.create')}}">Criar Reservas</a></li>
                     </ul>
                 </li>
 

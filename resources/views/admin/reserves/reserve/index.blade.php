@@ -60,29 +60,24 @@
                                         <tr>
                                             <td>{{ $reserve->id }}</td>
                                             <td>{{ $reserve->client->name ?? 'N/A' }}</td>
-<<<<<<< HEAD
-                                              <td>
-                                                 @if($reserve->image)
-                                                    <a href="{{ asset('uploads/brand/brand_logo/' . $reserve->image) }}">
-                                                        <img src="{{ asset('uploads/brand/brand_logo/' . $reserve->image) }}" alt="Brand Logo" width="50" height="50" class="img-fluid">
-                                                    </a>                                                                                                                  
-                                                    @else
-                                                        <span>Sem imagem do carro</span>
-                                                 @endif
-                                            </td>
-=======
                                             <td>{{ $reserve->car->brand->name ?? 'N/A' }} {{ $reserve->car->models->name ?? '' }}</td>
->>>>>>> 2adf105eaa2837a417dd036a50a2cbb6c3328ac3
                                             <td>{{ \Carbon\Carbon::parse($reserve->start_date)->format('d/m/Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }}</td>
                                             <td>{{ number_format($reserve->total_amount, 2, ',', '.') }} KZ</td>
                                             <td>
-                                                @if($reserve->resource == 'baby_seat')
-                                                    Assento de Bebê
-                                                @elseif($reserve->resource == 'protected_theft')
-                                                    Proteção Roubo
-                                                @elseif($reserve->resource == 'protected_accidents')
-                                                    Proteção Acidentes
+                                                @php
+                                                    $labels = [
+                                                        'baby_seat' => 'Cadeira de Bebê',
+                                                        'protected_theft' => 'Proteção contra Roubo',
+                                                        'protected_accidents' => 'Proteção contra Acidentes',
+                                                    ];
+
+                                                    // Decodifica o JSON para array
+                                                    $resources = is_string($reserve->resources) ? json_decode($reserve->resources, true) : $reserve->resources;
+                                                @endphp
+
+                                                @if(!empty($resources))
+                                                    {{ collect($resources)->map(fn($r) => $labels[$r] ?? $r)->implode(', ') }}
                                                 @else
                                                     Nenhum
                                                 @endif

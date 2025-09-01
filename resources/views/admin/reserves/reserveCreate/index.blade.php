@@ -84,9 +84,9 @@
                                             <option value="" disabled {{ old('car_id') ? '' : 'selected' }}>Selecione um carro</option>
                                             @foreach ($cars as $car)
                                                 <option value="{{ $car->id }}"
-                                                        data-price="{{ $car->daily_price }}"
+                                                        data-price="{{ $car->price }}"
                                                         {{ old('car_id') == $car->id ? 'selected' : '' }}>
-                                                    {{ $car->brand->name }} - {{ $car->models->name }} ({{ number_format($car->price, 2, ',', '.') }} Kz/dia)
+                                                    {{ $car->brand->name }} {{ $car->models->name }} ({{ number_format($car->price, 2, ',', '.') }} Kz/dia)
                                                 </option>
                                             @endforeach
                                         </select>
@@ -116,49 +116,45 @@
                                     </div>
 
                                     <!-- RECURSOS -->
-                                    <div class="col-lg-12 mb-4">
-                                        <label class="form-label">Recursos adicionais</label>
-                                        <div class="d-flex flex-column">
-                                            <div class="form-check mb-2">
-                                                <input type="checkbox" class="form-check-input" name="resources[]" value="baby_seat"
-                                                    id="babySeat" {{ (is_array(old('resources')) && in_array('baby_seat', old('resources'))) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="babySeat">Cadeira de Bebê</label>
-                                            </div>
+                                    @php
+                                        $extras = config('resources.extras', []);
+                                    @endphp
 
+                                    @if(!empty($extras))
+                                        @foreach($extras as $key => $data)
                                             <div class="form-check mb-2">
-                                                <input type="checkbox" class="form-check-input" name="resources[]" value="protected_theft"
-                                                    id="protectedTheft" {{ (is_array(old('resources')) && in_array('protected_theft', old('resources'))) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="protectedTheft">Proteção contra Roubo</label>
+                                                <input type="checkbox" class="form-check-input"
+                                                    name="resources[]" value="{{ $key }}" id="{{ $key }}"
+                                                    {{ (is_array(old('resources')) && in_array($key, old('resources'))) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="{{ $key }}">
+                                                    {{ $data['label'] }} (+ {{ number_format($data['price'], 2, ',', '.') }} Kz)
+                                                </label>
                                             </div>
+                                        @endforeach
+                                    @else
+                                        <p class="text-muted">Nenhum recurso adicional disponível.</p>
+                                    @endif
 
-                                            <div class="form-check mb-2">
-                                                <input type="checkbox" class="form-check-input" name="resources[]" value="protected_accidents"
-                                                    id="protectedAccidents" {{ (is_array(old('resources')) && in_array('protected_accidents', old('resources'))) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="protectedAccidents">Proteção contra Acidentes</label>
-                                            </div>
-                                        </div>
-                                        @error('resources') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
+                                    <!-- FIM RECURSOS -->
+
+                                    <!-- MOTORISTA (checkbox + select) -->
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" id="withDriver" class="form-check-input" {{ old('driver_id') ? 'checked' : '' }}>
+                                        <label for="withDriver">Incluir Motorista</label>
                                     </div>
 
-                                <!-- MOTORISTA (checkbox + select) -->
-                                <div class="form-check mb-2">
-                                    <input type="checkbox" id="withDriverCheckbox" class="form-check-input" {{ old('driver_id') ? 'checked' : '' }}>
-                                    <label for="withDriverCheckbox">Incluir Motorista</label>
-                                </div>
-
-                                <div id="driverSelect" style="{{ old('driver_id') ? 'display:block;' : 'display:none;' }}">
-                                    <label class="form-label">Motorista</label>
-                                    <select name="driver_id" id="driverSelectInput" class="form-control">
-                                        <option value="">Sem motorista</option>
-                                        @foreach($drivers as $driver)
-                                            <option value="{{ $driver->id }}" data-price="{{ $driver->daily_price }}"
-                                                {{ old('driver_id') == $driver->id ? 'selected' : '' }}>
-                                                {{ $driver->name }} ({{ number_format($driver->daily_price, 2, ',', '.') }} Kz/dia)
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
+                                    <div id="driverSelect" style="{{ old('driver_id') ? 'display:block;' : 'display:none;' }}">
+                                        <label class="form-label">Motorista</label>
+                                        <select name="driver_id" id="driverSelectInput" class="form-control">
+                                            <option value="">Selecione um motorista</option>
+                                            @foreach($drivers as $driver)
+                                                <option value="{{ $driver->id }}" data-price="{{ $driver->daily_price ?? 0 }}"
+                                                    {{ old('driver_id') == $driver->id ? 'selected' : '' }}>
+                                                    {{ $driver->full_name }} ({{ number_format($driver->daily_price ?? 0, 2, ',', '.') }} Kz/dia)
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
                                     <script>
                                         document.getElementById('withDriver').addEventListener('change', function() {
@@ -174,95 +170,91 @@
                                 </div>
 
                                 <!-- Script para o calculo automático para o preço -->
-                                    <script>
-                                        // injeta config do backend no frontend (garante fonte única de verdade)
-                                        window.resourcePrices = @json(config('resources.extras'));
-                                        // driver prices por id (pega do select via data-price, mas deixo isto como fallback)
-                                        window.driverPrices = @json($drivers->pluck('daily_price', 'id'));
+                                
+                                <script>
+                                    // injeta config do backend no frontend (garante fonte única de verdade)
+                                    window.resourcePrices = @json(config('resources.extras'));
+                                    // driver prices por id (pega do select via data-price, mas deixo isto como fallback)
+                                    window.driverPrices = @json($drivers->pluck('daily_price', 'id'));
 
-                                        document.addEventListener('DOMContentLoaded', function () {
-                                            const carSelect   = document.getElementById("carSelect");
-                                            const startDate   = document.querySelector("input[name='start_date']");
-                                            const endDate     = document.querySelector("input[name='end_date']");
-                                            const resources   = document.querySelectorAll("input[name='resources[]']");
-                                            const withDriver  = document.getElementById("withDriver");
-                                            const driverDiv   = document.getElementById("driverSelect");
-                                            const driverInput = document.getElementById("driverSelectInput");
-                                            const totalAmount = document.getElementById("totalAmount");           // hidden (envio)
-                                            const totalDisplay= document.getElementById("totalAmountDisplay");    // visível
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const carSelect   = document.getElementById("carSelect");
+                                        const startDate   = document.querySelector("input[name='start_date']");
+                                        const endDate     = document.querySelector("input[name='end_date']");
+                                        const resources   = document.querySelectorAll("input[name='resources[]']");
+                                        const withDriver  = document.getElementById("withDriver");
+                                        const driverDiv   = document.getElementById("driverSelect");
+                                        const driverInput = document.getElementById("driverSelectInput");
+                                        const totalAmount = document.getElementById("totalAmount");           // hidden (envio)
+                                        const totalDisplay= document.getElementById("totalAmountDisplay");    // visível
 
-                                            function daysBetween(startStr, endStr) {
-                                                const [y1,m1,d1] = startStr.split('-').map(Number);
-                                                const [y2,m2,d2] = endStr.split('-').map(Number);
-                                                const start = Date.UTC(y1, m1 - 1, d1);
-                                                const end   = Date.UTC(y2, m2 - 1, d2);
-                                                const diff  = (end - start) / (1000 * 60 * 60 * 24);
-                                                return diff > 0 ? diff : 1;
+                                        function daysBetween(startStr, endStr) {
+                                            const [y1,m1,d1] = startStr.split('-').map(Number);
+                                            const [y2,m2,d2] = endStr.split('-').map(Number);
+                                            const start = Date.UTC(y1, m1 - 1, d1);
+                                            const end   = Date.UTC(y2, m2 - 1, d2);
+                                            const diff  = (end - start) / (1000 * 60 * 60 * 24);
+                                            return diff > 0 ? diff : 1;
+                                        }
+
+                                        function formatKz(n) {
+                                            return new Intl.NumberFormat('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n) + ' Kz';
+                                        }
+
+                                        function getDriverDailyPrice() {
+                                            if (!driverInput) return 0;
+                                            const opt = driverInput.options[driverInput.selectedIndex];
+                                            if (opt && opt.dataset.price) return parseFloat(opt.dataset.price) || 0;
+                                            return window.driverPrices && window.driverPrices[driverInput.value] ? parseFloat(window.driverPrices[driverInput.value]) : 0;
+                                        }
+
+                                        function calculateTotal() {
+                                            let total = 0;
+                                            let days = 1;
+                                            if (startDate.value && endDate.value) {
+                                                days = daysBetween(startDate.value, endDate.value);
                                             }
 
-                                            function formatKz(n) {
-                                                // formata "15.000,00 Kz"
-                                                return new Intl.NumberFormat('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n) + ' Kz';
+                                            // preço do carro (data-price)
+                                            const selectedCar = carSelect.options[carSelect.selectedIndex];
+                                            if (selectedCar && selectedCar.dataset.price) {
+                                                total += (parseFloat(selectedCar.dataset.price) || 0) * days;
                                             }
 
-                                            function getDriverDailyPrice() {
-                                                if (!driverInput) return 0;
-                                                const opt = driverInput.options[driverInput.selectedIndex];
-                                                if (opt && opt.dataset.price) return parseFloat(opt.dataset.price) || 0;
-                                                // fallback para map window.driverPrices
-                                                return window.driverPrices && window.driverPrices[driverInput.value] ? parseFloat(window.driverPrices[driverInput.value]) : 0;
-                                            }
-
-                                            function calculateTotal() {
-                                                let total = 0;
-                                                let days = 1;
-                                                if (startDate.value && endDate.value) {
-                                                    days = daysBetween(startDate.value, endDate.value);
+                                            // recursos (pegar só o price do objeto)
+                                            resources.forEach(r => {
+                                                if (r.checked) {
+                                                    const resource = window.resourcePrices ? window.resourcePrices[r.value] : null;
+                                                    const price = resource && resource.price ? parseFloat(resource.price) : 0;
+                                                    total += price;
                                                 }
-
-                                                // preço do carro (data-price)
-                                                const selectedCar = carSelect.options[carSelect.selectedIndex];
-                                                if (selectedCar && selectedCar.dataset.price) {
-                                                    total += (parseFloat(selectedCar.dataset.price) || 0) * days;
-                                                }
-
-                                                // recursos (do config)
-                                                resources.forEach(r => {
-                                                    if (r.checked) {
-                                                        const price = (window.resourcePrices && window.resourcePrices[r.value]) ? parseFloat(window.resourcePrices[r.value]) : 0;
-                                                        total += price;
-                                                    }
-                                                });
-
-                                                // motorista (por dia)
-                                                if (withDriver.checked) {
-                                                    total += getDriverDailyPrice() * days;
-                                                }
-
-                                                // atualizar campo hidden + display formatado
-                                                totalAmount.value = total.toFixed(2);
-                                                totalDisplay.value = formatKz(total);
-                                            }
-
-                                            // toggle do bloco motorista
-                                            withDriver.addEventListener('change', function () {
-                                                driverDiv.style.display = this.checked ? 'block' : 'none';
-                                                // se desmarcar motorista limpar o select
-                                                if (!this.checked && driverInput) driverInput.value = '';
-                                                calculateTotal();
                                             });
 
-                                            // listeners
-                                            [carSelect, startDate, endDate, driverInput].forEach(el => {
-                                                if (!el) return;
-                                                el.addEventListener('change', calculateTotal);
-                                            });
-                                            resources.forEach(r => r.addEventListener('change', calculateTotal));
+                                            // motorista (por dia)
+                                            if (withDriver.checked) {
+                                                total += getDriverDailyPrice() * days;
+                                            }
 
-                                            // inicializar: se veio old('driver_id'), mostramos o select (Blade já deu display:block)
+                                            totalAmount.value = total.toFixed(2);
+                                            totalDisplay.value = formatKz(total);
+                                        }
+
+                                        withDriver.addEventListener('change', function () {
+                                            driverDiv.style.display = this.checked ? 'block' : 'none';
+                                            if (!this.checked && driverInput) driverInput.value = '';
                                             calculateTotal();
                                         });
-                                    </script>
+
+                                        [carSelect, startDate, endDate, driverInput].forEach(el => {
+                                            if (!el) return;
+                                            el.addEventListener('change', calculateTotal);
+                                        });
+                                        resources.forEach(r => r.addEventListener('change', calculateTotal));
+
+                                        calculateTotal();
+                                    });
+                                </script>
+
                                 <!-- FIM do Script para o calculo automático para o preço -->
 
                             </form>
