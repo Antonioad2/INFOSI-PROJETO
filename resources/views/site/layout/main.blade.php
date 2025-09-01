@@ -532,7 +532,7 @@
                                     <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
                                 </ul>
                             </div>
-                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Selecionar<i class="fa-solid fa-arrow-right ps-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -564,7 +564,7 @@
                                     <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
                                 </ul>
                             </div>
-                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Selecionar <i class="fa-solid fa-arrow-right ps-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -595,7 +595,7 @@
                                     <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
                                 </ul>
                             </div>
-                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Selecionar<i class="fa-solid fa-arrow-right ps-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -626,7 +626,7 @@
                                     <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
                                 </ul>
                             </div>
-                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Selecionar <i class="fa-solid fa-arrow-right ps-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -657,7 +657,7 @@
                                     <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
                                 </ul>
                             </div>
-                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Selecionar <i class="fa-solid fa-arrow-right ps-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -688,7 +688,7 @@
                                     <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
                                 </ul>
                             </div>
-                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                            <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Selecionar <i class="fa-solid fa-arrow-right ps-1"></i></a>
                         </div>
                     </div>
                 </div>

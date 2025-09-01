@@ -5,7 +5,7 @@
                 <div class="cta-cheap-rental">
                     <div class="cta-cheap-rental-left wow fadeInUp" data-wow-delay=".3s">
                         <div class="logo-thumb">
-                            <a href="index.html">
+                            <a href="{{route('site.home')}}">
                                 <img src="{{ url('assets/user/img/logo/white-logo.svg')}}" alt="logo-img">
                             </a>
                         </div>

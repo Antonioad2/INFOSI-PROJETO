@@ -239,53 +239,7 @@
                 </div>
             </section>
 
-
-        <!-- Pick Up Location Section Start -->
-        <div class="pickup-loaction-area bg-cover" style="background-image: url('assets/img/brand-bg.png')" >
-            <div class="container">
-                <div class="brand-wrapper pt-80 pb-80">
-                    <div class="swiper brand-slider">
-                        <div class="swiper-wrapper">
-                            
-                            <div class="swiper-slide">
-                                <div class="brand-image">
-                                    <img src="{{ url('assets/user/img/brand/01.png')}}" alt="img">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-image">
-                                    <img src="{{ url('assets/user/img/brand/02.png')}}" alt="img">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-image">
-                                    <img src="{{ url('assets/user/img/brand/03.png')}}" alt="img">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-image">
-                                    <img src="{{ url('assets/user/img/brand/04.png')}}" alt="img">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-image">
-                                    <img src="{{ url('assets/user/img/brand/05.png')}}" alt="img">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-image">
-                                    <img src="{{ url('assets/user/img/brand/06.png')}}" alt="img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-        </div>
-
-        <!-- Search Booking Section Start -->
-        <section class="feature-benefit section section-padding fix">
+            <section class="feature-benefit section section-padding fix">
             <div class="container">
                 <div class="section-title text-center">
                     <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
@@ -374,211 +328,54 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- Car Rentals Section Start -->
-        <section class="car-rentals-section-2 section-padding fix">
-            <div class="container">
-                <div class="section-title text-center">
-                    <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
-                    <span class="wow fadeInUp" data-wow-delay=".2s">Conheça Nossos Novos Carros</span>
-                    <h2 class="wow fadeInUp" data-wow-delay=".4s">
-                        Carros Disponíveis <br>
-                        para Aluguel
-                    </h2>
-                </div>
-                <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="car-rentals-items">
-                            <div class="car-image">
-                                <img src="{{ url('assets/user/img/car/05.jpg')}}" alt="img">
-                            </div>
-                            <div class="car-content">
-                                <div class="post-cat">Modelo 2024</div>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>2 Avaliações</span>
-                                </div>
-                                <h4><a href="car-details.html">Hyundai Accent Limited</a></h4>
-                                <h6>70.000 Kz <span>/ Dia</span></h6>
-                                <div class="icon-items">
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/seat.svg')}}" alt="img" class="me-1">6 Lugares</li>
-                                        <li><img src="{{ url('assets/user/img/car/door.svg')}}" alt="img" class="me-1">2 Portas</li>
-                                    </ul>
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/automatic.svg')}}" alt="img" class="me-1">Automático</li>
-                                        <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
-                                    </ul>
-                                </div>
-                                <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                            </div>
+ <section class="car-rentals-section-2 section-padding fix">
+    <div class="container">
+        <div class="section-title text-center">
+            <img src="{{ url('assets/user/img/sub-icon.png') }}" alt="icon-img" class="wow fadeInUp">
+            <span class="wow fadeInUp" data-wow-delay=".2s">Conheça Nossos Novos Carros</span>
+            <h2 class="wow fadeInUp" data-wow-delay=".4s">
+                Carros Disponíveis <br> para Aluguel
+            </h2>
+        </div>
+        <div class="row">
+            @foreach ($cars->take(6) as $index => $car)
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".{{ 3 + ($index * 2) }}s">
+                    <div class="car-rentals-items">
+                        <div class="car-image">
+                                    <img src="{{ asset('uploads/car/car_images/' . $car->image) }}" alt="{{ $car->brand->name ?? '' }} {{ $car->models->name ?? '' }}">
                         </div>
-                    </div>
-                    <!-- Repetido para outros carros, com mesmos ajustes de tradução -->
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="car-rentals-items">
-                            <div class="car-image">
-                                <img src="{{ url('assets/user/img/car/06.jpg')}}" alt="img">
+                        <div class="car-content">
+                            <div class="post-cat">Modelo {{ $car->manufacture_date ?? 'N' }}</div>
+                            <div class="star">
+                                @for ($i = 0; $i < 5; $i++)
+                                    <i class="fa-solid fa-star"></i>
+                                @endfor
+                                <span>{{ $car->reviews_count ?? 2 }} Avaliações</span>
                             </div>
-                            <div class="car-content">
-                                <div class="post-cat">Modelo 2024</div>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>2 Avaliações</span>
-                                </div>
-                                <h4><a href="car-details.html">Hyundai Accent Limited</a></h4>
-                                <h6>70.000 Kz <span>/ Dia</span></h6>
-                                <div class="icon-items">
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/seat.svg')}}" alt="img" class="me-1">6 Lugares</li>
-                                        <li><img src="{{ url('assets/user/img/car/door.svg')}}" alt="img" class="me-1">2 Portas</li>
-                                    </ul>
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/automatic.svg')}}" alt="img" class="me-1">Automático</li>
-                                        <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
-                                    </ul>
-                                </div>
-                                <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                            <h4><a href="{{ route('site.car_details', $car->id) }}">{{ $car->brand->name ?? 'Hyundai' }} {{ $car->models->name ?? 'Accent Limited' }}</a></h4>
+                            <h6>{{ number_format($car->daily_rate ?? 70000, 0, ',', '.') }} Kz <span>/ Dia</span></h6>
+                            <div class="icon-items">
+                                <ul>
+                                    <li><img src="{{ url('assets/user/img/car/seat.svg') }}" alt="img" class="me-1">{{ $car->number_of_seats ?? N }} Lugares</li>
+                                    <li><img src="{{ url('assets/user/img/car/door.svg') }}" alt="img" class="me-1">{{ $car->number_of_doors ?? N }} Portas</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="{{ url('assets/user/img/car/automatic.svg') }}" alt="img" class="me-1">{{ $car->transmission ?? 'Automático' }}</li>
+                                    <li><img src="{{ url('assets/user/img/car/petrol.svg') }}" alt="img" class="me-1">{{ $car->fuel->name ?? 'Gasolina' }}</li>
+                                </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                        <div class="car-rentals-items">
-                            <div class="car-image">
-                                <img src="{{ url('assets/user/img/car/07.jpg')}}" alt="img">
-                            </div>
-                            <div class="car-content">
-                                <div class="post-cat">Modelo 2024</div>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>2 Avaliações</span>
-                                </div>
-                                <h4><a href="car-details.html">Hyundai Accent Limited</a></h4>
-                                <h6>70.000 Kz <span>/ Dia</span></h6>
-                                <div class="icon-items">
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/seat.svg')}}" alt="img" class="me-1">6 Lugares</li>
-                                        <li><img src="{{ url('assets/user/img/car/door.svg')}}" alt="img" class="me-1">2 Portas</li>
-                                    </ul>
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/automatic.svg')}}" alt="img" class="me-1">Automático</li>
-                                        <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
-                                    </ul>
-                                </div>
-                                <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="car-rentals-items">
-                            <div class="car-image">
-                                <img src="{{ url('assets/user/img/car/08.jpg')}}" alt="img">
-                            </div>
-                            <div class="car-content">
-                                <div class="post-cat">Modelo 2024</div>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>2 Avaliações</span>
-                                </div>
-                                <h4><a href="car-details.html">Hyundai Accent Limited</a></h4>
-                                <h6>70.000 Kz <span>/ Dia</span></h6>
-                                <div class="icon-items">
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/seat.svg')}}" alt="img" class="me-1">6 Lugares</li>
-                                        <li><img src="{{ url('assets/user/img/car/door.svg')}}" alt="img" class="me-1">2 Portas</li>
-                                    </ul>
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/automatic.svg')}}" alt="img" class="me-1">Automático</li>
-                                        <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
-                                    </ul>
-                                </div>
-                                <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="car-rentals-items">
-                            <div class="car-image">
-                                <img src="{{ url('assets/user/img/car/09.jpg')}}" alt="img">
-                            </div>
-                            <div class="car-content">
-                                <div class="post-cat">Modelo 2024</div>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>2 Avaliações</span>
-                                </div>
-                                <h4><a href="car-details.html">Hyundai Accent Limited</a></h4>
-                                <h6>70.000 Kz <span>/ Dia</span></h6>
-                                <div class="icon-items">
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/seat.svg')}}" alt="img" class="me-1">6 Lugares</li>
-                                        <li><img src="{{ url('assets/user/img/car/door.svg')}}" alt="img" class="me-1">2 Portas</li>
-                                    </ul>
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/automatic.svg')}}" alt="img" class="me-1">Automático</li>
-                                        <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
-                                    </ul>
-                                </div>
-                                <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                        <div class="car-rentals-items">
-                            <div class="car-image">
-                                <img src="{{ url('assets/user/img/car/10.jpg')}}" alt="img">
-                            </div>
-                            <div class="car-content">
-                                <div class="post-cat">Modelo 2024</div>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span>2 Avaliações</span>
-                                </div>
-                                <h4><a href="car-details.html">Hyundai Accent Limited</a></h4>
-                                <h6>70.000 Kz <span>/ Dia</span></h6>
-                                <div class="icon-items">
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/seat.svg')}}" alt="img" class="me-1">6 Lugares</li>
-                                        <li><img src="{{ url('assets/user/img/car/door.svg')}}" alt="img" class="me-1">2 Portas</li>
-                                    </ul>
-                                    <ul>
-                                        <li><img src="{{ url('assets/user/img/car/automatic.svg')}}" alt="img" class="me-1">Automático</li>
-                                        <li><img src="{{ url('assets/user/img/car/petrol.svg')}}" alt="img" class="me-1">Gasolina</li>
-                                    </ul>
-                                </div>
-                                <a href="car-details.html" class="theme-btn bg-color w-100 text-center">Reservar Agora <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                            </div>
+                            <a href="{{ route('site.car_details', $car->id) }}" class="theme-btn bg-color w-100 text-center">Selecionar<i class="fa-solid fa-arrow-right ps-1"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            @endforeach
+        </div>
+    </div>
+</section>
 
-        <!-- How Works Section Start -->
+<!-- How Works Section Start -->
             <section class="how-works-section fix section-padding pt-0">
                 <div class="container">
                 <div class="section-title text-center">
@@ -631,20 +428,6 @@
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
                             <div class="how-works-items">
-                                <h6 class="title"><a href="car-details.html">Seleciona o Motorista</a></h6>
-                                <div class="icon-box">
-                                    <div class="icon">
-                                        <img src="{{ url('assets/user/img/how-work/icon-4.png')}}" alt="img" class="icon-1">
-                                        <img src="{{ url('assets/user/img/how-work/icon-44.png')}}" alt="img" class="icon-2">
-                                    </div>
-                                </div>
-                                <p>
-                                    Aliquam viverra arcu. Donec aliquet blandit enim feugiat. Suspendisse id quam sed eros.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                            <div class="how-works-items">
                                 <h6 class="title"><a href="car-details.html">Conduza</a></h6>
                                 <div class="icon-box">
                                     <div class="icon">
@@ -657,13 +440,132 @@
                                 </p>
                             </div>
                         </div>
+                       
                 </div>
                 </div>
             </section>
 
+            <!-- Cta Car Booking Section Start -->
+        <section class="cta-car-booking-section bg-cover section-padding" style="background-image: url('assets/img/cta/cta-service.jpg')">
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="cta-car-booking-items">
+                            <div class="content">
+                                <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                                    Economize Tempo e Dinheiro com o Melhor <br>
+                                    Serviço de Aluguel de Carros da Cidade
+                                </h2>
+                                <div class="button-items">
+                                    <a href="about.html" class="theme-btn bg-white wow fadeInUp" data-wow-delay=".5s">Saiba Mais</a>
+                                    <a href="car-details.html" class="theme-btn bg-header wow fadeInUp" data-wow-delay=".7s">Reservar Seu Carro</a>
+                                </div>
+                            </div>
+                            <div class="car-image">
+                                <img src="{{ url('assets/user/img/car-slideshow-2.png')}}" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Pick Up Location Section Start -->
+        <div class="pickup-loaction-area bg-cover" style="background-image: url('assets/img/brand-bg.png')" >
+            <div class="container">
+                <div class="brand-wrapper pt-80 pb-80">
+                    <div class="swiper brand-slider">
+                        <div class="swiper-wrapper">
+                            
+                            <div class="swiper-slide">
+                                <div class="brand-image">
+                                    <img src="{{ url('assets/user/img/brand/01.png')}}" alt="img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="brand-image">
+                                    <img src="{{ url('assets/user/img/brand/02.png')}}" alt="img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="brand-image">
+                                    <img src="{{ url('assets/user/img/brand/03.png')}}" alt="img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="brand-image">
+                                    <img src="{{ url('assets/user/img/brand/04.png')}}" alt="img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="brand-image">
+                                    <img src="{{ url('assets/user/img/brand/05.png')}}" alt="img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="brand-image">
+                                    <img src="{{ url('assets/user/img/brand/06.png')}}" alt="img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+
+        <!-- Search Booking Section Start -->
+        
+     <!-- Brand Section Start -->
+        <div class="brand-wrapper style-2 pt-0 pb-80">
+            <div class="array-button">
+                <button class="array-prev-2"><i class="far fa-chevron-left"></i></button>
+                <button class="array-next-2"><i class="far fa-chevron-right"></i></button>
+            </div>
+            <div class="container">
+                <div class="swiper brand-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="brand-image style-color">
+                                <img src="{{ url('assets/user/img/brand/01.png')}}" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-image style-color">
+                                <img src="{{ url('assets/user/img/brand/02.png')}}" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-image style-color">
+                                <img src="{{ url('assets/user/img/brand/03.png')}}" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-image style-color">
+                                <img src="{{ url('assets/user/img/brand/04.png')}}" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-image style-color">
+                                <img src="{{ url('assets/user/img/brand/05.png')}}" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-image style-color">
+                                <img src="{{ url('assets/user/img/brand/06.png')}}" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+        
             
     <!-- Gallery Section Start -->
-            <div class="gallery-section-2 fix">
+          {{--  <div class="gallery-section-2 fix">
                 <div class="gallery-wrapper">
                     <div class="row g-4">
                         <div class="col-xxl-5 col-xl-6 col-lg-7">
@@ -736,11 +638,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
         <!-- Select Car Section Start -->
-        <section class="select-car-section section-padding fix">
+        {{-- <section class="select-car-section section-padding fix">
             <div class="container">
                 <div class="section-title text-center">
                     <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="img" class="wow fadeInUp">
@@ -849,10 +751,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- Faster Booking Section Start -->
-        <section class="faster-booking-section fix section-padding pt-0">
+        {{-- <section class="faster-booking-section fix section-padding pt-0">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-3 wow fadeInUp" data-wow-delay=".3s">
@@ -886,10 +788,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- Team Section Start -->
-        <section class="team-section fix section-padding pt-0">
+       {{-- <section class="team-section fix section-padding pt-0">
             <div class="container">
                 <div class="section-title text-center">
                     <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
@@ -962,10 +864,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- News Section Start -->
-        <section class="news-section section-padding fix bg-cover" style="background-image: url('assets/img/news/bg.jpg')">
+        {{-- <section class="news-section section-padding fix bg-cover" style="background-image: url('assets/img/news/bg.jpg')">
             <div class="container">
                 <div class="section-title text-center">
                     <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
@@ -1050,35 +952,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
-        <!-- Cta Car Booking Section Start -->
-        <section class="cta-car-booking-section bg-cover section-padding" style="background-image: url('assets/img/cta/cta-service.jpg')">
-            <div class="container">
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="cta-car-booking-items">
-                            <div class="content">
-                                <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                                    Economize Tempo e Dinheiro com o Melhor <br>
-                                    Serviço de Aluguel de Carros da Cidade
-                                </h2>
-                                <div class="button-items">
-                                    <a href="about.html" class="theme-btn bg-white wow fadeInUp" data-wow-delay=".5s">Saiba Mais</a>
-                                    <a href="car-details.html" class="theme-btn bg-header wow fadeInUp" data-wow-delay=".7s">Reservar Seu Carro</a>
-                                </div>
-                            </div>
-                            <div class="car-image">
-                                <img src="{{ url('assets/user/img/car-slideshow-2.png')}}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        
         <!-- Faq Section Start -->
-        <section class="faq-section fix section-padding">
+       {{-- <section class="faq-section fix section-padding">
             <div class="container">
                 <div class="faq-wrapper">
                     <div class="row g-4">
@@ -1144,51 +1022,8 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>--}}
 
-        <!-- Brand Section Start -->
-        <div class="brand-wrapper style-2 pt-0 pb-80">
-            <div class="array-button">
-                <button class="array-prev-2"><i class="far fa-chevron-left"></i></button>
-                <button class="array-next-2"><i class="far fa-chevron-right"></i></button>
-            </div>
-            <div class="container">
-                <div class="swiper brand-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/01.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/02.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/03.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/04.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/05.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/06.png')}}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+       
     </div>
 @endsection

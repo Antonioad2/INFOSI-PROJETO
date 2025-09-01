@@ -17,7 +17,9 @@ class CarController extends Controller
      * Lista todos os carros
      */
     public function index()
+
     {
+        
         $cars = Car::with(['brand', 'color', 'fuel', 'models'])->get();
         return view('admin.cars.car.index', compact('cars'));
     }

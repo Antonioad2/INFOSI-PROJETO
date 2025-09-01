@@ -1,7 +1,7 @@
 <nav id="mobile-menu">
     <ul>
         <li class="has-dropdown active menu-thumb">
-            <a href="index-3.html">
+            <a href="{{ route('site.home') }}">
                 Home 
                 <!-- <i class="fas fa-angle-down"></i>-->
             </a>
@@ -9,18 +9,13 @@
         </li>
 
         <li>
-            <a href="about.html">Sobre Nós</a>
+            <a href="#">Sobre Nós</a>
         </li>
 
         <li class="has-dropdown">
-            <a href="news.html">
-                Páginas
-                <i class="fas fa-angle-down"></i>
+            <a href="#">
+                Galeria
             </a>
-                    <ul class="submenu">
-                        <li><a href="gallery.html">Galeria</a></li>
-                        <li><a href="faq.html">Faq's</a></li>
-                    </ul>
         </li>
 
         <li>
@@ -37,18 +32,16 @@
         </li>
 
         <li>
-            <a href="news.html">
+            <a href="#">
                 Blog
                 <i class="fas fa-angle-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="news.html">Blog</a></li>
-                <li><a href="news-details.html">Detalhe do Blog</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Detalhe do Blog</a></li>
             </ul>
         </li>
         
-        <li>
-            <a href="contact.html">Contacto</a>
-        </li>
+        
     </ul>
 </nav>

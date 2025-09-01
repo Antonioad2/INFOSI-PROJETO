@@ -98,7 +98,7 @@
                         <div class="header-main">
                             <div class="header-left">
                                 <div class="logo">
-                                    <a href="index.html" class="header-logo-1">
+                                    <a href="{{route('site.home')}}" class="header-logo-1">
                                         <img src="{{ url('assets/user/img/logo/white-logo-2.svg')}}" alt="logo-img">
                                     </a>
                                     <a href="index.html" class="header-logo-2">
@@ -121,7 +121,7 @@
                                         <h6><a href="tel:+9288009850">+92 (8800) - 9850</a></h6>
                                     </div>
                                 </div>
-                                <a href="#0" class="search-trigger search-icon"><i class="fa-regular fa-magnifying-glass"></i></a>
+                               {{-- <a href="#0" class="search-trigger search-icon"><i class="fa-regular fa-magnifying-glass"></i></a> --}}
                                 <div class="header-button">
                                     <a href="car-details.html" class="theme-btn">
                                         Encontra o carro
