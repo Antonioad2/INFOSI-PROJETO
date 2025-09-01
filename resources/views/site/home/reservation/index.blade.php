@@ -8,7 +8,7 @@
                 <div class="page-heading">
                     <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
                         <li>
-                            <a href="index.html">
+                            <a href="{{ route('site.home') }}">
                                 Home
                             </a>
                         </li>
@@ -16,10 +16,10 @@
                             <i class="fas fa-chevron-right"></i>
                         </li>
                         <li>
-                            Cars
+                            Carros
                         </li>
                     </ul>
-                    <h1 class="wow fadeInUp" data-wow-delay=".5s">list Style</h1>
+                    <h1 class="wow fadeInUp" data-wow-delay=".5s">lista de estilo</h1>
                 </div>
             </div>
         </div>
@@ -28,6 +28,17 @@
         <section class="car-list-section section-padding fix">
             <div class="container">
                 <h3 class="mb-4">Carros disponíveis</h3>
+
+                <!-- Adicionando o filtro por categoria -->
+                <div class="category-filter mb-4">
+                    <h5>Filtrar por Categoria:</h5>
+                    <div class="btn-group">
+                        <a href="{{ route('site.reservation') }}" class="btn {{ !request('category') ? 'active' : '' }}">Todos</a>
+                                <a href="{{ route('site.reservation', ['category' => 'Luxury']) }}" class="btn {{ request('category') == 'Luxury' ? 'active' : '' }}">Luxo</a>
+                                <a href="{{ route('site.reservation', ['category' => 'Standard']) }}" class="btn {{ request('category') == 'Standard' ? 'active' : '' }}">Padrão / Intermediário</a>
+                                <a href="{{ route('site.reservation', ['category' => 'Economy']) }}"  class="btn {{ request('category') == 'Economy' ? 'active' : '' }}">Econômico</a>
+                        </div>
+                </div>
 
                 @if($cars->isEmpty())
 

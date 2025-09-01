@@ -6,11 +6,11 @@
             <div class="container">
                 <div class="page-heading">
                     <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{route('site.home')}}">Home</a></li>
                         <li><i class="fas fa-chevron-right"></i></li>
-                        <li>Cars</li>
+                        <li>Carros</li>
                     </ul>
-                    <h1 class="wow fadeInUp" data-wow-delay=".5s">Single Car</h1>
+                    <h1 class="wow fadeInUp" data-wow-delay=".5s">Carro individual</h1>
                 </div>
             </div>
         </div>

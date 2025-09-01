@@ -17,20 +17,29 @@ class HomeController extends Controller
     }
 
     // Other methods (reservation, carBook, carDetails) remain unchanged
-    public function reservation(Request $request)
-    {
-        // Captura os filtros do form
-        $local      = $request->input('location'); // local de retirada
-        $dataRetira = $request->input('data_retirada');
-        $dataDev    = $request->input('data_devolucao');
-        $carId      = $request->input('car_id'); // id do carro selecionado
+   public function reservation(Request $request)
+{
+    // Captura os filtros do form
+    $local      = $request->input('location'); 
+    $dataRetira = $request->input('data_retirada');
+    $dataDev    = $request->input('data_devolucao');
+    $carId      = $request->input('car_id'); 
+    $category   = $request->input('category'); // <-- Captura categoria
 
-        // Query inicial
-        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->get();
+    // Query inicial
+    $cars = Car::with(['brand', 'models', 'color', 'fuel']);
 
-        // Retorna para a view de listagem
-        return view('site.home.reservation.index', compact('cars', 'local', 'dataRetira', 'dataDev'));
+    // Aplica filtro por categoria (se existir)
+    if ($category) {
+        $cars->where('category', $category);
     }
+
+    $cars = $cars->get();
+
+    // Retorna para a view de listagem
+    return view('site.home.reservation.index', compact('cars', 'local', 'dataRetira', 'dataDev', 'category'));
+}
+
 
     public function carBook(Request $request)
     {

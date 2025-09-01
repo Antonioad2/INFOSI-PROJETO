@@ -19,16 +19,9 @@
         </li>
 
         <li>
-            <a href="program-details.html">
+            <a href="{{route('site.reservation')}}">
                 Carros
-                <i class="fas fa-angle-down"></i>
-            </a>
-            <ul class="submenu">
-                <li><a href="car-grid.html">Car Grid</a></li>
-                <li><a href="car-list.html">Lista dos Carros</a></li>
-                <li><a href="car-list-sidebar.html">Car Sidebar</a></li>
-                <li><a href="car-details.html">Detalhe do carro</a></li>
-            </ul>
+            </a>   
         </li>
 
         <li>
