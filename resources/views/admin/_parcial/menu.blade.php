@@ -91,7 +91,6 @@
                     </a>
                     <ul class="nxl-submenu">
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.index')}}">Ver Fornecedores</a></li>
-<<<<<<< HEAD
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.create')}}">Criar Fornecedores</a></li>
                     </ul>
                 </li>
@@ -118,11 +117,6 @@
                     </ul>
                 </li>
                 
-=======
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.create')}}">Cadastrar Fornecedores</a></li>
-                    </ul>
-                </li>
->>>>>>> 2adf105eaa2837a417dd036a50a2cbb6c3328ac3
 
                 {{--Lista de Carros--}}
                 <li class="nxl-item nxl-hasmenu">

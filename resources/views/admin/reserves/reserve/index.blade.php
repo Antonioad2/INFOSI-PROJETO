@@ -60,7 +60,6 @@
                                         <tr>
                                             <td>{{ $reserve->id }}</td>
                                             <td>{{ $reserve->client->name ?? 'N/A' }}</td>
-<<<<<<< HEAD
                                               <td>
                                                  @if($reserve->image)
                                                     <a href="{{ asset('uploads/brand/brand_logo/' . $reserve->image) }}">
@@ -70,9 +69,6 @@
                                                         <span>Sem imagem do carro</span>
                                                  @endif
                                             </td>
-=======
-                                            <td>{{ $reserve->car->brand->name ?? 'N/A' }} {{ $reserve->car->models->name ?? '' }}</td>
->>>>>>> 2adf105eaa2837a417dd036a50a2cbb6c3328ac3
                                             <td>{{ \Carbon\Carbon::parse($reserve->start_date)->format('d/m/Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }}</td>
                                             <td>{{ number_format($reserve->total_amount, 2, ',', '.') }} KZ</td>
