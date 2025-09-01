@@ -69,7 +69,7 @@
                                 <div class="avatar-text avatar-sm">
                                     <i class="feather-truck"></i>
                                 </div>
-                                <span>{{ $reserve->car->name ?? 'Carro ' . $reserve->car->id }}</span>
+                                <span>{{ $reserve->car->brand->name }} {{ $reserve->car->models->name }}</span>
                             </a>
                         </div>
                     </div>

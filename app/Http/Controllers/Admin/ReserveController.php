@@ -16,7 +16,7 @@ class ReserveController extends Controller
      */
     public function index()
     {
-        $reserves = Reserve::with(['client', 'car'])->latest()->get();
+        $reserves = Reserve::with(['client', 'car', 'driver'])->latest()->get();
         return view('admin.reserves.reserve.index', compact('reserves'));
     }
 
@@ -28,36 +28,60 @@ class ReserveController extends Controller
         $clients = Client::all();
         $cars = Car::all();
         $drivers = Driver::all();
+
+        // passamos 'resources' (config) opcionalmente para view (não obrigatório)
         return view('admin.reserves.reserveCreate.index', compact('clients', 'cars', 'drivers'));
     }
 
-    /**
-     * Salvar uma nova reserva
-     */
     public function store(Request $request)
     {
+        // pegar chaves válidas dos extras do config
+        $allowedResources = implode(',', array_keys(config('resources.extras')));
+
         $request->validate([
-            'client_id'    => 'required|exists:clients,id',
-            'car_id'       => 'required|exists:cars,id',
-            'start_date'   => 'required|date',
-            'end_date'     => 'required|date|after_or_equal:start_date',
-            'total_amount' => 'required|numeric|min:0',
-            'resources'    => 'nullable|array',
-            'resources.*'  => 'in:baby_seat,protected_theft,protected_accidents,driver',
-            'driver_id'    => 'nullable|exists:drivers,id', // opcional
-            'status'       => 'nullable|in:in_progress,completed,cancelled'
+            'client_id'  => 'required|exists:clients,id',
+            'car_id'     => 'required|exists:cars,id',
+            'start_date' => 'required|date',
+            'end_date'   => 'required|date|after_or_equal:start_date',
+            'resources'  => 'nullable|array',
+            'resources.*'=> "in:{$allowedResources}",
+            'driver_id'  => 'nullable|exists:drivers,id',
+            'status'     => 'nullable|in:in_progress,completed,cancelled'
         ]);
 
-        Reserve::create($request->only([
-            'client_id',
-            'car_id',
-            'start_date',
-            'end_date',
-            'total_amount',
-            'resources',
-            'driver_id',
-            'status'
-        ]));
+        // Carro e dias (garantir pelo menos 1 dia)
+        $car = Car::findOrFail($request->car_id);
+        $days = \Carbon\Carbon::parse($request->start_date)
+                ->diffInDays(\Carbon\Carbon::parse($request->end_date));
+        $days = $days > 0 ? $days : 1;
+
+        $carTotal = $car->daily_price * $days;
+
+        // Recursos (pegar do config)
+        $resources = $request->resources ?? [];
+        $resourcesTotal = collect($resources)
+            ->sum(fn($r) => config("resources.extras.{$r}", 0));
+
+        // motorista (se selecionado)
+        if ($request->driver_id) {
+            $driver = Driver::findOrFail($request->driver_id);
+            $driverTotal = $driver->daily_price * $days;
+        }
+
+        // Total final
+        $totalAmount = $carTotal + $resourcesTotal + $driverTotal;
+
+        // Criar reserva — guardamos resources como JSON (array de keys)
+        Reserve::create([
+            'client_id'    => $request->client_id,
+            'car_id'       => $request->car_id,
+            'start_date'   => $request->start_date,
+            'end_date'     => $request->end_date,
+            'resources'    => json_encode(array_values($resources)),
+            'driver_id'    => $request->driver_id,
+            'status'       => $request->status ?? 'in_progress',
+            'total_amount' => $totalAmount,
+        ]);
 
         return redirect()->route('reserves.index')->with('success', 'Reserva criada com sucesso!');
     }
@@ -67,7 +91,7 @@ class ReserveController extends Controller
      */
     public function show($id)
     {
-        $reserve = Reserve::with(['client', 'car'])->findOrFail($id);
+        $reserve = Reserve::with(['client', 'car', 'driver'])->findOrFail($id);
         return view('admin.reserves.reserveView.index', compact('reserve'));
     }
 
@@ -79,7 +103,8 @@ class ReserveController extends Controller
         $reserve = Reserve::findOrFail($id);
         $clients = Client::all();
         $cars = Car::all();
-        return view('admin.reserves.reseveEdit.index', compact('reserve', 'clients', 'cars'));
+        $drivers = Driver::all();
+        return view('admin.reserves.reseveEdit.index', compact('reserve', 'clients', 'cars', 'drivers'));
     }
 
     /**
@@ -87,32 +112,58 @@ class ReserveController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $allowedResources = implode(',', array_keys(config('resources.extras')));
+
         $request->validate([
-            'client_id'    => 'required|exists:clients,id',
-            'car_id'       => 'required|exists:cars,id',
-            'start_date'   => 'required|date',
-            'end_date'     => 'required|date|after_or_equal:start_date',
-            'total_amount' => 'required|numeric|min:0',
-            'resources'    => 'nullable|array',
-            'resources.*'  => 'in:baby_seat,protected_theft,protected_accidents,driver',
-            'driver_id'    => 'nullable|exists:drivers,id',
-            'status'       => 'required|in:in_progress,completed,cancelled',
+            'client_id'  => 'required|exists:clients,id',
+            'car_id'     => 'required|exists:cars,id',
+            'start_date' => 'required|date',
+            'end_date'   => 'required|date|after_or_equal:start_date',
+            'resources'  => 'nullable|array',
+            'resources.*'=> "in:{$allowedResources}",
+            'driver_id'  => 'nullable|exists:drivers,id',
+            'status'     => 'required|in:in_progress,completed,cancelled',
         ]);
 
         $reserve = Reserve::findOrFail($id);
-        $reserve->update($request->only([
-            'client_id',
-            'car_id',
-            'start_date',
-            'end_date',
-            'total_amount',
-            'resources',
-            'driver_id',
-            'status'
-        ]));
+
+        // Carro e dias
+        $car = Car::findOrFail($request->car_id);
+        $days = \Carbon\Carbon::parse($request->start_date)
+                ->diffInDays(\Carbon\Carbon::parse($request->end_date));
+        $days = $days > 0 ? $days : 1;
+
+        $carTotal = $car->daily_price * $days;
+
+        // Recursos
+        $resources = $request->resources ?? [];
+        $resourcesTotal = collect($resources)
+            ->sum(fn($r) => config("resources.extras.{$r}", 0));
+
+        // Motorista
+        $driverTotal = 0;
+        if ($request->driver_id) {
+            $driver = Driver::find($request->driver_id);
+            $driverDaily = $driver && $driver->daily_price ? $driver->daily_price : config('resources.driver_price_per_day', 0);
+            $driverTotal = $driverDaily * $days;
+        }
+
+        $totalAmount = $carTotal + $resourcesTotal + $driverTotal;
+
+        // Atualizar
+        $reserve->update([
+            'client_id'    => $request->client_id,
+            'car_id'       => $request->car_id,
+            'start_date'   => $request->start_date,
+            'end_date'     => $request->end_date,
+            'resources'    => json_encode(array_values($resources)),
+            'driver_id'    => $request->driver_id,
+            'status'       => $request->status,
+            'total_amount' => $totalAmount,
+        ]);
 
         return redirect()->route('reserves.index')->with('success', 'Reserva atualizada com sucesso!');
-}
+    }
 
     /**
      * Deletar reserva

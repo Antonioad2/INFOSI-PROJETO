@@ -19,6 +19,6 @@ class Driver extends Model
         'experience_years',
         'gender',
         'address',
-        
+        'daily_price'
     ];
 }

@@ -162,7 +162,7 @@
                         </div>
                     </div>
 
-                     <div class="row mb-4">
+                    <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Cor do Carro</div>
                         <div class="col-lg-10 hstack gap-1">
                             <a href="javascript:void(0);" class="hstack gap-2">
@@ -173,6 +173,20 @@
                             </a>
                         </div>
                     </div>
+
+                    <!--Valor do Carro-->
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Preço diário do Carro</div>
+                        <div class="col-lg-10 hstack gap-1">
+                            <a href="javascript:void(0);" class="hstack gap-2">
+                                <div class="avatar-text avatar-sm">
+                                    <i class="feather-dollar-sign"></i>
+                                </div>
+                                <span>{{ number_format($car->price, 2) }}Kz</span>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Data de criação</div>
                         <div class="col-lg-10 hstack gap-1">

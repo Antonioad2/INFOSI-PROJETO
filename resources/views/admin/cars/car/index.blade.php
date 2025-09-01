@@ -96,6 +96,8 @@
                                             <td>{{ $car->supplier->name ?? 'N/A' }}</td>
                                             <td class="fw-bold text-dark">{{ \Str::limit($car->observations, 40) }}</td>
                                             <td class="fw-bold text-dark">{{ $car->registration_date ? \Carbon\Carbon::parse($car->registration_date)->format('d/m/Y') : 'N/A' }}</td>
+                                            
+                                            <!-- Ações -->
                                             <td>
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <a href="{{ route('cars.show', $car) }}" class="avatar-text avatar-md">

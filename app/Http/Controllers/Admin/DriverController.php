@@ -29,36 +29,43 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'full_name' => 'required|string|max:255',
-            'document_identification' => 'required|unique:drivers',
-            'id_image' => 'required|image|mimes:jpg,jpeg,png,pdf|max:5120',
-            'license_image' => 'required|image|mimes:jpg,jpeg,png,pdf|max:5120',
-            'license_expiry_date' => 'required|date',
-            'phone_number' => 'required|string|max:20',
-            'gender' => 'nullable|in:male,female',
-            'email' => 'required|email|unique:drivers',
-            'experience_years' => 'nullable|integer|min:0',
-            'address' => 'required|string|max:255',
+        $validated = $request->validate([
+            'full_name'              => 'required|string|max:255|unique:suppliers,name',
+            'document_identification' => 'required|string|max:50|unique:drivers,document_identification',
+            'id_image'               => 'required|file|mimes:pdf,doc,jpg,jpeg,png|max:4096',
+            'license_image'          => 'required|file|mimes:pdf,doc,jpg,jpeg,png|max:4096',
+            'license_expiry_date'    => 'required|date',
+            'phone_number'           => 'required|string|max:20',
+            'gender'                 => 'nullable|in:male,female',
+            'email'                  => 'required|email|unique:suppliers,email',
+            'experience_years'       => 'nullable|integer|min:0',
+            'address'                => 'nullable|string|max:255',
+            'status'                 => 'nullable|in:active,inactive',
+            'daily_price'            => 'required|numeric|min:0',
         ]);
 
-        // Upload das imagens
-        $idImagePath = $request->file('id_image')->store('drivers/id_images', 'public');
-        $licenseImagePath = $request->file('license_image')->store('drivers/license_images', 'public');
+        // Diretórios
+        $uploadPath = public_path('uploads');
 
-        // Criar motorista
-        Driver::create([
-            'full_name' => $request->full_name,
-            'document_identification' => $request->document_identification,
-            'id_image' => $idImagePath,
-            'license_image' => $licenseImagePath,
-            'license_expiry_date' => $request->license_expiry_date,
-            'phone_number' => $request->phone_number,
-            'gender' => $request->gender,
-            'email' => $request->email,
-            'experience_years' => $request->experience_years,
-            'address' => $request->address,
-        ]);
+        if ($request->hasFile('document_identification')) {
+            $fileName = time() . '_document.' . $request->bi_upload->getClientOriginalExtension();
+            $request->bi_upload->move($uploadPath . '/driver/driver_document_identification', $fileName);
+            $validated['document_identification'] = $fileName;
+        }
+
+        if ($request->hasFile('id_image')) {
+            $fileName = time() . '_image.' . $request->id_image->getClientOriginalExtension();
+            $request->id_image->move($uploadPath . '/driver/driver_id_image', $fileName);
+            $validated['id_image'] = $fileName;
+        }
+
+        if ($request->hasFile('license_image')) {
+            $fileName = time() . '_image.' . $request->license_image->getClientOriginalExtension();
+            $request->license_image->move($uploadPath . '/driver/driver_license_image', $fileName);
+            $validated['license_image'] = $fileName;
+        }
+
+        Driver::create($validated);
 
         return redirect()->route('drivers.index')->with('success', 'Motorista cadastrado com sucesso!');
     }
@@ -84,27 +91,43 @@ class DriverController extends Controller
      */
     public function update(Request $request, Driver $driver)
     {
-        $request->validate([
-            'full_name' => 'required|string|max:255',
-            'document_identification' => 'required|unique:drivers,document_identification,' . $driver->id,
-            'license_expiry_date' => 'required|date',
-            'phone_number' => 'required|string|max:20',
-            'gender' => 'nullable|in:male,female',
-            'email' => 'required|email|unique:drivers,email,' . $driver->id,
-            'experience_years' => 'nullable|integer|min:0',
-            'address' => 'required|string|max:255',
+        $validated = $request->validate([
+            'full_name'              => 'required|string|max:255|unique:suppliers,name,' . $driver->id,
+            'document_identification' => 'required|string|max:50|unique:drivers,document_identification,' . $driver->id,
+            'id_image'               => 'nullable|file|mimes:pdf,doc,jpg,jpeg,png|max:4096',
+            'license_image'          => 'nullable|file|mimes:pdf,doc,jpg,jpeg,png|max:4096',
+            'license_expiry_date'    => 'required|date',
+            'phone_number'           => 'required|string|max:20',
+            'gender'                 => 'nullable|in:male,female',
+            'email'                  => 'required|email|unique:suppliers,email',
+            'experience_years'       => 'nullable|integer|min:0',
+            'address'                => 'nullable|string|max:255',
+            'status'                 => 'nullable|in:active,inactive',
+            'daily_price'            => 'required|numeric|min:0',
         ]);
 
-        // Atualizar imagens (se enviadas)
+        // Diretórios
+        $uploadPath = public_path('uploads');
+
+        if ($request->hasFile('document_identification')) {
+            $fileName = time() . '_document.' . $request->bi_upload->getClientOriginalExtension();
+            $request->bi_upload->move($uploadPath . '/driver/driver_document_identification', $fileName);
+            $validated['document_identification'] = $fileName;
+        }
+
         if ($request->hasFile('id_image')) {
-            $driver->id_image = $request->file('id_image')->store('drivers/id_images', 'public');
+            $fileName = time() . '_image.' . $request->id_image->getClientOriginalExtension();
+            $request->id_image->move($uploadPath . '/driver/driver_id_image', $fileName);
+            $validated['id_image'] = $fileName;
         }
 
         if ($request->hasFile('license_image')) {
-            $driver->license_image = $request->file('license_image')->store('drivers/license_images', 'public');
+            $fileName = time() . '_image.' . $request->license_image->getClientOriginalExtension();
+            $request->license_image->move($uploadPath . '/driver/driver_license_image', $fileName);
+            $validated['license_image'] = $fileName;
         }
 
-        $driver->update($request->except(['id_image', 'license_image']));
+        $driver->update($validated);
 
         return redirect()->route('drivers.index')->with('success', 'Motorista atualizado com sucesso!');
     }

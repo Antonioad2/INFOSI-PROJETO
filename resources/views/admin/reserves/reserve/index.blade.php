@@ -48,8 +48,9 @@
                                         <th>Carro</th>
                                         <th>Data Início</th>
                                         <th>Data Fim</th>
-                                        <th>Valor Total</th>
-                                        <th>Recurso</th>
+                                        <th>Valor</th>
+                                        <th>Recursos</th>
+                                        <th>Motorista</th>
                                         <th>Status</th>
                                         <th class="text-end">Ações</th>
                                     </tr>
@@ -59,7 +60,7 @@
                                         <tr>
                                             <td>{{ $reserve->id }}</td>
                                             <td>{{ $reserve->client->name ?? 'N/A' }}</td>
-                                            <td>{{ $reserve->car->brand ?? 'N/A' }} - {{ $reserve->car->model ?? '' }}</td>
+                                            <td>{{ $reserve->car->brand->name ?? 'N/A' }} {{ $reserve->car->models->name ?? '' }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reserve->start_date)->format('d/m/Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }}</td>
                                             <td>{{ number_format($reserve->total_amount, 2, ',', '.') }} KZ</td>
@@ -74,6 +75,7 @@
                                                     Nenhum
                                                 @endif
                                             </td>
+                                            <td>{{ $reserve->driver->full_name ?? 'N/A' }}</td>
                                             <td>
                                                 @if($reserve->status == 'in_progress')
                                                     <span class="badge bg-warning">Em Andamento</span>

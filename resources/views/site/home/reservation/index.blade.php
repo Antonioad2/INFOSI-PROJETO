@@ -9,7 +9,6 @@
                     <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
                         <li>
                             <a href="index.html">
-                                
                                 Home
                             </a>
                         </li>
@@ -60,7 +59,7 @@
                                             </div>
                                             
                                             <h6 class="price">
-                                                R$ {{ number_format($car->price_per_day, 2, ',', '.') ?? '---' }} 
+                                                {{ number_format($car->price, 2, ',', '.') ?? '---' }} Kz
                                                 <span>/ Dia</span>
                                              <a href="{{ route('site.car_details', ['car_id' => $car->id]) }}" class="theme-btn">
                                                     Selecionar
