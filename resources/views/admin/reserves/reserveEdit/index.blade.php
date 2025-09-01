@@ -84,6 +84,7 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                
 
                                 <!-- Start Date -->
                                 <div class="col-md-6 mb-3">
@@ -125,19 +126,6 @@
                                         <option value="protected_accidents" {{ old('resource', $reserve->resource) == 'protected_accidents' ? 'selected' : '' }}>Proteção contra Acidentes</option>
                                     </select>
                                     @error('resource')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <!-- Status -->
-                                <div class="col-md-6 mb-3">
-                                    <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
-                                    <select name="status" class="form-control @error('status') is-invalid @enderror" required>
-                                        <option value="in_progress" {{ old('status', $reserve->status) == 'in_progress' ? 'selected' : '' }}>Em Progresso</option>
-                                        <option value="completed" {{ old('status', $reserve->status) == 'completed' ? 'selected' : '' }}>Concluído</option>
-                                        <option value="cancelled" {{ old('status', $reserve->status) == 'cancelled' ? 'selected' : '' }}>Cancelado</option>
-                                    </select>
-                                    @error('status')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>

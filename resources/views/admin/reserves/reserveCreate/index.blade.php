@@ -77,68 +77,48 @@
                                         @enderror
                                     </div>
 
-                                    <!-- Car -->
+                                    <!-- CARRO (com data-price) -->
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Carro <span class="text-danger">*</span></label>
-                                        <select name="car_id" class="form-control @error('car_id') is-invalid @enderror" required>
-                                            <option value="" disabled selected>Selecione um carro</option>
+                                        <select name="car_id" id="carSelect" class="form-control @error('car_id') is-invalid @enderror" required>
+                                            <option value="" disabled {{ old('car_id') ? '' : 'selected' }}>Selecione um carro</option>
                                             @foreach ($cars as $car)
-                                                <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }}>{{ $car->name ?? 'Carro ' . $car->id }}</option>
+                                                <option value="{{ $car->id }}"
+                                                        data-price="{{ $car->daily_price }}"
+                                                        {{ old('car_id') == $car->id ? 'selected' : '' }}>
+                                                    {{ $car->brand->name }} - {{ $car->models->name }} ({{ number_format($car->price, 2, ',', '.') }} Kz/dia)
+                                                </option>
                                             @endforeach
                                         </select>
-                                        @error('car_id')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
+                                        @error('car_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
 
-                                    <!-- Start Date -->
+                                    <!-- DATAS (mantém como tens) -->
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Data de Início <span class="text-danger">*</span></label>
                                         <input type="date" name="start_date" class="form-control @error('start_date') is-invalid @enderror"
-                                               value="{{ old('start_date', now()->format('Y-m-d')) }}" min="{{ now()->format('Y-m-d') }}" required>
-                                        @error('start_date')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
+                                            value="{{ old('start_date', now()->format('Y-m-d')) }}" min="{{ now()->format('Y-m-d') }}" required>
+                                        @error('start_date') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
 
-                                    <!-- End Date -->
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Data de Término <span class="text-danger">*</span></label>
                                         <input type="date" name="end_date" class="form-control @error('end_date') is-invalid @enderror"
-                                               value="{{ old('end_date') }}" min="{{ now()->format('Y-m-d') }}" required>
-                                        @error('end_date')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
+                                            value="{{ old('end_date') }}" min="{{ now()->format('Y-m-d') }}" required>
+                                        @error('end_date') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
 
-                                    <!-- Total Amount -->
+                                    <!-- TOTAL: hidden (para envio) + display -->
                                     <div class="col-lg-4 mb-4">
-                                        <label class="form-label">Valor Total <span class="text-danger">*</span></label>
-                                        <input type="number" name="total_amount" class="form-control @error('total_amount') is-invalid @enderror"
-                                               value="{{ old('total_amount') }}" step="0.01" min="0" placeholder="Ex: 150.00" required>
-                                        @error('total_amount')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
+                                        <label class="form-label">Valor Total</label>
+                                        <input type="hidden" id="totalAmount" name="total_amount" value="{{ old('total_amount', 0) }}">
+                                        <input type="text" id="totalAmountDisplay" class="form-control" value="{{ old('total_amount') ? number_format(old('total_amount'), 2, ',', '.') . ' Kz' : '' }}" readonly>
                                     </div>
 
-                                    <!-- Status -->
-                                    <div class="col-lg-4 mb-4">
-                                        <label class="form-label">Status <span class="text-danger">*</span></label>
-                                        <select name="status" class="form-control @error('status') is-invalid @enderror" required>
-                                            <option value="in_progress" {{ old('status', 'in_progress') == 'in_progress' ? 'selected' : '' }}>Em Progresso</option>
-                                            <option value="completed" {{ old('status') == 'completed' ? 'selected' : '' }}>Concluído</option>
-                                            <option value="cancelled" {{ old('status') == 'cancelled' ? 'selected' : '' }}>Cancelado</option>
-                                        </select>
-                                        @error('status')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <!-- Resources -->
+                                    <!-- RECURSOS -->
                                     <div class="col-lg-12 mb-4">
                                         <label class="form-label">Recursos adicionais</label>
                                         <div class="d-flex flex-column">
-
                                             <div class="form-check mb-2">
                                                 <input type="checkbox" class="form-check-input" name="resources[]" value="baby_seat"
                                                     id="babySeat" {{ (is_array(old('resources')) && in_array('baby_seat', old('resources'))) ? 'checked' : '' }}>
@@ -156,29 +136,29 @@
                                                     id="protectedAccidents" {{ (is_array(old('resources')) && in_array('protected_accidents', old('resources'))) ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="protectedAccidents">Proteção contra Acidentes</label>
                                             </div>
-
                                         </div>
-                                        @error('resources')
-                                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                                        @enderror
+                                        @error('resources') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
                                     </div>
 
-                                    <!-- Driver Option -->
-                                    <div class="form-check mb-2">
-                                        <input type="checkbox" id="withDriver" class="form-check-input">
-                                        <label for="withDriver">Incluir Motorista</label>
-                                    </div>
+                                <!-- MOTORISTA (checkbox + select) -->
+                                <div class="form-check mb-2">
+                                    <input type="checkbox" id="withDriverCheckbox" class="form-check-input" {{ old('driver_id') ? 'checked' : '' }}>
+                                    <label for="withDriverCheckbox">Incluir Motorista</label>
+                                </div>
 
-                                    <div id="driverSelect" style="display:none;">
-                                        <label class="form-label">Motorista</label>
-                                        <select name="driver_id" class="form-control">
-                                            <option value="">Selecione um motorista</option>
-                                            
-                                            @foreach($drivers as $driver)
-                                                <option value="{{ $driver->id }}">{{ $driver->full_name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                <div id="driverSelect" style="{{ old('driver_id') ? 'display:block;' : 'display:none;' }}">
+                                    <label class="form-label">Motorista</label>
+                                    <select name="driver_id" id="driverSelectInput" class="form-control">
+                                        <option value="">Sem motorista</option>
+                                        @foreach($drivers as $driver)
+                                            <option value="{{ $driver->id }}" data-price="{{ $driver->daily_price }}"
+                                                {{ old('driver_id') == $driver->id ? 'selected' : '' }}>
+                                                {{ $driver->name }} ({{ number_format($driver->daily_price, 2, ',', '.') }} Kz/dia)
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
 
                                     <script>
                                         document.getElementById('withDriver').addEventListener('change', function() {
@@ -192,6 +172,99 @@
                                         <button type="submit" class="btn btn-primary">Salvar Reserva</button>
                                     </div>
                                 </div>
+
+                                <!-- Script para o calculo automático para o preço -->
+                                    <script>
+                                        // injeta config do backend no frontend (garante fonte única de verdade)
+                                        window.resourcePrices = @json(config('resources.extras'));
+                                        // driver prices por id (pega do select via data-price, mas deixo isto como fallback)
+                                        window.driverPrices = @json($drivers->pluck('daily_price', 'id'));
+
+                                        document.addEventListener('DOMContentLoaded', function () {
+                                            const carSelect   = document.getElementById("carSelect");
+                                            const startDate   = document.querySelector("input[name='start_date']");
+                                            const endDate     = document.querySelector("input[name='end_date']");
+                                            const resources   = document.querySelectorAll("input[name='resources[]']");
+                                            const withDriver  = document.getElementById("withDriver");
+                                            const driverDiv   = document.getElementById("driverSelect");
+                                            const driverInput = document.getElementById("driverSelectInput");
+                                            const totalAmount = document.getElementById("totalAmount");           // hidden (envio)
+                                            const totalDisplay= document.getElementById("totalAmountDisplay");    // visível
+
+                                            function daysBetween(startStr, endStr) {
+                                                const [y1,m1,d1] = startStr.split('-').map(Number);
+                                                const [y2,m2,d2] = endStr.split('-').map(Number);
+                                                const start = Date.UTC(y1, m1 - 1, d1);
+                                                const end   = Date.UTC(y2, m2 - 1, d2);
+                                                const diff  = (end - start) / (1000 * 60 * 60 * 24);
+                                                return diff > 0 ? diff : 1;
+                                            }
+
+                                            function formatKz(n) {
+                                                // formata "15.000,00 Kz"
+                                                return new Intl.NumberFormat('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n) + ' Kz';
+                                            }
+
+                                            function getDriverDailyPrice() {
+                                                if (!driverInput) return 0;
+                                                const opt = driverInput.options[driverInput.selectedIndex];
+                                                if (opt && opt.dataset.price) return parseFloat(opt.dataset.price) || 0;
+                                                // fallback para map window.driverPrices
+                                                return window.driverPrices && window.driverPrices[driverInput.value] ? parseFloat(window.driverPrices[driverInput.value]) : 0;
+                                            }
+
+                                            function calculateTotal() {
+                                                let total = 0;
+                                                let days = 1;
+                                                if (startDate.value && endDate.value) {
+                                                    days = daysBetween(startDate.value, endDate.value);
+                                                }
+
+                                                // preço do carro (data-price)
+                                                const selectedCar = carSelect.options[carSelect.selectedIndex];
+                                                if (selectedCar && selectedCar.dataset.price) {
+                                                    total += (parseFloat(selectedCar.dataset.price) || 0) * days;
+                                                }
+
+                                                // recursos (do config)
+                                                resources.forEach(r => {
+                                                    if (r.checked) {
+                                                        const price = (window.resourcePrices && window.resourcePrices[r.value]) ? parseFloat(window.resourcePrices[r.value]) : 0;
+                                                        total += price;
+                                                    }
+                                                });
+
+                                                // motorista (por dia)
+                                                if (withDriver.checked) {
+                                                    total += getDriverDailyPrice() * days;
+                                                }
+
+                                                // atualizar campo hidden + display formatado
+                                                totalAmount.value = total.toFixed(2);
+                                                totalDisplay.value = formatKz(total);
+                                            }
+
+                                            // toggle do bloco motorista
+                                            withDriver.addEventListener('change', function () {
+                                                driverDiv.style.display = this.checked ? 'block' : 'none';
+                                                // se desmarcar motorista limpar o select
+                                                if (!this.checked && driverInput) driverInput.value = '';
+                                                calculateTotal();
+                                            });
+
+                                            // listeners
+                                            [carSelect, startDate, endDate, driverInput].forEach(el => {
+                                                if (!el) return;
+                                                el.addEventListener('change', calculateTotal);
+                                            });
+                                            resources.forEach(r => r.addEventListener('change', calculateTotal));
+
+                                            // inicializar: se veio old('driver_id'), mostramos o select (Blade já deu display:block)
+                                            calculateTotal();
+                                        });
+                                    </script>
+                                <!-- FIM do Script para o calculo automático para o preço -->
+
                             </form>
                         </div>
                     </div>

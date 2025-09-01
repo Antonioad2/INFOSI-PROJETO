@@ -56,6 +56,9 @@
                                 <div class="mb-3">
                                     <strong>Endereço:</strong> {{ $driver->address ?? 'Não informado' }}
                                 </div>
+                                <div class="mb-3">
+                                    <strong>Preço Diário (Kz):</strong> {{ number_format($driver->daily_price, 2, ',', '.') }} Kz
+                                </div>
                                 
                             </div>
                             <div class="col-md-6">
@@ -74,10 +77,10 @@
                                     <strong>Imagem da Carta de Condução:</strong>
                                     <br>
                                     @if(Str::endsWith($driver->id_image, '.pdf'))
-                                        <a href="{{ asset('storage/'.$driver->id_image) }}" target="_blank">📄 Ver Documento</a>
+                                        <a href="{{ asset('uploads/driver/driver_id_image/'.$driver->id_image) }}" target="_blank">📄 Ver Documento</a>
                                     @else
-                                        <a href="{{ asset('storage/'.$driver->id_image) }}" target="_blank">
-                                            <img src="{{ asset('storage/'.$driver->id_image) }}" class="img-fluid" alt="Imagem de Identificação" style="width:100px; height:100px; object-fit:cover;">
+                                        <a href="{{ asset('uploads/driver/driver_id_image/'.$driver->id_image) }}" target="_blank">
+                                            <img src="{{ asset('uploads/driver/driver_id_image/'.$driver->id_image) }}" class="img-fluid" alt="Imagem de Identificação" style="width:100px; height:100px; object-fit:cover;">
                                         </a>
                                     @endif
                                 </div>
@@ -85,13 +88,14 @@
                                     <strong>Imagem de BI/PASSPORTE:</strong>
                                    <br> 
                                     @if(Str::endsWith($driver->license_image, '.pdf'))
-                                        <a href="{{ asset('storage/'.$driver->license_image) }}" target="_blank">📄 Ver Licença</a>
+                                        <a href="{{ asset('uploads/driver/driver_license_image/'.$driver->license_image) }}" target="_blank">📄 Ver Licença</a>
                                     @else
-                                        <a href="{{ asset('storage/'.$driver->license_image) }}" target="_blank">
-                                            <img src="{{ asset('storage/'.$driver->license_image) }}" class="img-fluid" alt="Imagem da Licença" style="width:100px; height:100px; object-fit:cover;">
+                                        <a href="{{ asset('uploads/driver/driver_license_image/'.$driver->license_image) }}" target="_blank">
+                                            <img src="{{ asset('uploads/driver/driver_license_image/'.$driver->license_image) }}" class="img-fluid" alt="Imagem da Licença" style="width:100px; height:100px; object-fit:cover;">
                                         </a>
                                     @endif
                                 </div>
+
                                 <br>
                             </div>
                         </div>

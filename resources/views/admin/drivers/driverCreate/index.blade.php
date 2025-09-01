@@ -130,6 +130,16 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
+
+                                <!-- Preço Diário -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="daily_price" class="form-label">Preço Diário (Kz) <span class="text-danger">*</span></label>
+                                    <input type="number" name="daily_price" id="daily_price" class="form-control @error('daily_price') is-invalid @enderror" value="{{ old('daily_price', 0) }}" min="0" step="0.01" required>
+                                    @error('daily_price')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
                             </div>
 
                             <!-- Botões -->

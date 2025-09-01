@@ -57,13 +57,12 @@
                                             </div>
                                         </th>
                                         <th>ID</th>
-                                        <th>Documento</th>
                                         <th>Nome</th>
+                                        <th>BI</th>
                                         <th>Email</th>
                                         <th>Telefone</th>
                                         <th>Gênero</th>
                                         <th>Experiência (anos)</th>
-                                        <th>Data de Cadastro</th>
                                         <th class="text-end">Ações</th>
                                     </tr>
                                 </thead>
@@ -79,31 +78,18 @@
                                                 </div>
                                             </td>
                                             <td><a href="{{ route('drivers.show', $driver) }}" class="fw-bold">{{ $driver->id }}</a></td>
-                                            <td>{{ $driver->document_identification }}</td>
                                             <td>
                                                 <a href="javascript:void(0)" class="hstack gap-3">
-                                                    <div class="avatar-image avatar-md">
-                                                        @if(Str::endsWith($driver->id_image, '.pdf'))
-                                                            <a href="{{ asset('storage/'.$driver->id_image) }}" target="_blank">📄 Documento</a>
-                                                        @else
-                                                            <img src="{{ asset('storage/'.$driver->id_image) }}" 
-                                                                class="img-fluid" 
-                                                                alt="Motorista" 
-                                                                style="width:80px; height:80px; object-fit:cover;">
-                                                        @endif
-                                                    </div>
                                                     <div>
                                                         <span class="text-truncate-1-line">{{ $driver->full_name }}</span>
                                                     </div>
                                                 </a>
                                             </td>
+                                            <td>{{ $driver->document_identification }}</td>
                                             <td>{{ $driver->email }}</td>
                                             <td>{{ $driver->phone_number }}</td>
                                             <td>{{ $driver->gender ? ($driver->gender == 'male' ? 'Masculino' : 'Feminino') : 'Não Informado' }}</td>
                                             <td>{{ $driver->experience_years }}</td>
-                                            <td class="fw-bold text-dark">
-                                                {{ $driver->created_at ? $driver->created_at->format('d/m/Y') : 'N/A' }}
-                                            </td>
                                             <td>
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <a href="{{ route('drivers.show', $driver) }}" class="avatar-text avatar-md">
