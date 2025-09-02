@@ -9,11 +9,11 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\FuelController;
 use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\Admin\SupplierController;
-use App\Model\Models;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DriverController;
-use App\Models\Brand;
-use App\Http\Controllers\Admin\ReserveController; 
+use App\Http\Controllers\Admin\ReserveController;
+use App\Http\Controllers\Site\ReservationController; 
+use App\Http\Controllers\Site\CarBookController;
 
 
 
@@ -21,11 +21,20 @@ use App\Http\Controllers\Admin\ReserveController;
                     Site routes
 -------------------------------------------------------*/
 
+// Rotas para página inicial e Listagem de carros
 Route::get('/', [HomeController::class, 'index'])->name('site.home');
 Route::get('/reservation', [HomeController::class, 'reservation'])->name('site.reservation');
 Route::get('/car-details/{car_id}', [HomeController::class, 'carDetails'])->name('site.car_details');
-Route::post('/car-book', [HomeController::class, 'carBook'])->name('site.car_book');
 
+// Rotas para o processo de reserva em duas etapas
+Route::post('/reservation/step1/{car_id}', [ReservationController::class, 'step1'])->name('site.reservation.step1');
+Route::post('/car-book/store', [CarBookController::class, 'store'])->name('car_book.store');
+Route::post('/car/{car_id}/book', [ReservationController::class, 'step1'])->name('site.car_book');
+Route::get('/reservation/checkout', [ReservationController::class, 'step2'])->name('site.reservation.checkout');
+Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])->name('site.reservation.confirm');
+
+/*---------- FIM Site routes -------------*/
+                   
 
 /*-------------------------------------------------------
                     Dashboard routes
@@ -146,6 +155,10 @@ Route::prefix('/admin/clients')->name('clients.')->group(function () {
     Route::delete('/{client}', [ClientController::class, 'destroy'])->name('destroy');
 });
 
+/*-------------------------------------------------------
+                    driver routes
+-------------------------------------------------------*/
+
 Route::prefix('/admin/drivers')->name('drivers.')->group(function () {
     Route::get('/', [DriverController::class, 'index'])->name('index');
     Route::get('/create', [DriverController::class, 'create'])->name('create');
@@ -156,6 +169,10 @@ Route::prefix('/admin/drivers')->name('drivers.')->group(function () {
     Route::delete('/{driver}', [DriverController::class, 'destroy'])->name('destroy');
 });
 
+/*-------------------------------------------------------
+                    reserve routes
+-------------------------------------------------------*/
+
 Route::prefix('/admin/reserves')->name('reserves.')->group(function () {
     Route::get('/', [ReserveController::class, 'index'])->name('index');
     Route::get('/create', [ReserveController::class, 'create'])->name('create');
@@ -165,3 +182,7 @@ Route::prefix('/admin/reserves')->name('reserves.')->group(function () {
     Route::put('/{id}', [ReserveController::class, 'update'])->name('update');
     Route::delete('/{id}', [ReserveController::class, 'destroy'])->name('destroy');
 });
+
+/*-------------------------------------------------------
+                FIM Dashboard routes
+-------------------------------------------------------*/

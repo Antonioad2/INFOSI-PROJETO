@@ -46,10 +46,7 @@
                                         <th>ID</th>
                                         <th>Cliente</th>
                                         <th>Carro</th>
-                                        <th>Data Início</th>
-                                        <th>Data Fim</th>
                                         <th>Valor</th>
-                                        <th>Recursos</th>
                                         <th>Motorista</th>
                                         <th>Status</th>
                                         <th class="text-end">Ações</th>
@@ -60,37 +57,11 @@
                                         <tr>
                                             <td>{{ $reserve->id }}</td>
                                             <td>{{ $reserve->client->name ?? 'N/A' }}</td>
-                                              <td>
-                                                 @if($reserve->image)
-                                                    <a href="{{ asset('uploads/brand/brand_logo/' . $reserve->image) }}">
-                                                        <img src="{{ asset('uploads/brand/brand_logo/' . $reserve->image) }}" alt="Brand Logo" width="50" height="50" class="img-fluid">
-                                                    </a>                                                                                                                  
-                                                    @else
-                                                        <span>Sem imagem do carro</span>
-                                                 @endif
-                                            </td>
-                                            <td>{{ \Carbon\Carbon::parse($reserve->start_date)->format('d/m/Y') }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }}</td>
-                                            <td>{{ number_format($reserve->total_amount, 2, ',', '.') }} KZ</td>
                                             <td>
-                                                @php
-                                                    $labels = [
-                                                        'baby_seat' => 'Cadeira de Bebê',
-                                                        'protected_theft' => 'Proteção contra Roubo',
-                                                        'protected_accidents' => 'Proteção contra Acidentes',
-                                                    ];
-
-                                                    // Decodifica o JSON para array
-                                                    $resources = is_string($reserve->resources) ? json_decode($reserve->resources, true) : $reserve->resources;
-                                                @endphp
-
-                                                @if(!empty($resources))
-                                                    {{ collect($resources)->map(fn($r) => $labels[$r] ?? $r)->implode(', ') }}
-                                                @else
-                                                    Nenhum
-                                                @endif
+                                                {{ $reserve->car->brand->name ?? 'N/A' }} {{ $reserve->car->models->name ?? 'N/A' }}
                                             </td>
-                                            <td>{{ $reserve->driver->full_name ?? 'N/A' }}</td>
+                                            <td>{{ number_format($reserve->total_amount, 2, ',', '.') }} KZ</td>
+                                            <td>{{ $reserve->driver->full_name ?? 'Sem motorista' }}</td>
                                             <td>
                                                 @if($reserve->status == 'in_progress')
                                                     <span class="badge bg-warning">Em Andamento</span>

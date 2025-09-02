@@ -90,6 +90,29 @@
                         </div>
                     </div>
 
+                    <!-- Local de Entrega -->
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Local de Entrega</div>
+                        <div class="col-lg-10 hstack gap-1">
+                            <a href="javascript:void(0);" class="hstack gap-2">
+                                <div class="avatar-text avatar-sm">
+                                    <i class="feather-map-pin"></i>
+                                </div>
+                                <span>{{ $reserve->pickup_location }}</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Valor Total</div>
+                        <div class="col-lg-10 hstack gap-1">
+                            <div class="avatar-text avatar-sm">
+                                <i class="feather-dollar-sign"></i>
+                            </div>
+                            <span>{{ number_format($reserve->total_amount, 2, ',', '.') }} Kz</span>
+                        </div>
+                    </div>
+
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Data de Início</div>
                         <div class="col-lg-10 hstack gap-1">
@@ -107,16 +130,6 @@
                                 <i class="feather-calendar"></i>
                             </div>
                             <span>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }}</span>
-                        </div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <div class="col-lg-2 fw-medium">Valor Total</div>
-                        <div class="col-lg-10 hstack gap-1">
-                            <div class="avatar-text avatar-sm">
-                                <i class="feather-dollar-sign"></i>
-                            </div>
-                            <span>{{ number_format($reserve->total_amount, 2, ',', '.') }} Kz</span>
                         </div>
                     </div>
 
@@ -147,7 +160,7 @@
                             <div class="avatar-text avatar-sm">
                                 <i class="feather-info"></i>
                             </div>
-                            <span>{{ ucfirst(str_replace('_', ' ', $reserve->status)) }}</span>
+                             <span class="badge bg-warning">{{ ucfirst(str_replace('_', ' ', $reserve->status)) }}</span>
                         </div>
                     </div>
 

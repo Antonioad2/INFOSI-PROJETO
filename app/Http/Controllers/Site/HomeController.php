@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Car; // Correct namespace for the Car model
+use App\Model\Driver;
 
 class HomeController extends Controller
 {
@@ -18,38 +19,42 @@ class HomeController extends Controller
 
     // Other methods (reservation, carBook, carDetails) remain unchanged
    public function reservation(Request $request)
-{
-    // Captura os filtros do form
-    $local      = $request->input('location'); 
-    $dataRetira = $request->input('data_retirada');
-    $dataDev    = $request->input('data_devolucao');
-    $carId      = $request->input('car_id'); 
-    $category   = $request->input('category'); // <-- Captura categoria
-
-    // Query inicial
-    $cars = Car::with(['brand', 'models', 'color', 'fuel']);
-
-    // Aplica filtro por categoria (se existir)
-    if ($category) {
-        $cars->where('category', $category);
-    }
-
-    $cars = $cars->get();
-
-    // Retorna para a view de listagem
-    return view('site.home.reservation.index', compact('cars', 'local', 'dataRetira', 'dataDev', 'category'));
-}
-
-
-    public function carBook(Request $request)
     {
-        $carId = $request->get('car_id');
+        // Captura os filtros do form
+        $local      = $request->input('location'); 
+        $dataRetira = $request->input('data_retirada');
+        $dataDev    = $request->input('data_devolucao');
+        $carId      = $request->input('car_id'); 
+        $category   = $request->input('category'); // <-- Captura categoria
 
-        // Busca o carro no banco
-        $car = Car::with(['brand', 'models'])->findOrFail($carId);
+        // Query inicial
+        $cars = Car::with(['brand', 'models', 'color', 'fuel']);
 
-        return view('site.home.car_book.index', compact('car'));
+        // Aplica filtro por categoria (se existir)
+        if ($category) {
+            $cars->where('category', $category);
+        }
+
+        $cars = $cars->get();
+
+        // Retorna para a view de listagem
+        return view('site.home.reservation.index', compact('cars', 'local', 'dataRetira', 'dataDev', 'category'));
     }
+
+    public function carBook(Request $request, $car_id)
+    {
+        $car = Car::with(['brand', 'models'])->findOrFail($car_id);
+
+        // aqui já podes pegar local, datas e extras do $request
+        $local      = $request->input('location');
+        $pickupDate = $request->input('pickup_date');
+        $dropDate   = $request->input('Data_de_Entrega');
+        $resources  = $request->input('resources', []);
+        $driverId   = $request->input('driver_id');
+
+        return view('site.home.car_book.index', compact('car', 'local', 'pickupDate', 'dropDate', 'resources', 'driverId'));
+    }
+
 
     public function carDetails($car_id)
     {
@@ -63,7 +68,9 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
+        $drivers = Driver::all();
+
         // Pass the car and similar cars to the view
-        return view('site.home.car_details.index', compact('car', 'cars'));
+        return view('site.home.car_details.index', compact('car', 'cars', 'drivers'));
     }
 }

@@ -186,15 +186,17 @@
                                             </div>
                                         </div>
 
-                                        <!-- Quantidade -->
-                                        <div class="col-lg-12">
-                                            <div class="form-clt">
-                                                <label class="label-text">Quantidade</label>
-                                                <div class="category-oneadjust">
-                                                    <input type="number" name="quantity" class="category form-control" placeholder="Digite a quantidade" min="1" required>
+                                        {{-- 
+                                            <!-- Quantidade -->
+                                            <div class="col-lg-12">
+                                                <div class="form-clt">
+                                                    <label class="label-text">Quantidade</label>
+                                                    <div class="category-oneadjust">
+                                                        <input type="number" name="quantity" class="category form-control" placeholder="Digite a quantidade" min="1" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </div> 
+                                        --}}
 
                                         <!-- Recursos extras -->
                                        <div class="col-lg-12">
@@ -202,7 +204,61 @@
                                                     <label class="label-text">Recursos adicionais</label>
                                                     <div class="input-save-items-area">
                                                         <div class="input-save-items">
-                                                            <div class="input-save d-flex align-items-center mb-3">
+
+                                                            {{-- Listagem Dinâmica dos Extras --}}
+                                                                {{-- Os extras estão definidos no ficheiro config/resources.php --}}
+                                                                @php
+                                                                    $extras = config('resources.extras', []);
+                                                                @endphp
+
+                                                                @if(!empty($extras))
+                                                                    @foreach($extras as $key => $data)
+                                                                        <div class="input-save d-flex align-items-center mb-3">
+                                                                            <input type="checkbox" class="form-check-input"
+                                                                                name="resources[]" value="{{ $key }}" id="{{ $key }}"
+                                                                                {{ (is_array(old('resources')) && in_array($key, old('resources'))) ? 'checked' : '' }}>
+                                                                            <label for="{{ $key }}">
+                                                                                <i class="{{ $data['icon'] ?? 'fas fa-check' }} me-2"></i>
+                                                                                {{ $data['label'] }} (+ {{ number_format($data['price'], 2, ',', '.') }} Kz)
+                                                                            </label>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @else
+                                                                    <p class="text-muted">Nenhum recurso adicional disponível.</p>
+                                                                @endif
+                                                            {{-- Fim da Listagem Dinâmica --}}
+
+                                                            {{-- Incluir Motorista --}}
+                                                                <div class="input-save d-flex align-items-center mb-3">
+                                                                    <input type="checkbox" id="withDriver" name="with_driver" value="1">
+                                                                    <label for="withDriver">
+                                                                        <i class="fas fa-user-tie me-2"></i>
+                                                                        Incluir Motorista
+                                                                    </label>
+                                                                </div>
+
+                                                                <div id="driverSelect" style="display:none;" class="mt-2">
+                                                                    <label for="driver_id">Escolha o motorista:</label>
+                                                                    <select name="driver_id" id="driver_id" class="form-select">
+                                                                        @foreach($drivers as $driver)
+                                                                            <option value="{{ $driver->id }}">
+                                                                                {{ $driver->full_name }} (+ {{ number_format($driver->daily_price, 2, ',', '.') }} Kz / dia)
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+
+                                                                {{-- Script para mostrar/ocultar a seleção do motorista --}}
+                                                                    <script>
+                                                                        document.getElementById('withDriver').addEventListener('change', function() {
+                                                                            document.getElementById('driverSelect').style.display = this.checked ? 'block' : 'none';
+                                                                        });
+                                                                    </script>
+                                                                {{-- Script para mostrar/ocultar a seleção do motorista --}}
+
+                                                            {{-- Fim de Incluir Motorista --}}
+
+                                                            {{-- <div class="input-save d-flex align-items-center mb-3">
                                                                 <input type="checkbox" class="form-check-input" name="resources[]" value="driver" id="driver">
                                                                 <label for="driver">
                                                                     <i class="fas fa-user-tie me-2"></i> Motorista
@@ -225,9 +281,11 @@
                                                                 <label for="theft">
                                                                     <i class="fas fa-shield-alt me-2"></i> Proteção contra Roubo
                                                                 </label>
-                                                            </div>
+                                                            </div> --}}
+
                                                         </div>
-                                                        <div class="input-save-items">
+
+                                                        {{-- <div class="input-save-items">
                                                             <div class="input-save d-flex align-items-center mb-3">
                                                                 <label>Kz1000 / Dia</label>
                                                             </div>
@@ -240,7 +298,8 @@
                                                             <div class="input-save d-flex align-items-center">
                                                                 <label>Kz1000 / Dia</label>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
+
                                                     </div>
                                                 </div>
                                             </div>
