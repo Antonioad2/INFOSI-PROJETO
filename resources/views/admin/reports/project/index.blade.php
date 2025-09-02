@@ -1,4 +1,4 @@
-@extends('reports.project.layout.main')
+@extends('admin.reports.project.layout.main')
 @section('container-project')
     <!--! ================================================================ !-->
     <!--! [Start] Main Content !-->
@@ -12,8 +12,8 @@
                         <h5 class="m-b-10">Reports</h5>
                     </div>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item">Project</li>
+                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                        <li class="breadcrumb-item">Motorista</li>
                     </ul>
                 </div>
                 <div class="page-header-right ms-auto">
@@ -95,64 +95,96 @@
                             <div class="card-body">
                                 <div class="hstack justify-content-between mb-4 pb-">
                                     <div>
-                                        <h5 class="mb-1">Projects</h5>
-                                        <span class="fs-12 text-muted">Recent project progress</span>
+                                        <h5 class="mb-1">Motorista</h5>
+                                        <span class="fs-12 text-muted">Progresso dos Motorista</span>
                                     </div>
-                                    <a href="javascript:void(0);" class="btn btn-light-brand">View Alls</a>
-                                </div>
-                                <div class="row g-4">
-                                    <div class="col-xxl-3 col-md-6">
-                                        <div class="card-body border border-dashed border-gray-5 rounded-3 position-relative">
-                                            <div class="hstack justify-content-between gap-4">
-                                                <div>
-                                                    <h6 class="fs-14 text-truncate-1-line">NFT Mobile Apps Developemnt</h6>
-                                                    <div class="fs-12 text-muted"><span class="text-dark fw-medium">Deadiline:</span> 20 days left</div>
-                                                </div>
-                                                <div class="project-progress-1"></div>
-                                            </div>
-                                            <div class="badge bg-gray-200 text-dark project-mini-card-badge">Updates</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-3 col-md-6">
-                                        <div class="card-body border border-dashed border-gray-5 rounded-3 position-relative">
-                                            <div class="hstack justify-content-between gap-4">
-                                                <div>
-                                                    <h6 class="fs-14 text-truncate-1-line">NFT Mobile Apps Developemnt</h6>
-                                                    <div class="fs-12 text-muted"><span class="text-dark fw-medium">Deadiline:</span> 20 days left</div>
-                                                </div>
-                                                <div class="project-progress-2"></div>
-                                            </div>
-                                            <div class="badge bg-gray-200 text-dark project-mini-card-badge">Updates</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-3 col-md-6">
-                                        <div class="card-body border border-dashed border-gray-5 rounded-3 position-relative">
-                                            <div class="hstack justify-content-between gap-4">
-                                                <div>
-                                                    <h6 class="fs-14 text-truncate-1-line">NFT Mobile Apps Developemnt</h6>
-                                                    <div class="fs-12 text-muted"><span class="text-dark fw-medium">Deadiline:</span> 20 days left</div>
-                                                </div>
-                                                <div class="project-progress-3"></div>
-                                            </div>
-                                            <div class="badge bg-gray-200 text-dark project-mini-card-badge">Updates</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-3 col-md-6">
-                                        <div class="card-body border border-dashed border-gray-5 rounded-3 position-relative">
-                                            <div class="hstack justify-content-between gap-4">
-                                                <div>
-                                                    <h6 class="fs-14 text-truncate-1-line">NFT Mobile Apps Developemnt</h6>
-                                                    <div class="fs-12 text-muted"><span class="text-dark fw-medium">Deadiline:</span> 20 days left</div>
-                                                </div>
-                                                <div class="project-progress-4"></div>
-                                            </div>
-                                            <div class="badge bg-gray-200 text-dark project-mini-card-badge">Updates</div>
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                          <div class="row g-4">
+    <div class="col-xxl-3 col-lg-3 col-md-3 col-sm-6">
+        <div class="card stretch stretch-full">
+            <div class="card-body">
+                <div class="fs-12 fw-medium text-muted mb-3">Motorista do Gênero Masculino</div>
+                <div class="hstack justify-content-between lh-base">
+                    <h3><span class="counter">{{ $driversMale }}</span></h3>
+                    <div class="hstack gap-2 fs-11 text-success">
+                        <div class="project-progress-male" style="position: relative; width: 50px; height: 50px;">
+                            <svg style="width: 50px; height: 50px;">
+                                <circle cx="25" cy="25" r="20" stroke="#e0e0e0" stroke-width="5" fill="none"/>
+                                <circle cx="25" cy="25" r="20" stroke="#db1919" stroke-width="5" fill="none" stroke-dasharray="125.6" stroke-dashoffset="{{ $totalDrivers > 0 ? 125.6 - (125.6 * ($driversMale / $totalDrivers)) : 125.6 }}"/>
+                            </svg>
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; color: #db1919;">
+                                {{ $totalDrivers > 0 ? round(($driversMale / $totalDrivers) * 100, 2) : 0 }}%
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-lg-3 col-md-3 col-sm-6">
+        <div class="card stretch stretch-full">
+            <div class="card-body">
+                <div class="fs-12 fw-medium text-muted mb-3">Motorista do Gênero Feminino</div>
+                <div class="hstack justify-content-between lh-base">
+                    <h3><span class="counter">{{ $driversFemale }}</span></h3>
+                    <div class="hstack gap-2 fs-11 text-success">
+                        <div class="project-progress-female" style="position: relative; width: 50px; height: 50px;">
+                            <svg style="width: 50px; height: 50px;">
+                                <circle cx="25" cy="25" r="20" stroke="#e0e0e0" stroke-width="5" fill="none"/>
+                                <circle cx="25" cy="25" r="20" stroke="#28a745" stroke-width="5" fill="none" stroke-dasharray="125.6" stroke-dashoffset="{{ $totalDrivers > 0 ? 125.6 - (125.6 * ($driversFemale / $totalDrivers)) : 125.6 }}"/>
+                            </svg>
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; color: #28a745;">
+                                {{ $totalDrivers > 0 ? round(($driversFemale / $totalDrivers) * 100, 2) : 0 }}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="col-xxl-3 col-lg-3 col-md-3 col-sm-6">
+        <div class="card stretch stretch-full">
+            <div class="card-body">
+                <div class="fs-12 fw-medium text-muted mb-3">Total de Motorista</div>
+                <div class="hstack justify-content-between lh-base">
+                    <h3><span class="counter">{{ $totalDrivers }}</span></h3>
+                    <div class="hstack gap-2 fs-11 text-success">
+                        <div class="project-progress-total" style="position: relative; width: 50px; height: 50px;">
+                            <svg style="width: 50px; height: 50px;">
+                                <circle cx="25" cy="25" r="20" stroke="#e0e0e0" stroke-width="5" fill="none"/>
+                                <circle cx="25" cy="25" r="20" stroke="#007bff" stroke-width="5" fill="none" stroke-dasharray="125.6" stroke-dashoffset="{{ $totalDrivers > 0 ? 125.6 - (125.6 * ($totalDrivers / 100)) : 125.6 }}"/>
+                            </svg>
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; color: #007bff;">
+                                {{ $totalDrivers > 0 ? round(($totalDrivers / 100) * 100, 2) : 0 }}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-lg-3 col-md-3 col-sm-6">
+        <div class="card stretch stretch-full">
+            <div class="card-body">
+                <div class="fs-12 fw-medium text-muted mb-3">Motorista Selecionado</div>
+                <div class="hstack justify-content-between lh-base">
+                    <h3><span class="counter">{{ $driversReserved }}</span></h3>
+                    <div class="hstack gap-2 fs-11 text-success">
+                        <div class="project-progress-reserved" style="position: relative; width: 50px; height: 50px;">
+                            <svg style="width: 50px; height: 50px;">
+                                <circle cx="25" cy="25" r="20" stroke="#e0e0e0" stroke-width="5" fill="none"/>
+                                <circle cx="25" cy="25" r="20" stroke="#ffc107" stroke-width="5" fill="none" stroke-dasharray="125.6" stroke-dashoffset="{{ $totalDrivers > 0 ? 125.6 - (125.6 * ($driversReserved / $totalDrivers)) : 125.6 }}"/>
+                            </svg>
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; color: #ffc107;">
+                                {{ $totalDrivers > 0 ? round(($driversReserved / $totalDrivers) * 100, 2) : 0 }}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                     <!-- [Mini Cards] end -->
                     <!-- [Project Report] start -->
                     <div class="col-xxl-8">

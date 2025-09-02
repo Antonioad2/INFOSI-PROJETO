@@ -25,13 +25,13 @@
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-cast"></i></span>
-                        <span class="nxl-mtext">Reports</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                        <span class="nxl-mtext">Relatório</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="/Reports/reportsSales">Sales Report</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Reports/reportsLeads">Leads Report</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Reports/reportsProject">Project Report</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/Reports/reportsTimesheets">Timesheets Report</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/admin/reports/reportsSales">Reservas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/admin/reports/reportsLeads">Carros</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/admin/reports/reportsProject">Motorista</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="/admin/reports/reportsTimesheets">Timesheets Report</a></li>
                     </ul>
                 </li>
 

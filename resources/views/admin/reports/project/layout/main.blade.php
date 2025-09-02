@@ -31,15 +31,15 @@
 		<![endif]-->
 </head>
 <body>
-@include('reports.project.parcial.header')
-@include('reports.project.parcial.menu')
-@include('reports.project.parcial.theme')
+@include('admin._parcial.header')
+@include('admin._parcial.menu')
+@include('admin._parcial.thema')
 
 <div>
     @yield('container-project')
 </div>
 
-@include('reports.project.parcial.footer')
+@include('admin._parcial.footer')
     <!--! BEGIN: Vendors JS !-->
     <script src="{{url('assets/vendors/js/vendors.min.js')}}"></script>
     <!-- vendors.min.js {always must need to be top} -->

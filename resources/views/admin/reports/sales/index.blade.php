@@ -1,4 +1,4 @@
-@extends('reports.sales.layout.main')
+@extends('admin.reports.sales.layout.main')
 @section('container-sales')
     <!--! ================================================================ !-->
     <!--! [Start] Main Content !-->

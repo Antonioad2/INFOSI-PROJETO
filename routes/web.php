@@ -33,6 +33,10 @@ Route::post('/car-book', [HomeController::class, 'carBook'])->name('site.car_boo
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('analytics');
+Route::get('/admin/reports/reportsSales', [DashboardController::class, 'reportsSales'])->name('reportsSales');
+Route::get('/admin/reports/reportsLeads', [DashboardController::class, 'reportsLeads'])->name('reportsLeads');
+Route::get('/admin/reports/reportsProject', [DashboardController::class, 'reportsProject'])->name('reportsProject');
+Route::get('/admin/reports/reportsTimesheets', [DashboardController::class, 'reportsTimesheets'])->name('reportsTimesheets');   
 
 /*-------------------------------------------------------
                     color routes

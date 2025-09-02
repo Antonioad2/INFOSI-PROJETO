@@ -9,7 +9,7 @@
     <meta name="author" content="WRAPCODERS">
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
-    <title>Duralux || Tmesheets Report</title>
+    <title>Duralux || Timesheets Report</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="{{url('assets/images/favicon.ico')}}">
@@ -31,15 +31,15 @@
 		<![endif]-->
 </head>
 <body>
-    @include('reports.timesheets.parcial.header')
-    @include('reports.timesheets.parcial.menu')
-    @include('reports.timesheets.parcial.theme')
+    @include('admin._parcial.header')
+    @include('admin._parcial.menu')
+    @include('admin._parcial.thema')
 
     <div>
         @yield('container-timesheets')
     </div>
 
-    @include('reports.timesheets.parcial.footer')
+    @include('admin._parcial.footer')
     <!--! BEGIN: Vendors JS !-->
     <script src="{{url('assets/vendors/js/vendors.min.js')}}"></script>
     <!-- vendors.min.js {always must need to be top} -->

@@ -31,15 +31,15 @@
 		<![endif]-->
 </head>
 <body>
-@include('reports.sales.parcial.header')
-@include('reports.sales.parcial.menu')
-@include('reports.sales.parcial.theme')
+@include('admin._parcial.header')
+@include('admin._parcial.menu')
+@include('admin._parcial.thema')
 
 <div>
     @yield('container-sales')
 </div>
 
-@include('reports.sales.parcial.footer')
+@include('admin._parcial.footer')
     <!--! ================================================================ !-->
     <!--! BEGIN: Vendors JS !-->
     <script src="{{url('assets/vendors/js/vendors.min.js')}}"></script>

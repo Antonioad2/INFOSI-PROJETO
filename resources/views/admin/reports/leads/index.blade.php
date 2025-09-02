@@ -1,4 +1,4 @@
-@extends('reports.leads.layout.main')
+@extends('admin.reports.leads.layout.main')
 @section('container-leads')
     <!--! ================================================================ !-->
     <!--! [Start] Main Content !-->
@@ -12,7 +12,7 @@
                         <h5 class="m-b-10">Reports</h5>
                     </div>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
                         <li class="breadcrumb-item">Leads</li>
                     </ul>
                 </div>
@@ -93,13 +93,22 @@
                     <div class="col-xxl-2 col-lg-4 col-md-6">
                         <div class="card stretch stretch-full">
                             <div class="card-body">
-                                <div class="fs-12 fw-medium text-muted mb-3">Total Inquiry</div>
+                                <div class="fs-12 fw-medium text-muted mb-3">Total de Carros</div>
                                 <div class="hstack justify-content-between lh-base">
-                                    <h3><span class="counter">32</span>K</h3>
+                                    <h3><span class="counter">{{ $totalCars }}</span></h3>
                                     <div class="hstack gap-2 fs-11 text-success">
-                                        <i class="feather-arrow-up-circle fs-12"></i>
-                                        <span>+20.36%</span>
+                                    
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="col-xxl-2 col-lg-4 col-md-6">
+                        <div class="card stretch stretch-full">
+                            <div class="card-body">
+                                <div class="fs-12 fw-medium text-muted mb-3">Carros Coletivo</div>
+                                <div class="hstack justify-content-between lh-base">
+                                    <h3><span class="counter">{{$carsWithMoreThanEigthSeats}}</span></h3>
                                 </div>
                             </div>
                         </div>
@@ -107,13 +116,22 @@
                     <div class="col-xxl-2 col-lg-4 col-md-6">
                         <div class="card stretch stretch-full">
                             <div class="card-body">
-                                <div class="fs-12 fw-medium text-muted mb-3">Performance</div>
+                                <div class="fs-12 fw-medium text-muted mb-3">Carros Ligeiros</div>
                                 <div class="hstack justify-content-between lh-base">
-                                    <h3><span class="counter">45.68</span>%</h3>
-                                    <div class="hstack gap-2 fs-11 text-danger">
-                                        <i class="feather-arrow-down-circle fs-12"></i>
-                                        <span>-10.46%</span>
-                                    </div>
+                                    <h3><span class="counter">{{$carsWithEightOrFewerSeats}}</span></h3>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xxl-2 col-lg-4 col-md-6">
+                        <div class="card stretch stretch-full">
+                            <div class="card-body">
+                                <div class="fs-12 fw-medium text-muted mb-3">Carros de Luxo</div>
+                                <div class="hstack justify-content-between lh-base">
+                                    <h3><span class="counter">{{$luxuryPercentage}}</span>%</h3>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -121,13 +139,10 @@
                     <div class="col-xxl-2 col-lg-4 col-md-6">
                         <div class="card stretch stretch-full">
                             <div class="card-body">
-                                <div class="fs-12 fw-medium text-muted mb-3">Escalations</div>
+                                <div class="fs-12 fw-medium text-muted mb-3">Carros de Classe Média</div>
                                 <div class="hstack justify-content-between lh-base">
-                                    <h3><span class="counter">985</span></h3>
-                                    <div class="hstack gap-2 fs-11 text-success">
-                                        <i class="feather-arrow-up-circle fs-12"></i>
-                                        <span>+25.48%</span>
-                                    </div>
+                                    <h3><span class="counter">{{$standardPercentage}}</span>%</h3>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -135,45 +150,15 @@
                     <div class="col-xxl-2 col-lg-4 col-md-6">
                         <div class="card stretch stretch-full">
                             <div class="card-body">
-                                <div class="fs-12 fw-medium text-muted mb-3">SLA Compliant</div>
+                                <div class="fs-12 fw-medium text-muted mb-3">Carros de Classe Ecomico</div>
                                 <div class="hstack justify-content-between lh-base">
-                                    <h3><span class="counter">895</span></h3>
-                                    <div class="hstack gap-2 fs-11 text-success">
-                                        <i class="feather-arrow-up-circle fs-12"></i>
-                                        <span>+15.39%</span>
-                                    </div>
+                                    <h3><span class="counter">{{$economyPercentage}}</span>%</h3>
+                                   
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-2 col-lg-4 col-md-6">
-                        <div class="card stretch stretch-full">
-                            <div class="card-body">
-                                <div class="fs-12 fw-medium text-muted mb-3">Avg. Time (H)</div>
-                                <div class="hstack justify-content-between lh-base">
-                                    <h3><span class="counter">03.45</span></h3>
-                                    <div class="hstack gap-2 fs-11 text-danger">
-                                        <i class="feather-arrow-down-circle fs-12"></i>
-                                        <span>-12.86%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-2 col-lg-4 col-md-6">
-                        <div class="card stretch stretch-full">
-                            <div class="card-body">
-                                <div class="fs-12 fw-medium text-muted mb-3">Avg. Fullfilment</div>
-                                <div class="hstack justify-content-between lh-base">
-                                    <h3><span class="counter">65.95</span>%</h3>
-                                    <div class="hstack gap-2 fs-11 text-success">
-                                        <i class="feather-arrow-up-circle fs-12"></i>
-                                        <span>+20.35%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <!-- [Mini Cards] end -->
                     <!-- [Inquiry Tracking] start -->
                     <div class="col-xxl-6">
