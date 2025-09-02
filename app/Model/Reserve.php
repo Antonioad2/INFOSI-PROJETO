@@ -12,6 +12,7 @@ class Reserve extends Model
     protected $fillable = [
         'client_id',
         'car_id',
+        'pickup_location', // novo campo
         'start_date',
         'end_date',
         'total_amount',

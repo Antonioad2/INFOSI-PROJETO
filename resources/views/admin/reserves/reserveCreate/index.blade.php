@@ -93,6 +93,15 @@
                                         @error('car_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
 
+                                    <!-- Local para Entrega do Carro -->
+                                    <div class="col-lg-4 mb-4">
+                                        <label  class="form-label">Local de Entrega <span class="text-danger">*</span></label>
+                                        <input  type="text" name="pickup_location" 
+                                                class="form-control @error('pickup_location') is-invalid @enderror"
+                                                value="{{ old('pickup_location') }}" placeholder="Digite um local seguro para si" required>
+                                        @error('pickup_location') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                                    </div>
+
                                     <!-- DATAS (mantém como tens) -->
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Data de Início <span class="text-danger">*</span></label>
@@ -106,6 +115,17 @@
                                         <input type="date" name="end_date" class="form-control @error('end_date') is-invalid @enderror"
                                             value="{{ old('end_date') }}" min="{{ now()->format('Y-m-d') }}" required>
                                         @error('end_date') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div class="col-lg-4 mb-4">
+                                        <label class="form-label">Status <span class="text-danger">*</span></label>
+                                        <select name="status" class="form-control @error('status') is-invalid @enderror" required>
+                                            <option value="in_progress" {{ old('status', 'in_progress') == 'in_progress' ? 'selected' : '' }}>Em Progresso</option>
+                                            <option value="completed" {{ old('status') == 'completed' ? 'selected' : '' }}>Concluído</option>
+                                            <option value="cancelled" {{ old('status') == 'cancelled' ? 'selected' : '' }}>Cancelado</option>
+                                        </select>
+                                        @error('status') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
 
                                     <!-- TOTAL: hidden (para envio) + display -->

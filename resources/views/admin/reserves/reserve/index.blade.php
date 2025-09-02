@@ -61,7 +61,7 @@
                                                 {{ $reserve->car->brand->name ?? 'N/A' }} {{ $reserve->car->models->name ?? 'N/A' }}
                                             </td>
                                             <td>{{ number_format($reserve->total_amount, 2, ',', '.') }} KZ</td>
-                                            <td>{{ $reserve->driver->full_name ?? 'N/A' }}</td>
+                                            <td>{{ $reserve->driver->full_name ?? 'Sem motorista' }}</td>
                                             <td>
                                                 @if($reserve->status == 'in_progress')
                                                     <span class="badge bg-warning">Em Andamento</span>
