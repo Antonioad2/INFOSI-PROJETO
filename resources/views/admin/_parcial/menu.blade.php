@@ -1,7 +1,7 @@
 <nav class="nxl-navigation">
     <div class="navbar-wrapper">
         <div class="m-header">
-            <a href="/" class="b-brand">
+            <a href="/admin" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
                 <img src="{{ url('assets/images/logo-full.png')}}" alt="" class="logo logo-lg">
                 <img src="{{ url('assets/images/logo-abbr.png')}}" alt="" class="logo logo-sm">
