@@ -41,15 +41,20 @@ class HomeController extends Controller
         return view('site.home.reservation.index', compact('cars', 'local', 'dataRetira', 'dataDev', 'category'));
     }
 
-    public function carBook(Request $request)
+    public function carBook(Request $request, $car_id)
     {
-        $carId = $request->get('car_id');
+        $car = Car::with(['brand', 'models'])->findOrFail($car_id);
 
-        // Busca o carro no banco
-        $car = Car::with(['brand', 'models'])->findOrFail($carId);
+        // aqui já podes pegar local, datas e extras do $request
+        $local      = $request->input('location');
+        $pickupDate = $request->input('pickup_date');
+        $dropDate   = $request->input('Data_de_Entrega');
+        $resources  = $request->input('resources', []);
+        $driverId   = $request->input('driver_id');
 
-        return view('site.home.car_book.index', compact('car'));
+        return view('site.home.car_book.index', compact('car', 'local', 'pickupDate', 'dropDate', 'resources', 'driverId'));
     }
+
 
     public function carDetails($car_id)
     {
