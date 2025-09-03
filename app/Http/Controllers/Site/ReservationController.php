@@ -16,14 +16,17 @@ class ReservationController extends Controller
     {
         $car = Car::findOrFail($car_id);
 
-        // Pega dados do form
+        // Converter datas para formato MySQL (YYYY-MM-DD)
+        $startDate = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('start_date'))->format('Y-m-d');
+        $endDate = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('end_date'))->format('Y-m-d');
+
         $data = [
-            'car_id'       => $car->id,
+            'car_id'          => $car->id,
             'pickup_location' => $request->input('pickup_location'),
-            'start_date'  => $request->input('data_retirada'),
-            'end_date' => $request->input('data_devolucao'),
-            'extras'       => $request->input('extras', []),
-            'driver_id'    => $request->input('driver_id'),
+            'start_date'      => $startDate, // ← Formato correto
+            'end_date'        => $endDate,   // ← Formato correto
+            'extras'          => $request->input('extras', []),
+            'driver_id'       => $request->input('driver_id'),
         ];
 
         // Armazena sessão temporária
@@ -38,15 +41,16 @@ class ReservationController extends Controller
         $data = session('reservation_data');
 
         if (!$data) {
-            return redirect()->route('site.home.index')
+            return redirect()->route('site.home')
                 ->with('error', 'Selecione um carro primeiro.');
         }
 
         $car = Car::with(['brand', 'models'])->findOrFail($data['car_id']);
 
         // 🔹 Calcula número de dias
-        $days = (new \Carbon\Carbon($data['start_date']))
-            ->diffInDays(new \Carbon\Carbon($data['end_date'])) ?: 1;
+        $start = new \Carbon\Carbon($data['start_date']);
+        $end = new \Carbon\Carbon($data['end_date']);
+        $days = $end->diffInDays($start) ?: 1;
 
         $price = $days * $car->price;
 
@@ -54,7 +58,7 @@ class ReservationController extends Controller
         if (!empty($data['driver_id'])) {
             $driver = Driver::find($data['driver_id']);
             if ($driver) {
-                $price += $days * $driver->price;
+                $price += $days * $driver->daily_price; // ← Corrigido para daily_price
             }
         }
 
@@ -68,7 +72,13 @@ class ReservationController extends Controller
             }
         }
 
-        return view('site.home.car_book.index', compact('car', 'data', 'days', 'price'));
+        // 🔹 PASSAR OS DADOS PARA A VIEW
+        return view('site.home.car_book.index', [
+            'car' => $car,
+            'reservationData' => $data, // ← Nome correto da variável
+            'days' => $days,
+            'price' => $price
+        ]);
     }
 
     // Confirmação: cria reserva na BD
@@ -76,7 +86,7 @@ class ReservationController extends Controller
     {
         $data = session('reservation_data');
         if (!$data) {
-            return redirect()->route('site.home.index')
+            return redirect()->route('site.home')
                 ->with('error', 'Sessão expirada, faça a reserva novamente.');
         }
 
@@ -84,26 +94,27 @@ class ReservationController extends Controller
         $client = Client::where('email', $request->input('email'))->first();
 
         if (!$client) {
-            // Se não existir, cria novo cliente
             $client = Client::create([
-                'name'    => $request->input('name'),
-                'email'   => $request->input('email'),
-                'phone'   => $request->input('phone'),
-                'address' => $request->input('address'),
+                'name'       => $request->input('name'),
+                'email'      => $request->input('email'),
+                'phone'      => $request->input('phone'),
+                'address'    => $request->input('address'),
+                'birth_date' => $request->input('birth_date'), // ← Adicionado
             ]);
         }
 
         $car = Car::findOrFail($data['car_id']);
 
-        $days = (new \Carbon\Carbon($data['start_date']))
-            ->diffInDays(new \Carbon\Carbon($data['end_date'])) ?: 1;
+        $start = new \Carbon\Carbon($data['start_date']);
+        $end = new \Carbon\Carbon($data['end_date']);
+        $days = $end->diffInDays($start) ?: 1;
 
         $price = $days * $car->price;
 
-        if ($data['driver_id']) {
+        if (!empty($data['driver_id'])) {
             $driver = Driver::find($data['driver_id']);
             if ($driver) {
-                $price += $days * $driver->price;
+                $price += $days * $driver->daily_price; // ← Corrigido
             }
         }
 
@@ -116,23 +127,22 @@ class ReservationController extends Controller
             }
         }
 
+        // CORRIGIR OS NOMES DOS CAMPOS para match com a migration
         Reserve::create([
             'car_id'          => $car->id,
             'client_id'       => $client->id,
-            'driver_id'       => $data['driver_id'],
-            'pickup_location' => $data['location'], // <- corrigido aqui
-            'start_date'      => $data['start_date'],
-            'end_date'        => $data['end_date'],
-            'extras'          => json_encode($data['extras']),
-            'total_price'     => $price,
-            'payment_method'  => $request->input('payment_method', 'simulado'),
-            'status'          => 'confirmed',
+            'driver_id'       => $data['driver_id'] ?? null,
+            'pickup_location' => $data['pickup_location'],
+            'start_date'      => $data['start_date'], // Já está no formato correto
+            'end_date'        => $data['end_date'],   // Já está no formato correto
+            'resources'       => !empty($data['extras']) ? json_encode($data['extras']) : null,
+            'total_amount'    => $price,
+            'status'          => 'in_progress',
         ]);
-
 
         session()->forget('reservation_data');
 
-        return redirect()->route('site.home.index')
+        return redirect()->route('site.home')
             ->with('success', 'Reserva confirmada com sucesso!');
     }
 

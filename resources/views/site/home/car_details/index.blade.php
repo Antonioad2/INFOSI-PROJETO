@@ -136,7 +136,7 @@
                         <div class="col-lg-5">
                             <div class="car-list-sidebar">
                                 <h4 class="title">Formulario de Reserva</h4>
-                                <form action="{{ route('site.car_book', ['car_id' => $car->id]) }}" 
+                                <form action="{{ route('site.reservation.step1', ['car_id' => $car->id]) }}" 
                                     id="contact-form2" 
                                     method="POST" 
                                     class="contact-form-items">
@@ -148,7 +148,7 @@
                                             <div class="form-clt">
                                                 <label class="label-text">Localizaçao</label>
                                                 <div class="category-oneadjust">
-                                                   <select name="location" class="category" required>
+                                                   <select name="pickup_location" class="category" required>
                                                         <option value="">Seleciona Localização</option>
                                                         <option value="Belas">Belas</option>
                                                         <option value="Cacuaco">Cacuaco</option>
@@ -169,7 +169,7 @@
                                             <div class="form-clt">
                                                 <label class="label-text">Data de Levantamento</label>
                                                 <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
-                                                    <input class="form-control" type="text" name="pickup_date" placeholder="Data de Levantamento" required>
+                                                    <input class="form-control" type="text" name="start_date" placeholder="Data de Levantamento" required>
                                                     <span class="input-group-addon"><i class="fa-solid fa-calendar-days"></i></span>
                                                 </div>
                                             </div>
@@ -180,7 +180,7 @@
                                             <div class="form-clt">
                                                 <label class="label-text">Data de Entrega</label>
                                                 <div id="datepicker2" class="input-group date" data-date-format="dd-mm-yyyy">
-                                                    <input class="form-control" type="text" name="Data_de_Entrega" placeholder="Data de Entrega" required>
+                                                    <input class="form-control" type="text" name="end_date" placeholder="Data de Entrega" required>
                                                     <span class="input-group-addon"><i class="fa-solid fa-calendar-days"></i></span>
                                                 </div>
                                             </div>

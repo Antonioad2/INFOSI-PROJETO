@@ -174,22 +174,17 @@
                                             <div class="pickup-items">
                                                 <label class="field-label">Local de retirada</label>
                                                 <div class="category-oneadjust">
-                                                    <select name="location" class="category">
-                                                        <option value="1">
-                                                            Broklyn Street
-                                                        </option>
-                                                        <option value="1">
-                                                            Houston
-                                                        </option>
-                                                        <option value="1">
-                                                            Texas
-                                                        </option>
-                                                        <option value="1">
-                                                            New York
-                                                        </option>
-                                                        <option value="1">
-                                                            Other Location
-                                                        </option>
+                                                    <select name="location" class="category" required>
+                                                        <option value="">Seleciona Localização</option>
+                                                        <option value="Belas">Belas</option>
+                                                        <option value="Cacuaco">Cacuaco</option>
+                                                        <option value="Cazenga">Cazenga</option>
+                                                        <option value="Icolo e Bengo">Icolo e Bengo</option>
+                                                        <option value="Luanda">Luanda</option>
+                                                        <option value="Kilamba Kiaxi">Kilamba Kiaxi</option>
+                                                        <option value="Quiçama">Quiçama</option>
+                                                        <option value="Talatona">Talatona</option>
+                                                        <option value="Viana">Viana</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -200,9 +195,9 @@
                                                     <div class="input-group date" >
                                                         <input class="form-control" 
                                                             type="date"
-                                                            id="data_retirada" 
-                                                            name="data_retirada" 
-                                                            value="{{ old('data_retirada', now()->format('Y-m-d')) }}"
+                                                            id="start_date" 
+                                                            name="start_date" 
+                                                            value="{{ old('start_date', now()->format('Y-m-d')) }}"
                                                             min="{{ now()->format('Y-m-d') }}" placeholder="Check in"
                                                         >
                                                     </div>
@@ -214,9 +209,9 @@
                                                     <div class="input-group date" >
                                                         <input class="form-control" 
                                                             type="date"
-                                                            id="data_devolucao" 
-                                                            name="data_devolucao" 
-                                                            value="{{ old('data_devolucao', now()->addDay()->format('Y-m-d')) }}"
+                                                            id="end_date" 
+                                                            name="end_date" 
+                                                            value="{{ old('end_date', now()->addDay()->format('Y-m-d')) }}"
                                                             min="{{ now()->addDay()->format('Y-m-d') }}" placeholder="Check in"
                                                         >
                                                     </div>

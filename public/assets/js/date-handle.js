@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const retiradaInput = document.getElementById('data_retirada');
-    const devolucaoInput = document.getElementById('data_devolucao');
+    const retiradaInput = document.getElementById('start_date');
+    const devolucaoInput = document.getElementById('end_date');
 
     if (retiradaInput && devolucaoInput) {
         retiradaInput.addEventListener('change', function () {

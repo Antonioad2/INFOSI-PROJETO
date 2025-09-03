@@ -30,7 +30,7 @@
                                 <p>Preencha seus dados e efetue o pagamento.</p>
                             </div>
 
-                            <form action="{{ route('car_book.store') }}" method="POST" class="contact-form-items">
+                            <form action="{{ route('site.reservation.confirm') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="car_id" value="{{ $car->id }}">
 
@@ -40,8 +40,8 @@
 
                                     <!-- Dados da reserva vindos do step1 -->
                                         <input type="hidden" name="pickup_location" value="{{ $reservationData['pickup_location'] ?? '' }}">
-                                        <input type="hidden" name="pickup_date" value="{{ $reservationData['pickup_date'] ?? '' }}">
-                                        <input type="hidden" name="dropoff_date" value="{{ $reservationData['dropoff_date'] ?? '' }}">
+                                        <input type="hidden" name="start_date" value="{{ $reservationData['start_date'] ?? '' }}">
+                                        <input type="hidden" name="end_date" value="{{ $reservationData['end_date'] ?? '' }}">
                                         <input type="hidden" name="driver_id" value="{{ $reservationData['driver_id'] ?? '' }}">
                                         
                                         @if(!empty($reservationData['extras']))

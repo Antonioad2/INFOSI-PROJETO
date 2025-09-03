@@ -21,9 +21,9 @@ class HomeController extends Controller
    public function reservation(Request $request)
     {
         // Captura os filtros do form
-        $local      = $request->input('location'); 
-        $dataRetira = $request->input('data_retirada');
-        $dataDev    = $request->input('data_devolucao');
+        $pickup_location      = $request->input('pickup_location'); 
+        $startDate = $request->input('start_date');
+        $endDate    = $request->input('end_date');
         $carId      = $request->input('car_id'); 
         $category   = $request->input('category'); // <-- Captura categoria
 
@@ -38,7 +38,7 @@ class HomeController extends Controller
         $cars = $cars->get();
 
         // Retorna para a view de listagem
-        return view('site.home.reservation.index', compact('cars', 'local', 'dataRetira', 'dataDev', 'category'));
+        return view('site.home.reservation.index', compact('cars', 'pickup_location', 'startDate', 'endDate', 'category'));
     }
 
     public function carBook(Request $request, $car_id)
@@ -46,13 +46,13 @@ class HomeController extends Controller
         $car = Car::with(['brand', 'models'])->findOrFail($car_id);
 
         // aqui já podes pegar local, datas e extras do $request
-        $local      = $request->input('location');
-        $pickupDate = $request->input('pickup_date');
-        $dropDate   = $request->input('Data_de_Entrega');
+        $pickup_location      = $request->input('pickup_location');
+        $startDate = $request->input('start_date');
+        $endDate   = $request->input('end_date');
         $resources  = $request->input('resources', []);
         $driverId   = $request->input('driver_id');
 
-        return view('site.home.car_book.index', compact('car', 'local', 'pickupDate', 'dropDate', 'resources', 'driverId'));
+        return view('site.home.car_book.index', compact('car', 'pickup_location', 'startDate', 'endDate', 'resources', 'driverId'));
     }
 
 
