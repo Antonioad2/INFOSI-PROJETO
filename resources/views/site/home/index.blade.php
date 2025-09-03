@@ -133,23 +133,22 @@
                                 <div class="search-booking-content">
                                     <div class="section-title">
                                         <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
-                                        <span class="wow fadeInUp" data-wow-delay=".2s">Get to know us</span>
+                                        <span class="wow fadeInUp" data-wow-delay=".2s">Conheça a nossa empresa</span>
                                         <h2 class="wow fadeInUp" data-wow-delay=".4s">
-                                            Search Book & <br>
-                                            Rent Vehicle Easily
+                                            Pesquise & alugue <br>
+                                            veículos facilmente
                                         </h2>
                                     </div>
                                     <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".6s">
-                                        Lorem ipsum is simply ipun txns mane so dummy text of free <br> available in market the printing and typesetting industry has <br> been the industry's standard dummy text ever.
-                                    </p>
+                                        A Rentcar é simplesmente a melhor opção de locação acessível e <br> gratuita para consultas disponível no mercado.
                                     <div class="icon-area">
                                         <div class="icon-items wow fadeInUp" data-wow-delay=".3s">
                                             <div class="icon">
                                                 <img src="{{ url('assets/user/img/feature-benefit/icon-1.png')}}" alt="icon-img">
                                             </div>
                                             <h4>
-                                                Easier & <br>
-                                                Faster Bookings
+                                                Mais fácil & <br>
+                                                Reservas mais rápidas
                                             </h4>
                                         </div>
                                         <div class="icon-items wow fadeInUp" data-wow-delay=".5s">
@@ -157,8 +156,8 @@
                                                 <img src="{{ url('assets/user/img/feature-benefit/icon-2.png')}}" alt="icon-img">
                                             </div>
                                             <h4>
-                                                Too Many <br>
-                                                Pickup Locations
+                                                Muitos <br>
+                                                Locais de Retirada
                                             </h4>
                                         </div>
                                     </div>

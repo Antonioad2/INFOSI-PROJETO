@@ -30,17 +30,17 @@
                                 </div>
                                 <div class="footer-content">
                                     <p>
-                                        66 Road Broklyn Golden Street, 600
-                                        New York, USA 
+                                       Martires, Rua Principal <br>
+                                       Luanda, Angola 
                                     </p>
                                     <ul class="contact-info">
                                         <li>
                                             <i class="fa-regular fa-envelope"></i>
-                                            <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                            <a href="mailto:needhelp@company.com">infosi@gov.ao</a>
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-phone-volume"></i>
-                                            <a href="tel:926668880000">+92 (666) 888 0000</a>
+                                            <a href="tel:926668880000">+244 923 456 789</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -55,16 +55,6 @@
                                     <li>
                                         <a href="about.html"> 
                                             Sobre Nós
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="car-details.html">
-                                            Nova Carro
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news-details.html">
-                                            Últimas Notícias
                                         </a>
                                     </li>
                                     <li>
@@ -164,7 +154,7 @@
                 <div class="footer-bottom">
                     <div class="footer-wrapper">
                         <p class="wow fadeInUp" data-wow-delay=".4s">
-                            © Copyright 2024 by <a href="index.html">Remons.com</a>
+                            © Copyright 2025 by <a href="index.html">INFOSI</a>
                         </p>
                     </div>
                 </div>

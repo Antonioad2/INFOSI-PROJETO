@@ -42,7 +42,7 @@
                                         <li class="d-flex align-items-center">
                                             <div class="offcanvas__contact-icon mr-15"><i class="far fa-phone"></i></div>
                                             <div class="offcanvas__contact-text">
-                                                <a href="tel:+244923456789">+244923456789</a>
+                                                <a href="tel:+244923456789">+244 923 456 789</a>
                                             </div>
                                         </li>
                                     </ul>
