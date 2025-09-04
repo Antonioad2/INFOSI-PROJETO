@@ -69,4 +69,8 @@ class DashboardController extends Controller
         return view('admin.reports.timesheets.index');
     }
     
+    public function login()
+    {
+        return view('admin.authentication.login.creative.index');
+    }
 }

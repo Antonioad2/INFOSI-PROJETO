@@ -25,6 +25,9 @@ use App\Http\Controllers\Site\CarBookController;
 Route::get('/', [HomeController::class, 'index'])->name('site.home');
 Route::get('/reservation', [HomeController::class, 'reservation'])->name('site.reservation');
 Route::get('/car-details/{car_id}', [HomeController::class, 'carDetails'])->name('site.car_details');
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('site.abouts_us');
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('site.gallery');
+
 
 // Rotas para o processo de reserva em duas etapas
 Route::post('/reservation/step1/{car_id}', [ReservationController::class, 'step1'])->name('site.reservation.step1');
@@ -45,7 +48,8 @@ Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name(
 Route::get('/admin/reports/reportsSales', [DashboardController::class, 'reportsSales'])->name('reportsSales');
 Route::get('/admin/reports/reportsLeads', [DashboardController::class, 'reportsLeads'])->name('reportsLeads');
 Route::get('/admin/reports/reportsProject', [DashboardController::class, 'reportsProject'])->name('reportsProject');
-Route::get('/admin/reports/reportsTimesheets', [DashboardController::class, 'reportsTimesheets'])->name('reportsTimesheets');   
+Route::get('/admin/reports/reportsTimesheets', [DashboardController::class, 'reportsTimesheets'])->name('reportsTimesheets');
+Route::get('/admin/authentication/login', [DashboardController::class, 'login'])->name('login');   
 
 /*-------------------------------------------------------
                     color routes

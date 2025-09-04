@@ -53,17 +53,17 @@
                                 </div>
                                 <ul class="list-items">
                                     <li>
-                                        <a href="about.html"> 
+                                        <a href="{{route('site.abouts_us')}}"> 
                                             Sobre Nós
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="gallery.html">
+                                        <a href="{{route('site.gallery')}}">
                                             Galeria
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="#">
                                             Contacto
                                         </a>
                                     </li>
@@ -154,7 +154,7 @@
                 <div class="footer-bottom">
                     <div class="footer-wrapper">
                         <p class="wow fadeInUp" data-wow-delay=".4s">
-                            © Copyright 2025 by <a href="index.html">INFOSI</a>
+                            © Copyright 2025 by <a href="{{ url('https://www.bing.com/ck/a?!&&p=f3139cdc6322c8c0ef8c8d65a5e26d440a165b2925e1fbc9afa77b30ce1b2195JmltdHM9MTc1Njk0NDAwMA&ptn=3&ver=2&hsh=4&fclid=2ccbbd46-dcef-6efe-0044-ab6addaa6f8b&psq=infosi&u=a1aHR0cHM6Ly93d3cuaW5mb3NpLmdvdi5hby8&ntb=1')}}">INFOSI</a>
                         </p>
                     </div>
                 </div>

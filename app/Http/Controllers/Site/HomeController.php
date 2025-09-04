@@ -73,4 +73,12 @@ class HomeController extends Controller
         // Pass the car and similar cars to the view
         return view('site.home.car_details.index', compact('car', 'cars', 'drivers'));
     }
+    public function aboutUs()
+    {
+        return view('site.about_us.index');
+    }
+    public function gallery()
+    {
+        return view('site.galeria.index');
+    }
 }

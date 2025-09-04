@@ -9,11 +9,11 @@
         </li>
 
         <li>
-            <a href="#">Sobre Nós</a>
+            <a href="{{route('site.abouts_us')}}">Sobre Nós</a>
         </li>
 
         <li class="has-dropdown">
-            <a href="#">
+            <a href="{{route('site.gallery')}}">
                 Galeria
             </a>
         </li>
@@ -24,16 +24,7 @@
             </a>   
         </li>
 
-        <li>
-            <a href="#">
-                Blog
-                <i class="fas fa-angle-down"></i>
-            </a>
-            <ul class="submenu">
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Detalhe do Blog</a></li>
-            </ul>
-        </li>
+       
         
         
     </ul>

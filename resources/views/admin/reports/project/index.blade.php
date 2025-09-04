@@ -190,21 +190,21 @@
                     <div class="col-xxl-8">
                         <div class="card stretch stretch-full">
                             <div class="card-header">
-                                <h5 class="card-title">Project Report</h5>
+                                <h5 class="card-title">Monitoramento de Motoristas</h5>
                                 <div class="card-header-action">
                                     <div class="card-header-btn">
-                                        <div data-bs-toggle="tooltip" title="Delete">
-                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-danger" data-bs-toggle="remove"> </a>
+                                        <div data-bs-toggle="tooltip" title="Masculino">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-danger" data-bs-toggle="$driversMale"> </a>
                                         </div>
-                                        <div data-bs-toggle="tooltip" title="Refresh">
-                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning" data-bs-toggle="refresh"> </a>
+                                        <div data-bs-toggle="tooltip" title="Reservado">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning" data-bs-toggle="$driversReserved"> </a>
                                         </div>
-                                        <div data-bs-toggle="tooltip" title="Maximize/Minimize">
-                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success" data-bs-toggle="expand"> </a>
+                                        <div data-bs-toggle="tooltip" title="Feminino">
+                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success" data-bs-toggle="$driversFemale"> </a>
                                         </div>
                                     </div>
                                     <div class="dropdown">
-                                        <a href="javascript:void(0);" class="avatar-text avatar-sm" data-bs-toggle="dropdown" data-bs-offset="25, 25">
+                                        {{-- <a href="javascript:void(0);" class="avatar-text avatar-sm" data-bs-toggle="dropdown" data-bs-offset="25, 25">
                                             <div data-bs-toggle="tooltip" title="Options">
                                                 <i class="feather-more-vertical"></i>
                                             </div>
@@ -217,7 +217,7 @@
                                             <div class="dropdown-divider"></div>
                                             <a href="javascript:void(0);" class="dropdown-item"><i class="feather-settings"></i>Settings</a>
                                             <a href="javascript:void(0);" class="dropdown-item"><i class="feather-life-buoy"></i>Tips & Tricks</a>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +228,80 @@
                     </div>
                     <!-- [Project Report] end -->
                     <!-- [Project Calendar] start -->
-                    <div class="col-xxl-4">
+                    <!-- [Upcomming Schedule] end -->
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </main>
+    <!--! ================================================================ !-->
+    <!--! [End] Main Content !-->
+    <!--! ================================================================ !-->
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{--  <div class="col-xxl-4">
                         <div class="card stretch stretch-full">
                             <div id="project-calendar"></div>
                         </div>
@@ -881,14 +954,5 @@
                             </div>
                             <a href="javascript:void(0);" class="card-footer fs-11 fw-bold text-uppercase text-center py-4">More Schedule</a>
                         </div>
-                    </div>
-                    <!-- [Upcomming Schedule] end -->
-                </div>
-            </div>
-            <!-- [ Main Content ] end -->
-        </div>
-    </main>
-    <!--! ================================================================ !-->
-    <!--! [End] Main Content !-->
-    <!--! ================================================================ !-->
-@endsection
+                    </div>--}}
+                  
