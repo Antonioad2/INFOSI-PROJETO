@@ -9,7 +9,7 @@
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Reports</h5>
+                        <h5 class="m-b-10">Relatório</h5>
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin">Home</a></li>
