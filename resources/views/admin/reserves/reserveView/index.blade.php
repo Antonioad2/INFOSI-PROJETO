@@ -140,7 +140,10 @@
                                 <i class="feather-package"></i>
                             </div>
                             @php
-                                $resources = json_decode($reserve->resources, true) ?? [];
+                                // Verifica se já é um array, caso contrário tenta decodificar
+                                $resources = is_array($reserve->resources) 
+                                    ? $reserve->resources 
+                                    : (json_decode($reserve->resources, true) ?? []);
                             @endphp
                             @if (count($resources) > 0)
                                 @foreach ($resources as $res)

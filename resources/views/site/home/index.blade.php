@@ -133,23 +133,22 @@
                                 <div class="search-booking-content">
                                     <div class="section-title">
                                         <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
-                                        <span class="wow fadeInUp" data-wow-delay=".2s">Get to know us</span>
+                                        <span class="wow fadeInUp" data-wow-delay=".2s">Conheça a nossa empresa</span>
                                         <h2 class="wow fadeInUp" data-wow-delay=".4s">
-                                            Search Book & <br>
-                                            Rent Vehicle Easily
+                                            Pesquise & alugue <br>
+                                            veículos facilmente
                                         </h2>
                                     </div>
                                     <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".6s">
-                                        Lorem ipsum is simply ipun txns mane so dummy text of free <br> available in market the printing and typesetting industry has <br> been the industry's standard dummy text ever.
-                                    </p>
+                                        A Rentcar é simplesmente a melhor opção de locação acessível e <br> gratuita para consultas disponível no mercado.
                                     <div class="icon-area">
                                         <div class="icon-items wow fadeInUp" data-wow-delay=".3s">
                                             <div class="icon">
                                                 <img src="{{ url('assets/user/img/feature-benefit/icon-1.png')}}" alt="icon-img">
                                             </div>
                                             <h4>
-                                                Easier & <br>
-                                                Faster Bookings
+                                                Mais fácil & <br>
+                                                Reservas mais rápidas
                                             </h4>
                                         </div>
                                         <div class="icon-items wow fadeInUp" data-wow-delay=".5s">
@@ -157,8 +156,8 @@
                                                 <img src="{{ url('assets/user/img/feature-benefit/icon-2.png')}}" alt="icon-img">
                                             </div>
                                             <h4>
-                                                Too Many <br>
-                                                Pickup Locations
+                                                Muitos <br>
+                                                Locais de Retirada
                                             </h4>
                                         </div>
                                     </div>
@@ -174,22 +173,17 @@
                                             <div class="pickup-items">
                                                 <label class="field-label">Local de retirada</label>
                                                 <div class="category-oneadjust">
-                                                    <select name="location" class="category">
-                                                        <option value="1">
-                                                            Broklyn Street
-                                                        </option>
-                                                        <option value="1">
-                                                            Houston
-                                                        </option>
-                                                        <option value="1">
-                                                            Texas
-                                                        </option>
-                                                        <option value="1">
-                                                            New York
-                                                        </option>
-                                                        <option value="1">
-                                                            Other Location
-                                                        </option>
+                                                    <select name="location" class="category" required>
+                                                        <option value="">Seleciona Localização</option>
+                                                        <option value="Belas">Belas</option>
+                                                        <option value="Cacuaco">Cacuaco</option>
+                                                        <option value="Cazenga">Cazenga</option>
+                                                        <option value="Icolo e Bengo">Icolo e Bengo</option>
+                                                        <option value="Luanda">Luanda</option>
+                                                        <option value="Kilamba Kiaxi">Kilamba Kiaxi</option>
+                                                        <option value="Quiçama">Quiçama</option>
+                                                        <option value="Talatona">Talatona</option>
+                                                        <option value="Viana">Viana</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -200,9 +194,9 @@
                                                     <div class="input-group date" >
                                                         <input class="form-control" 
                                                             type="date"
-                                                            id="data_retirada" 
-                                                            name="data_retirada" 
-                                                            value="{{ old('data_retirada', now()->format('Y-m-d')) }}"
+                                                            id="start_date" 
+                                                            name="start_date" 
+                                                            value="{{ old('start_date', now()->format('Y-m-d')) }}"
                                                             min="{{ now()->format('Y-m-d') }}" placeholder="Check in"
                                                         >
                                                     </div>
@@ -214,9 +208,9 @@
                                                     <div class="input-group date" >
                                                         <input class="form-control" 
                                                             type="date"
-                                                            id="data_devolucao" 
-                                                            name="data_devolucao" 
-                                                            value="{{ old('data_devolucao', now()->addDay()->format('Y-m-d')) }}"
+                                                            id="end_date" 
+                                                            name="end_date" 
+                                                            value="{{ old('end_date', now()->addDay()->format('Y-m-d')) }}"
                                                             min="{{ now()->addDay()->format('Y-m-d') }}" placeholder="Check in"
                                                         >
                                                     </div>
