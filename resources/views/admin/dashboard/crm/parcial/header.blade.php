@@ -1965,7 +1965,7 @@
                              <span>Account Settings</span>
                          </a>
                          <div class="dropdown-divider"></div>
-                         <a href="/admin/login" class="dropdown-item">
+                         <a href="{{route('admin.login')}}" class="dropdown-item">
                              <i class="feather-log-out"></i>
                              <span>Logout</span>
                          </a>

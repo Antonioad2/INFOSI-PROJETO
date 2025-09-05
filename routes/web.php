@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\ReserveController;
 use App\Http\Controllers\Site\ReservationController; 
 use App\Http\Controllers\Site\CarBookController;
-use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\auth\AuthController;
 
 
 
@@ -187,9 +187,14 @@ Route::prefix('/admin/reserves')->name('reserves.')->group(function () {
 });
 
 
-Route::get('/admin/auth/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::get('/admin/auth/login', [AuthController::class, 'login'])->name('admin.login');
+Route::get('/admin/auth/create', [AuthController::class, 'create'])->name('admin.create');
+Route::get('/admin/auth/reset', [AuthController::class, 'reset'])->name('admin.reset');
+Route::get('/admin/auth/resetpassword', [AuthController::class, 'resetpassword'])->name('admin.resetpassword');
 
 
 /*-------------------------------------------------------
                 FIM Dashboard routes
 -------------------------------------------------------*/
+
+

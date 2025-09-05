@@ -970,7 +970,7 @@
                                                                             <p class="fs-12 fw-normal text-muted mb-0 text-truncate-2-line">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint nam ullam iure eum sed rerum libero quis doloremque maiores veritatis?</p>
                                                                             <div class="hstack gap-2 mt-3">
                                                                                 <div class="avatar-image avatar-sm">
-                                                                                    <img src="assets/images/avatar/1.png" alt="" class="img-fluid">
+                                                                                    <img src="{{ url('assets/images/avatar/1.png')}}" alt="" class="img-fluid">
                                                                                 </div>
                                                                                 <a href="javascript:void(0);" class="fs-12">Alexandra Della</a>
                                                                             </div>
@@ -1520,7 +1520,7 @@
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-image rounded">
-                                                <img src="assets/images/avatar/1.png" alt="" class="img-fluid">
+                                                <img src="{{ url('assets/images/avatar/1.png')}}" alt="" class="img-fluid">
                                             </div>
                                             <div>
                                                 <a href="javascript:void(0);" class="font-body fw-bold d-block mb-1">Alexandra Della</a>
@@ -1837,12 +1837,12 @@
                     </div>
                     <div class="dropdown nxl-h-item">
                         <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button" data-bs-auto-close="outside">
-                            <img src="assets/images/avatar/1.png" alt="user-image" class="img-fluid user-avtar me-0">
+                            <img src="{{ url('assets/images/avatar/1.png')}}" alt="user-image" class="img-fluid user-avtar me-0">
                         </a>
                         <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown">
                             <div class="dropdown-header">
                                 <div class="d-flex align-items-center">
-                                    <img src="assets/images/avatar/1.png" alt="user-image" class="img-fluid user-avtar">
+                                    <img src="{{ url('assets/images/avatar/1.png')}}" alt="user-image" class="img-fluid user-avtar">
                                     <div>
                                         <h6 class="text-dark mb-0">Alexandra Della <span class="badge bg-soft-success text-success ms-1">PRO</span></h6>
                                         <span class="fs-12 fw-medium text-muted">alex.della@outlook.com</span>
@@ -1968,7 +1968,7 @@
                                 <span>Account Settings</span>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a href="/admin/login" class="dropdown-item">
+                            <a href="{{route('admin.login')}}" class="dropdown-item">
                                 <i class="feather-log-out"></i>
                                 <span>Logout</span>
                             </a>
