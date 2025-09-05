@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\ReserveController;
 use App\Http\Controllers\Site\ReservationController; 
 use App\Http\Controllers\Site\CarBookController;
+use App\Http\Controllers\Admin\LoginController;
 
 
 
@@ -42,14 +43,12 @@ Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])->
 /*-------------------------------------------------------
                     Dashboard routes
 -------------------------------------------------------*/
-
 Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('analytics');
 Route::get('/admin/reports/reportsSales', [DashboardController::class, 'reportsSales'])->name('reportsSales');
 Route::get('/admin/reports/reportsLeads', [DashboardController::class, 'reportsLeads'])->name('reportsLeads');
 Route::get('/admin/reports/reportsProject', [DashboardController::class, 'reportsProject'])->name('reportsProject');
 Route::get('/admin/reports/reportsTimesheets', [DashboardController::class, 'reportsTimesheets'])->name('reportsTimesheets');
-Route::get('/admin/authentication/login', [DashboardController::class, 'login'])->name('login');   
 
 /*-------------------------------------------------------
                     color routes
@@ -186,6 +185,10 @@ Route::prefix('/admin/reserves')->name('reserves.')->group(function () {
     Route::put('/{id}', [ReserveController::class, 'update'])->name('update');
     Route::delete('/{id}', [ReserveController::class, 'destroy'])->name('destroy');
 });
+
+
+Route::get('/admin/auth/login', [LoginController::class, 'showLoginForm'])->name('login');
+
 
 /*-------------------------------------------------------
                 FIM Dashboard routes
