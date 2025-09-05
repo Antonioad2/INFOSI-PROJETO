@@ -147,6 +147,18 @@
                                     >
                                 </div>
 
+                                <!-- Campo para status -->
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Status</label>
+                                    <select name="status" class="form-control">
+                                        <option value="available" {{ old('status', $car->status) == 'available' ? 'selected' : '' }}>Disponível</option>
+                                        <option value="reserved" {{ old('status', $car->status) == 'reserved' ? 'selected' : '' }}>Reservado</option>
+                                        <option value="rented" {{ old('status', $car->status) == 'rented' ? 'selected' : '' }}>Alugado</option>
+                                        <option value="maintenance" {{ old('status', $car->status) == 'maintenance' ? 'selected' : '' }}>Em Manutenção</option>
+                                        <option value="unavailabe" {{ old('status', $car->status) == 'unavailabe' ? 'selected' : '' }}>Indisponível</option>
+                                    </select>
+                                </div>
+
                                 <!-- Campo combinado para Seguro -->
                                 <div class="col-lg-4 mb-3">
                                     <label class="form-label">Seguro</label>

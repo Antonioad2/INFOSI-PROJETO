@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 
-<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/auth-register-minimal.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:58 GMT -->
+<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/auth-reset-minimal.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:59 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
@@ -12,7 +12,7 @@
     <meta name="author" content="WRAPCODERS">
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
-    <title>Duralux || Register Minimal</title>
+    <title>Duralux || Reset Minimal</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/images/favicon.ico') }}">
@@ -34,7 +34,11 @@
 		<![endif]-->
 </head>
 
-<body>
+
+<body class="pace-done "><div class="pace pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
     <!--! ================================================================ !-->
     <!--! [Start] Main Content !-->
     <!--! ================================================================ !-->
@@ -46,52 +50,23 @@
                         <img src="{{ url('assets/images/logo-abbr.png')}}" alt="" class="img-fluid">
                     </div>
                     <div class="card-body p-sm-5">
-                        <h2 class="fs-20 fw-bolder mb-4">Register</h2>
-                        <h4 class="fs-13 fw-bold mb-2">Manage all your Duralux crm</h4>
-                        <p class="fs-12 fw-medium text-muted">Let's get you all setup, so you can verify your personal account and begine setting up your profile.</p>
-                        <form action="/admin" class="w-100 mt-4 pt-2">
+                        <h2 class="fs-20 fw-bolder mb-4">Resetting</h2>
+                        <h4 class="fs-13 fw-bold mb-2">Reset to your password</h4>
+                        <p class="fs-12 fw-medium text-muted">Enter your email and a reset link will sent to you, let's access our the best recommendation for you.</p>
+                        <form action="https://bestwpware.com/html/tf/duralux-demo/index.html" class="w-100 mt-4 pt-2">
                             <div class="mb-4">
-                                <input type="text" class="form-control" placeholder="Full Name" required>
-                            </div>
-                            <div class="mb-4">
-                                <input type="email" class="form-control" placeholder="Email" required>
+                                <input type="password" class="form-control" placeholder="New Password">
                             </div>
                             <div class="mb-4">
-                                <input type="tel" class="form-control" placeholder="Username" required>
-                            </div>
-                            <div class="mb-4 generate-pass">
-                                <div class="input-group field">
-                                    <input type="password" class="form-control password" id="newPassword" placeholder="Password Confirm">
-                                    <div class="input-group-text c-pointer gen-pass" data-bs-toggle="tooltip" title="Generate Password"><i class="feather-hash"></i></div>
-                                    <div class="input-group-text border-start bg-gray-2 c-pointer show-pass" data-bs-toggle="tooltip" title="Show/Hide Password"><i></i></div>
-                                </div>
-                                <div class="progress-bar mt-2">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <input type="password" class="form-control" placeholder="Password again" required>
-                            </div>
-                            <div class="mt-4">
-                                <div class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="receiveMial" required>
-                                    <label class="custom-control-label c-pointer text-muted" for="receiveMial" style="font-weight: 400 !important">Yes, I wnat to receive Duralux community emails</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="termsCondition" required>
-                                    <label class="custom-control-label c-pointer text-muted" for="termsCondition" style="font-weight: 400 !important">I agree to all the <a href="#">Terms &amp; Conditions</a> and <a href="#">Fees</a>.</label>
-                                </div>
+                                <input type="password" class="form-control" placeholder="Conform Password" required="">
                             </div>
                             <div class="mt-5">
-                                <button type="submit" class="btn btn-lg btn-primary w-100">Create Account</button>
+                                <button type="submit" class="btn btn-lg btn-primary w-100">Save Change</button>
                             </div>
                         </form>
                         <div class="mt-5 text-muted">
-                            <span>Already have an account?</span>
-                            <a href="{{route('admin.login')}}" class="fw-bold">Login</a>
+                            <span> Don't have an account?</span>
+                            <a href="{{route('admin.create')}}" class="fw-bold">Create an Account</a>
                         </div>
                     </div>
                 </div>
@@ -104,7 +79,7 @@
     <!--! ================================================================ !-->
     <!--! BEGIN: Theme Customizer !-->
     <!--! ================================================================ !-->
-    <div class="theme-customizer">
+     <div class="theme-customizer">
         <div class="customizer-handle">
             <a href="javascript:void(0);" class="cutomizer-open-trigger bg-primary">
                 <i class="feather-settings"></i>
@@ -227,8 +202,8 @@
                         </div>
                     </div>
                 </div>
-                <!--! END: [Typography] !-->
-            </div>
+               <!--! END: [Typography] !-->
+            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
             <div class="customizer-sidebar-footer px-4 ht-60 border-top d-flex align-items-center gap-2">
                 <div class="flex-fill w-50">
                     <a href="javascript:void(0);" class="btn btn-danger" data-style="reset-all-common-style">Reset</a>
@@ -246,18 +221,13 @@
     <!--! Footer Script !-->
     <!--! ================================================================ !-->
     <!--! BEGIN: Vendors JS !-->
-    <script src="{{ url('assets/vendors/js/vendors.min.js')}}"></script>
+  <script src="{{ url ('assets/vendors/js/vendors.min.js')}}"></script>
     <!-- vendors.min.js {always must need to be top} -->
-    <script src="{{ url('assets/vendors/js/lslstrength.min.js')}}"></script>
     <!--! END: Vendors JS !-->
     <!--! BEGIN: Apps Init  !-->
-    <script src="{{ url('assets/js/common-init.min.js')}}"></script>
+    <script src="{{ url ('assets/js/common-init.min.js')}}"></script>
     <!--! END: Apps Init !-->
     <!--! BEGIN: Theme Customizer  !-->
-    <script src="{{ url('assets/js/theme-customizer-init.min.js')}}"></script>
-    <!--! END: Theme Customizer !-->
-</body>
+    <script src="{{ url ('assets/js/theme-customizer-init.min.js')}}"></script>
 
-
-<!-- Mirrored from bestwpware.com/html/tf/duralux-demo/auth-register-minimal.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jul 2025 12:20:58 GMT -->
-</html>
+</body></html>
