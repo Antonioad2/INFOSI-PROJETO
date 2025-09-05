@@ -70,6 +70,7 @@ class CarController extends Controller
             'inspection_date'   => 'nullable|date',
             'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
             'price'             => 'required|numeric|min:0',
+            'status'            => 'required|in:available,reserved,rented,maintenance,unavailabe',
         ]);
 
         // Diretórios
@@ -160,6 +161,7 @@ class CarController extends Controller
             'inspection_date'   => 'nullable|date',
             'inspection_document_upload' => 'nullable|mimes:pdf,doc,docx',
             'price'             => 'required|numeric|min:0',
+            'status'            => 'required|in:available,reserved,rented,maintenance,unavailabe',
         ]);
 
         $uploadPath = public_path('uploads');
