@@ -197,11 +197,30 @@
                                 <span>{{$car->registration_date}}</span>
                             </a>
                         </div>
+                    </div>
+
+                        <!--Status do Carro-->
+                        <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Status do Carro</div>
+                        <div class="col-lg-10 hstack gap-1">
+                            @if($car->status == 'available')
+                                <span class="badge bg-success">Disponível</span>
+                            @elseif($car->status == 'reserved')
+                                <span class="badge bg-info text-dark">Reservado</span>
+                            @elseif($car->status == 'rented')
+                                <span class="badge bg-primary">Alugado</span>
+                            @elseif($car->status == 'maintenance')
+                                <span class="badge bg-warning text-dark">Em Manutenção</span>
+                            @else
+                                <span class="badge bg-danger">Indisponível</span>
+                            @endif
+                        </div>
                     
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Descrição</div>
                         <div class="col-lg-8 hstack gap-1">{{$car->observations}}</div>
                     </div>
+                    
                 </div>
 
                 <!-- Seção para Documentos -->
