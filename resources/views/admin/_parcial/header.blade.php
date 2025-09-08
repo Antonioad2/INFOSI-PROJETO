@@ -48,34 +48,50 @@
                                 <a href="javascript:void(0);" class="dropdown-item">
                                     <span class="hstack">
                                         <i class="feather-send"></i>
-                                        <span>Applications</span>
+                                        <span>Dashboards</span>
                                     </span>
                                     <i class="feather-chevron-right ms-auto me-0"></i>
                                 </a>
                                 <div class="dropdown-menu nxl-h-dropdown">
                                     <a href="apps-chat.html" class="dropdown-item">
                                         <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
-                                        <span>Chat</span>
+                                        <span>Relatório</span>
                                     </a>
                                     <a href="apps-email.html" class="dropdown-item">
                                         <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
-                                        <span>Email</span>
+                                        <span>Marcas</span>
                                     </a>
                                     <a href="apps-tasks.html" class="dropdown-item">
                                         <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
-                                        <span>Tasks</span>
+                                        <span>Modelos</span>
                                     </a>
                                     <a href="apps-notes.html" class="dropdown-item">
                                         <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
-                                        <span>Notes</span>
+                                        <span>Combustíveis</span>
                                     </a>
                                     <a href="apps-storage.html" class="dropdown-item">
                                         <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
-                                        <span>Storage</span>
+                                        <span>Cores</span>
                                     </a>
                                     <a href="apps-calendar.html" class="dropdown-item">
                                         <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
-                                        <span>Calendar</span>
+                                        <span>Fornecedores</span>
+                                    </a>
+                                    <a href="apps-calendar.html" class="dropdown-item">
+                                        <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
+                                        <span>Carros</span>
+                                    </a>
+                                    <a href="apps-calendar.html" class="dropdown-item">
+                                        <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
+                                        <span>Motoristas</span>
+                                    </a>
+                                    <a href="apps-calendar.html" class="dropdown-item">
+                                        <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
+                                        <span>Clientes</span>
+                                    </a>
+                                    <a href="apps-calendar.html" class="dropdown-item">
+                                        <i class="wd-5 ht-5 bg-gray-500 rounded-circle me-3"></i>
+                                        <span>Reservas</span>
                                     </a>
                                 </div>
                             </div>
