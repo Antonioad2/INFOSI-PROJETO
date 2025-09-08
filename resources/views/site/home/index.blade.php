@@ -451,8 +451,8 @@
                                     Serviço de Aluguel de Carros da Cidade
                                 </h2>
                                 <div class="button-items">
-                                    <a href="about.html" class="theme-btn bg-white wow fadeInUp" data-wow-delay=".5s">Saiba Mais</a>
-                                    <a href="car-details.html" class="theme-btn bg-header wow fadeInUp" data-wow-delay=".7s">Reservar Seu Carro</a>
+                                    <a href="{{ route('site.abouts_us') }}" class="theme-btn bg-white wow fadeInUp" data-wow-delay=".5s">Saiba Mais</a>
+                                    <a href="{{ route('site.reservation') }}" class="theme-btn bg-header wow fadeInUp" data-wow-delay=".7s">Reservar Seu Carro</a>
                                 </div>
                             </div>
                             <div class="car-image">

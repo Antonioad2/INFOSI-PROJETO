@@ -1,4 +1,4 @@
-@extends('admin.cars.carView.layout.principal')
+@extends('admin.cars.carView.Layout.principal')
 @section('title', 'Duralux || Car View')
 @section('content-carView')
 
