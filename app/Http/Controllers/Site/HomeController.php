@@ -28,7 +28,7 @@ class HomeController extends Controller
         $category   = $request->input('category'); // <-- Captura categoria
 
         // Query inicial
-        $cars = Car::with(['brand', 'models', 'color', 'fuel']);
+        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available');
 
         // Aplica filtro por categoria (se existir)
         if ($category) {
