@@ -349,7 +349,7 @@
                                 <span>{{ $car->reviews_count ?? 2 }} Avaliações</span>
                             </div>
                             <h4><a href="{{ route('site.car_details', $car->id) }}">{{ $car->brand->name ?? 'Hyundai' }} {{ $car->models->name ?? 'Accent Limited' }}</a></h4>
-                            <h6>{{ number_format($car->daily_rate ?? 70000, 0, ',', '.') }} Kz <span>/ Dia</span></h6>
+                            <h6>{{ number_format($car->price ?? 70000, 0, ',', '.') }} Kz <span>/ Dia</span></h6>
                             <div class="icon-items">
                                 <ul>
                                     <li><img src="{{ url('assets/user/img/car/seat.svg') }}" alt="img" class="me-1">{{ $car->number_of_seats ?? N }} Lugares</li>

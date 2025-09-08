@@ -126,8 +126,9 @@ class CarController extends Controller
     $models = Models::all();
     $colors = Color::all();
     $fuels  = Fuel::all();
+    $suppliers = Supplier::all();
 
-    return view('admin.cars.carEdit.index', compact('car', 'brands', 'models', 'colors', 'fuels'));
+    return view('admin.cars.carEdit.index', compact('car', 'brands', 'models', 'colors', 'fuels', 'suppliers'));
 }
 
 
@@ -144,13 +145,13 @@ class CarController extends Controller
             'color_id'          => 'required|exists:colors,id',
             'brand_id'          => 'required|exists:brands,id',
             'fuel_id'           => 'required|exists:fuels,id',
-            'supplier_id'      => 'nullable|exists:suppliers,id',
-            'mileage'          => 'nullable|integer|min:0',
+            'supplier_id'       => 'nullable|exists:suppliers,id',
+            'mileage'           => 'nullable|integer|min:0',
             'number_of_doors'   => 'nullable|integer|min:1|max:10',
-            'number_of_seats'  => 'nullable|integer|min:1|max:20',
-            'engine'           => 'nullable|string|max:100',
-            'transmission'     => 'required|in:Manual,Automático',
-            'manufacture_date'  => 'required|unsignedSmallInteger',
+            'number_of_seats'   => 'nullable|integer|min:1|max:20',
+            'engine'            => 'nullable|string|max:100',
+            'transmission'      => 'required|in:Manual,Automático',
+            'manufacture_date'  => 'required|integer|between:2010,' . now()->year,
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
             'image'             => 'nullable|image|mimes:jpg,jpeg,png,pdf|max:2048',
@@ -163,6 +164,7 @@ class CarController extends Controller
             'price'             => 'required|numeric|min:0',
             'status'            => 'required|in:available,reserved,rented,maintenance,unavailabe',
         ]);
+
 
         $uploadPath = public_path('uploads');
 

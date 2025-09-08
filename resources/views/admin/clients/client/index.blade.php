@@ -92,7 +92,7 @@
                                             <td>{{ $client->bi ?? '-' }}</td>
                                             <td>{{ $client->driver_license ?? '-' }}</td>
                                             <td class="fw-bold text-dark">
-                                                {{ $client->registration_date ? \Carbon\Carbon::parse($client->registration_date)->format('d/m/Y') : 'N/A' }}
+                                                {{ $client->created_at ? \Carbon\Carbon::parse($client->created_at)->format('d/m/Y') : 'N/A' }}
                                             </td>
                                             <td>
                                                 <div class="hstack gap-2 justify-content-end">
