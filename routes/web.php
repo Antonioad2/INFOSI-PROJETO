@@ -187,10 +187,21 @@ Route::prefix('/admin/reserves')->name('reserves.')->group(function () {
 });
 
 
-Route::get('/admin/auth/login', [AuthController::class, 'login'])->name('admin.login');
-Route::get('/admin/auth/create', [AuthController::class, 'create'])->name('admin.create');
-Route::get('/admin/auth/reset', [AuthController::class, 'reset'])->name('admin.reset');
-Route::get('/admin/auth/resetpassword', [AuthController::class, 'resetpassword'])->name('admin.resetpassword');
+
+// Rotas GET
+Route::get('/admin/auth/login', [AuthController::class, 'login'])->name('admin.login'); // Tela de login
+Route::get('/admin/auth/create', [AuthController::class, 'create'])->name('admin.create'); // Tela de cadastro
+Route::get('/admin/auth/reset', [AuthController::class, 'reset'])->name('admin.reset'); // Tela de reset (inserir email)
+Route::get('/admin/auth/resetpassword/{token?}', [AuthController::class, 'resetpassword'])->name('admin.resetpassword'); // Tela de reset (inserir nova senha)
+
+// Rotas POST
+Route::post('/admin/auth/login', [AuthController::class, 'loginPost'])->name('admin.login.post');
+Route::post('/admin/auth/create', [AuthController::class, 'createPost'])->name('admin.create.post');
+Route::post('/admin/auth/reset', [AuthController::class, 'resetPost'])->name('admin.reset.post');
+Route::post('/admin/auth/resetpassword', [AuthController::class, 'resetpasswordPost'])->name('admin.resetpassword.post');
+
+// Rota de logout
+Route::post('/admin/auth/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 
 /*-------------------------------------------------------
