@@ -334,7 +334,7 @@
             </h2>
         </div>
         <div class="row">
-            @foreach ($cars->take(6) as $index => $car)
+            @foreach ($cars->where('status', 'available')->take(6) as $index => $car)
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".{{ 3 + ($index * 2) }}s">
                     <div class="car-rentals-items">
                         <div class="car-image">

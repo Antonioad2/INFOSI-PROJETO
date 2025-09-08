@@ -40,5 +40,32 @@ class Reserve extends Model
         return $this->belongsTo(Driver::class);
     }
 
+    protected static function booted()
+    {
+        // Quando a reserva é criada → carro reservado
+        static::created(function ($reserve) {
+            if ($reserve->car) {
+                $reserve->car->update(['status' => 'reserved']);
+            }
+        });
+
+        // Quando a reserva é atualizada → verificar status
+        static::updated(function ($reserve) {
+            if ($reserve->car) {
+                if (in_array($reserve->status, ['cancelled', 'completed'])) {
+                    $reserve->car->update(['status' => 'available']);
+                }
+            }
+        });
+
+        // Se a reserva for eliminada → carro volta a ficar disponível
+        static::deleted(function ($reserve) {
+            if ($reserve->car) {
+                $reserve->car->update(['status' => 'available']);
+            }
+        });
+    }
+
+
 }
 

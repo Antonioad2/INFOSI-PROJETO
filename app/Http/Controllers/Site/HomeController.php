@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         // Fetch all cars with their related data (brand, models, color, fuel)
-        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->get();
+        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available')->get(); // 🔹 só traz disponíveis;
 
         // Pass the cars to the view
         return view('site.home.index', compact('cars')); // Add 'cars' to compact()
