@@ -40,15 +40,6 @@ Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])->
 /*---------- FIM Site routes -------------*/
                    
 
-/*-------------------------------------------------------
-                    Dashboard routes
--------------------------------------------------------*/
-Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('analytics');
-Route::get('/admin/reports/reportsSales', [DashboardController::class, 'reportsSales'])->name('reportsSales');
-Route::get('/admin/reports/reportsLeads', [DashboardController::class, 'reportsLeads'])->name('reportsLeads');
-Route::get('/admin/reports/reportsProject', [DashboardController::class, 'reportsProject'])->name('reportsProject');
-Route::get('/admin/reports/reportsTimesheets', [DashboardController::class, 'reportsTimesheets'])->name('reportsTimesheets');
 
 /*-------------------------------------------------------
                     color routes
@@ -186,11 +177,24 @@ Route::prefix('/admin/reserves')->name('reserves.')->group(function () {
     Route::delete('/{id}', [ReserveController::class, 'destroy'])->name('destroy');
 });
 
+/*-------------------------------------------------------
+                    Dashboard routes
+-------------------------------------------------------*/
+Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('analytics');
+Route::get('/admin/reports/reportsSales', [DashboardController::class, 'reportsSales'])->name('reportsSales');
+Route::get('/admin/reports/reportsLeads', [DashboardController::class, 'reportsLeads'])->name('reportsLeads');
+Route::get('/admin/reports/reportsProject', [DashboardController::class, 'reportsProject'])->name('reportsProject');
+Route::get('/admin/reports/reportsTimesheets', [DashboardController::class, 'reportsTimesheets'])->name('reportsTimesheets');
 
-Route::get('/admin/auth/login', [AuthController::class, 'login'])->name('admin.login');
-Route::get('/admin/auth/create', [AuthController::class, 'create'])->name('admin.create');
-Route::get('/admin/auth/reset', [AuthController::class, 'reset'])->name('admin.reset');
-Route::get('/admin/auth/resetpassword', [AuthController::class, 'resetpassword'])->name('admin.resetpassword');
+
+
+Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/admin/auth/login', [AuthController::class, 'login'])->name('admin.login'); //tela de login (acesso ao sistema administrativo)
+Route::get('/admin/auth/create', [AuthController::class, 'create'])->name('admin.create');//tela de cadastro (criação de novo usuário(admin || user))
+Route::get('/admin/auth/reset', [AuthController::class, 'reset'])->name('admin.reset');//tela de reset de senha (esqueci minha senha) inserir email
+Route::get('/admin/auth/resetpassword', [AuthController::class, 'resetpassword'])->name('admin.resetpassword');//tela de reset de senha (esqueci minha senha) inserir nova senha
+
+
 
 
 /*-------------------------------------------------------

@@ -2,22 +2,19 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Model\Nivel;
 
 class NivelSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('nivels')->insert([
-            'nome' => 'admin',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        DB::table('nivels')->updateOrInsert(
+            ['nome' => 'admin'],
+            ['created_at' => now(), 'updated_at' => now()]
+        );
 
-        Nivel::create([
-            'nome' => 'user',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        DB::table('nivels')->updateOrInsert(
+            ['nome' => 'user'],
+            ['created_at' => now(), 'updated_at' => now()]
+        );
     }
 }
