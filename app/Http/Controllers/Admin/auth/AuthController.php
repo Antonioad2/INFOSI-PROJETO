@@ -17,10 +17,12 @@ class AuthController extends Controller
     }
 
     public function reset(){
+        
         return view('admin.auth.reset.index');
     }
 
     public function resetpassword(){
+
         return view('admin.auth.resetpassword.index');
     }
 }
