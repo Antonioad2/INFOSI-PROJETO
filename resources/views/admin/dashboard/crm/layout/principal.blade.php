@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    @include('admin.dashboard.crm.parcial.header')
+    @include('admin._parcial.header')
     @include('admin._parcial.menu')
 
     <main class="nxl-container">

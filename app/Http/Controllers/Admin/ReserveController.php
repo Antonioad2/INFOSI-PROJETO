@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ConfirmacaoReservaMail;
 use App\Model\Reserve;
 use App\Model\Client;
 use App\Model\Car;
 use App\Model\Driver;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class ReserveController extends Controller
 {
@@ -35,13 +38,12 @@ class ReserveController extends Controller
 
     public function store(Request $request)
     {
-        // pegar chaves válidas dos extras do config
         $allowedResources = implode(',', array_keys(config('resources.extras')));
 
         $request->validate([
             'client_id'  => 'required|exists:clients,id',
             'car_id'     => 'required|exists:cars,id',
-            'pickup_location' => 'required|string|max:255', // validação para o novo campo
+            'pickup_location' => 'required|string|max:255',
             'start_date' => 'required|date',
             'end_date'   => 'required|date|after_or_equal:start_date',
             'resources'  => 'nullable|array',
@@ -50,51 +52,52 @@ class ReserveController extends Controller
             'status'     => 'nullable|in:in_progress,completed,cancelled'
         ]);
 
-        // Carro e dias (garantir pelo menos 1 dia)
+        // calcular total
         $car = Car::findOrFail($request->car_id);
         $days = \Carbon\Carbon::parse($request->start_date)
                 ->diffInDays(\Carbon\Carbon::parse($request->end_date));
         $days = $days > 0 ? $days : 1;
 
         $carTotal = $car->price * $days;
-        // Final do cálculo do carro
 
-        // Recursos (extras)
         $resources = $request->resources ?? [];
-
         $resourcesTotal = collect($resources)->sum(
             fn($r) => config("resources.extras.{$r}.price", 0)
         );
-        // Final do cálculo dos recursos
-        
-        // Motorista
+
         $driverTotal = 0;
         if ($request->driver_id) {
             $driver = Driver::findOrFail($request->driver_id);
             $driverTotal = $driver->daily_price * $days;
         }
-        // Final do cálculo do motorista
 
-        // Total geral
         $totalAmount = $carTotal + $resourcesTotal + $driverTotal;
-        // Final do cálculo total
 
-        // Criar reserva — guardamos resources como JSON (array de keys)
-        Reserve::create([
+        // Criar reserva e guardar na variável
+        $reserva = Reserve::create([
             'client_id'    => $request->client_id,
             'car_id'       => $request->car_id,
             'pickup_location' => $request->pickup_location,
             'start_date'   => $request->start_date,
             'end_date'     => $request->end_date,
-            'resources'    => $resources, // <-- aqui sem json_encode
+            'resources'    => $resources,
             'driver_id'    => $request->driver_id,
             'status'       => $request->status ?? 'in_progress',
             'total_amount' => $totalAmount,
         ]);
 
+        // Enviar email sem travar o fluxo
+        try {
+            Mail::to($reserva->client->email)->send(new ConfirmacaoReservaMail($reserva));
+        } catch (\Exception $e) {
+            Log::error('Erro ao enviar email de confirmação: '.$e->getMessage());
+            // Opcional: flash message só para admins
+            // session()->flash('warning', 'Reserva criada, mas o email não foi enviado.');
+        }
 
-        return redirect()->route('reserves.index')->with('success', 'Reserva criada com sucesso!');
+        return redirect()->route('reserves.index')->with('success', 'Reserva criada e email enviado com sucesso!');
     }
+
 
     /**
      * Mostrar detalhes de uma reserva
