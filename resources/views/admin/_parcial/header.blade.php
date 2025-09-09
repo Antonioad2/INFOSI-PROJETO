@@ -437,52 +437,96 @@
                                         <span class="menu-icon">
                                             <i class="feather-airplay"></i>
                                         </span>
-                                        <span class="menu-title">General</span>
+                                        <span class="menu-title">Dashboards</span>
                                         <span class="menu-arrow">
                                             <i class="feather-chevron-right"></i>
                                         </span>
                                     </button>
                                     <button class="nav-link nxl-mega-menu-md" data-bs-toggle="pill" data-bs-target="#v-pills-applications" type="button" role="tab">
                                         <span class="menu-icon">
-                                            <i class="feather-send"></i>
+                                            <i class="feather-cast"></i>
                                         </span>
-                                        <span class="menu-title">Applications</span>
+                                        <span class="menu-title">Relatório</span>
                                         <span class="menu-arrow">
                                             <i class="feather-chevron-right"></i>
                                         </span>
                                     </button>
                                     <button class="nav-link nxl-mega-menu-lg" data-bs-toggle="pill" data-bs-target="#v-pills-integrations" type="button" role="tab">
                                         <span class="menu-icon">
-                                            <i class="feather-link-2"></i>
+                                            <i class="feather-tag"></i>
                                         </span>
-                                        <span class="menu-title">Integrations</span>
+                                        <span class="menu-title">Marcas</span>
                                         <span class="menu-arrow">
                                             <i class="feather-chevron-right"></i>
                                         </span>
                                     </button>
                                     <button class="nav-link nxl-mega-menu-xl" data-bs-toggle="pill" data-bs-target="#v-pills-components" type="button" role="tab">
                                         <span class="menu-icon">
-                                            <i class="feather-layers"></i>
+                                            <i class="feather-box"></i>
                                         </span>
-                                        <span class="menu-title">Components</span>
+                                        <span class="menu-title">Modelos</span>
                                         <span class="menu-arrow">
                                             <i class="feather-chevron-right"></i>
                                         </span>
                                     </button>
                                     <button class="nav-link nxl-mega-menu-xxl" data-bs-toggle="pill" data-bs-target="#v-pills-authentication" type="button" role="tab">
                                         <span class="menu-icon">
-                                            <i class="feather-cpu"></i>
+                                            <i class="feather-droplet"></i>
                                         </span>
-                                        <span class="menu-title">Authentication</span>
+                                        <span class="menu-title">Combustíveis</span>
                                         <span class="menu-arrow">
                                             <i class="feather-chevron-right"></i>
                                         </span>
                                     </button>
                                     <button class="nav-link nxl-mega-menu-full" data-bs-toggle="pill" data-bs-target="#v-pills-miscellaneous" type="button" role="tab">
                                         <span class="menu-icon">
-                                            <i class="feather-bluetooth"></i>
+                                            <i class="feather-square"></i>
                                         </span>
-                                        <span class="menu-title">Miscellaneous</span>
+                                        <span class="menu-title">Cores</span>
+                                        <span class="menu-arrow">
+                                            <i class="feather-chevron-right"></i>
+                                        </span>
+                                    </button>
+                                    <button class="nav-link nxl-mega-menu-full" data-bs-toggle="pill" data-bs-target="#v-pills-miscellaneous" type="button" role="tab">
+                                        <span class="menu-icon">
+                                            <i class="feather-users"></i>
+                                        </span>
+                                        <span class="menu-title">Fornecedores</span>
+                                        <span class="menu-arrow">
+                                            <i class="feather-chevron-right"></i>
+                                        </span>
+                                    </button>
+                                    <button class="nav-link nxl-mega-menu-full" data-bs-toggle="pill" data-bs-target="#v-pills-miscellaneous" type="button" role="tab">
+                                        <span class="menu-icon">
+                                            <i class="feather-truck"></i>
+                                        </span>
+                                        <span class="menu-title">Carros</span>
+                                        <span class="menu-arrow">
+                                            <i class="feather-chevron-right"></i>
+                                        </span>
+                                    </button>
+                                    <button class="nav-link nxl-mega-menu-full" data-bs-toggle="pill" data-bs-target="#v-pills-miscellaneous" type="button" role="tab">
+                                        <span class="menu-icon">
+                                            <i class="fas fa-user-tie"></i>
+                                        </span>
+                                        <span class="menu-title">Motoristas</span>
+                                        <span class="menu-arrow">
+                                            <i class="feather-chevron-right"></i>
+                                        </span>
+                                    <button class="nav-link nxl-mega-menu-full" data-bs-toggle="pill" data-bs-target="#v-pills-miscellaneous" type="button" role="tab">
+                                        <span class="menu-icon">
+                                            <i class="feather-user"></i>
+                                        </span>
+                                        <span class="menu-title">Clientes</span>
+                                        <span class="menu-arrow">
+                                            <i class="feather-chevron-right"></i>
+                                        </span>
+                                    </button>
+                                    <button class="nav-link nxl-mega-menu-full" data-bs-toggle="pill" data-bs-target="#v-pills-miscellaneous" type="button" role="tab">
+                                        <span class="menu-icon">
+                                            <i class="feather-calendar"></i>
+                                        </span>
+                                        <span class="menu-title">Reservas</span>
                                         <span class="menu-arrow">
                                             <i class="feather-chevron-right"></i>
                                         </span>
