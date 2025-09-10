@@ -147,8 +147,8 @@
                                                 <img src="{{ url('assets/user/img/feature-benefit/icon-1.png')}}" alt="icon-img">
                                             </div>
                                             <h4>
-                                                Mais fácil & <br>
-                                                Reservas mais rápidas
+                                                Fácil & <br>
+                                                Rápido de Reservar
                                             </h4>
                                         </div>
                                         <div class="icon-items wow fadeInUp" data-wow-delay=".5s">
@@ -156,7 +156,7 @@
                                                 <img src="{{ url('assets/user/img/feature-benefit/icon-2.png')}}" alt="icon-img">
                                             </div>
                                             <h4>
-                                                Muitos <br>
+                                                Diversos <br>
                                                 Locais de Retirada
                                             </h4>
                                         </div>
@@ -388,7 +388,7 @@
                                     </div>
                                 </div>
                                 <p>
-                                    Aliquam viverra arcu. Donec aliquet blandit enim feugiat. Suspendisse id quam sed eros.
+                                    Escolha o ponto de recolha, e defina os dias em que pretendes alugar o carro.
                                 </p>
                             </div>
                         </div>
@@ -402,7 +402,7 @@
                                     </div>
                                 </div>
                                 <p>
-                                    Aliquam viverra arcu. Donec aliquet blandit enim feugiat. Suspendisse id quam sed eros.
+                                    Na listagem dos carros poderás  escolher um carro ao seu gosto e acessível ao seu bolso.
                                 </p>
                             </div>
                         </div>
@@ -416,7 +416,7 @@
                                     </div>
                                 </div>
                                 <p>
-                                    Aliquam viverra arcu. Donec aliquet blandit enim feugiat. Suspendisse id quam sed eros.
+                                    Defina o seu Banco e o Número da Conta de modo a fazer o pagamento do valor total da reserva. 
                                 </p>
                             </div>
                         </div>
@@ -430,7 +430,7 @@
                                     </div>
                                 </div>
                                 <p>
-                                    Aliquam viverra arcu. Donec aliquet blandit enim feugiat. Suspendisse id quam sed eros.
+                                    Após confirmado o pagamento da reserva, aguarde pelo dia da retirada no local escolhido e bora conduzir.
                                 </p>
                             </div>
                         </div>
