@@ -1,22 +1,7 @@
 @extends('site.home.car_details.layout.main')
 @section('content-car_details')
 
-    <!--View para Exibição do caso escolhido para reserva-->
-     <div>
-        <div class="breadcrumb-wrapper bg-cover" style="background-image: url('{{ asset('assets/user/img/bg-header-banner.jpg') }}')">
-            <div class="container">
-                <div class="page-heading">
-                    <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
-                        <li><a href="{{route('site.home')}}">Home</a></li>
-                        <li><i class="fas fa-chevron-right"></i></li>
-                        <li>Cars</li>
-                    </ul>
-                    <h1 class="wow fadeInUp" data-wow-delay=".5s">Single Car</h1>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section para exibir od detalhes do carro -->
+    <!-- Section para exibir od detalhes do carro -->
         <section class="car-details fix section-padding">
             <div class="container">
                 <div class="car-details-wrapper">
@@ -433,6 +418,6 @@
                 </div>
             </div>
         </section>--}}
-    </div>
+        </div>
     <!--<< Breadcrumb Section End >>-->
 @endsection

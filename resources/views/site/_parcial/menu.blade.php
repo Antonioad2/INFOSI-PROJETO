@@ -22,10 +22,6 @@
             <a href="{{route('site.reservation')}}">
                 Carros
             </a>   
-        </li>
-
-       
-        
-        
+        </li>  
     </ul>
 </nav>
