@@ -8,6 +8,9 @@ use App\Model\Car;
 use App\Model\Client;
 use App\Model\Driver;
 use App\Model\Reserve;
+use App\Mail\ConfirmacaoReservaMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class ReservationController extends Controller
 {
@@ -149,7 +152,7 @@ class ReservationController extends Controller
         }
 
         // CORRIGIR OS NOMES DOS CAMPOS para match com a migration
-        Reserve::create([
+        $reserva = Reserve::create([
             'car_id'          => $car->id,
             'client_id'       => $client->id,
             'driver_id'       => $data['driver_id'] ?? null,
@@ -160,6 +163,15 @@ class ReservationController extends Controller
             'total_amount'    => $price,
             'status'          => 'in_progress',
         ]);
+
+        // Enviar email sem travar o fluxo
+        try {
+            Mail::to($reserva->client->email)->send(new ConfirmacaoReservaMail($reserva));
+        } catch (\Exception $e) {
+            Log::error('Erro ao enviar email de confirmação: '.$e->getMessage());
+            // Opcional: flash message só para admins
+            // session()->flash('warning', 'Reserva criada, mas o email não foi enviado.');
+        }
 
         session()->forget('reservation_data');
 

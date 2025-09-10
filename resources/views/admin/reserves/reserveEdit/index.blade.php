@@ -92,10 +92,9 @@
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Status</label>
                                         <select name="status" class="form-control">
-                                            <option value="pendente" {{ $reserve->status == 'pendente' ? 'selected' : '' }}>Pendente</option>
-                                            <option value="confirmada" {{ $reserve->status == 'confirmada' ? 'selected' : '' }}>Confirmada</option>
-                                            <option value="concluida" {{ $reserve->status == 'concluida' ? 'selected' : '' }}>Concluída</option>
-                                            <option value="cancelada" {{ $reserve->status == 'cancelada' ? 'selected' : '' }}>Cancelada</option>
+                                            <option value="in_progress" {{ $reserve->status == 'in_progress' ? 'selected' : '' }}>Pendente</option>
+                                            <option value="completed" {{ $reserve->status == 'completed' ? 'selected' : '' }}>Concluída</option>
+                                            <option value="cancelled" {{ $reserve->status == 'cancelled' ? 'selected' : '' }}>Cancelada</option>
                                         </select>
                                     </div>
                                     
