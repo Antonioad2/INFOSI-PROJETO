@@ -13,7 +13,6 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\ReserveController;
 use App\Http\Controllers\Site\ReservationController; 
-use App\Http\Controllers\Site\CarBookController;
 use App\Http\Controllers\Admin\auth\AuthController;
 
 
@@ -32,7 +31,6 @@ Route::get('/gallery', [HomeController::class, 'gallery'])->name('site.gallery')
 
 // Rotas para o processo de reserva em duas etapas
 Route::post('/reservation/step1/{car_id}', [ReservationController::class, 'step1'])->name('site.reservation.step1');
-/* Route::post('/car-book/store', [CarBookController::class, 'store'])->name('car_book.store'); */
 Route::post('/car/{car_id}/book', [ReservationController::class, 'step1'])->name('site.car_book');
 Route::get('/reservation/checkout', [ReservationController::class, 'step2'])->name('site.reservation.checkout');
 Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])->name('site.reservation.confirm');

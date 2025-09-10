@@ -6,6 +6,16 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        $this->call(NivelSeeder::class);
+        $this->call([
+            BrandsTableSeeder::class,
+            ModelsTableSeeder::class,
+            FuelsTableSeeder::class,
+            ColorsTableSeeder::class,
+            SuppliersTableSeeder::class,
+            CarsTableSeeder::class,
+            DriversTableSeeder::class,
+            ClientsTableSeeder::class,
+            ReservesTableSeeder::class
+        ]);
     }
 }

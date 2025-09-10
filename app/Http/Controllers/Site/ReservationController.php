@@ -20,6 +20,27 @@ class ReservationController extends Controller
         $startDate = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('start_date'))->format('Y-m-d');
         $endDate = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('end_date'))->format('Y-m-d');
 
+        // calcular total
+        $car = Car::findOrFail($request->car_id);
+        $days = \Carbon\Carbon::parse($request->start_date)
+                ->diffInDays(\Carbon\Carbon::parse($request->end_date));
+        $days = $days > 0 ? $days : 1;
+
+        $carTotal = $car->price * $days;
+
+        $resources = $request->resources ?? [];
+        $resourcesTotal = collect($resources)->sum(
+            fn($r) => config("resources.extras.{$r}.price", 0)
+        );
+
+        $driverTotal = 0;
+        if ($request->driver_id) {
+            $driver = Driver::findOrFail($request->driver_id);
+            $driverTotal = $driver->daily_price * $days;
+        }
+
+        $totalAmount = $carTotal + $resourcesTotal + $driverTotal;
+
         $data = [
             'car_id'          => $car->id,
             'pickup_location' => $request->input('pickup_location'),
