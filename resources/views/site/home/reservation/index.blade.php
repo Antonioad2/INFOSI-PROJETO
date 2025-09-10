@@ -3,26 +3,11 @@
 
     <!-- View para Listagem de Carros disponíveis -->
     <div>
-        <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/user/img/bg-header-banner.jpg');">
             <div class="container">
                 <div class="page-heading">
-                    <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
-                        <li>
-                            <a href="{{ route('site.home') }}">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <i class="fas fa-chevron-right"></i>
-                        </li>
-                        <li>
-                            Carros
-                        </li>
-                    </ul>
-                    <h1 class="wow fadeInUp" data-wow-delay=".5s">lista de estilo</h1>
+                    
                 </div>
             </div>
-        </div>
 
         <!-- Cards Para Listagem de Carros disponíveis -->
         <section class="car-list-section section-padding fix">

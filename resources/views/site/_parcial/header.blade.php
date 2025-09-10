@@ -63,7 +63,7 @@
                     </div>
                 </div>
     
-            <div class="header-top-section style-two">
+            {{-- <div class="header-top-section style-two">
                 <div class="container-fluid">
                     <div class="header-top-wrapper style-2">
                         <ul class="contact-list">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div id="header-sticky" class="header-3">
                 <div class="container-fluid">
                     <div class="mega-menu-wrapper">
