@@ -58,7 +58,7 @@
                                         <th>Marca</th>
                                         <th>Modelo</th>
                                         <th>Fornecedor</th>
-                                        <th>Descrição</th>
+                                        <th>Estado</th>
                                         <th>Data de Cadastro</th>
                                         <th class="text-end">Ações</th>
                                     </tr>
@@ -94,7 +94,19 @@
                                                 </a>
                                             </td>
                                             <td>{{ $car->supplier->name ?? 'N/A' }}</td>
-                                            <td class="fw-bold text-dark">{{ \Str::limit($car->observations, 40) }}</td>
+                                            <td class="fw-bold text-dark">
+                                                @if($car->status == 'available')
+                                                    <span class="badge bg-success">Disponível</span>
+                                                @elseif($car->status == 'reserved')
+                                                    <span class="badge bg-info">Reservado</span>
+                                                @elseif($car->status == 'rented')
+                                                    <span class="badge bg-primary">Alugado</span>
+                                                @elseif($car->status == 'maintenance')
+                                                    <span class="badge bg-warning text-dark">Em Manutenção</span>
+                                                @else
+                                                    <span class="badge bg-danger">Indisponível</span>
+                                                @endif
+                                            </td>
                                             <td class="fw-bold text-dark">{{ $car->registration_date ? \Carbon\Carbon::parse($car->registration_date)->format('d/m/Y') : 'N/A' }}</td>
                                             
                                             <!-- Ações -->

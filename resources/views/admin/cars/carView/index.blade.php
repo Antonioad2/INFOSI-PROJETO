@@ -199,97 +199,97 @@
                         </div>
                     </div>
 
-                        <!--Status do Carro-->
-                        <div class="row mb-4">
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Descrição</div>
+                        <div class="col-lg-8 hstack gap-1">{{$car->observations}}</div>
+                    </div>
+
+                    <!--Status do Carro-->
+                    <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Status do Carro</div>
                         <div class="col-lg-10 hstack gap-1">
                             @if($car->status == 'available')
                                 <span class="badge bg-success">Disponível</span>
                             @elseif($car->status == 'reserved')
-                                <span class="badge bg-info text-dark">Reservado</span>
+                                <span class="badge bg-info">Reservado</span>
                             @elseif($car->status == 'rented')
                                 <span class="badge bg-primary">Alugado</span>
                             @elseif($car->status == 'maintenance')
-                                <span class="badge bg-warning text-dark">Em Manutenção</span>
+                                <span class="badge bg-warning">Em Manutenção</span>
                             @else
                                 <span class="badge bg-danger">Indisponível</span>
                             @endif
                         </div>
+                    </div>
                     
+                    <!-- Seção para Documentos -->
                     <div class="row mb-4">
-                        <div class="col-lg-2 fw-medium">Descrição</div>
-                        <div class="col-lg-8 hstack gap-1">{{$car->observations}}</div>
+                        <div class="col-lg-2 fw-medium">Documentos</div>
+                        <div class="col-lg-10 hstack gap-3">
+                            @if($car->car_insurance_upload)
+                                <div class="hstack gap-2">
+                                    <div class="avatar-text avatar-sm">
+                                        <i class="feather-file-text"></i>
+                                    </div>
+                                    <a href="{{ asset('uploads/car/insurance_documents/' . $car->car_insurance_upload) }}" target="_blank">Seguro ({{ $car->car_insurance }})</a>
+                                </div>
+                            @else
+                                <span>Sem documento de seguro</span>
+                            @endif
+                        </div>
                     </div>
                     
-                </div>
 
-                <!-- Seção para Documentos -->
-                <div class="row mb-4">
-                    <div class="col-lg-2 fw-medium">Documentos</div>
-                    <div class="col-lg-10 hstack gap-3">
-                        @if($car->car_insurance_upload)
-                            <div class="hstack gap-2">
-                                <div class="avatar-text avatar-sm">
-                                    <i class="feather-file-text"></i>
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium"></div>
+                        <div class="col-lg-10 hstack gap-3">
+                            @if($car->car_document_upload)
+                                <div class="hstack gap-2">
+                                    <div class="avatar-text avatar-sm">
+                                        <i class="feather-file-text"></i>
+                                    </div>
+                                    <a href="{{ asset('uploads/car/car_documents/' . $car->car_document_upload) }}" target="_blank">Documento do Carro ({{ $car->car_document }})</a>
                                 </div>
-                                <a href="{{ asset('uploads/car/insurance_documents/' . $car->car_insurance_upload) }}" target="_blank">Seguro ({{ $car->car_insurance }})</a>
-                            </div>
-                        @else
-                            <span>Sem documento de seguro</span>
-                        @endif
-                    </div>
-                </div>
-                
-
-                <div class="row mb-4">
-                    <div class="col-lg-2 fw-medium"></div>
-                    <div class="col-lg-10 hstack gap-3">
-                        @if($car->car_document_upload)
-                            <div class="hstack gap-2">
-                                <div class="avatar-text avatar-sm">
-                                    <i class="feather-file-text"></i>
-                                </div>
-                                <a href="{{ asset('uploads/car/car_documents/' . $car->car_document_upload) }}" target="_blank">Documento do Carro ({{ $car->car_document }})</a>
-                            </div>
-                        @else
-                            <span>Sem documento do carro</span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="row mb-4">
-                    <div class="col-lg-2 fw-medium"></div>
-                    <div class="col-lg-10 hstack gap-3">
-                        @if($car->inspection_document_upload)
-                            <div class="hstack gap-2">
-                                <div class="avatar-text avatar-sm">
-                                    <i class="feather-file-text"></i>
-                                </div>
-                                <a href="{{ asset('uploads/car/inspection_documents/' . $car->inspection_document_upload) }}" target="_blank">Documento de Inspeção ({{ $car->inspection_date }})</a>
-                            </div>
-                        @else
-                            <span>Sem documento de inspeção</span>
-                        @endif
-                    </div>
-                </div>
-
-                <!-- Seção para Imagens do carro -->
-
-                <div class="row mb-4">
-                    <div class="col-lg-2 fw-medium">Imagens do Carro</div>
-                    <div class="col-lg-10 hstack gap-3">
-                        @if($car->image)
-                            <div class="hstack gap-2">
-                                <div class="avatar-image">
-                                    <a href="{{ asset('uploads/car/car_images/' . $car->image) }}">
-                                        <img src="{{ asset('uploads/car/car_images/' . $car->image) }}" alt="Car Image" width="50" height="50" class="img-fluid">
-                                    </a>
-                                </div>
-                                <span>Imagem do Carro</span>
-                            </div>
                             @else
-                            <span>Sem imagem do carro</span>
-                        @endif
+                                <span>Sem documento do carro</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium"></div>
+                        <div class="col-lg-10 hstack gap-3">
+                            @if($car->inspection_document_upload)
+                                <div class="hstack gap-2">
+                                    <div class="avatar-text avatar-sm">
+                                        <i class="feather-file-text"></i>
+                                    </div>
+                                    <a href="{{ asset('uploads/car/inspection_documents/' . $car->inspection_document_upload) }}" target="_blank">Documento de Inspeção ({{ $car->inspection_date }})</a>
+                                </div>
+                            @else
+                                <span>Sem documento de inspeção</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <!-- Seção para Imagens do carro -->
+
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Imagens do Carro</div>
+                        <div class="col-lg-10 hstack gap-3">
+                            @if($car->image)
+                                <div class="hstack gap-2">
+                                    <div class="avatar-image">
+                                        <a href="{{ asset('uploads/car/car_images/' . $car->image) }}">
+                                            <img src="{{ asset('uploads/car/car_images/' . $car->image) }}" alt="Car Image" width="50" height="50" class="img-fluid">
+                                        </a>
+                                    </div>
+                                    <span>Imagem do Carro</span>
+                                </div>
+                                @else
+                                <span>Sem imagem do carro</span>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

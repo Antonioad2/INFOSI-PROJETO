@@ -7,9 +7,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            NivelSeeder::class,
-            AdminSeeder::class,
-            UserSeeder::class,
+            BrandsTableSeeder::class,
+            ModelsTableSeeder::class,
+            FuelsTableSeeder::class,
+            ColorsTableSeeder::class,
+            SuppliersTableSeeder::class,
+            CarsTableSeeder::class,
+            DriversTableSeeder::class,
+            ClientsTableSeeder::class,
+            ReservesTableSeeder::class
         ]);
     }
 }

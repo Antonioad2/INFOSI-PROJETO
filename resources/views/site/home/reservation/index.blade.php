@@ -72,7 +72,7 @@
                                             <h6 class="price">
                                                 {{ number_format($car->price, 2, ',', '.') ?? '---' }} Kz
                                                 <span>/ Dia</span>
-                                             <a href="{{ route('site.car_details', ['car_id' => $car->id]) }}" class="theme-btn">
+                                             <a href="{{ route('site.car_details', ['car_id' => $car->id]) }}" class="theme-btn1">
                                                     Selecionar
                                                 </a>
                                             </h6>  
