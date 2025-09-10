@@ -1,14 +1,14 @@
 @component('mail::message')
 # Confirmação da sua Reserva 🚗
 
-Olá **{{ $reserve->clients->name }}**,
+Olá **{{ $reserve->client->name }}**,
 
 A sua reserva foi confirmada com sucesso! 🎉
 
 ### Detalhes da Reserva:
-- **Carro:** {{ $reserve->cars->brand->name }} {{ $reserve->cars->modelo }}
-- **Cor:** {{ $reserve->cars->color->name ?? 'Não especificada' }}
-- **Combustível:** {{ $reserve->cars->fuel->name ?? 'Não especificado' }}
+- **Carro:** {{ $reserve->car->brand->name }} {{ $reserve->car->modelo }}
+- **Cor:** {{ $reserve->car->color->name ?? 'Não especificada' }}
+- **Combustível:** {{ $reserve->car->fuel->name ?? 'Não especificado' }}
 - **Data de Retirada:** {{ \Carbon\Carbon::parse($reserve->pickup_date)->format('d/m/Y H:i') }}
 - **Local de Retirada:** {{ $reserve->pickup_location }}
 - **Data de Devolução:** {{ \Carbon\Carbon::parse($reserve->dropoff_date)->format('d/m/Y H:i') }}

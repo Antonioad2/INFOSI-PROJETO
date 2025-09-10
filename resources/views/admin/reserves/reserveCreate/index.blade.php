@@ -82,7 +82,7 @@
                                         <label class="form-label">Carro <span class="text-danger">*</span></label>
                                         <select name="car_id" id="carSelect" class="form-control @error('car_id') is-invalid @enderror" required>
                                             <option value="" disabled {{ old('car_id') ? '' : 'selected' }}>Selecione um carro</option>
-                                            @foreach ($cars as $car)
+                                            @foreach ($cars->where('status', 'available') as $car)
                                                 <option value="{{ $car->id }}"
                                                         data-price="{{ $car->price }}"
                                                         {{ old('car_id') == $car->id ? 'selected' : '' }}>
