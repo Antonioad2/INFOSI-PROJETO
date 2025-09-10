@@ -11,14 +11,14 @@ class ConfirmacaoReservaMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $reserva;
+    public $reserve;
 
     /**
      * Criar nova instância do email
      */
-    public function __construct(Reserve $reserva)
+    public function __construct(Reserve $reserve)
     {
-        $this->reserva = $reserva;
+        $this->reserve = $reserve;
     }
 
     /**

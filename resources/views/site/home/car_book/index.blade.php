@@ -1,21 +1,6 @@
 @extends('site.home.car_book.layout.main')
 @section('content-car_book')
 
-<div>
-    <!-- Header -->
-    <div class="breadcrumb-wrapper bg-cover" style="background-image: url('{{ asset('assets/user/img/bg-header-banner.jpg') }}')">
-        <div class="container">
-            <div class="page-heading">
-                <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
-                    <li><a href="{{route('site.home')}}">Home</a></li>
-                    <li><i class="fas fa-chevron-right"></i></li>
-                    <li>Carros</li>
-                </ul>
-                <h1 class="wow fadeInUp" data-wow-delay=".5s">Carro individual</h1>
-            </div>
-        </div>
-    </div>
-
     <!-- Section para exibir os detalhes do carro e o formulário lado a lado -->
     <section class="car-details fix section-padding">
         <div class="container">

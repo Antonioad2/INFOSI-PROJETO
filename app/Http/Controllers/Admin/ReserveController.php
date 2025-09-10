@@ -74,7 +74,7 @@ class ReserveController extends Controller
         $totalAmount = $carTotal + $resourcesTotal + $driverTotal;
 
         // Criar reserva e guardar na variável
-        $reserva = Reserve::create([
+        $reserve = Reserve::create([
             'client_id'    => $request->client_id,
             'car_id'       => $request->car_id,
             'pickup_location' => $request->pickup_location,
@@ -88,7 +88,7 @@ class ReserveController extends Controller
 
         // Enviar email sem travar o fluxo
         try {
-            Mail::to($reserva->client->email)->send(new ConfirmacaoReservaMail($reserva));
+            Mail::to($reserve->client->email)->send(new ConfirmacaoReservaMail($reserve));
         } catch (\Exception $e) {
             Log::error('Erro ao enviar email de confirmação: '.$e->getMessage());
             // Opcional: flash message só para admins
@@ -126,6 +126,8 @@ class ReserveController extends Controller
     public function update(Request $request, $id)
     {
         $allowedResources = implode(',', array_keys(config('resources.extras')));
+
+     
 
         $request->validate([
             'client_id'  => 'required|exists:clients,id',
