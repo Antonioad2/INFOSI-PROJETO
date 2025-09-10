@@ -14,7 +14,8 @@ use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\ReserveController;
 use App\Http\Controllers\Site\ReservationController; 
 use App\Http\Controllers\Site\CarBookController;
-use App\Http\Controllers\Admin\auth\AuthController;
+use Illuminate\Support\Facades\Auth;
+
 
 
 
@@ -180,7 +181,7 @@ Route::prefix('/admin/reserves')->name('reserves.')->group(function () {
 /*-------------------------------------------------------
                     Dashboard routes
 -------------------------------------------------------*/
-Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('analytics');
+Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('analytics')->middleware('auth');
 Route::get('/admin/reports/reportsSales', [DashboardController::class, 'reportsSales'])->name('reportsSales');
 Route::get('/admin/reports/reportsLeads', [DashboardController::class, 'reportsLeads'])->name('reportsLeads');
 Route::get('/admin/reports/reportsProject', [DashboardController::class, 'reportsProject'])->name('reportsProject');
@@ -188,13 +189,13 @@ Route::get('/admin/reports/reportsTimesheets', [DashboardController::class, 'rep
 
 
 
-Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/admin/auth/login', [AuthController::class, 'login'])->name('admin.login'); //tela de login (acesso ao sistema administrativo)
+Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+/* Route::get('/admin/auth/login', [AuthController::class, 'login'])->name('admin.login'); //tela de login (acesso ao sistema administrativo)
 Route::get('/admin/auth/create', [AuthController::class, 'create'])->name('admin.create');//tela de cadastro (criação de novo usuário(admin || user))
 Route::get('/admin/auth/reset', [AuthController::class, 'reset'])->name('admin.reset');//tela de reset de senha (esqueci minha senha) inserir email
 Route::get('/admin/auth/resetpassword', [AuthController::class, 'resetpassword'])->name('admin.resetpassword');//tela de reset de senha (esqueci minha senha) inserir nova senha
 
-
+ */
 
 
 /*-------------------------------------------------------
@@ -202,3 +203,14 @@ Route::get('/admin/auth/resetpassword', [AuthController::class, 'resetpassword']
 -------------------------------------------------------*/
 
 
+
+/* Auth::routes();
+Route::Redirect('/home', '/admin');
+
+Route::get('/home', function () {
+    return redirect()->route('admin');
+});
+ */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

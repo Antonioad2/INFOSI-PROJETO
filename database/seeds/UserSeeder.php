@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Usuário Padrão',
                 'password' => Hash::make('user123'),
-                'nivel_id' => 2,
+               
             ]
         );
 

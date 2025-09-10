@@ -1965,10 +1965,16 @@
                             <span>Account Settings</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="{{route('admin.login')}}" class="dropdown-item">
-                            <i class="feather-log-out"></i>
-                            <span>Logout</span>
-                        </a>
+                        <a class="dropdown-item" href="/login"
+                                        onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Termirar Sessão') }}
+                                    </a>
+                                </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
                     </div>
                 </div>
             </div>
