@@ -15,8 +15,9 @@ use App\Http\Controllers\Admin\ReserveController;
 use App\Http\Controllers\Site\ReservationController; 
 use App\Http\Controllers\Site\CarBookController;
 use Illuminate\Support\Facades\Auth;
-
-
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Admin\UserController;
 
 
 /*-------------------------------------------------------
@@ -187,6 +188,22 @@ Route::get('/admin/reports/reportsProject', [DashboardController::class, 'report
 Route::get('/admin/reports/reportsTimesheets', [DashboardController::class, 'reportsTimesheets'])->name('reportsTimesheets');
 
 
+/*-----------------------------------------------------
+                User routes
+-------------------------------------------------------*/
+
+Route::prefix('/admin/users')->name('users.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/create', [UserController::class, 'create'])->name('create');
+    Route::post('/', [UserController::class, 'store'])->name('store');
+    Route::get('userView/{user}', [UserController::class, 'show'])->name('show');
+    Route::get('userEdit/{user}/edit', [UserController::class, 'edit'])->name('edit');
+    Route::put('/{user}', [UserController::class, 'update'])->name('update');
+    Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+});
+
+
+
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 /* Route::get('/admin/auth/login', [AuthController::class, 'login'])->name('admin.login'); //tela de login (acesso ao sistema administrativo)
@@ -206,10 +223,17 @@ Route::get('/admin/auth/resetpassword', [AuthController::class, 'resetpassword']
 /* Auth::routes();
 Route::Redirect('/home', '/admin');
 
+Route::get('/home', 'HomeController@index')->name('home'); 
+
 Route::get('/home', function () {
     return redirect()->route('admin');
 });
  */
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {
+    return redirect()->route('dashboard');
+});
+/* Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update'); */
