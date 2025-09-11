@@ -99,34 +99,33 @@
                             <div class="header-left">
                                 <div class="logo">
                                     <a href="{{route('site.home')}}" class="header-logo-1">
-                                        <img src="{{ url('assets/user/img/logo/white-logo-2.svg')}}" alt="logo-img">
+                                        <img src="{{ url('assets/user/img/logo/black-logo.svg')}}" alt="logo-img">
                                     </a>
                                     <a href="index.html" class="header-logo-2">
                                         <img src="{{ url('assets/user/img/logo/black-logo.svg')}}" alt="logo-img">
                                     </a>
                                 </div>
-                                <div class="mean__menu-wrapper">
+                                {{-- <div class="mean__menu-wrapper">
                                     <div class="main-menu">
                                     @include('site._parcial.menu')
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="header-right d-flex justify-content-end align-items-center">
                                 <div class="icon-items">
+                                    <div class="menu-items">
+                                        @include('site._parcial.menu')
+                                    </div>
+
                                     <div class="icon">
                                         <i class="fas fa-phone-alt"></i>
                                     </div>
-                                    <div class="content">
+                                    {{-- <div class="content">
                                         <p>Liga Para Nós</p>
                                         <h6><a href="tel:+9288009850">+92 (8800) - 9850</a></h6>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                {{-- <a href="#0" class="search-trigger search-icon"><i class="fa-regular fa-magnifying-glass"></i></a> --}}
-                                <div class="header-button">
-                                    <a href="{{ route('site.reservation') }}" class="theme-btn">
-                                        Encontre seu carro
-                                    </a>
-                                </div>
                                 <div class="header__hamburger d-xl-none my-auto">
                                     <div class="sidebar__toggle">
                                         <i class="fas fa-bars"></i>

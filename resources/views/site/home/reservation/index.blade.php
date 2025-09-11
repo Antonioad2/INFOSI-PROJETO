@@ -3,15 +3,38 @@
 
     <!-- View para Listagem de Carros disponíveis -->
     <div>
-            <div class="container">
-                <div class="page-heading">
-                    
-                </div>
-            </div>
 
         <!-- Cards Para Listagem de Carros disponíveis -->
         <section class="car-list-section section-padding fix">
             <div class="container">
+
+                {{-- Barra de etapas do processo de reserva --}}
+                <section class="reservation-steps section-padding pt-4 pb-4">
+                    <div class="container">
+                        <div class="row text-center justify-content-center">
+                            @php
+                                $steps = [
+                                    ['etapa' => 'Seleção do Carro', 'icone' => 'fa-car', 'ativo' => true],
+                                    ['etapa' => 'Extras', 'icone' => 'fa-boxes', 'ativo' => false],
+                                    ['etapa' => 'Confirmação', 'icone' => 'fa-check-circle', 'ativo' => false],
+                                ];
+                            @endphp
+
+                            @foreach($steps as $step)
+                                <div class="col-md-2 col-6 mb-3">
+                                    <div class="card border-0 shadow-sm {{ $step['ativo'] ? 'bg-primary text-white' : '' }}">
+                                        <div class="card-body d-flex flex-column align-items-center">
+                                            <i class="fa-solid {{ $step['icone'] }} fa-2x mb-2"></i>
+                                            <span class="fw-semibold">{{ $step['etapa'] }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+                {{-- End Barra de etapas do processo de reserva --}}
+
                 <h3 class="mb-4">Carros disponíveis</h3>
 
                 <!-- Adicionando o filtro por categoria -->
@@ -20,7 +43,7 @@
                     <div class="btn-group">
                         <a href="{{ route('site.reservation') }}" class="btn {{ !request('category') ? 'active' : '' }}">Todos</a>
                                 <a href="{{ route('site.reservation', ['category' => 'Luxury']) }}" class="btn {{ request('category') == 'Luxury' ? 'active' : '' }}">Luxo</a>
-                                <a href="{{ route('site.reservation', ['category' => 'Standard']) }}" class="btn {{ request('category') == 'Standard' ? 'active' : '' }}">Padrão / Intermediário</a>
+                                <a href="{{ route('site.reservation', ['category' => 'Standard']) }}" class="btn {{ request('category') == 'Standard' ? 'active' : '' }}">Intermédio</a>
                                 <a href="{{ route('site.reservation', ['category' => 'Economy']) }}"  class="btn {{ request('category') == 'Economy' ? 'active' : '' }}">Econômico</a>
                         </div>
                 </div>
@@ -68,7 +91,14 @@
                                                 </a>
                                             </h3>
                                             <p>
-                                                Categoria: {{ $car->category ?? '' }} <br>
+                                                Categoria:  
+                                                @if($car->category == 'Luxury')
+                                                    <span class="badge bg-danger">Luxo</span>
+                                                @elseif($car->category == 'Standard')
+                                                    <span class="badge bg-warning">Intermédio</span>
+                                                @elseif($car->category == 'Economy')
+                                                    <span class="badge bg-primary">Económico</span>
+                                                @endif <br>
                                                 Cor: {{ $car->color->name ?? '' }} <br>
                                                 Combustível: {{ $car->fuel->name ?? '' }}
                                             </p>

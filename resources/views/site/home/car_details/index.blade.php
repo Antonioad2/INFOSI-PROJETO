@@ -112,6 +112,33 @@
                                 </div>
                             </div>
                         </div> --}}
+                        
+                        {{-- Barra de etapas do processo de reserva --}}
+                            <section class="reservation-steps section-padding pt-4 pb-4">
+                                <div class="container">
+                                    <div class="row text-center justify-content-center">
+                                        @php
+                                            $steps = [
+                                                ['etapa' => 'Seleção do Carro', 'icone' => 'fa-car', 'ativo' => false],
+                                                ['etapa' => 'Extras', 'icone' => 'fa-boxes', 'ativo' => true],
+                                                ['etapa' => 'Confirmação', 'icone' => 'fa-check-circle', 'ativo' => false],
+                                            ];
+                                        @endphp
+
+                                        @foreach($steps as $step)
+                                            <div class="col-md-2 col-6 mb-3">                                          
+                                                <div class="card border-0 shadow-sm {{ $step['ativo'] ? 'bg-primary text-white' : '' }}">
+                                                    <div class="card-body d-flex flex-column align-items-center">
+                                                        <i class="fa-solid {{ $step['icone'] }} fa-2x mb-2"></i>
+                                                        <span class="fw-semibold">{{ $step['etapa'] }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </section>
+                        {{-- End Barra de etapas do processo de reserva --}}
 
                         <!-- FORMULARIO DE AGENDAMENTO DA RESERVA-->         
                         

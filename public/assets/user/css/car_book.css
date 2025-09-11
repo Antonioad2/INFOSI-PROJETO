@@ -14,13 +14,13 @@
     width: calc(50% - 10px); /* metade da largura menos o gap */
 }
 .car-image {
-    max-width: 300px;   /* largura máxima da div */
+    max-width: auto;   /* largura máxima da div */
     margin: 0 auto;     /* centraliza dentro do wrapper */
 }
 .car-image img {
     width: 100%;        /* ocupa 100% da div */
     height: auto;       /* mantém proporção */
-    border-radius: 10px; /* opcional: bordas arredondadas */
+     /* opcional: bordas arredondadas */
 }
 /*FIM Estilos para a seção de detalhes do carro */
 

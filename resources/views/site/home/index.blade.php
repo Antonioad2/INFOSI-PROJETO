@@ -52,67 +52,94 @@
 
         <!-- Hero Section Start -->
         <section class="hero-section hero-3 fix">
-            <div class="array-button">
+            {{-- <div class="array-button">
                 <button class="image-array-left bg-cover" style="background-image: url('assets/user/img/bg-slideshow-03.jpg')">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
                 <button class="image-array-right bg-cover" style="background-image: url('assets/user/img/bg-slideshow-03.jpg')">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
-            </div>
-            <h6 class="search-text">Alugue o Seu Carro</h6>
+            </div> --}}
+            {{-- <h6 class="search-text">Alugue o Seu Carro</h6>
             <div class="line-icon">
                 <img src="{{ url('assets/user/img/hero/icon.png')}}" alt="img">
-            </div>
+            </div> --}}
             <div class="swiper hero-slider-3">
                 
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"> 
-                        <div class="hero-image bg-cover" style="background-image: url('{{ asset('assets/user/img/hero/hero-3.jpg') }}')">
-                            <div class="line-shape" data-animation="slideInLeft" data-duration="3s" data-delay="2.1s">
+                    <div class="swiper-slide" style="padding: 10rem"> 
+                        <div class="hero-image bg-cover" style="background-image: url('{{ asset('assets/user/img/hero/photo-1.jpg') }}')">
+                            {{-- <div class="line-shape" data-animation="slideInLeft" data-duration="3s" data-delay="2.1s">
                                 <img src="{{ url('assets/user/img/hero/line-shape-1.png')}}" alt="shape-img">
                             </div>
                             <div class="line-shape-2" data-animation="slideInLeft" data-duration="3s" data-delay="2.3s">
                                 <img src="{{ url('assets/user/img/hero/line-shape-2.png')}}" alt="shape-img">
-                            </div>
+                            </div> --}}
                         </div>
-                        <div class="container">
+                        <div class="container" style="margin-top: 4rem">
                             <div class="row justify-content-center">
-                                <div class="col-xl-12">
-                                    <div class="hero-content">
-                                        <h4 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
-                                            Bem-vindo à Remons Aluguel
-                                        </h4>
-                                        <h1 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
-                                            Economize Muito <br>
-                                            com Aluguel de Carros
-                                        </h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="hero-image bg-cover" style="background-image: url('assets/img/hero/hero-4.jpg')">
-                            <div class="line-shape" data-animation="slideInLeft" data-duration="3s" data-delay="2.1s">
-                                <img src="{{ url('assets/user/img/hero/line-shape-1.png')}}" alt="shape-img">
-                            </div>
-                            <div class="line-shape-2" data-animation="slideInLeft" data-duration="3s" data-delay="2.3s">
-                                <img src="{{ url('assets/user/img/hero/line-shape-2.png')}}" alt="shape-img">
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-12">
-                                    <div class="hero-content">
-                                        <h4 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
-                                            Bem-vindo à Remons Aluguel
-                                        </h4>
-                                        <h1 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
-                                            Economize Muito <br>
-                                            com Aluguel de Carros
-                                        </h1>
-                                    </div>
+                                <h2 class="wow fadeInUp" style="text-align: center; color: #005cb5">
+                                    ADQUIRA O SEU CARRO
+                                </h2>
+                                <h4 style="text-align: center; color: white; margin-bottom: 4rem">Pesquisa e alugue carro facilmente</h4>
+                                <div class="car-list-sidebar">
+                                    <form action="{{ route('site.reservation') }}" 
+                                        id="contact-form2" 
+                                        method="GET" 
+                                        class="contact-form-items"
+                                        style="align-items: center">
+                                        @csrf
+
+                                        <div class="row g-4">
+                                            <div class="col-lg-12">
+                                                <div class="form-clt">
+                                                    <label class="label-text">Localizaçao</label>
+                                                    <div class="pickup_location">
+                                                    <select name="pickup_location" class="category" required>
+                                                            <option value="">Seleciona Localização</option>
+                                                            <option value="Belas">Belas</option>
+                                                            <option value="Cacuaco">Cacuaco</option>
+                                                            <option value="Cazenga">Cazenga</option>
+                                                            <option value="Icolo e Bengo">Icolo e Bengo</option>
+                                                            <option value="Luanda">Luanda</option>
+                                                            <option value="Kilamba Kiaxi">Kilamba Kiaxi</option>
+                                                            <option value="Quiçama">Quiçama</option>
+                                                            <option value="Talatona">Talatona</option>
+                                                            <option value="Viana">Viana</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Data de Pick-up -->
+                                            <div class="col-lg-6">
+                                                <div class="form-clt">
+                                                    <label class="label-text">Data de Levantamento</label>
+                                                    <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                        <input class="form-control" type="text" name="start_date" placeholder="Data de Levantamento" required>
+                                                        <span class="input-group-addon"><i class="fa-solid fa-calendar-days"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Data de Drop-off -->
+                                            <div class="col-lg-6">
+                                                <div class="form-clt">
+                                                    <label class="label-text">Data de Entrega</label>
+                                                    <div id="datepicker2" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                        <input class="form-control" type="text" name="end_date" placeholder="Data de Entrega" required>
+                                                        <span class="input-group-addon"><i class="fa-solid fa-calendar-days"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-12">
+                                                <div class="form-clt">
+                                                    <button type="submit" class="theme-btn">Continuar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -121,8 +148,8 @@
             </div>
         </section>
 
-        <!-- Section Form de Pesquisa de Carros -->
-            <section class="search-booking-section section-padding">
+            <!-- Section Form de Pesquisa de Carros -->
+            {{-- <section class="search-booking-section section-padding">
                 <div class="container">
                     <div class="search-booking-wrapper">
                         <div class="booking-man float-bob-x">
@@ -140,7 +167,7 @@
                                         </h2>
                                     </div>
                                     <p class="mt-3 mt-md-0 wow fadeInUp" data-wow-delay=".6s">
-                                        A Rentcar é simplesmente a melhor opção de locação acessível e <br> gratuita para consultas disponível no mercado.
+                                        O Rentcar é simplesmente a melhor opção de locação acessível e <br> gratuita para consultas disponível no mercado.
                                     <div class="icon-area">
                                         <div class="icon-items wow fadeInUp" data-wow-delay=".3s">
                                             <div class="icon">
@@ -231,145 +258,145 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
 
             <section class="feature-benefit section section-padding fix">
-            <div class="container">
-                <div class="section-title text-center">
-                    <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
-                    <span class="wow fadeInUp" data-wow-delay=".2s">Nossos Benefícios</span>
-                    <h2 class="wow fadeInUp" data-wow-delay=".4s">
-                        Por que Escolher a <br>
-                        Remons Aluguel
-                    </h2>
-                </div>
-                <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="feature-benefit-items">
-                            <div class="icon-box-shape">
-                                <img src="{{ url('assets/user/img/feature-benefit/box-icon-bg1.png')}}" alt="shape-img">
-                            </div>
-                            <div class="bg-button-shape">
-                                <img src="{{ url('assets/user/img/feature-benefit/bg-button-iconbox.png')}}" alt="shape-img">
-                            </div>
-                            <div class="feature-content">
-                                <h4>
-                                    <a href="car-details.html">
-                                        Reservas Mais Fáceis <br>
-                                        e Rápidas
-                                    </a>
-                                </h4>
-                                <p>Neque porro quisquam est, qui fre dolorem ipsum quia dolor.</p>
-                                <div class="icon">
-                                    <img src="{{ url('assets/user/img/feature-benefit/icon-1.png')}}" alt="icon-img">
+                <div class="container">
+                    <div class="section-title text-center">
+                        <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
+                        <span class="wow fadeInUp" data-wow-delay=".2s">Nossos Benefícios</span>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">
+                            Por que Escolher a <br>
+                            Remons Aluguel
+                        </h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="feature-benefit-items">
+                                <div class="icon-box-shape">
+                                    <img src="{{ url('assets/user/img/feature-benefit/box-icon-bg1.png')}}" alt="shape-img">
+                                </div>
+                                <div class="bg-button-shape">
+                                    <img src="{{ url('assets/user/img/feature-benefit/bg-button-iconbox.png')}}" alt="shape-img">
+                                </div>
+                                <div class="feature-content">
+                                    <h4>
+                                        <a href="car-details.html">
+                                            Reservas Mais Fáceis <br>
+                                            e Rápidas
+                                        </a>
+                                    </h4>
+                                    <p>Neque porro quisquam est, qui fre dolorem ipsum quia dolor.</p>
+                                    <div class="icon">
+                                        <img src="{{ url('assets/user/img/feature-benefit/icon-1.png')}}" alt="icon-img">
+                                    </div>
+                                </div>
+                                <div class="feature-button">
+                                    <a href="car-details.html" class="link-btn">Ver Mais <i class="fa-solid fa-arrow-right ps-1"></i></a>
                                 </div>
                             </div>
-                            <div class="feature-button">
-                                <a href="car-details.html" class="link-btn">Ver Mais <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                            <div class="feature-benefit-items">
+                                <div class="icon-box-shape">
+                                    <img src="{{ url('assets/user/img/feature-benefit/box-icon-bg2.png')}}" alt="shape-img">
+                                </div>
+                                <div class="bg-button-shape">
+                                    <img src="{{ url('assets/user/img/feature-benefit/bg-button-iconbox.png')}}" alt="shape-img">
+                                </div>
+                                <div class="feature-content">
+                                    <h4>
+                                        <a href="car-details.html">
+                                            Muitos Locais <br>
+                                            de Levantamento
+                                        </a>
+                                    </h4>
+                                    <p>Neque porro quisquam est, qui fre dolorem ipsum quia dolor.</p>
+                                    <div class="icon">
+                                        <img src="{{ url('assets/user/img/feature-benefit/icon-2.png')}}" alt="icon-img">
+                                    </div>
+                                </div>
+                                <div class="feature-button">
+                                    <a href="car-details.html" class="link-btn">Ver Mais <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                            <div class="feature-benefit-items">
+                                <div class="icon-box-shape">
+                                    <img src="{{ url('assets/user/img/feature-benefit/box-icon-bg3.png')}}" alt="shape-img">
+                                </div>
+                                <div class="bg-button-shape">
+                                    <img src="{{ url('assets/user/img/feature-benefit/bg-button-iconbox.png')}}" alt="shape-img">
+                                </div>
+                                <div class="feature-content">
+                                    <h4>
+                                        <a href="car-details.html">
+                                            Clientes 100% <br>
+                                            Satisfeitos
+                                        </a>
+                                    </h4>
+                                    <p>Neque porro quisquam est, qui fre dolorem ipsum quia dolor.</p>
+                                    <div class="icon">
+                                        <img src="{{ url('assets/user/img/feature-benefit/icon-3.png')}}" alt="icon-img">
+                                    </div>
+                                </div>
+                                <div class="feature-button">
+                                    <a href="car-details.html" class="link-btn">Ver Mais <i class="fa-solid fa-arrow-right ps-1"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                        <div class="feature-benefit-items">
-                            <div class="icon-box-shape">
-                                <img src="{{ url('assets/user/img/feature-benefit/box-icon-bg2.png')}}" alt="shape-img">
-                            </div>
-                            <div class="bg-button-shape">
-                                <img src="{{ url('assets/user/img/feature-benefit/bg-button-iconbox.png')}}" alt="shape-img">
-                            </div>
-                            <div class="feature-content">
-                                <h4>
-                                    <a href="car-details.html">
-                                        Muitos Locais <br>
-                                        de Levantamento
-                                    </a>
-                                </h4>
-                                <p>Neque porro quisquam est, qui fre dolorem ipsum quia dolor.</p>
-                                <div class="icon">
-                                    <img src="{{ url('assets/user/img/feature-benefit/icon-2.png')}}" alt="icon-img">
-                                </div>
-                            </div>
-                            <div class="feature-button">
-                                <a href="car-details.html" class="link-btn">Ver Mais <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                        <div class="feature-benefit-items">
-                            <div class="icon-box-shape">
-                                <img src="{{ url('assets/user/img/feature-benefit/box-icon-bg3.png')}}" alt="shape-img">
-                            </div>
-                            <div class="bg-button-shape">
-                                <img src="{{ url('assets/user/img/feature-benefit/bg-button-iconbox.png')}}" alt="shape-img">
-                            </div>
-                            <div class="feature-content">
-                                <h4>
-                                    <a href="car-details.html">
-                                        Clientes 100% <br>
-                                        Satisfeitos
-                                    </a>
-                                </h4>
-                                <p>Neque porro quisquam est, qui fre dolorem ipsum quia dolor.</p>
-                                <div class="icon">
-                                    <img src="{{ url('assets/user/img/feature-benefit/icon-3.png')}}" alt="icon-img">
-                                </div>
-                            </div>
-                            <div class="feature-button">
-                                <a href="car-details.html" class="link-btn">Ver Mais <i class="fa-solid fa-arrow-right ps-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </div>  
+            </section>
         
-        <!-- Car Rentals Section Start -->
- <section class="car-rentals-section-2 section-padding fix">
-    <div class="container">
-        <div class="section-title text-center">
-            <img src="{{ url('assets/user/img/sub-icon.png') }}" alt="icon-img" class="wow fadeInUp">
-            <span class="wow fadeInUp" data-wow-delay=".2s">Conheça Nossos Novos Carros</span>
-            <h2 class="wow fadeInUp" data-wow-delay=".4s">
-                Carros Disponíveis <br> para Aluguel
-            </h2>
-        </div>
-        <div class="row">
-            @foreach ($cars->where('status', 'available')->take(6) as $index => $car)
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".{{ 3 + ($index * 2) }}s">
-                    <div class="car-rentals-items">
-                        <div class="car-image">
-                                    <img src="{{ asset('uploads/car/car_images/' . $car->image) }}" alt="{{ $car->brand->name ?? '' }} {{ $car->models->name ?? '' }}">
-                        </div>
-                        <div class="car-content">
-                            <div class="post-cat">Modelo {{ $car->manufacture_date ?? 'N' }}</div>
-                            <div class="star">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <i class="fa-solid fa-star"></i>
-                                @endfor
-                                <span>{{ $car->reviews_count ?? 2 }} Avaliações</span>
+            <!-- Car Rentals Section Start -->
+            <section class="car-rentals-section-2 section-padding fix">
+                <div class="container">
+                    <div class="section-title text-center">
+                        <img src="{{ url('assets/user/img/sub-icon.png') }}" alt="icon-img" class="wow fadeInUp">
+                        <span class="wow fadeInUp" data-wow-delay=".2s">Conheça Nossos Novos Carros</span>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">
+                            Carros Disponíveis <br> para Aluguel
+                        </h2>
+                    </div>
+                    <div class="row">
+                        @foreach ($cars->where('status', 'available')->take(6) as $index => $car)
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".{{ 3 + ($index * 2) }}s">
+                                <div class="car-rentals-items">
+                                    <div class="car-image">
+                                                <img src="{{ asset('uploads/car/car_images/' . $car->image) }}" alt="{{ $car->brand->name ?? '' }} {{ $car->models->name ?? '' }}">
+                                    </div>
+                                    <div class="car-content">
+                                        <div class="post-cat">Modelo {{ $car->manufacture_date ?? 'N' }}</div>
+                                        <div class="star">
+                                            @for ($i = 0; $i < 5; $i++)
+                                                <i class="fa-solid fa-star"></i>
+                                            @endfor
+                                            <span>{{ $car->reviews_count ?? 2 }} Avaliações</span>
+                                        </div>
+                                        <h4><a href="{{ route('site.car_details', $car->id) }}">{{ $car->brand->name ?? 'Hyundai' }} {{ $car->models->name ?? 'Accent Limited' }}</a></h4>
+                                        <h6>{{ number_format($car->price ?? 70000, 0, ',', '.') }} Kz <span>/ Dia</span></h6>
+                                        <div class="icon-items">
+                                            <ul>
+                                                <li><img src="{{ url('assets/user/img/car/seat.svg') }}" alt="img" class="me-1">{{ $car->number_of_seats ?? N }} Lugares</li>
+                                                <li><img src="{{ url('assets/user/img/car/door.svg') }}" alt="img" class="me-1">{{ $car->number_of_doors ?? N }} Portas</li>
+                                            </ul>
+                                            <ul>
+                                                <li><img src="{{ url('assets/user/img/car/automatic.svg') }}" alt="img" class="me-1">{{ $car->transmission ?? 'Automático' }}</li>
+                                                <li><img src="{{ url('assets/user/img/car/petrol.svg') }}" alt="img" class="me-1">{{ $car->fuel->name ?? 'Gasolina' }}</li>
+                                            </ul>
+                                        </div>
+                                        <a href="{{ route('site.car_details', $car->id) }}" class="theme-btn bg-color w-100 text-center">Selecionar<i class="fa-solid fa-arrow-right ps-1"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <h4><a href="{{ route('site.car_details', $car->id) }}">{{ $car->brand->name ?? 'Hyundai' }} {{ $car->models->name ?? 'Accent Limited' }}</a></h4>
-                            <h6>{{ number_format($car->price ?? 70000, 0, ',', '.') }} Kz <span>/ Dia</span></h6>
-                            <div class="icon-items">
-                                <ul>
-                                    <li><img src="{{ url('assets/user/img/car/seat.svg') }}" alt="img" class="me-1">{{ $car->number_of_seats ?? N }} Lugares</li>
-                                    <li><img src="{{ url('assets/user/img/car/door.svg') }}" alt="img" class="me-1">{{ $car->number_of_doors ?? N }} Portas</li>
-                                </ul>
-                                <ul>
-                                    <li><img src="{{ url('assets/user/img/car/automatic.svg') }}" alt="img" class="me-1">{{ $car->transmission ?? 'Automático' }}</li>
-                                    <li><img src="{{ url('assets/user/img/car/petrol.svg') }}" alt="img" class="me-1">{{ $car->fuel->name ?? 'Gasolina' }}</li>
-                                </ul>
-                            </div>
-                            <a href="{{ route('site.car_details', $car->id) }}" class="theme-btn bg-color w-100 text-center">Selecionar<i class="fa-solid fa-arrow-right ps-1"></i></a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-            @endforeach
-        </div>
-    </div>
-</section>
+            </section>
 
-<!-- How Works Section Start -->
+            <!-- How Works Section Start -->
             <section class="how-works-section fix section-padding pt-0">
                 <div class="container">
                 <div class="section-title text-center">
@@ -440,125 +467,125 @@
             </section>
 
             <!-- Cta Car Booking Section Start -->
-        <section class="cta-car-booking-section bg-cover section-padding" style="background-image: url('assets/img/cta/cta-service.jpg')">
-            <div class="container">
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="cta-car-booking-items">
-                            <div class="content">
-                                <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                                    Economize Tempo e Dinheiro com o Melhor <br>
-                                    Serviço de Aluguel de Carros da Cidade
-                                </h2>
-                                <div class="button-items">
-                                    <a href="{{ route('site.abouts_us') }}" class="theme-btn bg-white wow fadeInUp" data-wow-delay=".5s">Saiba Mais</a>
-                                    <a href="{{ route('site.reservation') }}" class="theme-btn bg-header wow fadeInUp" data-wow-delay=".7s">Reservar Seu Carro</a>
+            <section class="cta-car-booking-section bg-cover section-padding" style="background-image: url('assets/img/cta/cta-service.jpg')">
+                <div class="container">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="cta-car-booking-items">
+                                <div class="content">
+                                    <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                                        Economize Tempo e Dinheiro com o Melhor <br>
+                                        Serviço de Aluguel de Carros da Cidade
+                                    </h2>
+                                    <div class="button-items">
+                                        <a href="{{ route('site.abouts_us') }}" class="theme-btn bg-white wow fadeInUp" data-wow-delay=".5s">Saiba Mais</a>
+                                        <a href="{{ route('site.reservation') }}" class="theme-btn bg-header wow fadeInUp" data-wow-delay=".7s">Reservar Seu Carro</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="car-image">
-                                <img src="{{ url('assets/user/img/car-slideshow-2.png')}}" alt="img">
+                                <div class="car-image">
+                                    <img src="{{ url('assets/user/img/car-slideshow-2.png')}}" alt="img">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
+
+
+            <!-- Pick Up Location Section Start -->
+            <div class="pickup-loaction-area bg-cover" style="background-image: url('assets/img/brand-bg.png')" >
+                <div class="container">
+                    <div class="brand-wrapper pt-80 pb-80">
+                        <div class="swiper brand-slider">
+                            <div class="swiper-wrapper">
+                                
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{ url('assets/user/img/brand/01.png')}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{ url('assets/user/img/brand/02.png')}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{ url('assets/user/img/brand/03.png')}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{ url('assets/user/img/brand/04.png')}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{ url('assets/user/img/brand/05.png')}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{ url('assets/user/img/brand/06.png')}}" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
             </div>
-        </section>
 
-
-        <!-- Pick Up Location Section Start -->
-        <div class="pickup-loaction-area bg-cover" style="background-image: url('assets/img/brand-bg.png')" >
-            <div class="container">
-                <div class="brand-wrapper pt-80 pb-80">
+            <!-- Search Booking Section Start -->
+        
+            <!-- Brand Section Start -->
+            <div class="brand-wrapper style-2 pt-0 pb-80">
+                <div class="array-button">
+                    <button class="array-prev-2"><i class="far fa-chevron-left"></i></button>
+                    <button class="array-next-2"><i class="far fa-chevron-right"></i></button>
+                </div>
+                <div class="container">
                     <div class="swiper brand-slider">
                         <div class="swiper-wrapper">
-                            
                             <div class="swiper-slide">
-                                <div class="brand-image">
+                                <div class="brand-image style-color">
                                     <img src="{{ url('assets/user/img/brand/01.png')}}" alt="img">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-image">
+                                <div class="brand-image style-color">
                                     <img src="{{ url('assets/user/img/brand/02.png')}}" alt="img">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-image">
+                                <div class="brand-image style-color">
                                     <img src="{{ url('assets/user/img/brand/03.png')}}" alt="img">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-image">
+                                <div class="brand-image style-color">
                                     <img src="{{ url('assets/user/img/brand/04.png')}}" alt="img">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-image">
+                                <div class="brand-image style-color">
                                     <img src="{{ url('assets/user/img/brand/05.png')}}" alt="img">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="brand-image">
+                                <div class="brand-image style-color">
                                     <img src="{{ url('assets/user/img/brand/06.png')}}" alt="img">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-    
             </div>
-        </div>
-
-        <!-- Search Booking Section Start -->
-        
-     <!-- Brand Section Start -->
-        <div class="brand-wrapper style-2 pt-0 pb-80">
-            <div class="array-button">
-                <button class="array-prev-2"><i class="far fa-chevron-left"></i></button>
-                <button class="array-next-2"><i class="far fa-chevron-right"></i></button>
-            </div>
-            <div class="container">
-                <div class="swiper brand-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/01.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/02.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/03.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/04.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/05.png')}}" alt="img">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="brand-image style-color">
-                                <img src="{{ url('assets/user/img/brand/06.png')}}" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
        
         
             
-    <!-- Gallery Section Start -->
+        <!-- Gallery Section Start -->
           {{--  <div class="gallery-section-2 fix">
                 <div class="gallery-wrapper">
                     <div class="row g-4">
