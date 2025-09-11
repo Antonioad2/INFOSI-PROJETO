@@ -145,8 +145,8 @@
                                     <div class="col-lg-12">
                                         <div class="form-clt">
                                             <label class="label-text">Número do Cartão</label>
-                                            <input type="text" name="card_number" maxlength="16" required
-                                                placeholder="0000 0000 0000 0000">
+                                            <input type="text" name="card_number" maxlength="21" required
+                                                placeholder="0000 0000 0000 0000 0000 0">
                                         </div>
                                     </div>
 
