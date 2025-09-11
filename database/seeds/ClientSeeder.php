@@ -63,6 +63,36 @@ class ClientsTableSeeder extends Seeder
                 'updated_at' => '2025-09-09 21:15:29',
                 'deleted_at' => NULL,
             ),
+             3 =>
+            array (
+                'id' => 4,
+                'name' => 'Bráulio Cândido',
+                'email' => 'brauliosn57@gmail.com',
+                'phone' => '945498429',
+                'address' => 'Camama',
+                'bi' => '008622222LA047',
+                'bi_upload' => '1757598392_document.pdf',
+                'driver_license' => '008622222LA047',
+                'driver_license_upload' => '1757598392_document.pdf',
+                'created_at' => '2025-09-11 13:46:32',
+                'updated_at' => '2025-09-11 13:46:32',
+                'deleted_at' => NULL,
+            ),
+            4 =>
+            array (
+                'id' => 5,
+                'name' => 'António Adão',
+                'email' => 'antonioadao527@gmail.com',
+                'phone' => '922292929',
+                'address' => 'Talatona, Camama',
+                'bi' => '008626222LA047',
+                'bi_upload' => '1757598465_document.pdf',
+                'driver_license' => '444444',
+                'driver_license_upload' => '1757598465_document.pdf',
+                'created_at' => '2025-09-11 13:47:45',
+                'updated_at' => '2025-09-11 13:47:45',
+                'deleted_at' => NULL,
+            ),
         ));
 
 

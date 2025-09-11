@@ -27,7 +27,7 @@ class CardsSeeder extends Seeder
         'card_number' => '000620012002200320042',
         'card_name' => 'António Adão',
         'bank' => 'BFA',
-        'balance' => 60000
+        'balance' => 1000000
     ]);
 
     CompanyAccount::create([
