@@ -126,7 +126,7 @@
                                     </div> --}}
                                 </div>
                                {{-- <a href="#0" class="search-trigger search-icon"><i class="fa-regular fa-magnifying-glass"></i></a> --}}
-                                <div class="header__hamburger d-xl-none my-auto">
+                                <div class="header__hamburger d-xl-none my-auto" style="background: color:#0c142e">
                                     <div class="sidebar__toggle">
                                         <i class="fas fa-bars"></i>
                                     </div>

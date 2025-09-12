@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
             CarsTableSeeder::class,
             DriversTableSeeder::class,
             ClientsTableSeeder::class,
-            ReservesTableSeeder::class
-
+            ReservesTableSeeder::class,
+            CardsSeeder::class
         ]);
     }
 }
