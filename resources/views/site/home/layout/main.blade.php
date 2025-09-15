@@ -28,9 +28,8 @@
         <!--<< Nice Select.css >>-->
         <link rel="stylesheet" href="assets/user/css/nice-select.css">
         <!--<< Main.css >>-->
-        {{-- <link rel="stylesheet" href="assets/user/css/main.css"> --}}
-
         <link rel="stylesheet" href="assets/user/css/main2.css">
+        <link rel="stylesheet" href="assets/user/css/main.css">
 </head>
 <body>
 

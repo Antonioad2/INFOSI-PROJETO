@@ -3094,7 +3094,7 @@ span {
   color: #8E94A5;
 }
 
-.header-top-section {
+/* .header-top-section {
   background-color: var(--theme2);
   padding: 10px 60px;
   position: relative;
@@ -3136,9 +3136,9 @@ span {
 .header-top-section.style-two {
   border: none;
   background-color: transparent;
-}
+} */
 
-.header-top-section.style-two::before {
+/* .header-top-section.style-two::before {
   background-color: #0c142e;
   clip-path: none;
   width: 100%;
@@ -3176,8 +3176,8 @@ span {
   color: #d4eaff;
   font-size: 14px;
 }
-
-.header-top-wrapper .contact-list li i {
+ */
+/* .header-top-wrapper .contact-list li i {
   color: var(--theme);
   margin-right: 10px;
 }
@@ -3220,9 +3220,9 @@ span {
 
 .header-top-wrapper .header-top-right .social-icon {
   gap: 25px;
-}
+} */
 
-@media (max-width: 1199px) {
+/* @media (max-width: 1199px) {
   .header-top-wrapper .header-top-right .social-icon {
     gap: 20px;
   }
@@ -3266,8 +3266,8 @@ span {
 
 .header-main .main-menu ul li:last-child {
   margin-inline-end: 0;
-}
-
+} */
+/* 
 .header-main .main-menu ul li a {
   display: inline-block;
   font-size: 16px;
@@ -3800,7 +3800,7 @@ span {
 .header-3 .header-main .header-right .header__hamburger .sidebar__toggle {
   font-size: 20px;
   color: var(--white);
-}
+} */
 
 .sidebar__toggle {
   cursor: pointer;
@@ -3818,7 +3818,7 @@ span {
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 }
-
+/* 
 .sticky.header-3 .header-main .main-menu ul li a {
   color: var(--header);
 }
@@ -3858,7 +3858,7 @@ span {
 
 .sticky.header-3 .header-left .header-logo-2 {
   display: block;
-}
+} */
 
 .offcanvas__info {
   background: var(--bg) none repeat scroll 0 0;
@@ -3959,10 +3959,10 @@ span {
   text-transform: initial;
 }
 
-.offcanvas__wrapper .offcanvas__content .offcanvas__contact .header-button .theme-btn {
+/* .offcanvas__wrapper .offcanvas__content .offcanvas__contact .header-button .theme-btn {
   width: 100%;
   padding: 16px 40px;
-}
+} */
 
 .offcanvas__wrapper .offcanvas__content .offcanvas__contact .social-icon {
   margin-top: 30px;
@@ -8151,7 +8151,7 @@ h6 {
   background-color: var(--theme);
   color: var(--white);
 }
-.icon-items .menu-items .ul-menu{
+/* .icon-items .menu-items .ul-menu{
   display: flex;
   flex-direction: row;
 }
@@ -8160,13 +8160,13 @@ h6 {
   font-weight: bold;
   justify-content: space-between;
   padding: 2rem;
-}
+} */
 
 /*# sourceMappingURL=main.css.map */
 
 /* Permite sumir apenas em telas realmente pequenas */
 /* Garante que o menu e os ícones fiquem visíveis sempre que houver espaço */
-@media (min-width: 993px) {
+/* @media (min-width: 993px) {
   .header-1 .header-main .header-right .header-button,
   .header-1 .header-main .header-right .icon-items,
   .menu-items,
@@ -8179,10 +8179,11 @@ h6 {
     opacity: 1 !important;
   }
 }
-
+ */
 /* Evita que o header corte ou esconda conteúdo */
+
 /* Força o menu a continuar visível no desktop até telas < 992px */
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .header-1 .header-main .header-right .header-button,
   .header-1 .header-main .header-right .icon-items,
   .header-2 .header-right .header-button,
@@ -8195,10 +8196,10 @@ h6 {
     visibility: visible !important;
     opacity: 1 !important;
   }
-}
+} */
 
 /* Mantém sumindo apenas em telas realmente pequenas (mobile) */
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .header-1 .header-main .header-right .header-button,
   .header-1 .header-main .header-right .icon-items,
   .header-2 .header-right .header-button,
@@ -8207,12 +8208,12 @@ h6 {
   .header-3 .header-main .header-right .icon-items {
     display: none !important;
   }
-}
+} */
 
 /* Evita corte do conteúdo quando a área encolhe */
-.mega-menu-wrapper,
+/* .mega-menu-wrapper,
 .header-main,
 .header-right {
   overflow: visible !important;
   max-width: 100% !important;
-}
+} */

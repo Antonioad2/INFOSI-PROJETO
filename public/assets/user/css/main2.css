@@ -928,7 +928,7 @@ span {
   top: 14px;
   right: 20px;
 }
-.search-booking-wrapper .product-search-area .pickup-items .form-control {
+/* .search-booking-wrapper .product-search-area .pickup-items .form-control {
   width: 100%;
   outline: none;
   border: none;
@@ -942,7 +942,7 @@ span {
 }
 .search-booking-wrapper .product-search-area .pickup-items .form-control::placeholder {
   color: var(--text);
-}
+} */
 .search-booking-wrapper .product-search-area .pickup-items .category-oneadjust {
   background-color: var(--white);
   border-radius: 10px;
@@ -1004,7 +1004,7 @@ span {
     padding: 30px 40px;
   }
 }
-.contact-wrapper-area .contact-form-items .form-clt span {
+/* .contact-wrapper-area .contact-form-items .form-clt span {
   color: var(--header);
   display: inline-block;
   margin-bottom: 10px;
@@ -1023,7 +1023,7 @@ span {
 }
 .contact-wrapper-area .contact-form-items .form-clt textarea {
   padding-bottom: 110px;
-}
+} */
 .contact-wrapper-area .contact-right-items .contact-img {
   margin-bottom: 10px;
 }
@@ -4854,7 +4854,7 @@ span {
     margin-bottom: 20px;
   }
 }
-.news-details-wrapper .comment-form-wrap .form-clt span {
+/* .news-details-wrapper .comment-form-wrap .form-clt span {
   color: var(--header);
   display: inline-block;
   margin-bottom: 10px;
@@ -4867,13 +4867,13 @@ span {
   padding: 16px 20px;
   border-radius: 8px;
   color: var(--text);
-}
-.news-details-wrapper .comment-form-wrap .form-clt input::placeholder, .news-details-wrapper .comment-form-wrap .form-clt textarea::placeholder {
+} */
+/* .news-details-wrapper .comment-form-wrap .form-clt input::placeholder, .news-details-wrapper .comment-form-wrap .form-clt textarea::placeholder {
   color: var(--text);
 }
 .news-details-wrapper .comment-form-wrap .form-clt textarea {
   padding-bottom: 110px;
-}
+} */
 .news-details-wrapper .main-sidebar .search-widget {
   margin-bottom: 30px;
 }
@@ -5174,10 +5174,10 @@ span {
     font-size: 18px;
   }
 }
-.search-wrap input.form-control,
+/* .search-wrap input.form-control,
 .search-wrap input.form-control:focus {
   background-color: var(--theme);
-}
+} */
 
 input.main-search-input::placeholder {
   color: var(--theme);
@@ -6006,7 +6006,7 @@ input.main-search-input::placeholder {
   }
 }
 
-.car-list-sidebar {
+/* .car-list-sidebar {
   background-color: #ecf0f4;
   border-radius: 10px;
 }
@@ -6015,11 +6015,11 @@ input.main-search-input::placeholder {
   padding: 30px;
   background-color: var(--theme2);
   border-radius: 10px 10px 0 0;
-}
-.car-list-sidebar .contact-form-items {
+} */
+/* .car-list-sidebar .contact-form-items {
   padding: 30px;
-}
-.car-list-sidebar .contact-form-items .form-clt .label-text {
+} */
+/* .car-list-sidebar .contact-form-items .form-clt .label-text {
   font-size: 16px;
   font-weight: 500;
   color: var(--header);
@@ -6044,8 +6044,8 @@ input.main-search-input::placeholder {
   position: absolute;
   top: 15px;
   right: 20px;
-}
-.car-list-sidebar .contact-form-items .form-clt .category-oneadjust {
+} */
+/* .car-list-sidebar .contact-form-items .form-clt .category-oneadjust {
   background-color: var(--white);
   border-radius: 10px;
   padding: 18px 55px 18px 24px;
@@ -6077,8 +6077,8 @@ input.main-search-input::placeholder {
   overflow-y: scroll;
   right: 0;
   left: 0;
-}
-.car-list-sidebar .contact-form-items .form-clt .category-oneadjust .nice-select .list li {
+} */
+/* .car-list-sidebar .contact-form-items .form-clt .category-oneadjust .nice-select .list li {
   color: var(--white);
   font-size: 14px;
   border: none;
@@ -6108,7 +6108,7 @@ input.main-search-input::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
 .car-details-wrapper .car-details-items {
   border: 1px solid var(--border);
@@ -6273,10 +6273,10 @@ input.main-search-input::placeholder {
   font-size: 26px;
   margin-bottom: 5px;
 }
-.car-details-wrapper .car-booking-items .contact-form-items {
+/* .car-details-wrapper .car-booking-items .contact-form-items {
   padding-top: 30px;
-}
-.car-details-wrapper .car-booking-items .contact-form-items .form-clt .label-text {
+} */
+/* .car-details-wrapper .car-booking-items .contact-form-items .form-clt .label-text {
   font-size: 16px;
   font-weight: 500;
   color: var(--header);
@@ -6294,8 +6294,8 @@ input.main-search-input::placeholder {
   border-radius: 10px !important;
   color: var(--text);
   background-color: var(--bg);
-}
-.car-details-wrapper .car-booking-items .contact-form-items .form-clt .input-group input::placeholder {
+} */
+/* .car-details-wrapper .car-booking-items .contact-form-items .form-clt .input-group input::placeholder {
   color: var(--text);
 }
 .car-details-wrapper .car-booking-items .contact-form-items .form-clt .input-group .input-group-addon {
@@ -6320,8 +6320,8 @@ input.main-search-input::placeholder {
   border-radius: 10px;
   padding: 18px 55px 18px 24px;
   width: 100%;
-}
-@media (max-width: 1399px) {
+} */
+/* @media (max-width: 1399px) {
   .car-details-wrapper .car-booking-items .contact-form-items .form-clt .category-oneadjust {
     width: initial;
   }
@@ -6352,8 +6352,8 @@ input.main-search-input::placeholder {
   color: var(--white);
   font-size: 14px;
   border: none;
-}
-.car-details-wrapper .car-booking-items .contact-form-items .input-save input {
+} */
+/* .car-details-wrapper .car-booking-items .contact-form-items .input-save input {
   width: 27px;
   height: 27px;
   border: none;
@@ -6378,7 +6378,7 @@ input.main-search-input::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 .car-details-wrapper .comment-reviews {
   padding: 30px;
   border: 1px solid var(--border);
@@ -6439,7 +6439,7 @@ input.main-search-input::placeholder {
 }
 .woocommerce-notices-wrapper .woocommerce-right .icon-items a:hover {
   color: var(--header);
-}
+}/* 
 .woocommerce-notices-wrapper .woocommerce-right .form-clt {
   width: 350px;
 }
@@ -6465,7 +6465,7 @@ input.main-search-input::placeholder {
   height: 10px;
   top: 35px;
   border-right: 2px solid var(--text);
-}
+} */
 
 .team-card-items {
   margin-top: 30px;
@@ -6941,3 +6941,40 @@ input.main-search-input::placeholder {
   background-color: var(--theme);
   color: var(--white);
 }/*# sourceMappingURL=main.css.map */
+
+
+/* Força o menu a continuar visível no desktop até telas < 992px */
+@media (min-width: 992px) {
+  .header-1 .header-main .header-right .header-button,
+  .header-1 .header-main .header-right .icon-items,
+  .header-2 .header-right .header-button,
+  .header-2 .header-right .icon-items,
+  .header-3 .header-main .header-right .header-button,
+  .header-3 .header-main .header-right .icon-items {
+    display: flex !important;
+    gap: 15px;
+    align-items: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Mantém sumindo apenas em telas realmente pequenas (mobile) */
+@media (max-width: 991px) {
+  .header-1 .header-main .header-right .header-button,
+  .header-1 .header-main .header-right .icon-items,
+  .header-2 .header-right .header-button,
+  .header-2 .header-right .icon-items,
+  .header-3 .header-main .header-right .header-button,
+  .header-3 .header-main .header-right .icon-items {
+    display: none !important;
+  }
+}
+
+/* Evita corte do conteúdo quando a área encolhe */
+.mega-menu-wrapper,
+.header-main,
+.header-right {
+  overflow: visible !important;
+  max-width: 100% !important;
+}

@@ -6,7 +6,7 @@
                 <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                     <div class="offcanvas__logo">
                         <a href="index.html">
-                            <img src="assets/user/img/logo/black-logo.svg" alt="logo-img">
+                           <img src="{{ url('assets/user/img/logo/1.png') }}" width="140px" alt="Logo">
                         </a>
                     </div>
                     <div class="offcanvas__close">
@@ -28,7 +28,7 @@
                                 <i class="fal fa-map-marker-alt"></i>
                             </div>
                             <div class="offcanvas__contact-text">
-                                <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
+                                <a target="_blank" href="#">Mutamba</a>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
@@ -37,7 +37,7 @@
                             </div>
                             <div class="offcanvas__contact-text">
                                 <a href="mailto:info@example.com"><span
-                                        class="mailto:info@example.com">info@example.com</span></a>
+                                        class="mailto:info@example.com">geral@angocars.com</span></a>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
@@ -91,8 +91,8 @@
             </ul>
             <div class="header-top-right">
                 <ul class="top-list">
-                    <li><a href="contact.html">Conecte-se</a></li>
-                    <li><a href="contact.html">Inscrever-se</a></li>
+                    <li style="padding: 1rem; border-radius: 12px; font-size: 16px; font-weight:bold; color:#ffffff"><a href="contact.html">Conecte-se</a></li>
+                    <li style="background: #ff3726; padding: 1rem; border-radius: 12px; font-size: 16px; font-weight:bold; color:#ffffff"><a href="contact.html">Inscrever-se</a></li>
                 </ul>
                 <div class="social-icon d-flex align-items-center">
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -113,7 +113,7 @@
                 <div class="header-left">
                     <div class="logo">
                         <a href="index.html" class="header-logo">
-                            <img src="assets/user/img/logo/black-logo.svg" alt="logo-img">
+                            <img src="{{ url('assets/user/img/logo/1.png') }}" width="140px" alt="logo-img">
                         </a>
                     </div>
                     <div class="mean__menu-wrapper">
@@ -127,6 +127,12 @@
                                     </li>
                                     <li>
                                         <a href="about.html">Carros</a>
+                                        <i class="fas fa-angle-down"></i>
+                                        <ul class="submenu">
+                                            <li><a href="gallery.html">Detalhes</a></li>
+                                            <li><a href="faq.html">Marcas</a></li>
+                                            <li><a href="faq.html">Segmento de Carros</a></li>
+                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
                                         <a href="news.html">
@@ -134,11 +140,11 @@
                                             <i class="fas fa-angle-down"></i>
                                         </a>
                                         <ul class="submenu">
-                                            <li><a href="gallery.html">Gallery</a></li>
-                                            <li><a href="faq.html">Faq's</a></li>
+                                            <li><a href="gallery.html">Motoristas</a></li>
+                                            <li><a href="faq.html">Recursos Extras</a></li>
                                         </ul>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a href="program-details.html">
                                             Blogue
                                             <i class="fas fa-angle-down"></i>
@@ -149,11 +155,17 @@
                                             <li><a href="car-list-sidebar.html">Car Sidebar</a></li>
                                             <li><a href="car-details.html">Car Details</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="news.html">
                                             Oferta
                                             <i class="fas fa-angle-down"></i>
+                                            <ul class="submenu">
+                                            <li><a href="car-grid.html">Oferta Especial</a></li>
+                                            <li><a href="car-list.html">Carros em Destaque</a></li>
+                                            <li><a href="car-list-sidebar.html">Tipos Populares</a></li>
+                                            <li><a href="car-details.html">Contacto</a></li>
+                                        </ul>
                                         </a>
                                         <ul class="submenu">
                                             <li><a href="news.html">Blog</a></li>
@@ -163,6 +175,9 @@
                                     <li>
                                         <a href="contact.html">Sobre Nós</a>
                                             <i class="fas fa-angle-down"></i>
+                                        <ul class="submenu">
+                                            <li><a href="contact.html">Quem Somos</a></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </nav>
@@ -179,8 +194,8 @@
                             <h6><a href="tel:+9288009850">+92 (8800) - 9850</a></h6>
                         </div>
                     </div>
-                    <a href="#0" class="search-trigger search-icon"><i
-                            class="fa-regular fa-magnifying-glass"></i></a>
+                   {{--  <a href="#0" class="search-trigger search-icon"><i
+                            class="fa-regular fa-magnifying-glass"></i></a> --}}
                     <div class="header-button">
                         <a href="car-details.html" class="header-btn">
                             Find a Car
