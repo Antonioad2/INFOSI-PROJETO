@@ -40,17 +40,8 @@
                                 <!-- Nome Completo -->
                                 <div class="col-md-6 mb-3">
                                     <label for="full_name" class="form-label">Nome Completo <span class="text-danger">*</span></label>
-                                    <input type="text" name="full_name" id="full_name" class="form-control @error('full_name') is-invalid @enderror" value="{{ old('full_name') }}" required>
+                                    <input type="text" name="full_name" placeholder="António Adão" id="full_name" class="form-control @error('full_name') is-invalid @enderror" value="{{ old('full_name') }}" required>
                                     @error('full_name')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <!-- Documento de Identificação -->
-                                <div class="col-md-6 mb-3">
-                                    <label for="document_identification" class="form-label">BI ou PASSPORTE<span class="text-danger">*</span></label>
-                                    <input type="text" name="document_identification" id="document_identification" class="form-control @error('document_identification') is-invalid @enderror" value="{{ old('document_identification') }}" required>
-                                    @error('document_identification')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -58,7 +49,7 @@
                                 <!-- Email -->
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                    <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
+                                    <input type="email" name="email" id="email" placeholder="antonioadao@gmail.com" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
                                     @error('email')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -67,7 +58,7 @@
                                 <!-- Telefone -->
                                 <div class="col-md-6 mb-3">
                                     <label for="phone_number" class="form-label">Telefone <span class="text-danger">*</span></label>
-                                    <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" value="{{ old('phone_number') }}" required>
+                                    <input type="text" name="phone_number" placeholder="922 000 000" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" value="{{ old('phone_number') }}" required>
                                     @error('phone_number')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -98,37 +89,56 @@
                                 <!-- Endereço -->
                                 <div class="col-md-6 mb-9">
                                     <label for="address" class="form-label">Endereço <span class="text-danger">*</span></label>
-                                    <textarea name="address" id="address" class="form-control @error('address') is-invalid @enderror" rows="1" required>{{ old('address') }}</textarea>
+                                    <textarea name="address" id="address" placeholder="Rangel, bairro CTT" class="form-control @error('address') is-invalid @enderror" rows="1" required>{{ old('address') }}</textarea>
                                     @error('address')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
 
-                                <!-- Imagem de Identificação -->
+                                <!-- Documento de Identificação -->
                                 <div class="col-md-6 mb-3">
                                     <label for="id_image" class="form-label">Imagem de BI/PASSPORTE<span class="text-danger">*</span></label>
-                                    <input type="file" name="id_image" id="id_image" class="form-control @error('id_image') is-invalid @enderror"  required>
-                                    @error('id_image')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                    <div class="input-group">
+                                        <input type="text" name="document_identification" id="document_identification" placeholder="008244555LA030" class="form-control @error('document_identification') is-invalid @enderror" value="{{ old('document_identification') }}" required>
+                                        @error('document_identification')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    
+                                        <input type="file" name="id_image" id="id_image" class="form-control @error('id_image') is-invalid @enderror"  required>
+                                        @error('id_image')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <!-- Imagem da Licença -->
                                 <div class="col-md-6 mb-3">
                                     <label for="license_image" class="form-label">Imagem da Carta de Condução<span class="text-danger">*</span></label>
-                                    <input type="file" name="license_image" id="license_image" class="form-control @error('license_image') is-invalid @enderror"  required>
-                                    @error('license_image')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                    <div class="input-group">
+                                        <select name="license_type" id="license_type" class="form-select" style="font-size: 14px" required>
+                                            <option value="">Ligeiro Profissional</option>
+                                            <option value="">Pesado Profissional</option>
+                                        </select>
+                                        <input type="file" name="license_image" id="license_image" class="form-control @error('license_image') is-invalid @enderror"  required>
+                                        @error('license_image')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <!-- Data de Expiração da Licença -->
                                 <div class="col-md-6 mb-3">
-                                    <label for="license_expiry_date" class="form-label">Data de Expiração da Carta de Condução <span class="text-danger">*</span></label>
-                                    <input type="date" name="license_expiry_date" id="license_expiry_date" class="form-control @error('license_expiry_date') is-invalid @enderror" value="{{ old('license_expiry_date') }}" required>
-                                    @error('license_expiry_date')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                    <label for="license_expiry_date" class="form-label">Tipo de Motorista & Expiração da Carta de Condução<span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <select name="driver_type" class="form-select" style="font-size: 14px" id="driver_type">
+                                            <option value="">Motorista Local</option>
+                                            <option value="">Motorista Interprovincial</option>
+                                        </select>
+                                        <input type="date" name="license_expiry_date" id="license_expiry_date" class="form-control @error('license_expiry_date') is-invalid @enderror" value="{{ old('license_expiry_date') }}" required>
+                                        @error('license_expiry_date')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <!-- Preço Diário -->

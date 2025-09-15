@@ -13,6 +13,8 @@ class Driver extends Model
         'document_identification',
         'id_image',
         'license_image',
+        'license_type',
+        'driver_type',
         'license_expiry_date',
         'phone_number', 
         'email',

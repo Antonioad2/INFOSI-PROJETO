@@ -5,7 +5,13 @@
                 <a href="{{ route('site.home') }}">Home<!-- <i class="fas fa-angle-down"></i>--></a>
             </li>
         </div>
-
+        
+        <div>
+            <li>
+                <a href="{{ route('site.reservation') }}">Carros</a>
+            </li>
+        </div>
+        
         <div>
             <li>
                 <a href="{{ route('site.abouts_us') }}">Sobre Nós</a>
@@ -15,12 +21,6 @@
         <div>
             <li class="has-dropdown">
                 <a href="{{ route('site.gallery') }}">Galeria</a>
-            </li>
-        </div>
-
-        <div>
-            <li>
-                <a href="{{ route('site.reservation') }}">Carros</a>
             </li>
         </div>
     </ul>
