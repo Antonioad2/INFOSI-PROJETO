@@ -1894,18 +1894,23 @@
                 </div>
                 <div class="dropdown nxl-h-item">
                     <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button" data-bs-auto-close="outside">
-                        <img src="assets/images/avatar/1.png" alt="user-image" class="img-fluid user-avtar me-0">
+                        <img src="{{ url('assets/images/avatar/1.png')}}" alt="user-image" class="img-fluid user-avtar me-0">
                     </a>
                     <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown">
-                        <div class="dropdown-header">
-                            <div class="d-flex align-items-center">
-                                <img src="assets/images/avatar/1.png" alt="user-image" class="img-fluid user-avtar">
-                                <div>
-                                    <h6 class="text-dark mb-0">Alexandra Della <span class="badge bg-soft-success text-success ms-1">PRO</span></h6>
-                                    <span class="fs-12 fw-medium text-muted">alex.della@outlook.com</span>
+                            <div class="dropdown-header">
+                                <div class="d-flex align-items-center">
+                                    <img src="{{ asset('assets/images/avatar/1.png') }}" alt="user-image" class="img-fluid user-avtar">
+                                    <div>
+                                        <h6 class="text-dark mb-0">
+                                            {{ Auth::user()->name }} 
+                                            <span class="badge bg-soft-success text-success ms-1">PRO</span>
+                                        </h6>
+                                        <span class="fs-12 fw-medium text-muted">{{ Auth::user()->email }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        {{--
                         <div class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="dropdown">
                                 <span class="hstack">
@@ -2024,6 +2029,7 @@
                             <i class="feather-settings"></i>
                             <span>Account Settings</span>
                         </a>
+                        --}}
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/login"
                                         onclick="event.preventDefault();

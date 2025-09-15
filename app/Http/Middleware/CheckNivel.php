@@ -8,20 +8,24 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckNivel
 {
-    public function handle(Request $request, Closure $next, $nivel)
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  string|null  $role
+     * @return mixed
+     */
+    public function handle(Request $request, Closure $next, $role = null)
     {
         if (!Auth::check()) {
-            return redirect()->route('admin.login');
+            return redirect('/login');
         }
 
-        $userNivel = Auth::user()->nivel_id; // Verifica pelo ID (1: admin, 2: user)
+        $user = Auth::user();
 
-        if ($nivel === 'admin' && $userNivel !== 1) {
-            return redirect()->route('admin.login')->with('error', 'Acesso negado: Apenas administradores.');
-        }
-
-        if ($nivel === 'user' && $userNivel !== 2) {
-            return redirect()->route('admin.login')->with('error', 'Acesso negado: Apenas usuários.');
+        if ($role && $user->role !== $role) {
+            return redirect('/unauthorized');
         }
 
         return $next($request);
