@@ -91,8 +91,8 @@
             </ul>
             <div class="header-top-right">
                 <ul class="top-list">
-                    <li style="padding: 1rem; border-radius: 12px; font-size: 16px; font-weight:bold; color:#ffffff"><a href="contact.html">Conecte-se</a></li>
-                    <li style="background: #ff3726; padding: 1rem; border-radius: 12px; font-size: 16px; font-weight:bold; color:#ffffff"><a href="contact.html">Inscrever-se</a></li>
+                    <li><a href="contact.html">Conecte-se</a></li>
+                    <li style="background: #ff3726"><a href="contact.html">Inscrever-se</a></li>
                 </ul>
                 <div class="social-icon d-flex align-items-center">
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -157,20 +157,14 @@
                                         </ul>
                                     </li> --}}
                                     <li>
-                                        <a href="news.html">
-                                            Oferta
+                                        <a href="news.html">Oferta</a>
                                             <i class="fas fa-angle-down"></i>
                                             <ul class="submenu">
-                                            <li><a href="car-grid.html">Oferta Especial</a></li>
-                                            <li><a href="car-list.html">Carros em Destaque</a></li>
-                                            <li><a href="car-list-sidebar.html">Tipos Populares</a></li>
-                                            <li><a href="car-details.html">Contacto</a></li>
-                                        </ul>
-                                        </a>
-                                        <ul class="submenu">
-                                            <li><a href="news.html">Blog</a></li>
-                                            <li><a href="news-details.html">Blog Details</a></li>
-                                        </ul>
+                                                <li><a href="car-grid.html">Oferta Especial</a></li>
+                                                <li><a href="car-list.html">Carros em Destaque</a></li>
+                                                <li><a href="car-list-sidebar.html">Tipos Populares</a></li>
+                                                <li><a href="car-details.html">Contacto</a></li>
+                                            </ul>
                                     </li>
                                     <li>
                                         <a href="contact.html">Sobre Nós</a>
@@ -197,7 +191,7 @@
                    {{--  <a href="#0" class="search-trigger search-icon"><i
                             class="fa-regular fa-magnifying-glass"></i></a> --}}
                     <div class="header-button">
-                        <a href="car-details.html" class="header-btn">
+                        <a href="{{ route('site.reservation') }}" class="header-btn">
                             Find a Car
                         </a>
                     </div>

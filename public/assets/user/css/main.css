@@ -8217,3 +8217,20 @@ h6 {
   overflow: visible !important;
   max-width: 100% !important;
 } */
+
+.header-top-right .top-list li{
+  padding: 1rem; 
+  border-radius: 12px; 
+  font-size: 16px; 
+  font-weight:bold; 
+  color:#ffffff;
+  transition: .2s;
+}
+.header-top-right .top-list li:hover{
+  background: #ffffff !important;
+  border: 1px solid var(--theme) !important;
+  color: var(--theme) !important;
+}
+.header-top-right .top-list li:hover a{
+  color: var(--theme) !important;
+}

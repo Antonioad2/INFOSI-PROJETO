@@ -2796,6 +2796,7 @@ span {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0;
+  height: 98px;
 }
 .header-main .main-menu ul {
   margin-bottom: 0;
@@ -2980,7 +2981,7 @@ span {
   }
 }
 .header-1 .header-main .header-right .header-button {
-  margin-right: -10%;
+  margin-right: -15%;
 }
 .header-1 .header-main .header-right .header-button .header-btn {
   padding: 34px 60px;
@@ -6978,3 +6979,17 @@ input.main-search-input::placeholder {
   overflow: visible !important;
   max-width: 100% !important;
 }
+/* .header-top-right .top-list li{
+  padding: 1rem; 
+  border-radius: 12px; 
+  font-size: 16px; 
+  font-weight:bold; 
+  color:#ffffff;
+  transition: .2s;
+}
+
+.header-top-right .top-list li:hover{
+  background: #ffffff !important;
+  border: 1px solid var(--theme) !important;
+  color: var(--theme) !important;
+} */

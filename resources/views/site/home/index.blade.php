@@ -460,6 +460,92 @@
                 </div>
             </div>
 
+            <!-- Popular Car Section Start -->
+                <section class="popular-car-section fix section-padding">
+                    <div class="container">
+                        <div class="section-title text-center">
+                            <img src="assets/user/img/sub-icon.png" alt="icon-img" class="wow fadeInUp">
+                            <span class="wow fadeInUp" data-wow-delay=".2s">Escolha o tipo de Carro</span>
+                            <h2 class="wow fadeInUp" data-wow-delay=".4s">
+                                Estamos oferecendo os modelos de carros <br>
+                                mais populares
+                            </h2>
+                        </div>
+                        <div class="row g-4 mt-30">
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="popular-card-items">
+                                    <div class="content">
+                                        <h4><a href="car-details.html">Sedã</a></h4>
+                                        <p>Disponível para Aluguel</p>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="assets/user/img/car/popular-car-1.jpg" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="popular-card-items">
+                                    <div class="content">
+                                        <h4><a href="car-details.html">Esportivo</a></h4>
+                                        <p>Disponível para Aluguel</p>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="assets/user/img/car/popular-car-2.jpg" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="popular-card-items">
+                                    <div class="content">
+                                        <h4><a href="car-details.html">Jeep</a></h4>
+                                        <p>Disponível para Aluguel</p>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="assets/user/img/car/popular-car-3.jpg" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="popular-card-items">
+                                    <div class="content">
+                                        <h4><a href="car-details.html">SUV</a></h4>
+                                        <p>Disponível para Aluguel</p>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="assets/user/img/car/popular-car-4.jpg" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="popular-card-items">
+                                    <div class="content">
+                                        <h4><a href="car-details.html">Luxuoso</a></h4>
+                                        <p>Disponível para Aluguel</p>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="assets/user/img/car/popular-car-5.jpg" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="popular-card-items">
+                                    <div class="content">
+                                        <h4><a href="car-details.html">Luxuoso</a></h4>
+                                        <p>Disponível para Aluguel</p>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="assets/user/img/car/popular-car-6.jpg" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popular-car-text wow fadeInUp" data-wow-delay=".4s">
+                            <h6>Serviços de aluguel de carros especificamente para nossos clientes.</h6>
+                            <a href="car-details.html" class="theme-btn">Encontrar um carro</a>
+                        </div>
+                    </div>
+                </section>    
+            <!-- Popular Car Section Start -->
 
             <div class="container">
                 <div class="section-title text-center">
@@ -533,7 +619,11 @@
                     </div>
                 </div>
             </div>
-        </section> --}}
+        </section>
+
+        <!-- FAQ Section Start -->        
+
+            
 
             <div class="container">
                 <div class="faq-wrapper">
