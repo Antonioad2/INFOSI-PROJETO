@@ -8163,3 +8163,56 @@ h6 {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+/* Permite sumir apenas em telas realmente pequenas */
+/* Garante que o menu e os ícones fiquem visíveis sempre que houver espaço */
+@media (min-width: 993px) {
+  .header-1 .header-main .header-right .header-button,
+  .header-1 .header-main .header-right .icon-items,
+  .menu-items,
+  .main-menu {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Evita que o header corte ou esconda conteúdo */
+/* Força o menu a continuar visível no desktop até telas < 992px */
+@media (min-width: 992px) {
+  .header-1 .header-main .header-right .header-button,
+  .header-1 .header-main .header-right .icon-items,
+  .header-2 .header-right .header-button,
+  .header-2 .header-right .icon-items,
+  .header-3 .header-main .header-right .header-button,
+  .header-3 .header-main .header-right .icon-items {
+    display: flex !important;
+    gap: 15px;
+    align-items: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Mantém sumindo apenas em telas realmente pequenas (mobile) */
+@media (max-width: 991px) {
+  .header-1 .header-main .header-right .header-button,
+  .header-1 .header-main .header-right .icon-items,
+  .header-2 .header-right .header-button,
+  .header-2 .header-right .icon-items,
+  .header-3 .header-main .header-right .header-button,
+  .header-3 .header-main .header-right .icon-items {
+    display: none !important;
+  }
+}
+
+/* Evita corte do conteúdo quando a área encolhe */
+.mega-menu-wrapper,
+.header-main,
+.header-right {
+  overflow: visible !important;
+  max-width: 100% !important;
+}
