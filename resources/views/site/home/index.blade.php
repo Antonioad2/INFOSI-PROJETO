@@ -70,7 +70,18 @@
                                     ADQUIRA O SEU CARRO
                                 </h2>
                                 <h4 style="text-align: center; color: white; margin-bottom: 4rem">Pesquisa e alugue carro facilmente</h4>
-                                <div class="car-list-sidebar">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <section class="feature-benefit section section-padding fix">
+                <div class="container">
+
+                    <div class="car-list-sidebar">
                                     <form action="{{ route('site.reservation') }}" 
                                         id="contact-form2" 
                                         method="GET" 
@@ -129,15 +140,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-            <section class="feature-benefit section section-padding fix">
-                <div class="container">
                     <div class="section-title text-center">
                         <img src="{{ url('assets/user/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
                         <span class="wow fadeInUp" data-wow-delay=".2s">Nossos Benefícios</span>
