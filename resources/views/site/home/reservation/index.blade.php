@@ -62,7 +62,8 @@
                                 <div class="col-lg-12">
                                     <div class="car-list-items">
                                         <div class="car-image bg-cover" 
-                                            style="background-image: url('{{ asset('uploads/car/car_images/' . $car->image) }}');">
+                                            style="background-image: url('{{ asset('uploads/car/car_images/' . $car->image) }}');
+                                            height: 10rem">
                                             <div class="post-cat">
                                                 Modelo de {{ $car->manufacture_date }}
                                             </div>

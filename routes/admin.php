@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\ReserveController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
                    
 
 
@@ -91,7 +93,7 @@ Route::prefix('/admin/cars')->name('cars.')->group(function () {
     Route::get('carView/{car}', [CarController::class, 'show'])->name('show');
     Route::get('carEdit/{car}/edit', [CarController::class, 'edit'])->name('edit');
     Route::put('/{car}', [CarController::class, 'update'])->name('update');
-    Route::get('/{car}', [CarController::class, 'destroy'])->name('destroy');
+    Route::delete('/{car}', [CarController::class, 'destroy'])->name('destroy');
 });
 
 Route::get('/get-models-by-brand/{brandId}', [ModelsController::class, 'getModelsByBrand']);
