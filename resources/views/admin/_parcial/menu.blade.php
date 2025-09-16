@@ -42,8 +42,8 @@
                         <span class="nxl-mtext">Marcas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.brands.index')}}">Ver Marcas</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.brands.create')}}">Cadastrar Marcas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.index')}}">Ver Marcas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('brands.create')}}">Cadastrar Marcas</a></li>
                     </ul>
                 </li>
 
@@ -54,8 +54,8 @@
                         <span class="nxl-mtext">Modelos</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.models.index')}}">Ver Modelos</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.models.create')}}">Cadastrar Modelos</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.index')}}">Ver Modelos</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('models.create')}}">Cadastrar Modelos</a></li>
                     </ul>
                 </li>
 
@@ -66,8 +66,8 @@
                         <span class="nxl-mtext">Combustíveis</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.fuels.index')}}">Ver Combustíveis</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.fuels.create')}}">Cadastrar Combustíveis</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.index')}}">Ver Combustíveis</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('fuels.create')}}">Cadastrar Combustíveis</a></li>
                     </ul>
                 </li>
 
@@ -78,8 +78,8 @@
                         <span class="nxl-mtext">Cores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.colors.index')}}">Ver Cores</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.colors.create')}}">Cadastrar Cores</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.index')}}">Ver Cores</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('colors.create')}}">Cadastrar Cores</a></li>
                     </ul>
                 </li>
 
@@ -90,8 +90,8 @@
                         <span class="nxl-mtext">Fornecedores</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.suppliers.index')}}">Ver Fornecedores</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.suppliers.create')}}">Cadastrar Fornecedores</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.index')}}">Ver Fornecedores</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('suppliers.create')}}">Cadastrar Fornecedores</a></li>
                     </ul>
                 </li>
 
@@ -102,8 +102,8 @@
                         <span class="nxl-mtext">Carros</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.cars.index')}}">Ver Carros</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.cars.create')}}">Cadastrar Carros</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.index')}}">Ver Carros</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('cars.create')}}">Cadastrar Carros</a></li>
                     </ul>
                 </li>
 
@@ -114,8 +114,8 @@
                         <span class="nxl-mtext">Motoristas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.drivers.index')}}">Ver Motoristas</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.drivers.create')}}">Cadastrar Motoristas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('drivers.index')}}">Ver Motoristas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('drivers.create')}}">Cadastrar Motoristas</a></li>
                     </ul>
 
                 {{--Lista de Clientes--}}
@@ -125,8 +125,8 @@
                         <span class="nxl-mtext">Clientes</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.clients.index')}}">Ver Clientes</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.clients.create')}}">Cadastrar Clientes</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.index')}}">Ver Clientes</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('clients.create')}}">Cadastrar Clientes</a></li>
                     </ul>
                 </li>
                 {{--Lista de Usuários--}}
@@ -136,8 +136,8 @@
                         <span class="nxl-mtext">Usuários</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.users.index')}}">Ver Usuários</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.users.create')}}">Cadastrar Usuários</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('users.index')}}">Ver Usuários</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('users.create')}}">Cadastrar Usuários</a></li>
                     </ul>
                 </li>
 
@@ -148,8 +148,8 @@
                         <span class="nxl-mtext">Reservas</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.reserves.index')}}">Ver Reservas</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.reserves.create')}}">Criar Reservas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('reserves.index')}}">Ver Reservas</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('reserves.create')}}">Criar Reservas</a></li>
                     </ul>
                 </li>
             </ul>

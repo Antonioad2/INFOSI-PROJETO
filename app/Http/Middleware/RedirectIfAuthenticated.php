@@ -16,7 +16,7 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 $user = Auth::user();
                 if ($user->role === 'admin') {
-                    return redirect()->route('admin.dashboard');
+                    return redirect()->route('dashboard');
                 }
                 return redirect()->route('site.home');
             }
