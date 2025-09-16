@@ -40,6 +40,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    
      public function logout(Request $request)
     {
         Auth::logout();
@@ -49,4 +50,6 @@ class LoginController extends Controller
 
         return redirect('/login', 302)->with('success', 'Logout feito com sucesso!');
     }
+
+    
 }
