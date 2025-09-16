@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="pixydrops">
-    <meta name="description" content="Remons - Template HTML para Aluguel de Carros">
+    <meta name="description" content="ANGOCARS - Aluguel de Carros Em Angola">
     <!-- ======== Título da Página ============ -->
-    <title>Remons - Template HTML para Aluguel de Carros</title>
+    <title>ANGOCARS - Aluguel de Carros Em Angola</title>
     <!--<< Favicon >>-->
     <link rel="shortcut icon" href="{{ url('assets/user/img/favicon.png')}}">
     <!--<< Bootstrap min.css >>-->
@@ -37,12 +37,14 @@
         <div class="animation-preloader">
             <div class="spinner"></div>
             <div class="txt-loading">
-                <span data-text-preloader="R" class="letters-loading">R</span>
-                <span data-text-preloader="E" class="letters-loading">E</span>
-                <span data-text-preloader="M" class="letters-loading">M</span>
-                <span data-text-preloader="O" class="letters-loading">O</span>
-                <span data-text-preloader="N" class="letters-loading">N</span>
-                <span data-text-preloader="S" class="letters-loading">S</span>
+                   <span data-text-preloader="A" class="letters-loading">A</span>
+                    <span data-text-preloader="N" class="letters-loading">N</span>
+                    <span data-text-preloader="G" class="letters-loading">G</span>
+                    <span data-text-preloader="O" class="letters-loading">O</span>
+                    <span data-text-preloader="C" class="letters-loading">C</span>
+                    <span data-text-preloader="A" class="letters-loading">A</span>
+                    <span data-text-preloader="R" class="letters-loading">R</span>
+                    <span data-text-preloader="S" class="letters-loading">S</span>
             </div>
             <p class="text-center">Carregando</p>
         </div>

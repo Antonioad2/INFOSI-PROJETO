@@ -10,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="pixydrops">
-    <meta name="description" content="Remons - Booking Rental HTML Template">
+    <meta name="description" content="ANGOCARS - Aluguel de Carros Em Angola">
     <!-- ======== Page title ============ -->
-    <title>Remons - Booking Rental HTML Template</title>
+    <title>ANGOCARS - Aluguel de Carros Em Angola</title>
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="{{ url('assets/user/img/favicon.png') }}">
     <!--<< Bootstrap min.css >>-->
