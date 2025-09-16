@@ -62,5 +62,12 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+       'check.nivel' => \App\Http\Middleware\CheckNivel::class,  // Adicione esta linha
+
     ];
+
+
+    // Em app/Http/Kernel.php, dentro da classe Kernel
+
+
 }
