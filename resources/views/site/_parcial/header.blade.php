@@ -5,7 +5,7 @@
             <div class="offcanvas__content">
                 <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                     <div class="offcanvas__logo">
-                        <a href="index.html">
+                        <a href="{{route('site.home')}}">
                            <img src="{{ url('assets/user/img/logo/1.png') }}" width="140px" alt="Logo">
                         </a>
                     </div>
@@ -112,7 +112,7 @@
             <div class="header-main">
                 <div class="header-left">
                     <div class="logo">
-                        <a href="index.html" class="header-logo">
+                        <a href="{{route('site.home')}}" class="header-logo">
                             <img src="{{ url('assets/user/img/logo/1.png') }}" width="140px" alt="logo-img">
                         </a>
                     </div>
@@ -121,12 +121,12 @@
                             <nav id="mobile-menu">
                                 <ul>
                                     <li class="has-dropdown active menu-thumb">
-                                        <a href="index.html">
+                                        <a href="{{route('site.home')}}">
                                             Início
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="about.html">Carros</a>
+                                        <a href="{{route('site.reservation')}}">Carros</a>
                                         <i class="fas fa-angle-down"></i>
                                         <ul class="submenu">
                                             <li><a href="gallery.html">Detalhes</a></li>
