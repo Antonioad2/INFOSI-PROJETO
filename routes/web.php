@@ -2,16 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\HomeController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Admin\ColorController;
-use App\Http\Controllers\Admin\ModelsController;
-use App\Http\Controllers\Admin\BrandController;
-use App\Http\Controllers\Admin\FuelController;
-use App\Http\Controllers\Admin\CarController;
-use App\Http\Controllers\Admin\SupplierController;
-use App\Http\Controllers\Admin\ClientController;
-use App\Http\Controllers\Admin\DriverController;
-use App\Http\Controllers\Admin\ReserveController;
 use App\Http\Controllers\Site\ReservationController; 
 use App\Http\Controllers\Site\CarBookController;
 use Illuminate\Support\Facades\Auth;

@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ url('assets/user/css/nice-select.css')}}">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="{{ url('assets/user/css/main.css')}}">
+    <link rel="stylesheet" href="{{ url('assets/user/css/main2.css')}}">
 </head>
 <body>
     <!-- Preloader Start -->
