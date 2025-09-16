@@ -303,7 +303,7 @@
 				   	</div>
 			   	</div>	
 				<div class="banner-search">
-					   <form action="https://dreamsrent.dreamstechnologies.com/html/template/listing-grid.html" class="form-block d-flex align-items-center">
+					   <form action="{{ url('https://dreamsrent.dreamstechnologies.com/html/template/listing-grid.html')}}" class="form-block d-flex align-items-center">
 						   <div class="search-input">
 							   <div class="input-block">
 								   <label>Pickup Location</label>
