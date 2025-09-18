@@ -11,3 +11,8 @@ Route::get('/car/{car_id}', [HomeController::class, 'carDetails'])->name('car.de
 Route::get('/car-list', [HomeController::class, 'carList'])->name('site.car-list');
 Route::get('/car/{id}/book', [HomeController::class, 'carBook'])->name('car.book');
 
+    
+
+    /* Rota Sobre Nós */
+
+
