@@ -1,251 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('site.reservation.layouts.main')
+@section('title', 'AngoCars Detalhe do Carro')
+@section('content')
 
-<!-- Mirrored from dreamsrent.dreamstechnologies.com/html/template/listing-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Sep 2025 11:23:01 GMT -->
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>Dreams Rent | Template</title>
-
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="assets/img/favicon.png">
-	
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-	<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">	
-
-    <!-- Datepicker CSS -->
-	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-
-	<!-- Select2 CSS -->
-	<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
-
-    <!-- Owl carousel CSS -->
-	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-	
-	<!-- Aos CSS -->
-	<link rel="stylesheet" href="assets/plugins/aos/aos.css">
-	
-    <!-- Fearther CSS -->
-	<link rel="stylesheet" href="assets/css/feather.css">
-
-	<!-- Fancybox CSS -->
-	<link rel="stylesheet" href="assets/plugins/fancybox/fancybox.css">
-
-	<!-- Select2 CSS -->
-   	<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
-
-   	<!-- Boxicons CSS -->
-   	<link rel="stylesheet" href="assets/plugins/boxicons/css/boxicons.min.css">
-		
-	<!-- Main CSS -->
-	<link rel="stylesheet" href="assets/css/style.css">
-	
-</head>
-
-<body>
 	
 	<div class="main-wrapper">
 	
 		<!-- Header -->
-		<header class="header">
-			<div class="container-fluid">
-				<nav class="navbar navbar-expand-lg header-nav">
-					<div class="navbar-header">
-						<a id="mobile_btn" href="javascript:void(0);">
-							<span class="bar-icon">
-								<span></span>
-								<span></span>
-								<span></span>
-							</span>
-						</a>
-						<a href="index.html" class="navbar-brand logo">
-							<img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
-						</a>	
-                        <a href="index.html" class="navbar-brand logo-small">
-							<img src="assets/img/logo-small.png" class="img-fluid" alt="Logo">
-						</a>						
-					</div>
-					<div class="main-menu-wrapper">
-						<div class="menu-header">
-							<a href="index.html" class="menu-logo">
-								<img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
-							</a>
-							<a id="menu_close" class="menu-close" href="javascript:void(0);"> <i class="fas fa-times"></i></a>
-						</div>
-						<ul class="main-nav">
-							<li class="has-submenu megamenu">
-								<a href="index.html">Home <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu mega-submenu">
-									<li>
-										<div class="megamenu-wrapper">
-                                            <div class="row">
-                                                <div class="col-lg-3">
-                                                    <div class="single-demo">
-                                                        <div class="demo-img">
-                                                            <a href="index.html">
-																<img src="assets/img/menu/home-01.svg" class="img-fluid " alt="img">
-															</a>
-                                                        </div>
-                                                        <div class="demo-info">
-                                                            <a href="index.html">Car Rental<span class="new">New</span> </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-												<div class="col-lg-3">
-                                                    <div class="single-demo">
-                                                        <div class="demo-img">
-                                                            <a href="index-2.html">
-																<img src="assets/img/menu/home-02.svg" class="img-fluid " alt="img">
-															</a>
-                                                        </div>
-                                                        <div class="demo-info">
-                                                            <a href="index-2.html">Car Rental 1<span class="hot">Hot</span> </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-												<div class="col-lg-3">
-                                                    <div class="single-demo">
-                                                        <div class="demo-img">
-                                                            <a href="index-3.html">
-																<img src="assets/img/menu/home-03.svg" class="img-fluid " alt="img">
-															</a>
-                                                        </div>
-                                                        <div class="demo-info">
-                                                            <a href="index-3.html">Bike Rental<span class="new">New</span> </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-												<div class="col-lg-3">
-                                                    <div class="single-demo">
-                                                        <div class="demo-img">
-                                                            <a href="index-4.html">
-																<img src="assets/img/menu/home-04.svg" class="img-fluid " alt="img">
-															</a>
-                                                        </div>
-                                                        <div class="demo-info">
-                                                            <a href="index-4.html">Yacht Rental<span class="new">New</span> </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-									</li>						
-								</ul>
-							</li>
-							<li class="has-submenu active">
-								<a href="#">Listings <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-								    <li><a href="listing-grid.html">Listing Grid</a></li>
-								    <li><a href="listing-list.html">Listing List</a></li>
-									<li><a href="listing-map.html">Listing With Map</a></li>						
-								    <li class="active"><a href="listing-details.html">Listing Details</a></li>								
-								</ul>
-							</li>
-							<li class="has-submenu">
-								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-								    <li ><a href="about-us.html">About Us</a></li>
-								    <li><a href="contact-us.html">Contact</a></li>
-									<li class="has-submenu">
-										<a href="javascript:void(0);">Authentication</a>
-										<ul class="submenu">
-											<li><a href="register.html">Sign Up</a></li>
-											<li><a href="login.html">Sign In</a></li>
-											<li><a href="forgot-password.html">Forgot Password</a></li>
-											<li><a href="reset-password.html">Reset Password</a></li>
-										</ul>
-									</li>
-									<li class="has-submenu">
-										<a href="javascript:void(0);">Booking</a>
-										<ul class="submenu">
-											<li><a href="booking-checkout.html">Booking Checkout</a></li>
-											<li><a href="booking.html">Booking</a></li>
-											<li><a href="invoice-details.html">Invoice Details</a></li>
-										</ul>
-									</li>
-									<li class="has-submenu">
-										<a href="javascript:void(0);">Error Page</a>
-										<ul class="submenu">
-											<li><a href="error-404.html">404 Error</a></li>
-											<li><a href="error-500.html">500 Error</a></li>
-										</ul>
-									</li>
-								    <li><a href="pricing.html">Pricing</a></li>
-								    <li><a href="faq.html">FAQ</a></li>
-								    <li><a href="gallery.html">Gallery</a></li>
-								    <li><a href="our-team.html">Our Team</a></li>
-								    <li><a href="testimonial.html">Testimonials</a></li>
-									<li><a href="terms-condition.html">Terms & Conditions</a></li>
-									<li><a href="privacy-policy.html">Privacy Policy</a></li>
-									<li><a href="maintenance.html">Maintenance</a></li>
-									<li><a href="coming-soon.html">Coming Soon</a></li>							
-								</ul>
-							</li>
-							<li class="has-submenu">
-								<a href="#">Blog <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-								    <li><a href="blog-list.html">Blog List</a></li>
-									<li><a href="blog-grid.html">Blog Grid</a></li>
-									<li><a href="blog-details.html">Blog Details</a></li>																		
-								</ul>
-							</li>
-							<li class="has-submenu">
-								<a href="#">Dashboard <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li class="has-submenu">
-										<a href="javascript:void(0);">User Dashboard</a>
-										<ul class="submenu">
-											<li><a href="user-dashboard.html">Dashboard</a></li>
-											<li><a href="user-bookings.html">My Bookings</a></li>
-											<li><a href="user-reviews.html">Reviews</a></li>
-											<li><a href="user-wishlist.html">Wishlist</a></li>
-											<li><a href="user-messages.html">Messages</a></li>
-											<li><a href="user-wallet.html">My Wallet</a></li>
-											<li><a href="user-payment.html">Payments</a></li>
-											<li><a href="user-settings.html">Settings</a></li>			
-										</ul>
-									</li>		
-									<li class="has-submenu">
-										<a href="javascript:void(0);">Admin Dashboard</a>
-										<ul class="submenu">
-											<li><a href="admin/index.html">Dashboard</a></li>
-											<li><a href="admin/reservations.html">Bookings</a></li>
-											<li><a href="admin/customers.html">Manage</a></li>
-											<li><a href="admin/cars.html">Rentals</a></li>
-											<li><a href="admin/invoices.html">Finance & Accounts</a></li>
-											<li><a href="admin/coupons.html">Others</a></li>
-											<li><a href="admin/pages.html">CMS</a></li>			
-											<li><a href="admin/contact-messages.html">Support</a></li>			
-											<li><a href="admin/users.html">User Management</a></li>			
-											<li><a href="admin/earnings-report.html">Reports</a></li>			
-											<li><a href="admin/profile-setting.html">Settings & Configuration</a></li>		
-										</ul>
-									</li>				
-								</ul>
-							</li>	
-							<li class="login-link">
-								<a href="register.html">Sign Up</a>
-							</li>
-							<li class="login-link">
-								<a href="login.html">Sign In</a>
-							</li>
-						</ul>
-					</div>
-					<ul class="nav header-navbar-rht">
-						<li class="nav-item">
-							<a class="nav-link header-login" href="login.html"><span><i class="fa-regular fa-user"></i></span>Sign In</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link header-reg" href="register.html"><span><i class="fa-solid fa-lock"></i></span>Sign Up</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</header>
+		
 		<!-- /Header -->
 		
 		<!-- Breadscrumb Section -->
@@ -277,7 +38,7 @@
                             	<li>
 	                            	<div class="car-brand">
 	                            		<span>
-	                            			<img src="assets/img/icons/car-icon.svg" alt="img">
+	                            			<img src="{{ url('assets/user/img/icons/car-icon.svg')}}" alt="img">
 	                            		</span>
 	                            		Sedan
 	                            	</div>
@@ -338,30 +99,24 @@
 		                    		<li class="del-home"><i class="fa-solid fa-check"></i>Home delivery</li>
 		                    	</ul>
 	                    	</div>
-                            <div class="slider detail-bigimg">
+                            <div class="slider detail-bigimg slider detail-bigimg img-slider owl-carousel owl-theme">
                                 <div class="product-img">
-                                    <img src="assets/img/cars/slider-01.jpg" alt="Slider">
+                                    <img src="{{ url('assets/user/img/cars/slider-01.jpg')}}" alt="Slider">
                                 </div>
                                 <div class="product-img">
-                                    <img src="assets/img/cars/slider-02.jpg" alt="Slider">
+                                    <img src="{{ url('assets/user/img/cars/slider-02.jpg')}}" alt="Slider">
                                 </div>
                                 <div class="product-img">
-                                    <img src="assets/img/cars/slider-03.jpg" alt="Slider">
+                                    <img src="{{ url('assets/user/img/cars/slider-03.jpg')}}" alt="Slider">
                                 </div>
                                 <div class="product-img">
-                                    <img src="assets/img/cars/slider-04.jpg" alt="Slider">
+                                    <img src="{{ url('assets/user/img/cars/slider-04.jpg')}}" alt="Slider">
                                 </div>
                                 <div class="product-img">
-                                    <img src="assets/img/cars/slider-05.jpg" alt="Slider">
+                                    <img src="{{ url('assets/user/img/cars/slider-05.jpg')}}" alt="Slider">
                                 </div>
                             </div>
-                            <div class="slider slider-nav-thumbnails">
-                                <div><img src="assets/img/cars/slider-thum-01.jpg" alt="product image"></div>
-                                <div><img src="assets/img/cars/slider-thum-02.jpg" alt="product image"></div>
-                                <div><img src="assets/img/cars/slider-thum-03.jpg" alt="product image"></div>
-                                <div><img src="assets/img/cars/slider-thum-04.jpg" alt="product image"></div>
-                                <div><img src="assets/img/cars/slider-thum-05.jpg" alt="product image"></div>
-                            </div>
+                            
                         </div>
                         <div class="review-sec pb-0">
                             <div class="review-header">
@@ -371,7 +126,7 @@
                                 <div class="row">
                                     <div class="servicelist d-flex align-items-center col-xxl-3 col-xl-4 col-sm-6">
                                         <div class="service-img">
-                                            <img src="assets/img/icons/service-01.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/icons/service-01.svg')}}" alt="Icon">
                                         </div>
                                         <div class="service-info">
                                             <p>GPS Navigation Systems</p>
@@ -379,7 +134,7 @@
                                     </div>
                                      <div class="servicelist d-flex align-items-center col-xxl-3 col-xl-4 col-sm-6">
                                         <div class="service-img">
-                                            <img src="assets/img/icons/service-02.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/icons/service-02.svg')}}" alt="Icon">
                                         </div>
                                         <div class="service-info">
                                             <p>Wi-Fi Hotspot</p>
@@ -387,7 +142,7 @@
                                     </div>
                                      <div class="servicelist d-flex align-items-center col-xxl-3 col-xl-4 col-sm-6">
                                         <div class="service-img">
-                                            <img src="assets/img/icons/service-03.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/icons/service-03.svg')}}" alt="Icon">
                                         </div>
                                         <div class="service-info">
                                             <p>Child Safety Seats</p>
@@ -395,7 +150,7 @@
                                     </div>
                                      <div class="servicelist d-flex align-items-center col-xxl-3 col-xl-4 col-sm-6">
                                         <div class="service-img">
-                                            <img src="assets/img/icons/service-04.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/icons/service-04.svg')}}" alt="Icon">
                                         </div>
                                         <div class="service-info">
                                             <p>Fuel Options</p>
@@ -403,7 +158,7 @@
                                     </div>
                                      <div class="servicelist d-flex align-items-center col-xxl-3 col-xl-4 col-sm-6">
                                         <div class="service-img">
-                                            <img src="assets/img/icons/service-05.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/icons/service-05.svg')}}" alt="Icon">
                                         </div>
                                         <div class="service-info">
                                             <p>Roadside Assistance</p>
@@ -411,7 +166,7 @@
                                     </div>
                                      <div class="servicelist d-flex align-items-center col-xxl-3 col-xl-4 col-sm-6">
                                         <div class="service-img">
-                                            <img src="assets/img/icons/service-06.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/icons/service-06.svg')}}" alt="Icon">
                                         </div>
                                         <div class="service-info">
                                             <p>Satellite Radio</p>
@@ -419,7 +174,7 @@
                                     </div>
                                      <div class="servicelist d-flex align-items-center col-xxl-3 col-xl-4 col-sm-6">
                                         <div class="service-img">
-                                            <img src="assets/img/icons/service-07.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/icons/service-07.svg')}}" alt="Icon">
                                         </div>
                                         <div class="service-info">
                                             <p>Additional Accessories</p>
@@ -427,7 +182,7 @@
                                     </div>
                                      <div class="servicelist d-flex align-items-center col-xxl-3 col-xl-4 col-sm-6">
                                         <div class="service-img">
-                                            <img src="assets/img/icons/service-08.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/icons/service-08.svg')}}" alt="Icon">
                                         </div>
                                         <div class="service-info">
                                             <p>Express Check-in/out</p>
@@ -479,7 +234,7 @@
                                 <div class="row">
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-1.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-1.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Body </span>
@@ -488,7 +243,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-2.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-2.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Make </span>
@@ -497,7 +252,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-3.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-3.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Transmission </span>
@@ -506,7 +261,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-4.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-4.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Fuel Type </span>
@@ -515,7 +270,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-5.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-5.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Mileage </span>
@@ -524,7 +279,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-6.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-6.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Drivetrian </span>
@@ -533,7 +288,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-7.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-7.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Year</span>
@@ -542,7 +297,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-8.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-8.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>AC </span>
@@ -551,7 +306,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-9.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-9.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>VIN </span>
@@ -560,7 +315,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-10.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-10.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Door </span>
@@ -569,7 +324,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-11.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-11.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Brake </span>
@@ -578,7 +333,7 @@
                                     </div>
                                     <div class="featureslist d-flex align-items-center col-xl-3 col-md-4 col-sm-6">
                                         <div class="feature-img">
-                                            <img src="assets/img/specification/specification-icon-12.svg" alt="Icon">
+                                            <img src="{{ url('assets/user/img/specification/specification-icon-12.svg')}}" alt="Icon">
                                         </div>
                                         <div class="featues-info">
                                             <span>Engine (Hp) </span>
@@ -684,29 +439,29 @@
                                 <ul>
                                 	<li>
                                 		<div class="gallery-widget">
-											<a href="assets/img/gallery/gallery-big-01.jpg" data-fancybox="gallery1">
-												<img class="img-fluid" alt="Image" src="assets/img/gallery/gallery-thumb-01.jpg">
+											<a href="{{ url('assets/user/img/gallery/gallery-big-01.jpg')}}" data-fancybox="gallery1">
+												<img class="img-fluid" alt="Image" src="{{ url('assets/user/img/gallery/gallery-thumb-01.jpg')}}">
 											</a>
 										</div>
                                 	</li>
                                 	<li>
                                 		<div class="gallery-widget">
-											<a href="assets/img/gallery/gallery-big-02.jpg" data-fancybox="gallery1">
-												<img class="img-fluid" alt="Image" src="assets/img/gallery/gallery-thumb-02.jpg">
+											<a href="{{ url('assets/user/img/gallery/gallery-big-02.jpg')}}" data-fancybox="gallery1">
+												<img class="img-fluid" alt="Image" src="{{ url('assets/user/img/gallery/gallery-thumb-02.jpg')}}">
 											</a>
 										</div>
                                 	</li>
                                 	<li>
                                 		<div class="gallery-widget">
-											<a href="assets/img/gallery/gallery-big-03.jpg" data-fancybox="gallery1">
-												<img class="img-fluid" alt="Image" src="assets/img/gallery/gallery-thumb-03.jpg">
+											<a href="{{ url('assets/user/img/gallery/gallery-big-03.jpg')}}" data-fancybox="gallery1">
+												<img class="img-fluid" alt="Image" src="{{ url('assets/user/img/gallery/gallery-thumb-03.jpg')}}">
 											</a>
 										</div>
                                 	</li>
                                 	<li>
                                 		<div class="gallery-widget">
-											<a href="assets/img/gallery/gallery-big-04.jpg" data-fancybox="gallery1">
-												<img class="img-fluid" alt="Image" src="assets/img/gallery/gallery-thumb-04.jpg">
+											<a href="{{ url('assets/user/img/gallery/gallery-big-04.jpg')}}" data-fancybox="gallery1">
+												<img class="img-fluid" alt="Image" src="{{ url('assets/user/img/gallery/gallery-thumb-04.jpg')}}">
 											</a>
 										</div>
                                 	</li>
@@ -721,7 +476,7 @@
                                 <h4>Video</h4>
                             </div>
                             <div class="short-video">
-                            	<img class="img-fluid" alt="Image" src="assets/img/video-img.jpg">
+                            	<img class="img-fluid" alt="Image" src="{{ url('assets/user/img/video-img.jpg')}}">
                             	<a href="https://www.youtube.com/embed/ExJZAegsOis" data-fancybox="video" class="video-icon">
                             		<i class="bx bx-play"></i>
                             	</a>
@@ -854,7 +609,7 @@
 			                                <div class="review-header-group">
 			                                    <div class="review-widget-header">
 			                                        <span class="review-widget-img">
-			                                            <img src="assets/img/profiles/avatar-01.jpg"  class="img-fluid" alt="User">
+			                                            <img src="{{ url('assets/user/img/profiles/avatar-01.jpg')}}"  class="img-fluid" alt="User">
 			                                        </span>
 			                                        <div class="review-design">
 			                                            <h6>Johnson</h6>
@@ -890,7 +645,7 @@
 					                                <div class="review-header-group">
 					                                    <div class="review-widget-header">
 					                                        <span class="review-widget-img">
-					                                            <img src="assets/img/profiles/avatar-01.jpg"  class="img-fluid" alt="User">
+					                                            <img src="{{ url('assets/user/img/profiles/avatar-01.jpg')}}"  class="img-fluid" alt="User">
 					                                        </span>
 					                                        <div class="review-design">
 					                                            <h6>Johnson</h6>
@@ -928,7 +683,7 @@
 			                                <div class="review-header-group">
 			                                     <div class="review-widget-header">
 			                                        <span class="review-widget-img">
-			                                            <img src="assets/img/profiles/avatar-02.jpg"  class="img-fluid" alt="User">
+			                                            <img src="{{ url('assets/user/img/profiles/avatar-02.jpg')}}"  class="img-fluid" alt="User">
 			                                        </span>
 			                                        <div class="review-design">
 			                                            <h6>Casandra</h6>
@@ -1374,8 +1129,8 @@
                             </div>
                             <div class="owner-detail">
                                 <div class="owner-img">
-                                    <a href="#"><img src="assets/img/profiles/avatar-07.jpg" alt="User"></a>
-                                    <span class="badge-check"><img src="assets/img/icons/badge-check.svg" alt="User"></span>
+                                    <a href="#"><img src="{{ url('assets/user/img/profiles/avatar-07.jpg')}}" alt="User"></a>
+                                    <span class="badge-check"><img src="{{ url('assets/user/img/icons/badge-check.svg')}}" alt="User"></span>
                                 </div>
                                 <div class="reviewbox-list-rating">
                                     <h5><a>Brooklyn Cars</a></h5>
@@ -1454,7 +1209,7 @@
 								<div class="listing-item pb-0">											
 									<div class="listing-img">
 										<a href="listing-details.html">
-											<img src="assets/img/cars/car-03.jpg" class="img-fluid" alt="Audi">
+											<img src="{{ url('assets/user/img/cars/car-03.jpg')}}" class="img-fluid" alt="Audi">
 										</a>
 										<div class="fav-item justify-content-end">
 											<a href="javascript:void(0)" class="fav-icon">
@@ -1467,7 +1222,7 @@
 										<div class="listing-features d-flex align-items-end justify-content-between">
 											<div class="list-rating">
 												<a href="javascript:void(0)" class="author-img">
-													<img src="assets/img/profiles/avatar-03.jpg" alt="author">
+													<img src="{{ url('assets/user/img/profiles/avatar-03.jpg')}}" alt="author">
 												</a>
 												<h3 class="listing-title">
 													<a href="listing-details.html">Audi A3 2019 new</a>
@@ -1482,35 +1237,35 @@
 												</div>
 											</div>
 											<div class="list-km">
-												<span class="km-count"><img src="assets/img/icons/map-pin.svg" alt="author">3.5m</span>
+												<span class="km-count"><img src="{{ url('assets/user/img/icons/map-pin.svg')}}" alt="author">3.5m</span>
 											</div>
 										</div> 
 										<div class="listing-details-group">
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-05.svg" alt="Manual"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-05.svg')}}" alt="Manual"></span>
 													<p>Manual</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-02.svg" alt="10 KM"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-02.svg')}}" alt="10 KM"></span>
 													<p>10 KM</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-03.svg" alt="Petrol"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-03.svg')}}" alt="Petrol"></span>
 													<p>Petrol</p>
 												</li>
 											</ul>	
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-04.svg" alt="Power"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-04.svg')}}" alt="Power"></span>
 													<p>Power</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-05.svg" alt="2019"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-05.svg')}}" alt="2019"></span>
 													<p>2019</p>	
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-06.svg" alt="Persons"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-06.svg')}}" alt="Persons"></span>
 													<p>4 Persons</p>
 												</li>
 											</ul>
@@ -1535,13 +1290,13 @@
 						    <div class="rental-car-item">
 								<div class="listing-item pb-0">										
 									<a href="listing-details.html">
-										<img src="assets/img/cars/car-01.jpg" class="img-fluid" alt="Toyota">
+										<img src="{{ url('assets/user/img/cars/car-01.jpg')}}" class="img-fluid" alt="Toyota">
 									</a>							
 									<div class="listing-content">
 										<div class="listing-features d-flex align-items-end justify-content-between">
 											<div class="list-rating">
 												<a href="javascript:void(0)" class="author-img">
-													<img src="assets/img/profiles/avatar-04.jpg" alt="author">
+													<img src="{{ url('assets/user/img/profiles/avatar-04.jpg')}}" alt="author">
 												</a>
 												<h3 class="listing-title">
 													<a href="listing-details.html">Toyota Camry SE 350</a>
@@ -1556,35 +1311,35 @@
 												</div>
 											</div>
 											<div class="list-km">
-												<span class="km-count"><img src="assets/img/icons/map-pin.svg" alt="author">3.2m</span>
+												<span class="km-count"><img src="{{ url('assets/user/img/icons/map-pin.svg')}}" alt="author">3.2m</span>
 											</div>
 										</div> 
 										<div class="listing-details-group">
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-01.svg" alt="Auto"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-01.svg')}}" alt="Auto"></span>
 													<p>Auto</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-02.svg" alt="10 KM"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-02.svg')}}" alt="10 KM"></span>
 													<p>10 KM</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-03.svg" alt="Petrol"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-03.svg')}}" alt="Petrol"></span>
 													<p>Petrol</p>
 												</li>
 											</ul>	
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-04.svg" alt="Power"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-04.svg')}}" alt="Power"></span>
 													<p>Power</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-05.svg" alt="2018"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-05.svg')}}" alt="2018"></span>
 													<p>2018</p>	
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-06.svg" alt="Persons"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-06.svg')}}" alt="Persons"></span>
 													<p>5 Persons</p>
 												</li>
 											</ul>
@@ -1613,7 +1368,7 @@
 								<div class="listing-item pb-0">											
 									<div class="listing-img">
 										<a href="listing-details.html">
-											<img src="assets/img/cars/car-04.jpg" class="img-fluid" alt="Audi">
+											<img src="{{ url('assets/user/img/cars/car-04.jpg')}}" class="img-fluid" alt="Audi">
 										</a>
 										<div class="fav-item justify-content-end">
 											<a href="javascript:void(0)" class="fav-icon">
@@ -1626,7 +1381,7 @@
 										<div class="listing-features d-flex align-items-end justify-content-between">
 											<div class="list-rating">
 												<a href="javascript:void(0)" class="author-img">
-													<img src="assets/img/profiles/avatar-04.jpg" alt="author">
+													<img src="{{ url('assets/user/img/profiles/avatar-04.jpg')}}" alt="author">
 												</a>
 												<h3 class="listing-title">
 													<a href="listing-details.html">Ferrari 458 MM Speciale</a>
@@ -1641,35 +1396,35 @@
 												</div>
 											</div>
 											<div class="list-km">
-												<span class="km-count"><img src="assets/img/icons/map-pin.svg" alt="author">3.5m</span>
+												<span class="km-count"><img src="{{ url('assets/user/img/icons/map-pin.svg')}}" alt="author">3.5m</span>
 											</div>
 										</div> 
 										<div class="listing-details-group">
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-05.svg" alt="Manual"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-05.svg')}}" alt="Manual"></span>
 													<p>Manual</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-02.svg" alt="14 KM"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-02.svg')}}" alt="14 KM"></span>
 													<p>14 KM</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-03.svg" alt="Diesel"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-03.svg')}}" alt="Diesel"></span>
 													<p>Diesel</p>
 												</li>
 											</ul>	
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-04.svg" alt="Basic"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-04.svg')}}" alt="Basic"></span>
 													<p>Basic</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-05.svg" alt="2022"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-05.svg')}}" alt="2022"></span>
 													<p>2022</p>	
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-06.svg" alt="Persons"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-06.svg')}}" alt="Persons"></span>
 													<p>5 Persons</p>
 												</li>
 											</ul>
@@ -1698,7 +1453,7 @@
 								<div class="listing-item pb-0">											
 									<div class="listing-img">
 										<a href="listing-details.html">
-											<img src="assets/img/cars/car-05.jpg" class="img-fluid" alt="Audi">
+											<img src="{{ url('assets/user/img/cars/car-05.jpg')}}" class="img-fluid" alt="Audi">
 										</a>
 										<div class="fav-item justify-content-end">
 											<a href="javascript:void(0)" class="fav-icon">
@@ -1711,7 +1466,7 @@
 										<div class="listing-features d-flex align-items-end justify-content-between">
 											<div class="list-rating">
 												<a href="javascript:void(0)" class="author-img">
-													<img src="assets/img/profiles/avatar-05.jpg" alt="author">
+													<img src="{{ url('assets/user/img/profiles/avatar-05.jpg')}}" alt="author">
 												</a>
 												<h3 class="listing-title">
 													<a href="listing-details.html">2018 Chevrolet Camaro</a>
@@ -1726,35 +1481,35 @@
 												</div>
 											</div>
 											<div class="list-km">
-												<span class="km-count"><img src="assets/img/icons/map-pin.svg" alt="author">4.5m</span>
+												<span class="km-count"><img src="{{ url('assets/user/img/icons/map-pin.svg')}}" alt="author">4.5m</span>
 											</div>
 										</div> 
 										<div class="listing-details-group">
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-05.svg" alt="Manual"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-05.svg')}}" alt="Manual"></span>
 													<p>Manual</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-02.svg" alt="18 KM"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-02.svg')}}" alt="18 KM"></span>
 													<p>18 KM</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-03.svg" alt="Diesel"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-03.svg')}}" alt="Diesel"></span>
 													<p>Diesel</p>
 												</li>
 											</ul>	
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-04.svg" alt="Power"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-04.svg')}}" alt="Power"></span>
 													<p>Power</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-05.svg" alt="2018"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-05.svg')}}" alt="2018"></span>
 													<p>2018</p>	
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-06.svg" alt="Persons"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-06.svg')}}" alt="Persons"></span>
 													<p>4 Persons</p>
 												</li>
 											</ul>
@@ -1783,7 +1538,7 @@
 								<div class="listing-item">											
 									<div class="listing-img">
 										<a href="listing-details.html">
-											<img src="assets/img/cars/car-06.jpg" class="img-fluid" alt="Audi">
+											<img src="{{ url('assets/user/img/cars/car-06.jpg')}}" class="img-fluid" alt="Audi">
 										</a>
 										<div class="fav-item justify-content-end">
 											<a href="javascript:void(0)" class="fav-icon">
@@ -1796,7 +1551,7 @@
 										<div class="listing-features d-flex align-items-end justify-content-between">
 											<div class="list-rating">
 												<a href="javascript:void(0)" class="author-img">
-													<img src="assets/img/profiles/avatar-06.jpg" alt="author">
+													<img src="{{ url('assets/user/img/profiles/avatar-06.jpg')}}" alt="author">
 												</a>
 												<h3 class="listing-title">
 													<a href="listing-details.html">Acura Sport Version</a>
@@ -1811,35 +1566,35 @@
 												</div>
 											</div>
 											<div class="list-km">
-												<span class="km-count"><img src="assets/img/icons/map-pin.svg" alt="author">3.2m</span>
+												<span class="km-count"><img src="{{ url('assets/user/img/icons/map-pin.svg')}}" alt="author">3.2m</span>
 											</div>
 										</div> 
 										<div class="listing-details-group">
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-01.svg" alt="Auto"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-01.svg')}}" alt="Auto"></span>
 													<p>Auto</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-02.svg" alt="12 KM"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-02.svg')}}" alt="12 KM"></span>
 													<p>12 KM</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-03.svg" alt="Diesel"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-03.svg')}}" alt="Diesel"></span>
 													<p>Diesel</p>
 												</li>
 											</ul>	
 											<ul>
 												<li>
-													<span><img src="assets/img/icons/car-parts-04.svg" alt="Power"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-04.svg')}}" alt="Power"></span>
 													<p>Power</p>
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-05.svg" alt="2013"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-05.svg')}}" alt="2013"></span>
 													<p>2013</p>	
 												</li>
 												<li>
-													<span><img src="assets/img/icons/car-parts-06.svg" alt="Persons"></span>
+													<span><img src="{{ url('assets/user/img/icons/car-parts-06.svg')}}" alt="Persons"></span>
 													<p>5 Persons</p>
 												</li>
 											</ul>
@@ -1966,7 +1721,7 @@
 							<div class="booking-header">
 								<div class="booking-img-wrap">
 									<div class="book-img">
-										<img src="assets/img/cars/car-05.jpg" alt="img">
+										<img src="{{ url('assets/user/img/cars/car-05.jpg')}}" alt="img">
 									</div>
 									<div class="book-info">
 										<h6>Chevrolet Camaro</h6>
@@ -2019,7 +1774,7 @@
 							<div class="booking-header fare-book">
 								<div class="booking-img-wrap">
 									<div class="book-img">
-										<img src="assets/img/cars/car-05.jpg" alt="img">
+										<img src="{{ url('assets/user/img/cars/car-05.jpg')}}" alt="img">
 									</div>
 									<div class="book-info">
 										<h6>Chevrolet Camaro</h6>
@@ -2084,219 +1839,8 @@
 		</div>
 		<!-- /Custom Date Modal -->
 	
-		 <!-- Footer -->
-		 <footer class="footer">	
-			<!-- Footer Top -->	
-			<div class="footer-top aos" data-aos="fade-down">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-7">
-							<div class="row">
-								<div class="col-lg-4 col-md-6">
-									<!-- Footer Widget -->
-									<div class="footer-widget footer-menu">
-										<h5 class="footer-title">About Company</h5>
-										<ul>
-											<li>
-												<a href="about.html">Our Company</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Shop Toyota</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Dreamsrentals USA</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Dreamsrentals Worldwide</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Dreamsrental Category</a>
-											</li>										
-										</ul>
-									</div>
-									<!-- /Footer Widget -->
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<!-- Footer Widget -->
-									<div class="footer-widget footer-menu">
-										<h5 class="footer-title">Vehicles Type</h5>
-										<ul>
-											<li>
-												<a href="javascript:void(0)">All  Vehicles</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">SUVs</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Trucks</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Cars</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Crossovers</a>
-											</li>								
-										</ul>
-									</div>
-									<!-- /Footer Widget -->
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<!-- Footer Widget -->
-									<div class="footer-widget footer-menu">
-										<h5 class="footer-title">Quick links</h5>
-										<ul>
-											<li>
-												<a href="javascript:void(0)">My Account</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Champaigns</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Dreamsrental Dealers</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Deals and Incentive</a>
-											</li>
-											<li>
-												<a href="javascript:void(0)">Financial Services</a>
-											</li>								
-										</ul>
-									</div>
-									<!-- /Footer Widget -->
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-5">
-							<div class="footer-contact footer-widget">
-								<h5 class="footer-title">Contact Info</h5>
-								<div class="footer-contact-info">									
-									<div class="footer-address">											
-										<span><i class="feather-phone-call"></i></span>
-										<div class="addr-info">
-											<a href="tel:+1(888)7601940">+ 1 (888) 760 1940</a>
-										</div>
-									</div>
-									<div class="footer-address">
-										<span><i class="feather-mail"></i></span>
-										<div class="addr-info">
-											<a href="https://dreamsrent.dreamstechnologies.com/cdn-cgi/l/email-protection#60131510100f1214200518010d100c054e030f0d"><span class="__cf_email__" data-cfemail="a4d7d1d4d4cbd6d0e4c1dcc5c9d4c8c18ac7cbc9">[email&#160;protected]</span></a>
-										</div>
-									</div>
-									<div class="update-form">
-										<form action="#">
-											<span><i class="feather-mail"></i></span> 
-											<input type="email" class="form-control" placeholder="Enter You Email Here">
-											<button type="submit" class="btn btn-subscribe"><span><i class="feather-send"></i></span></button>
-										</form>
-									</div>
-								</div>								
-								<div class="footer-social-widget">
-									<ul class="nav-social">
-										<li>
-											<a href="javascript:void(0)"><i class="fa-brands fa-facebook-f fa-facebook fi-icon"></i></a>
-										</li>
-										<li>
-											<a href="javascript:void(0)"><i class="fab fa-instagram fi-icon"></i></a>
-										</li>
-										<li>
-											<a href="javascript:void(0)"><i class="fab fa-behance fi-icon"></i></a>
-										</li>
-										<li>
-											<a href="javascript:void(0)"><i class="fab fa-twitter fi-icon"></i> </a>
-										</li>
-										<li>
-											<a href="javascript:void(0)"><i class="fab fa-linkedin fi-icon"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>					
-				</div>
-			</div>
-			<!-- /Footer Top -->
-
-			<!-- Footer Bottom -->
-			<div class="footer-bottom">
-				<div class="container">
-					<!-- Copyright -->
-					<div class="copyright">
-						<div class="row align-items-center">
-							<div class="col-md-6">
-								<div class="copyright-text">
-									<p>© 2024 Dreams Rent. All Rights Reserved.</p>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<!-- Copyright Menu -->
-								<div class="copyright-menu">
-									<div class="vistors-details">
-										<ul class="d-flex">											
-											<li><a href="javascript:void(0)"><img class="img-fluid" src="assets/img/icons/paypal.svg" alt="Paypal"></a></li>											
-											<li><a href="javascript:void(0)"><img class="img-fluid" src="assets/img/icons/visa.svg" alt="Visa"></a></li>
-											<li><a href="javascript:void(0)"><img class="img-fluid" src="assets/img/icons/master.svg" alt="Master"></a></li>
-											<li><a href="javascript:void(0)"><img class="img-fluid" src="assets/img/icons/applegpay.svg" alt="applegpay"></a></li>
-										</ul>										   								
-									</div>
-								</div>
-								<!-- /Copyright Menu -->
-							</div>
-						</div>
-					</div>
-					<!-- /Copyright -->
-				</div>
-			</div>
-			<!-- /Footer Bottom -->			
-		</footer>
-		<!-- /Footer -->
 				
 	</div>
 
-    <!-- scrollToTop start -->
-	<div class="progress-wrap active-progress">
-		<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919px, 307.919px; stroke-dashoffset: 228.265px;"></path>
-		</svg>
-	</div>
-	<!-- scrollToTop end -->
-	
-	<!-- jQuery -->
-	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.7.1.min.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
 
-	<!-- Bootstrap Core JS -->
-	<script src="assets/js/bootstrap.bundle.min.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>	
-	
-	<!-- Aos -->
-	<script src="assets/plugins/aos/aos.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-
-    <!-- Datepicker Core JS -->
-	<script src="assets/plugins/moment/moment.min.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-	<script src="assets/js/bootstrap-datetimepicker.min.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-
-    <!-- Slick JS -->
-    <script src="assets/plugins/slick/slick.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-
-    <!-- Owl Carousel JS -->
-	<script src="assets/js/owl.carousel.min.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-
-	<!-- Select2 JS -->
-   	<script src="assets/plugins/select2/js/select2.min.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-	
-	<!-- Top JS -->
-	<script src="assets/js/backToTop.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-	
-	<!-- Sticky Sidebar JS -->
-	<script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-	<script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>	
-
-	<!-- Fancybox JS -->
-	<script src="assets/plugins/fancybox/fancybox.umd.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-	
-	<!-- Custom JS -->
-	<script src="assets/js/script.js" type="ffb50be26f490f3c3aeff14b-text/javascript"></script>
-	
-<script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="ffb50be26f490f3c3aeff14b-|49" defer></script><script defer src="../../../static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"97fffa97e84a77e0","version":"2025.8.0","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}' crossorigin="anonymous"></script>
-</body>
-
-<!-- Mirrored from dreamsrent.dreamstechnologies.com/html/template/listing-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Sep 2025 11:23:11 GMT -->
-</html>
+   @endsection
