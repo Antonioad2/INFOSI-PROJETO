@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Dreams Rent | Template</title>
+    <title>@yield('title')</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ url('assets/user/img/favicon.png') }}">
@@ -61,12 +61,12 @@
 <body>
 
     @include('site.layouts.header')
-    <main class="nxl-container">
-        @yield('content')
-        @include('site.layouts.footer')
-    </main>
 
+    {{-- pegando o conteúdo início --}}
+    @yield('content')
+    {{-- pegando o conteúdo fim --}}
 
+    @include('site.layouts.footer')
 
 
     <!-- jQuery -->
@@ -110,10 +110,12 @@
 
     <script src="{{ url('assets/user/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js') }}"
         data-cf-settings="705cb7e2d14f5288c24a7639-|49" defer></script>
-    <script defer src="{{ url('assets/user/static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015')}}"
+    <script defer
+        src="{{ url('assets/user/static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015') }}"
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"rayId":"97fffa7f8ad877d9","version":"2025.8.0","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}'
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>

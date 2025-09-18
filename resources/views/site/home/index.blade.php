@@ -1,4 +1,5 @@
 @extends('site.layouts.main')
+@section('title', 'AngoCar')
 @section('content')
     <div class="main-wrapper home-three">
 
@@ -63,29 +64,29 @@
                     </div>
                 </div>
                 <div class="banner-search">
-                    <form action="{{ url('https://dreamsrent.dreamstechnologies.com/html/template/listing-grid.html') }}"
-                        class="form-block d-flex align-items-center">
+                    <form action="{{ route('site.car-list') }}" class="form-block d-flex align-items-center" method="GET">
+                        @csrf
                         <div class="search-input">
                             <div class="input-block">
                                 <label>Local de Retirada</label>
-                                <select class="select">
-                                    <option>Escolha o local</option>
-                                    <option>New York</option>
-                                    <option>Dallas</option>
-                                    <option>Chicago</option>
-                                    <option>San Diego</option>
+                                <select class="select" name="pickup_location">
+                                    <option value="">Escolha o local</option>
+                                    <option value="New York">New York</option>
+                                    <option value="Dallas">Dallas</option>
+                                    <option value="Chicago">Chicago</option>
+                                    <option value="San Diego">San Diego</option>
                                 </select>
                             </div>
                         </div>
                         <div class="search-input">
                             <div class="input-block">
                                 <label>Local de Devolução</label>
-                                <select class="select">
-                                    <option>Escolha o local</option>
-                                    <option>San Francisco</option>
-                                    <option>Austin</option>
-                                    <option>Boston</option>
-                                    <option>Chicago</option>
+                                <select class="select" name="dropoff_location">
+                                    <option value="">Escolha o local</option>
+                                    <option value="San Francisco">San Francisco</option>
+                                    <option value="Austin">Austin</option>
+                                    <option value="Boston">Boston</option>
+                                    <option value="Chicago">Chicago</option>
                                 </select>
                             </div>
                         </div>
@@ -93,7 +94,8 @@
                             <div class="input-block">
                                 <label>Data e Hora de Retirada</label>
                                 <div class="input-wrap">
-                                    <input type="text" class="form-control flatpickr-datetime" value="2025-03-14 12:00">
+                                    <input type="text" class="form-control flatpickr-datetime" name="pickup_datetime"
+                                        value="2025-03-14 12:00">
                                     <span class="input-icon"><i class="bx bx-chevron-down"></i></span>
                                 </div>
                             </div>
@@ -102,7 +104,8 @@
                             <div class="input-block">
                                 <label>Data e Hora de Devolução</label>
                                 <div class="input-wrap">
-                                    <input type="text" class="form-control flatpickr-datetime" value="2025-03-15 12:00">
+                                    <input type="text" class="form-control flatpickr-datetime" name="dropoff_datetime"
+                                        value="2025-03-15 12:00">
                                     <span class="input-icon"><i class="bx bx-chevron-down"></i></span>
                                 </div>
                             </div>
@@ -111,6 +114,7 @@
                             <button class="btn btn-primary" type="submit"><i class="bx bx-search-alt"></i></button>
                         </div>
                     </form>
+
                 </div>
             </div>
             <div class="banner-bgs">
@@ -386,443 +390,74 @@
                 </div>
 
                 <div class="row">
-
-                    <!-- Car List -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="listing-item listing-item-two">
-                            <div class="listing-img">
-                                <div class="img-slider owl-carousel">
-                                    <div class="slide-images">
-                                        <a href="listing-details.html">
-                                            <img src="{{ url('assets/user/img/cars/car-11.jpg') }}" class="img-fluid"
-                                                alt="Toyota">
-                                        </a>
-                                    </div>
-                                    <div class="slide-images">
-                                        <a href="listing-details.html">
-                                            <img src="{{ url('assets/user/img/cars/car-12.jpg') }}" class="img-fluid"
-                                                alt="Toyota">
-                                        </a>
-                                    </div>
-                                    <div class="slide-images">
-                                        <a href="listing-details.html">
-                                            <img src="{{ url('assets/user/img/cars/car-11.jpg') }}" class="img-fluid"
-                                                alt="Toyota">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="fav-item">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="featured-text">Toyota</span>
-                                        <span class="availability">Disponível</span>
-                                    </div>
-                                    <a href="javascript:void(0)" class="fav-icon selected">
-                                        <i class="feather-heart"></i>
+                    @foreach ($cars as $car)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="listing-item listing-item-two">
+                                <div class="listing-img">
+                                    <a href="{{ route('car.details', $car->id) }}">
+                                        <img src="{{ url('uploads/car/car_images/' . $car->image) }}" class="img-fluid"
+                                            alt="{{ $car->brand->name ?? 'Carro' }}">
                                     </a>
+                                    <div class="fav-item">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="featured-text">{{ $car->brand->name ?? '' }}</span>
+                                            <span
+                                                class="availability">{{ $car->status == 'available' ? 'Disponível' : 'Indisponível' }}</span>
+                                        </div>
+                                        <a href="javascript:void(0)" class="fav-icon">
+                                            <i class="feather-heart"></i>
+                                        </a>
+                                    </div>
+                                    <span class="location"><i
+                                            class="bx bx-map me-1"></i>{{ $car->location ?? 'Localização' }}</span>
                                 </div>
-                                <span class="location"><i class="bx bx-map me-1"></i>Lasvegas</span>
-                            </div>
-                            <div class="listing-content">
-                                <div class="listing-features d-flex align-items-center justify-content-between">
-
-                                    <div class="list-rating">
-                                        <h3 class="listing-title">
-                                            <a href="listing-details.html">Toyota Camry SE 350</a>
-                                        </h3>
+                                <div class="listing-content">
+                                    <div class="listing-features d-flex align-items-center justify-content-between">
                                         <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.0) 138 Reviews</span>
+                                            <h3 class="listing-title">
+                                                <a href="{{ route('car.details', $car->id) }}">{{ $car->name }}</a>
+                                            </h3>
+                                            <div class="list-rating">
+                                                @for ($i = 0; $i < 5; $i++)
+                                                    <i class="fas fa-star {{ $i < $car->rating ? 'filled' : '' }}"></i>
+                                                @endfor
+                                                <span>({{ $car->rating }}) {{ $car->reviews_count ?? 0 }} Reviews</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h4 class="price">${{ $car->price }} <span>/ Dia</span></h4>
                                         </div>
                                     </div>
-                                    <div>
-                                        <h4 class="price">$160 <span>/ Day</span></h4>
+                                    <div class="listing-details-group">
+                                        <ul>
+                                            <li>
+                                                <img src="{{ url('assets/user/img/icons/car-parts-01.svg') }}"
+                                                    alt="Transmissão">
+                                                <p>{{ $car->transmission }}</p>
+                                            </li>
+                                            <li>
+                                                <img src="{{ url('assets/user/img/icons/car-parts-02.svg') }}"
+                                                    alt="Quilometragem">
+                                                <p>{{ $car->km }} KM</p>
+                                            </li>
+                                            <li>
+                                                <img src="{{ url('assets/user/img/icons/car-parts-03.svg') }}"
+                                                    alt="Combustível">
+                                                <p>{{ $car->fuel->name ?? 'Desconhecido' }}</p>
+                                            </li>
+                                            <li>
+                                                <img src="{{ url('assets/user/img/icons/car-parts-05.svg') }}"
+                                                    alt="Ano">
+                                                <p>{{ $car->year }}</p>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </div>
-                                <div class="listing-details-group">
-                                    <ul>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-01.svg') }}"
-                                                alt="Auto">
-                                            <p>Auto</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-02.svg') }}"
-                                                alt="10 KM">
-                                            <p>10 KM</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-03.svg') }}"
-                                                alt="Petrol">
-                                            <p>Diesel</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-05.svg') }}"
-                                                alt="2018">
-                                            <p>2018</p>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /Car List -->
-
-                    <!-- Car List -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="listing-item listing-item-two">
-                            <div class="listing-img">
-                                <a href="listing-details.html">
-                                    <img src="{{ url('assets/user/img/cars/car-12.jpg') }}" class="img-fluid"
-                                        alt="Toyota">
-                                </a>
-                                <div class="fav-item">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="featured-text">Toyota</span>
-                                        <span class="availability">Disponível</span>
-                                    </div>
-                                    <a href="javascript:void(0)" class="fav-icon selected">
-                                        <i class="feather-heart"></i>
-                                    </a>
-                                </div>
-                                <span class="location"><i class="bx bx-map me-1"></i>Lasvegas</span>
-                            </div>
-                            <div class="listing-content">
-                                <div class="listing-features d-flex align-items-center justify-content-between">
-                                    <div class="list-rating">
-                                        <h3 class="listing-title">
-                                            <a href="listing-details.html">Audi A3 2019 new</a>
-                                        </h3>
-                                        <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.0) 150 Reviews</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 class="price">$45 <span>/ Day</span></h4>
-                                    </div>
-                                </div>
-                                <div class="listing-details-group">
-                                    <ul>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-01.svg') }}"
-                                                alt="Auto">
-                                            <p>Auto</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-02.svg') }}"
-                                                alt="10 KM">
-                                            <p>10 KM</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-03.svg') }}"
-                                                alt="Petrol">
-                                            <p>Diesel</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-05.svg') }}"
-                                                alt="2018">
-                                            <p>2019</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Car List -->
-
-                    <!-- Car List -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="listing-item listing-item-two">
-                            <div class="listing-img">
-                                <a href="listing-details.html">
-                                    <img src="{{ url('assets/user/img/cars/car-13.jpg') }}" class="img-fluid"
-                                        alt="Toyota">
-                                </a>
-                                <div class="fav-item">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="featured-text">Toyota</span>
-                                        <span class="availability">Disponível</span>
-                                    </div>
-                                    <a href="javascript:void(0)" class="fav-icon">
-                                        <i class="feather-heart"></i>
-                                    </a>
-                                </div>
-                                <span class="location"><i class="bx bx-map me-1"></i>Lasvegas</span>
-                            </div>
-                            <div class="listing-content">
-                                <div class="listing-features d-flex align-items-center justify-content-between">
-                                    <div class="list-rating">
-                                        <h3 class="listing-title">
-                                            <a href="listing-details.html">Ford Mustang 4.0 AT</a>
-                                        </h3>
-                                        <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.0) 170 Reviews</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 class="price">$90 <span>/ Day</span></h4>
-                                    </div>
-                                </div>
-                                <div class="listing-details-group">
-                                    <ul>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-01.svg') }}"
-                                                alt="Auto">
-                                            <p>Auto</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-02.svg') }}"
-                                                alt="10 KM">
-                                            <p>10 KM</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-03.svg') }}"
-                                                alt="Petrol">
-                                            <p>Petrol</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-05.svg') }}"
-                                                alt="2018">
-                                            <p>2021</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Car List -->
-
-                    <!-- Car List -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="listing-item listing-item-two">
-                            <div class="listing-img">
-                                <div class="img-slider owl-carousel">
-                                    <div class="slide-images">
-                                        <a href="listing-details.html">
-                                            <img src="{{ url('assets/user/img/cars/car-14.jpg') }}" class="img-fluid"
-                                                alt="Toyota">
-                                        </a>
-                                    </div>
-                                    <div class="slide-images">
-                                        <a href="listing-details.html">
-                                            <img src="{{ url('assets/user/img/cars/car-13.jpg') }}" class="img-fluid"
-                                                alt="Toyota">
-                                        </a>
-                                    </div>
-                                    <div class="slide-images">
-                                        <a href="listing-details.html">
-                                            <img src="{{ url('assets/user/img/cars/car-16.jpg') }}" class="img-fluid"
-                                                alt="Toyota">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="fav-item">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="featured-text">Toyota</span>
-                                        <span class="availability">Disponível</span>
-                                    </div>
-                                    <a href="javascript:void(0)" class="fav-icon">
-                                        <i class="feather-heart"></i>
-                                    </a>
-                                </div>
-                                <span class="location"><i class="bx bx-map me-1"></i>Spain</span>
-                            </div>
-                            <div class="listing-content">
-                                <div class="listing-features d-flex align-items-center justify-content-between">
-                                    <div class="list-rating">
-                                        <h3 class="listing-title">
-                                            <a href="listing-details.html">Chevrolet Picker</a>
-                                        </h3>
-                                        <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.0) 165 Reviews</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 class="price">$48 <span>/ Day</span></h4>
-                                    </div>
-                                </div>
-                                <div class="listing-details-group">
-                                    <ul>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-01.svg') }}"
-                                                alt="Auto">
-                                            <p>Manual</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-02.svg') }}"
-                                                alt="10 KM">
-                                            <p>18 KM</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-03.svg') }}"
-                                                alt="Petrol">
-                                            <p>Diesel</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-05.svg') }}"
-                                                alt="2018">
-                                            <p>2018</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Car List -->
-
-                    <!-- Car List -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="listing-item listing-item-two">
-                            <div class="listing-img">
-                                <a href="listing-details.html">
-                                    <img src="{{ url('assets/user/img/cars/car-15.jpg') }}" class="img-fluid"
-                                        alt="Toyota">
-                                </a>
-                                <div class="fav-item">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="featured-text">Toyota</span>
-                                        <span class="availability">Disponível</span>
-                                    </div>
-                                    <a href="javascript:void(0)" class="fav-icon">
-                                        <i class="feather-heart"></i>
-                                    </a>
-                                </div>
-                                <span class="location"><i class="bx bx-map me-1"></i>Lasvegas</span>
-                            </div>
-                            <div class="listing-content">
-                                <div class="listing-features d-flex align-items-center justify-content-between">
-                                    <div class="list-rating">
-                                        <h3 class="listing-title">
-                                            <a href="listing-details.html">Ferrari 458 MM Special</a>
-                                        </h3>
-                                        <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.0) 160 Reviews</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 class="price">$95 <span>/ Day</span></h4>
-                                    </div>
-                                </div>
-                                <div class="listing-details-group">
-                                    <ul>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-01.svg') }}"
-                                                alt="Auto">
-                                            <p>Auto</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-02.svg') }}"
-                                                alt="10 KM">
-                                            <p>16 KM</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-03.svg') }}"
-                                                alt="Petrol">
-                                            <p>Petrol</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-05.svg') }}"
-                                                alt="2018">
-                                            <p>2021</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Car List -->
-
-                    <!-- Car List -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="listing-item listing-item-two">
-                            <div class="listing-img">
-                                <a href="listing-details.html">
-                                    <img src="{{ url('assets/user/img/cars/car-16.jpg') }}" class="img-fluid"
-                                        alt="Toyota">
-                                </a>
-                                <div class="fav-item">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="featured-text">Toyota</span>
-                                        <span class="availability">Disponível</span>
-                                    </div>
-                                    <a href="javascript:void(0)" class="fav-icon">
-                                        <i class="feather-heart"></i>
-                                    </a>
-                                </div>
-                                <span class="location"><i class="bx bx-map me-1"></i>Newyork, USA</span>
-                            </div>
-                            <div class="listing-content">
-                                <div class="listing-features d-flex align-items-center justify-content-between">
-                                    <div class="list-rating">
-                                        <h3 class="listing-title">
-                                            <a href="listing-details.html">2018 Chevrolet Camaro</a>
-                                        </h3>
-                                        <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span>(4.0) 150 Reviews</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 class="price">$120 <span>/ Day</span></h4>
-                                    </div>
-                                </div>
-                                <div class="listing-details-group">
-                                    <ul>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-01.svg') }}"
-                                                alt="Auto">
-                                            <p>Auto</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-02.svg') }}"
-                                                alt="10 KM">
-                                            <p>10 KM</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-03.svg') }}"
-                                                alt="Petrol">
-                                            <p>Diesel</p>
-                                        </li>
-                                        <li>
-                                            <img src="{{ url('assets/user/img/icons/car-parts-05.svg') }}"
-                                                alt="2018">
-                                            <p>2019</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Car List -->
-
+                    @endforeach
                 </div>
+
 
                 <div class="view-all-btn text-center aos" data-aos="fade-down">
                     <a href="listing-grid.html" class="btn btn-secondary d-inline-flex align-items-center">Ver Mais
@@ -969,84 +604,37 @@
                 </div>
                 <!-- /Section Header -->
                 <div class="car-slider owl-carousel">
-
-                    <!-- Car Item -->
-                    <div class="car-item">
-                        <h6>FORD</h6>
-                        <h2 class="display-1">MUSTANG</h2>
-                        <div class="car-img">
-                            <img src="{{ url('assets/user/img/cars/car-15.png') }}" alt="img" class="img-fluid">
-                            <div class="amount-icon">
-                                <span class="day-amt">
-                                    <p>Apartir de</p>
-                                    <h6>60.000 Kz <span> /dia</span></h6>
-                                </span>
+                    @foreach ($cars as $car)
+                        <div class="car-item">
+                            <h6>{{ strtoupper($car->brand->name ?? 'Marca') }}</h6>
+                            <h2 class="display-1">{{ strtoupper($car->models->name ?? 'Modelo') }}</h2>
+                            <div class="car-img">
+                                <img src="{{ url('uploads/car/car_images/' . $car->image) }}" alt="img"
+                                    class="img-fluid">
+                                <div class="amount-icon">
+                                    <span class="day-amt">
+                                        <p>Apartir de</p>
+                                        <h6>{{ number_format($car->price, 0, ',', '.') }} Kz <span> /dia</span></h6>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="spec-list">
-                            <span><img src="{{ url('assets/user/img/icons/spec-01.svg') }}" alt="img">Auto</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-02.svg') }}" alt="img">Power</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-03.svg') }}" alt="img">30 K</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-04.svg') }}" alt="img">AC</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}" alt="img">Diesel</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}" alt="img">5
-                                Pessoas</span>
-                        </div>
-                        <a href="listing-details.html" class="btn btn-primary">Alugue Agora</a>
-                    </div>
-                    <!-- /Car Item -->
-
-                    <!-- Car Item -->
-                    <div class="car-item">
-                        <h6>AUDI</h6>
-                        <h2 class="display-1">A3 2024 New</h2>
-                        <div class="car-img">
-                            <img src="{{ url('assets/user/img/cars/car-16.png') }}" alt="img" class="img-fluid">
-                            <div class="amount-icon">
-                                <span class="day-amt">
-                                    <p>Apartir de</p>
-                                    <h6>70.000 Kz <span> /dia</span></h6>
-                                </span>
+                            <div class="spec-list">
+                                <span><img src="{{ url('assets/user/img/icons/spec-01.svg') }}"
+                                        alt="img">{{ $car->transmission }}</span>
+                                <span><img src="{{ url('assets/user/img/icons/spec-02.svg') }}"
+                                        alt="img">Power</span>
+                                <span><img src="{{ url('assets/user/img/icons/spec-03.svg') }}"
+                                        alt="img">{{ $car->km }} K</span>
+                                <span><img src="{{ url('assets/user/img/icons/spec-04.svg') }}" alt="img">AC</span>
+                                <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"
+                                        alt="img">{{ $car->fuel->name ?? 'Combustível' }}</span>
+                                <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"
+                                        alt="img">{{ $car->passengers }} Pessoas</span>
                             </div>
+                            <a href="{{ route('car.details', $car->id) }}" class="btn btn-primary">Alugue Agora</a>
                         </div>
-                        <div class="spec-list">
-                            <span><img src="{{ url('assets/user/img/icons/spec-01.svg') }}" alt="img">Auto</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-02.svg') }}" alt="img">Power</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-03.svg') }}" alt="img">60 K</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-04.svg') }}" alt="img">AC</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}" alt="img">Gas</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}" alt="img">4
-                                Pessoas</span>
-                        </div>
-                        <a href="listing-details.html" class="btn btn-primary">Alugue Agora</a>
-                    </div>
-                    <!-- /Car Item -->
+                    @endforeach
 
-                    <!-- Car Item -->
-                    <div class="car-item">
-                        <h6>TOYOTO</h6>
-                        <h2 class="display-1">CAMREY SE 350</h2>
-                        <div class="car-img">
-                            <img src="{{ url('assets/user/img/cars/car-17.png') }}" alt="img" class="img-fluid">
-                            <div class="amount-icon">
-                                <span class="day-amt">
-                                    <p>Apartir de</p>
-                                    <h6>80.000 Kz <span> /dia</span></h6>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="spec-list">
-                            <span><img src="{{ url('assets/user/img/icons/spec-01.svg') }}" alt="img">Auto</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-02.svg') }}" alt="img">Power</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-03.svg') }}" alt="img">80 K</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-04.svg') }}" alt="img">AC</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}" alt="img">Petrol</span>
-                            <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}" alt="img">6
-                                Pessoas</span>
-                        </div>
-                        <a href="listing-details.html" class="btn btn-primary">Alugue Agora</a>
-                    </div>
-                    <!-- /Car Item -->
                 </div>
             </div>
         </section>
@@ -1054,7 +642,7 @@
 
 
         <!-- Testimonial Section -->
-        <section class="testimonial-section">
+        {{-- <section class="testimonial-section">
             <div class="container">
                 <div class="section-heading heading-four" data-aos="fade-down">
                     <h2>Feedback dos Nossos Clientes</h2>
@@ -1162,7 +750,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- /Testimonial Section -->
 
         <!-- Price Section -->
@@ -1314,7 +902,7 @@
         <!-- /Price Section -->
 
         <!-- Support Section -->
-        <section class="support-section">
+        {{-- <section class="support-section">
             <div class="horizontal-slide d-flex" data-direction="left" data-speed="slow">
                 <div class="slide-list d-flex">
                     <div class="support-item">
@@ -1335,11 +923,11 @@
 
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- /Support Section -->
 
         <!-- Blog Section -->
-        <section class="blog-section-four">
+        {{-- <section class="blog-section-four">
             <div class="container">
                 <div class="section-heading heading-four" data-aos="fade-down">
                     <h2>Percepções e Inovações</h2>
@@ -1453,7 +1041,7 @@
                 </div>
 
             </div>
-        </section>
+        </section> --}}
         <!-- /Blog Section -->
 
         <!-- FAQ Section -->
@@ -1558,92 +1146,92 @@
                     </div>
                 </div>
             </div>
-			</div>
-			</div>
-		</section>
-    	<!-- /FAQ Section -->
+    </div>
+    </div>
+    </section>
+    <!-- /FAQ Section -->
 
 
-		<section class="categories-section">
-			<div class="container">
-				<div class="accordion custom-accordion" id="faqAcordion">
-					<div class="accordion-item">
-						<h2 class="accordion-header">
-							<button class="accordion-button" type="button" data-bs-toggle="collapse"
-								data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
-								Ver Todos os Carros e Categorias
-							</button>
-						</h2>
-						<div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAcordion">
-							<div class="accordion-body">
-								<div class="row row-gap-3">
-									<div class="col-lg-2 col-md-4 col-sm-6">
-										<ul class="category-list">
-											<li><a href="javascript:void(0);">Coupé</a></li>
-											<li><a href="javascript:void(0);">Conversível</a></li>
-											<li><a href="javascript:void(0);">Hatchback</a></li>
-											<li><a href="javascript:void(0);">SUV (Utilitário Esportivo)</a></li>
-											<li><a href="javascript:void(0);">Minivan</a></li>
-											<li><a href="javascript:void(0);">Camião</a></li>
-										</ul>
-									</div>
-									<div class="col-lg-2 col-md-4 col-sm-6">
-										<ul class="category-list">
-											<li><a href="javascript:void(0);">Carro Esportivo</a></li>
-											<li><a href="javascript:void(0);">SUV</a></li>
-											<li><a href="javascript:void(0);">Wagon (Perua)</a></li>
-											<li><a href="javascript:void(0);">Crossover</a></li>
-											<li><a href="javascript:void(0);">Veículo Elétrico</a></li>
-											<li><a href="javascript:void(0);">Jeep</a></li>
-										</ul>
-									</div>
-									<div class="col-lg-2 col-md-4 col-sm-6">
-										<ul class="category-list">
-											<li><a href="javascript:void(0);">Carros Segmento C1</a></li>
-											<li><a href="javascript:void(0);">Compacto</a></li>
-											<li><a href="javascript:void(0);">Hatchback</a></li>
-											<li><a href="javascript:void(0);">Carro de Luxo</a></li>
-											<li><a href="javascript:void(0);">MPV (Monovolume)</a></li>
-											<li><a href="javascript:void(0);">Van</a></li>
-										</ul>
-									</div>
-									<div class="col-lg-2 col-md-4 col-sm-6">
-										<ul class="category-list">
-											<li><a href="javascript:void(0);">Maruti Suzuki</a></li>
-											<li><a href="javascript:void(0);">Hyundai</a></li>
-											<li><a href="javascript:void(0);">Tata Motors</a></li>
-											<li><a href="javascript:void(0);">Skoda</a></li>
-											<li><a href="javascript:void(0);">Volkswagen</a></li>
-											<li><a href="javascript:void(0);">Renault</a></li>
-										</ul>
-									</div>
-									<div class="col-lg-2 col-md-4 col-sm-6">
-										<ul class="category-list">
-											<li><a href="javascript:void(0);">Toyota</a></li>
-											<li><a href="javascript:void(0);">Nissan</a></li>
-											<li><a href="javascript:void(0);">MG Motor</a></li>
-											<li><a href="javascript:void(0);">Kia</a></li>
-											<li><a href="javascript:void(0);">Ford</a></li>
-											<li><a href="javascript:void(0);">Jeep</a></li>
-										</ul>
-									</div>
-									<div class="col-lg-2 col-md-4 col-sm-6">
-										<ul class="category-list">
-											<li><a href="javascript:void(0);">Coupé</a></li>
-											<li><a href="javascript:void(0);">Conversível</a></li>
-											<li><a href="javascript:void(0);">Hatchback</a></li>
-											<li><a href="javascript:void(0);">SUV (Utilitário Esportivo)</a></li>
-											<li><a href="javascript:void(0);">Minivan</a></li>
-											<li><a href="javascript:void(0);">Camião</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <section class="categories-section">
+        <div class="container">
+            <div class="accordion custom-accordion" id="faqAcordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                            Ver Todos os Carros e Categorias
+                        </button>
+                    </h2>
+                    <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAcordion">
+                        <div class="accordion-body">
+                            <div class="row row-gap-3">
+                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                    <ul class="category-list">
+                                        <li><a href="javascript:void(0);">Coupé</a></li>
+                                        <li><a href="javascript:void(0);">Conversível</a></li>
+                                        <li><a href="javascript:void(0);">Hatchback</a></li>
+                                        <li><a href="javascript:void(0);">SUV (Utilitário Esportivo)</a></li>
+                                        <li><a href="javascript:void(0);">Minivan</a></li>
+                                        <li><a href="javascript:void(0);">Camião</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                    <ul class="category-list">
+                                        <li><a href="javascript:void(0);">Carro Esportivo</a></li>
+                                        <li><a href="javascript:void(0);">SUV</a></li>
+                                        <li><a href="javascript:void(0);">Wagon (Perua)</a></li>
+                                        <li><a href="javascript:void(0);">Crossover</a></li>
+                                        <li><a href="javascript:void(0);">Veículo Elétrico</a></li>
+                                        <li><a href="javascript:void(0);">Jeep</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                    <ul class="category-list">
+                                        <li><a href="javascript:void(0);">Carros Segmento C1</a></li>
+                                        <li><a href="javascript:void(0);">Compacto</a></li>
+                                        <li><a href="javascript:void(0);">Hatchback</a></li>
+                                        <li><a href="javascript:void(0);">Carro de Luxo</a></li>
+                                        <li><a href="javascript:void(0);">MPV (Monovolume)</a></li>
+                                        <li><a href="javascript:void(0);">Van</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                    <ul class="category-list">
+                                        <li><a href="javascript:void(0);">Maruti Suzuki</a></li>
+                                        <li><a href="javascript:void(0);">Hyundai</a></li>
+                                        <li><a href="javascript:void(0);">Tata Motors</a></li>
+                                        <li><a href="javascript:void(0);">Skoda</a></li>
+                                        <li><a href="javascript:void(0);">Volkswagen</a></li>
+                                        <li><a href="javascript:void(0);">Renault</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                    <ul class="category-list">
+                                        <li><a href="javascript:void(0);">Toyota</a></li>
+                                        <li><a href="javascript:void(0);">Nissan</a></li>
+                                        <li><a href="javascript:void(0);">MG Motor</a></li>
+                                        <li><a href="javascript:void(0);">Kia</a></li>
+                                        <li><a href="javascript:void(0);">Ford</a></li>
+                                        <li><a href="javascript:void(0);">Jeep</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                    <ul class="category-list">
+                                        <li><a href="javascript:void(0);">Coupé</a></li>
+                                        <li><a href="javascript:void(0);">Conversível</a></li>
+                                        <li><a href="javascript:void(0);">Hatchback</a></li>
+                                        <li><a href="javascript:void(0);">SUV (Utilitário Esportivo)</a></li>
+                                        <li><a href="javascript:void(0);">Minivan</a></li>
+                                        <li><a href="javascript:void(0);">Camião</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     </div>

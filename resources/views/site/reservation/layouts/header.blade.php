@@ -1,6 +1,6 @@
 <!-- Header -->
-<header class="header header-four">
-    <div class="container">
+<header class="header">
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-lg header-nav">
             <div class="navbar-header">
                 <a id="mobile_btn" href="javascript:void(0);">
@@ -10,24 +10,23 @@
                         <span></span>
                     </span>
                 </a>
-                <a href="{{ route('home')}}" class="navbar-brand logo">
-                    <img src="{{ url('assets/user/img/logo-white.svg') }}" class="img-fluid white-logo" alt="Logo">
-                    <img src="{{ url('assets/user/img/logo.svg') }}" class="img-fluid dark-logo" alt="Logo">
+                <a href="{{ route('home') }}" class="navbar-brand logo">
+                    <img src="assets/user/img/logo.svg" class="img-fluid" alt="Logo">
                 </a>
-                <a href="{{ route('home')}}" class="navbar-brand logo-small">
-                    <img src="{{ url('assets/user/img/logo-small.png') }}" class="img-fluid" alt="Logo">
+                <a href="{{ route('home') }}" class="navbar-brand logo-small">
+                    <img src="assets/user/img/logo-small.png" class="img-fluid" alt="Logo">
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
-                    <a href="index.html" class="menu-logo">
-                        <img src="{{ url('assets/user/img/logo.svg') }}" class="img-fluid" alt="Logo">
+                    <a href="{{ route('home') }}" class="menu-logo">
+                        <img src="assets/user/img/logo.svg" class="img-fluid" alt="Logo">
                     </a>
                     <a id="menu_close" class="menu-close" href="javascript:void(0);"> <i class="fas fa-times"></i></a>
                 </div>
                 <ul class="main-nav">
                     <li class="has-submenu megamenu active">
-                        <a href="{{ route('home')}}">Início {{-- <i class="fas fa-chevron-down"></i> --}}</a>
+                        <a href="{{ route('home') }}">Início {{-- <i class="fas fa-chevron-down"></i> --}}</a>
                         {{-- <ul class="submenu mega-submenu">
                             <li>
                                 <div class="megamenu-wrapper">
@@ -208,21 +207,21 @@
 								</ul>
 							</li> --}}
                     <li class="login-link">
-                        <a href="register.html">Cadastra-se</a>
+                        <a href="register.html">Sign Up</a>
                     </li>
                     <li class="login-link">
-                        <a href="login.html">Conecte-se</a>
+                        <a href="login.html">Sign In</a>
                     </li>
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">
-                <li class="nav-item user-link">
-                    <a class="nav-link btn-secondary btn d-inline-flex align-items-center" href="login.html"><i
-                            class="bx bx-user me-1"></i>Conecte-se</a>
+                <li class="nav-item">
+                    <a class="nav-link header-login" href="login.html"><span><i
+                                class="fa-regular fa-user"></i></span>Cadastra-se</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link header-reg  d-inline-flex align-items-center" href="register.html"><span><i
-                                class="bx bx-lock"></i></span>Cadastra-se</a>
+                    <a class="nav-link header-reg" href="register.html"><span><i
+                                class="fa-solid fa-lock"></i></span>Conecte-se</a>
                 </li>
             </ul>
         </nav>
