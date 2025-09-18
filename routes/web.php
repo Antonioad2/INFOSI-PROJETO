@@ -10,6 +10,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 //Route::get('/car/{car_id}', [HomeController::class, 'carDetails'])->name('car.details');
 Route::get('/car-list', [HomeController::class, 'carList'])->name('site.car-list');
 Route::get('/car/{id}/book', [HomeController::class, 'carBook'])->name('car.book');
+Route::get('/car-location', [HomeController::class, 'carLocation'])->name('site.car-location');
+Route::get('/car-services', [HomeController::class, 'carServices'])->name('site.car-services');
 
  Route::get('/car-details', function () {
     return view('site.reservation.car-details.index');

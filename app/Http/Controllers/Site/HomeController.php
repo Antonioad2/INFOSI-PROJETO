@@ -70,7 +70,7 @@ class HomeController extends Controller
         return view('site.home.index', compact('cars', 'pickup_location', 'startDate', 'endDate', 'category'));
     }  */
 
-   public function carBook(Request $request, $car_id)
+    public function carBook(Request $request, $car_id)
     {
         $car = Car::with(['brand', 'models'])->findOrFail($car_id);
 
@@ -84,7 +84,7 @@ class HomeController extends Controller
         return view('site.reservation.car-details.index', compact('car', 'pickup_location', 'startDate', 'endDate', 'resources', 'driverId'));
     }
 
-/*     public function carDetails($car_id)
+    /*     public function carDetails($car_id)
     {
         // Fetch the car with its related data
         $car = Car::with(['brand', 'models', 'color', 'fuel'])->findOrFail($car_id);
@@ -102,11 +102,29 @@ class HomeController extends Controller
         return view('site.home.car_details.index', compact('car', 'cars', 'drivers'));
     } */
 
-/*     public function aboutUs()
+    public function carLocation()
+    {
+        // Fetch all cars with their related data (brand, models, color, fuel)
+        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available')->get(); // 🔹 só traz disponíveis;
+
+        // Pass the cars to the view
+        return view('site.reservation.car-location.index', compact('cars'));
+    }
+
+    public function carServices()
+    {
+        // Fetch all cars with their related data (brand, models, color, fuel)
+        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available')->get(); // 🔹 só traz disponíveis;
+
+        // Pass the cars to the view
+        return view('site.reservation.car-services.index', compact('cars'));
+    }
+
+    /*     public function aboutUs()
     {
         return view('site.about_us.index');
     } */
-/* 
+    /* 
     public function gallery()
     {
         return view('site.galeria.index');

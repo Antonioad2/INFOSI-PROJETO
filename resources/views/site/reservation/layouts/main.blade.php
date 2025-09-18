@@ -9,6 +9,10 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ url('assets/user/img/favicon.png') }}">
 
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url('assets/user/css/bootstrap.min.css') }}">
 
