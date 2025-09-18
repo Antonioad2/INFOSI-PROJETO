@@ -86,13 +86,31 @@
     <!-- Custom JS -->
     <script src="{{ url('assets/user/js/script.js') }}"></script>
 
-     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        if (typeof AOS !== 'undefined') {
-          AOS.init();
-        }
-      });
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init();
+            }
+
+            document.querySelectorAll('.img-slider').forEach(function(el) {
+                $(el).owlCarousel({
+                    items: 1,
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    nav: true,
+                    dots: true,
+                    navText: [
+                        "<i class='feather-chevron-left'></i>",
+                        "<i class='feather-chevron-right'></i>"
+                    ]
+                });
+            });
+        });
     </script>
 
+
+
 </body>
+
 </html>

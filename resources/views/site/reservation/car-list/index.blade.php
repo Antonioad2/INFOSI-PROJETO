@@ -357,7 +357,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion" id="accordionMain4">
+                            {{-- <div class="accordion" id="accordionMain4">
                                 <div class="card-header-new" id="headingfuel">
                                     <h6 class="filter-title">
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
@@ -405,8 +405,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion" id="accordionMain5">
+                            </div> --}}
+                            {{-- <div class="accordion" id="accordionMain5">
                                 <div class="card-header-new" id="headingmileage">
                                     <h6 class="filter-title">
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
@@ -440,8 +440,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion" id="accordionMain06">
+                            </div> --}}
+                            {{-- <div class="accordion" id="accordionMain06">
                                 <div class="card-header-new" id="headingrental">
                                     <h6 class="filter-title">
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
@@ -487,8 +487,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion" id="accordionMain6">
+                            </div> --}}
+                            {{-- <div class="accordion" id="accordionMain6">
                                 <div class="card-header-new" id="headingspec">
                                     <h6 class="filter-title">
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
@@ -546,7 +546,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="accordion" id="accordionMain7">
                                 <div class="card-header-new" id="headingColor">
                                     <h6 class="filter-title">
@@ -728,7 +728,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion" id="accordionMain10">
+                            {{-- <div class="accordion" id="accordionMain10">
                                 <div class="card-header-new" id="headingFive">
                                     <h6 class="filter-title">
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
@@ -798,8 +798,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion" id="accordionMain11">
+                            </div> --}}
+                            {{-- <div class="accordion" id="accordionMain11">
                                 <div class="card-header-new" id="headingSix">
                                     <h6 class="filter-title">
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
@@ -841,7 +841,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <button type="submit"
                             class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary filter-btn">
@@ -854,20 +854,21 @@
                 <div class="col-xl-9 col-lg-8 col-sm-12 col-12">
                     <div class="row">
                         @foreach ($cars as $car)
+                            @php
+                                // Determinar a imagem a ser exibida
+                                $imagePath = !empty($car->images) ? trim($car->images) : $car->image ?? 'default.jpg';
+                            @endphp
+
                             <div class="listview-car">
                                 <div class="card">
                                     <div class="blog-widget d-flex">
+                                        <!-- Imagem única do carro -->
                                         <div class="blog-img">
-                                            <div class="img-slider owl-carousel">
-                                                <div class="slide-images">
-                                                    <a href="{{ route('car.details', $car->id) }}">
-                                                        <img src="{{ asset('uploads/car/car_images/' . $car->images) }}"
-                                                            class="img-fluid" alt="{{ $car->brand }}">
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            <a href="{{ route('car.details', $car->id) }}">
+                                                <img src="{{ url('uploads/car/car_images/' . $imagePath) }}"
+                                                    class="img-fluid" alt="{{ $car->brand->name ?? 'Carro' }}">
+                                            </a>
                                             <div class="fav-item justify-content-end">
-                                                {{-- Como é uma única imagem, fixe a contagem para 01 --}}
                                                 <span class="img-count">
                                                     <i class="feather-image"></i>01
                                                 </span>
@@ -876,29 +877,33 @@
                                                 </a>
                                             </div>
                                         </div>
+
+                                        <!-- Conteúdo de detalhes -->
                                         <div class="bloglist-content w-100">
                                             <div class="card-body">
                                                 <div class="blog-list-head d-flex">
                                                     <div class="blog-list-title">
                                                         <h3>
                                                             <a href="{{ route('car.details', $car->id) }}">
-                                                                {{ $car->brand->name }} {{ $car->models->name }}
+                                                                {{ $car->brand->name ?? '' }}
+                                                                {{ $car->models->name ?? $car->name }}
                                                             </a>
                                                         </h3>
-                                                        <h6>Categoria : <span>{{ $car->category }}</span></h6>
+                                                        <h6>Categoria : <span>{{ $car->category ?? 'N/D' }}</span></h6>
                                                     </div>
                                                     <div class="blog-list-rate">
                                                         <div class="list-rating">
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <span>{{ $car->reviews_count ?? 0 }} Avaliações</span>
+                                                            @for ($i = 0; $i < 5; $i++)
+                                                                <i
+                                                                    class="fas fa-star {{ $i < ($car->rating ?? 0) ? 'filled' : '' }}"></i>
+                                                            @endfor
+                                                            <span>({{ $car->reviews_count ?? 0 }} Avaliações)</span>
                                                         </div>
-                                                        <h6>${{ $car->price_per_day }} <span>/ Dia</span></h6>
+                                                        <h6>${{ $car->price_per_day ?? $car->price }} <span>/ Dia</span>
+                                                        </h6>
                                                     </div>
                                                 </div>
+
                                                 <div class="listing-details-group">
                                                     <ul>
                                                         <li>
@@ -909,7 +914,7 @@
                                                         <li>
                                                             <span><img src="assets/user/img/icons/car-parts-02.svg"
                                                                     alt="Quilometragem"></span>
-                                                            <p>{{ $car->mileage ?? 'N/D' }} KM</p>
+                                                            <p>{{ $car->mileage ?? ($car->km ?? 'N/D') }} KM</p>
                                                         </li>
                                                         <li>
                                                             <span><img src="assets/user/img/icons/car-parts-03.svg"
@@ -933,6 +938,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
+
                                                 <div class="blog-list-head list-head-bottom d-flex">
                                                     <div class="blog-list-title">
                                                         <div class="title-bottom">
@@ -942,8 +948,8 @@
                                                             </div>
                                                             <div class="address-info">
                                                                 <h6>
-                                                                    <i
-                                                                        class="feather-map-pin"></i>{{ $car->location ?? 'Luanda, Angola' }}
+                                                                    <i class="feather-map-pin"></i>
+                                                                    {{ $car->location ?? 'Luanda, Angola' }}
                                                                 </h6>
                                                             </div>
                                                             <div class="list-km">
@@ -963,6 +969,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         @if ($car->featured)
                                             <div class="feature-text">
                                                 <span class="bg-danger">Destaque</span>
@@ -974,6 +981,7 @@
                         @endforeach
                     </div>
                 </div>
+
 
             </div>
         </div>
