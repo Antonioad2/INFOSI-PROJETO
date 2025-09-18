@@ -11,6 +11,14 @@
     <meta name="description" content="">
     <meta name="keyword" content="">
     <meta name="author" content="WRAPCODERS">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZP85RY5D8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MZP85RY5D8');
+</script>
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
     <title>@yield('title')</title>

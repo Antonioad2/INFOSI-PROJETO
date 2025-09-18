@@ -21,6 +21,15 @@
     <!--! BEGIN: Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/bootstrap.min.css')}}">
     <!--! END: Bootstrap CSS-->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZP85RY5D8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MZP85RY5D8');
+</script>
     <!--! BEGIN: Vendors CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url('assets/vendors/css/vendors.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url('assets/vendors/css/dataTables.bs5.min.css')}}">

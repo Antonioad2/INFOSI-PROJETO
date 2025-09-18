@@ -31,7 +31,6 @@
                         <li class="nxl-item"><a class="nxl-link" href="/admin/reports/reportsSales">Reservas</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="/admin/reports/reportsLeads">Carros</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="/admin/reports/reportsProject">Motorista</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="/admin/reports/reportsTimesheets">Timesheets Report</a></li>
                     </ul>
                 </li>
 
