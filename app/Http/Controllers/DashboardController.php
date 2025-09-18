@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Model\Car;
 use App\Model\Driver;
+use App\Model\Reserve;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,7 +18,7 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard.Analytics.index');
     }
-    public function reportsSales()
+    public function showSalesReport()
     {
         return view('admin.reports.sales.index');
     }
@@ -64,10 +65,17 @@ class DashboardController extends Controller
 
         return view('admin.reports.project.index', compact('driversMale','driversFemale','totalDrivers','driversReserved'));
     }
-    public function reportsTimesheets()
+    public function reportsSales()
     {
-        return view('admin.reports.timesheets.index');
+        // Calcular o total de vendas (soma do total_amount das reservas)
+        $totalReserves = Reserve::whereBetween('start_date', [
+            now()->startOfMonth(),
+            now()->endOfMonth()
+        ])->sum('total_amount');
+
+        // Passar a variável para a view
+        return view('admin.reports.sales.index', compact('totalReserves'));
     }
-    
+        
    
 }
