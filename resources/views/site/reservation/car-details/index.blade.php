@@ -306,7 +306,7 @@
                     <!-- /Specifications -->
 
                     <!-- Gallery -->
-                    <div class="review-sec mb-0 pb-0">
+                   <!--  <div class="review-sec mb-0 pb-0">
                         <div class="review-header">
                             <h4>Galeria</h4>
                         </div>
@@ -315,45 +315,25 @@
                                 @if($car->image)
                                     <li>
                                         <div class="gallery-widget">
-                                            <a href="{{ url('storage/' . $car->image) }}" data-fancybox="gallery1">
-                                                <img class="img-fluid" alt="Image" src="{{ url('storage/' . $car->image) }}">
+                                            <a href="{{ url('uploads/car/car_images/' . $car->image) }}" data-fancybox="gallery1">
+                                                <img class="img-fluid" alt="Image" src="{{ url('uploads/car/car_images/' . $car->image) }}">
                                             </a>
                                         </div>
                                     </li>
                                 @else
                                     <li>
                                         <div class="gallery-widget">
-                                            <a href="{{ url('assets/user/img/gallery/gallery-big-01.jpg')}}" data-fancybox="gallery1">
-                                                <img class="img-fluid" alt="Image" src="{{ url('assets/user/img/gallery/gallery-thumb-01.jpg')}}">
+                                            <a href="{{ url('uploads/car/car_images/' . $car->image) }}" data-fancybox="gallery1">
+                                                <img class="img-fluid" alt="Image" src="{{ url('uploads/car/car_images/' . $car->image) }}">
                                             </a>
                                         </div>
                                     </li>
                                 @endif
-                                <!-- Mantendo imagens estáticas adicionais -->
-                                <li>
-                                    <div class="gallery-widget">
-                                        <a href="{{ url('assets/user/img/gallery/gallery-big-02.jpg')}}" data-fancybox="gallery1">
-                                            <img class="img-fluid" alt="Image" src="{{ url('assets/user/img/gallery/gallery-thumb-02.jpg')}}">
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="gallery-widget">
-                                        <a href="{{ url('assets/user/img/gallery/gallery-big-03.jpg')}}" data-fancybox="gallery1">
-                                            <img class="img-fluid" alt="Image" src="{{ url('assets/user/img/gallery/gallery-thumb-03.jpg')}}">
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="gallery-widget">
-                                        <a href="{{ url('assets/user/img/gallery/gallery-big-04.jpg')}}" data-fancybox="gallery1">
-                                            <img class="img-fluid" alt="Image" src="{{ url('assets/user/img/gallery/gallery-thumb-04.jpg')}}">
-                                        </a>
-                                    </div>
-                                </li>
+                                Mantendo imagens estáticas adicionais 
+                               
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /Gallery -->
 
                     <!-- Video -->
@@ -362,6 +342,7 @@
                             <h4>Video</h4>
                         </div>
                         <div class="short-video">
+						
                             <img class="img-fluid" alt="Image" src="{{ url('assets/user/img/video-img.jpg')}}">
                             <a href="https://www.youtube.com/embed/ExJZAegsOis" data-fancybox="video" class="video-icon">
                                 <i class="bx bx-play"></i>
@@ -676,7 +657,7 @@
                             </li>
                             <li>
                                 Localização
-                                <span>{{ $car->supplier->location ?? 'N/A' }}</span>
+                                <span>{{ $car->supplier->address ?? 'N/A' }}</span>
                             </li>
                         </ul>
                         <div class="message-btn">
@@ -717,14 +698,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+           <!--  <div class="row">
                 <div class="col-md-12">
                     <div class="details-car-grid">
                         <div class="details-slider-heading">
                             <h3>Você pode estar interessado em</h3>
                         </div>
                         <div class="owl-carousel rental-deal-slider details-car owl-theme">
-                            <!-- Mantendo os itens do carrossel estáticos, já que não há dados dinâmicos para esta seção -->
+                             Mantendo os itens do carrossel estáticos, já que não há dados dinâmicos para esta seção 
                             <div class="rental-car-item">
                                 <div class="listing-item pb-0">
                                     <div class="listing-img">
@@ -804,7 +785,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Outros itens do carrossel mantidos como no template original -->
+                             Outros itens do carrossel mantidos como no template original
                             <div class="rental-car-item">
                                 <div class="listing-item pb-0">
                                     <a href="listing-details.html">
@@ -1125,7 +1106,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
 
         <!-- Modal -->
