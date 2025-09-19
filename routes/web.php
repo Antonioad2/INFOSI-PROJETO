@@ -17,8 +17,20 @@ Route::get('/car-billing', [HomeController::class, 'carBilling'])->name('site.ca
 Route::get('/car-payment', [HomeController::class, 'carPayment'])->name('site.car-payment');
 Route::get('/car-confirmed', [HomeController::class, 'carConfirmed'])->name('site.car-confirmed');
 
-Route::get('checkout', function () {
+Route::get('service', function () {
     return view('site.reservation.book-checkout.index');
+});
+
+Route::get('details-checkout', function () {
+    return view('site.reservation.details-checkout.index');
+});
+
+Route::get('payment', function () {
+    return view('site.reservation.payment.index');
+});
+
+Route::get('finish', function () {
+    return view('site.reservation.finish.index');
 });
 
 
