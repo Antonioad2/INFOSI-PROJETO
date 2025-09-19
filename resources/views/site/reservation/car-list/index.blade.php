@@ -32,7 +32,7 @@
                                 <label>Local de Retirada</label>
                                 <div class="group-img">
                                     <input type="text" class="form-control"
-                                        placeholder="Enter City, Airport, or Address">
+                                        placeholder="Digite a cidade, Aeroporto, ou Endereço">
                                     <span><i class="feather-map-pin"></i></span>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-12 col-12 theiaStickySidebar">
                     <form action="#" autocomplete="off" class="sidebar-form">
                         <div class="sidebar-heading">
-                            <h3>What Are You Looking For</h3>
+                            <h3>O Que Você Está Procurando?</h3>
                         </div>
                         <div class="product-search">
                             <div class="form-custom">
@@ -177,7 +177,7 @@
                             </div>
                         </div>
                         <div class="product-availability">
-                            <h6>Availability</h6>
+                            <h6>Disponibilidade</h6>
                             <div class="status-toggle">
                                 <input id="mobile_notifications" class="check" type="checkbox" checked="">
                                 <label for="mobile_notifications" class="checktoggle">checkbox</label>
@@ -190,7 +190,7 @@
                                         <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            Car Brand
+                                            Marca de Carro
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
@@ -203,34 +203,41 @@
                                                 <div id="checkBoxes1">
                                                     <div class="selectBox-cont">
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Tesla
+                                                            <input type="checkbox" name="username" class="brand-filter"
+                                                                value="Renault">
+                                                            <span class="checkmark"></span> Renault
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Ford
+                                                            <input type="checkbox" name="username" class="brand-filter"
+                                                                value="Nissan">
+                                                            <span class="checkmark"></span> Nissan
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Mercediz Benz
+                                                            <input type="checkbox" name="username" class="brand-filter"
+                                                                value="Mercedes Benz">
+                                                            <span class="checkmark"></span> Mercedes Benz
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Audi
+                                                            <input type="checkbox" name="username" class="brand-filter"
+                                                                value="Suzuki">
+                                                            <span class="checkmark"></span> Suzuki
                                                         </label>
                                                         <!-- View All -->
                                                         <div class="view-content">
                                                             <div class="viewall-One">
                                                                 <label class="custom_check w-100">
-                                                                    <input type="checkbox" name="username">
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="Kia">
                                                                     <span class="checkmark"></span> Kia
                                                                 </label>
                                                                 <label class="custom_check w-100">
-                                                                    <input type="checkbox" name="username">
-                                                                    <span class="checkmark"></span> Honda
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="Chevrolet">
+                                                                    <span class="checkmark"></span> Chevrolet
                                                                 </label>
                                                                 <label class="custom_check w-100">
-                                                                    <input type="checkbox" name="username">
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="Toyota">
                                                                     <span class="checkmark"></span> Toyota
                                                                 </label>
                                                             </div>
@@ -249,7 +256,7 @@
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
                                             data-bs-target="#collapseTwo" aria-expanded="true"
                                             aria-controls="collapseTwo">
-                                            Car Category
+                                            Categoria de Carro
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
@@ -260,39 +267,34 @@
                                         <div id="checkBoxes2">
                                             <div class="selectBox-cont">
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Convertible (25)
+                                                    <input type="checkbox" class="category-filter" value="Conversível">
+                                                    <span class="checkmark"></span> Conversível (25)
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Coupe (15)
+                                                    <input type="checkbox" class="category-filter" value="Cupê">
+                                                    <span class="checkmark"></span> Cupê (15)
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Sedan (10)
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> EV (5)
+                                                    <input type="checkbox" class="category-filter" value="Sedã">
+                                                    <span class="checkmark"></span> Sedã (10)
                                                 </label>
                                                 <!-- View All -->
                                                 <div class="view-content">
                                                     <div class="viewall-One">
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Hatchback (123)
+                                                            <input type="checkbox" class="category-filter"
+                                                                value="Luxuoso">
+                                                            <span class="checkmark"></span> Luxuoso (06)
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Luxury (06)
-                                                        </label>
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
+                                                            <input type="checkbox" class="category-filter"
+                                                                value="SUV">
                                                             <span class="checkmark"></span> SUV (6)
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Wagon (5)
+                                                            <input type="checkbox" class="category-filter"
+                                                                value="Camião">
+                                                            <span class="checkmark"></span> Camião (5)
                                                         </label>
                                                     </div>
                                                 </div>
@@ -302,13 +304,14 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="accordion" id="accordionMain3">
                                 <div class="card-header-new" id="headingYear">
                                     <h6 class="filter-title">
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
                                             data-bs-target="#collapseYear" aria-expanded="true"
                                             aria-controls="collapseYear">
-                                            Year
+                                            Ano
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
@@ -553,7 +556,7 @@
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
                                             data-bs-target="#collapseColor" aria-expanded="true"
                                             aria-controls="collapseColor">
-                                            Colors
+                                            Cores
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
@@ -637,7 +640,7 @@
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
                                             data-bs-target="#collapseThree" aria-expanded="true"
                                             aria-controls="collapseThree">
-                                            Capacity
+                                            Capacidade
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
@@ -649,19 +652,19 @@
                                             <div class="selectBox-cont">
                                                 <label class="custom_check w-100">
                                                     <input type="checkbox" name="bystatus">
-                                                    <span class="checkmark"></span> 2 Seater
+                                                    <span class="checkmark"></span> 2 Assentos
                                                 </label>
                                                 <label class="custom_check w-100">
                                                     <input type="checkbox" name="bystatus">
-                                                    <span class="checkmark"></span> 4 Seater
+                                                    <span class="checkmark"></span> 4 Assentos
                                                 </label>
                                                 <label class="custom_check w-100">
                                                     <input type="checkbox" name="bystatus">
-                                                    <span class="checkmark"></span> 5 Seater
+                                                    <span class="checkmark"></span> 5 Assentos
                                                 </label>
                                                 <label class="custom_check w-100">
                                                     <input type="checkbox" name="bystatus">
-                                                    <span class="checkmark"></span> 7 Seater
+                                                    <span class="checkmark"></span> 7 Assentos
                                                 </label>
                                             </div>
                                         </div>
@@ -674,7 +677,7 @@
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
                                             data-bs-target="#collapseFour" aria-expanded="true"
                                             aria-controls="collapseFour">
-                                            Price
+                                            Preço
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
@@ -694,7 +697,7 @@
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
                                             data-bs-target="#collapsetransmission" aria-expanded="true"
                                             aria-controls="collapsetransmission">
-                                            Transmission
+                                            Transmissão
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
@@ -714,13 +717,13 @@
                                                 <li>
                                                     <div class="input-selection">
                                                         <input type="radio" name="transmission" id="semi">
-                                                        <label for="semi">Semi Automatic</label>
+                                                        <label for="semi">Semi Automático</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="input-selection">
                                                         <input type="radio" name="transmission" id="automatic">
-                                                        <label for="automatic">Automatic</label>
+                                                        <label for="automatic">Automático</label>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -845,21 +848,21 @@
                         </div>
                         <button type="submit"
                             class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary filter-btn">
-                            <span><i class="feather-filter me-2"></i></span>Filter results
+                            <span><i class="feather-filter me-2"></i></span>Filtrar Resultados
                         </button>
-                        <a href="#" class="reset-filter">Reset Filter</a>
+                        <a href="#" class="reset-filter">Redefinir Filtro</a>
                     </form>
                 </div>
 
+                {{-- === LISTA DE CARROS === --}}
                 <div class="col-xl-9 col-lg-8 col-sm-12 col-12">
-                    <div class="row">
+                    <div class="row" id="car-list">
                         @foreach ($cars as $car)
                             @php
-                                // Determinar a imagem a ser exibida
                                 $imagePath = !empty($car->images) ? trim($car->images) : $car->image ?? 'default.jpg';
                             @endphp
 
-                            <div class="listview-car">
+                            <div class="listview-car car-card" data-brand="{{ $car->brand->name ?? '' }}" data-category="{{ $car->category ?? '' }}">
                                 <div class="card">
                                     <div class="blog-widget d-flex">
                                         <!-- Imagem única do carro -->
@@ -903,7 +906,6 @@
                                                         </h6>
                                                     </div>
                                                 </div>
-
                                                 <div class="listing-details-group">
                                                     <ul>
                                                         <li>
@@ -980,6 +982,41 @@
                         @endforeach
                     </div>
                 </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const brandCheckboxes = document.querySelectorAll('.brand-filter');
+                        const categoryCheckboxes = document.querySelectorAll('.category-filter');
+                        const cars = document.querySelectorAll('#car-list .car-card');
+
+                        function filterCars() {
+                            const selectedBrands = [...brandCheckboxes].filter(ch => ch.checked).map(ch => ch.value);
+                            const selectedCategories = [...categoryCheckboxes].filter(ch => ch.checked).map(ch => ch.value);
+
+                            cars.forEach(car => {
+                                const brand = car.dataset.brand;
+                                const category = car.dataset.category;
+
+                                const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(brand);
+                                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(
+                                    category);
+
+                                // Exibe se atende aos dois filtros ao mesmo tempo
+                                if (brandMatch && categoryMatch) {
+                                    car.style.display = 'block';
+                                } else {
+                                    car.style.display = 'none';
+                                }
+                            });
+                        }
+
+                        [...brandCheckboxes, ...categoryCheckboxes].forEach(cb => {
+                            cb.addEventListener('change', filterCars);
+                        });
+                    });
+                </script>
+
+
 
 
             </div>

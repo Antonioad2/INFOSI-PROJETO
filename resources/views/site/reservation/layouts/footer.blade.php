@@ -10,22 +10,22 @@
                         <div class="col-lg-4 col-md-6">
                             <!-- Footer Widget -->
                             <div class="footer-widget footer-menu">
-                                <h5 class="footer-title">About Company</h5>
+                                <h5 class="footer-title">Sobre a Empresa</h5>
                                 <ul>
                                     <li>
-                                        <a href="about.html">Our Company</a>
+                                        <a href="about.html">Nossa Empresa</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Shop Toyota</a>
+                                        <a href="javascript:void(0)">Loja Toyota</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Dreamsrentals USA</a>
+                                        <a href="javascript:void(0)">AngoCar Angola</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Dreamsrentals Worldwide</a>
+                                        <a href="javascript:void(0)">AngoCar em Todo o Mundo</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Dreamsrental Category</a>
+                                        <a href="javascript:void(0)">Categoria AngoCar</a>
                                     </li>
                                 </ul>
                             </div>
@@ -34,19 +34,19 @@
                         <div class="col-lg-4 col-md-6">
                             <!-- Footer Widget -->
                             <div class="footer-widget footer-menu">
-                                <h5 class="footer-title">Vehicles Type</h5>
+                                <h5 class="footer-title">Tipo de Veículos</h5>
                                 <ul>
                                     <li>
-                                        <a href="javascript:void(0)">All Vehicles</a>
+                                        <a href="javascript:void(0)">Todos os Veículos</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">SUVs</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Trucks</a>
+                                        <a href="javascript:void(0)">Caminhão</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Cars</a>
+                                        <a href="javascript:void(0)">Carros</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">Crossovers</a>
@@ -58,22 +58,22 @@
                         <div class="col-lg-4 col-md-6">
                             <!-- Footer Widget -->
                             <div class="footer-widget footer-menu">
-                                <h5 class="footer-title">Quick links</h5>
+                                <h5 class="footer-title">Links Rápidos</h5>
                                 <ul>
                                     <li>
-                                        <a href="javascript:void(0)">My Account</a>
+                                        <a href="javascript:void(0)">Minha Conta</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Champaigns</a>
+                                        <a href="javascript:void(0)">Champanhes</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Dreamsrental Dealers</a>
+                                        <a href="javascript:void(0)">Concessionários AngoCar</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Deals and Incentive</a>
+                                        <a href="javascript:void(0)">Ofertas e Incentivos</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)">Financial Services</a>
+                                        <a href="javascript:void(0)">Serviços Financeiros</a>
                                     </li>
                                 </ul>
                             </div>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="footer-contact footer-widget">
-                        <h5 class="footer-title">Contact Info</h5>
+                        <h5 class="footer-title">Informações de Contato</h5>
                         <div class="footer-contact-info">
                             <div class="footer-address">
                                 <span><i class="feather-phone-call"></i></span>
@@ -101,7 +101,7 @@
                             <div class="update-form">
                                 <form action="#">
                                     <span><i class="feather-mail"></i></span>
-                                    <input type="email" class="form-control" placeholder="Enter You Email Here">
+                                    <input type="email" class="form-control" placeholder="Digite seu e-mail aqui">
                                     <button type="submit" class="btn btn-subscribe"><span><i
                                                 class="feather-send"></i></span></button>
                                 </form>
