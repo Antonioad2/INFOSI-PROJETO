@@ -1,5 +1,5 @@
 @extends('site.reservation.layouts.main')
-@section('title', 'AngoCar-Serviços Extras')
+@section('title', 'AngoCar - Serviços Extras')
 @section('content')
 
     <!-- Breadscrumb Section -->
