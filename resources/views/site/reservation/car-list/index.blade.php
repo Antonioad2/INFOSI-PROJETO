@@ -960,9 +960,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="listing-button">
-                                                        <a href="{{ route('car.book', $car->id) }}"
-                                                            class="btn btn-order">
+                                                   <div class="listing-button">
+                                                        <a href="{{ route('car.details', ['car_id' => $car->id]) }}" class="btn btn-order">
                                                             <span><i class="feather-calendar me-2"></i></span>Alugar Agora
                                                         </a>
                                                     </div>
