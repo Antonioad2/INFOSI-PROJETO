@@ -909,32 +909,32 @@
                                                         <li>
                                                             <span><img src="assets/user/img/icons/car-parts-01.svg"
                                                                     alt="Transmissão"></span>
-                                                            <p>{{ $car->transmission ?? 'Automático' }}</p>
+                                                            <p>{{ $car->transmission ?? 'N/A' }}</p>
                                                         </li>
                                                         <li>
                                                             <span><img src="assets/user/img/icons/car-parts-02.svg"
                                                                     alt="Quilometragem"></span>
-                                                            <p>{{ $car->mileage ?? ($car->km ?? 'N/D') }} KM</p>
+                                                            <p>{{ $car->mileage ?? 'N/A' }} (Km)</p>
                                                         </li>
                                                         <li>
                                                             <span><img src="assets/user/img/icons/car-parts-03.svg"
                                                                     alt="Combustível"></span>
-                                                            <p>{{ $car->fuel->name ?? 'Gasolina' }}</p>
+                                                            <p>{{ $car->fuel->name ?? 'N/A' }}</p>
                                                         </li>
                                                         <li>
                                                             <span><img src="assets/user/img/icons/car-parts-04.svg"
                                                                     alt="Potência"></span>
-                                                            <p>{{ $car->power ?? 'Normal' }}</p>
+                                                            <p>{{ $car->engine ?? 'N/A' }} (KVA)</p>
                                                         </li>
                                                         <li>
                                                             <span><img src="assets/user/img/icons/car-parts-06.svg"
                                                                     alt="Pessoas"></span>
-                                                            <p>{{ $car->seats ?? 5 }} Pessoas</p>
+                                                            <p>{{ $car->number_of_seats ?? 'N/A' }} Pessoas</p>
                                                         </li>
                                                         <li>
                                                             <span><img src="assets/user/img/icons/car-parts-05.svg"
                                                                     alt="Ano"></span>
-                                                            <p>{{ $car->year ?? '2022' }}</p>
+                                                            <p>{{ $car->manufacture_date ?? 'N/A' }}</p>
                                                         </li>
                                                     </ul>
                                                 </div>

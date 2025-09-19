@@ -81,7 +81,7 @@ class HomeController extends Controller
         $resources  = $request->input('resources', []);
         $driverId   = $request->input('driver_id');
 
-        return view('site.home.car_book.index', compact('car', 'pickup_location', 'startDate', 'endDate', 'resources', 'driverId'));
+        return view('site.reservation.car-details.index', compact('car', 'pickup_location', 'startDate', 'endDate', 'resources', 'driverId'));
     }
 
     /*     public function carDetails($car_id)

@@ -40,6 +40,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ url('assets/user/css/style.css') }}">
+    
 </head>
 
 <body>
