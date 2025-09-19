@@ -203,34 +203,41 @@
                                                 <div id="checkBoxes1">
                                                     <div class="selectBox-cont">
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
+                                                            <input type="checkbox" name="username" class="brand-filter"
+                                                                value="Renault">
                                                             <span class="checkmark"></span> Renault
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
+                                                            <input type="checkbox" name="username" class="brand-filter"
+                                                                value="Nissan">
                                                             <span class="checkmark"></span> Nissan
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Mercediz Benz
+                                                            <input type="checkbox" name="username" class="brand-filter"
+                                                                value="Mercedes Benz">
+                                                            <span class="checkmark"></span> Mercedes Benz
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
+                                                            <input type="checkbox" name="username" class="brand-filter"
+                                                                value="Suzuki">
                                                             <span class="checkmark"></span> Suzuki
                                                         </label>
                                                         <!-- View All -->
                                                         <div class="view-content">
                                                             <div class="viewall-One">
                                                                 <label class="custom_check w-100">
-                                                                    <input type="checkbox" name="username">
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="Kia">
                                                                     <span class="checkmark"></span> Kia
                                                                 </label>
                                                                 <label class="custom_check w-100">
-                                                                    <input type="checkbox" name="username">
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="Chevrolet">
                                                                     <span class="checkmark"></span> Chevrolet
                                                                 </label>
                                                                 <label class="custom_check w-100">
-                                                                    <input type="checkbox" name="username">
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="Toyota">
                                                                     <span class="checkmark"></span> Toyota
                                                                 </label>
                                                             </div>
@@ -260,30 +267,33 @@
                                         <div id="checkBoxes2">
                                             <div class="selectBox-cont">
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
+                                                    <input type="checkbox" class="category-filter" value="Conversível">
                                                     <span class="checkmark"></span> Conversível (25)
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
+                                                    <input type="checkbox" class="category-filter" value="Cupê">
                                                     <span class="checkmark"></span> Cupê (15)
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
+                                                    <input type="checkbox" class="category-filter" value="Sedã">
                                                     <span class="checkmark"></span> Sedã (10)
                                                 </label>
                                                 <!-- View All -->
                                                 <div class="view-content">
                                                     <div class="viewall-One">
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
+                                                            <input type="checkbox" class="category-filter"
+                                                                value="Luxuoso">
                                                             <span class="checkmark"></span> Luxuoso (06)
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
+                                                            <input type="checkbox" class="category-filter"
+                                                                value="SUV">
                                                             <span class="checkmark"></span> SUV (6)
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
+                                                            <input type="checkbox" class="category-filter"
+                                                                value="Camião">
                                                             <span class="checkmark"></span> Camião (5)
                                                         </label>
                                                     </div>
@@ -294,6 +304,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="accordion" id="accordionMain3">
                                 <div class="card-header-new" id="headingYear">
                                     <h6 class="filter-title">
@@ -843,15 +854,15 @@
                     </form>
                 </div>
 
+                {{-- === LISTA DE CARROS === --}}
                 <div class="col-xl-9 col-lg-8 col-sm-12 col-12">
-                    <div class="row">
+                    <div class="row" id="car-list">
                         @foreach ($cars as $car)
                             @php
-                                // Determinar a imagem a ser exibida
                                 $imagePath = !empty($car->images) ? trim($car->images) : $car->image ?? 'default.jpg';
                             @endphp
 
-                            <div class="listview-car">
+                            <div class="listview-car car-card" data-brand="{{ $car->brand->name ?? '' }}" data-category="{{ $car->category ?? '' }}">
                                 <div class="card">
                                     <div class="blog-widget d-flex">
                                         <!-- Imagem única do carro -->
@@ -895,7 +906,6 @@
                                                         </h6>
                                                     </div>
                                                 </div>
-
                                                 <div class="listing-details-group">
                                                     <ul>
                                                         <li>
@@ -973,6 +983,41 @@
                         @endforeach
                     </div>
                 </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const brandCheckboxes = document.querySelectorAll('.brand-filter');
+                        const categoryCheckboxes = document.querySelectorAll('.category-filter');
+                        const cars = document.querySelectorAll('#car-list .car-card');
+
+                        function filterCars() {
+                            const selectedBrands = [...brandCheckboxes].filter(ch => ch.checked).map(ch => ch.value);
+                            const selectedCategories = [...categoryCheckboxes].filter(ch => ch.checked).map(ch => ch.value);
+
+                            cars.forEach(car => {
+                                const brand = car.dataset.brand;
+                                const category = car.dataset.category;
+
+                                const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(brand);
+                                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(
+                                    category);
+
+                                // Exibe se atende aos dois filtros ao mesmo tempo
+                                if (brandMatch && categoryMatch) {
+                                    car.style.display = 'block';
+                                } else {
+                                    car.style.display = 'none';
+                                }
+                            });
+                        }
+
+                        [...brandCheckboxes, ...categoryCheckboxes].forEach(cb => {
+                            cb.addEventListener('change', filterCars);
+                        });
+                    });
+                </script>
+
+
 
 
             </div>
