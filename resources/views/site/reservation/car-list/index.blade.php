@@ -240,6 +240,26 @@
                                                                         class="brand-filter" value="Toyota">
                                                                     <span class="checkmark"></span> Toyota
                                                                 </label>
+                                                                <label class="custom_check w-100">
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="BMW">
+                                                                    <span class="checkmark"></span> BMW
+                                                                </label>
+                                                                <label class="custom_check w-100">
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="Mitsubishi">
+                                                                    <span class="checkmark"></span> Mitsubishi
+                                                                </label>
+                                                                <label class="custom_check w-100">
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="Porsche">
+                                                                    <span class="checkmark"></span> Porsche
+                                                                </label>
+                                                                <label class="custom_check w-100">
+                                                                    <input type="checkbox" name="username"
+                                                                        class="brand-filter" value="Land Rover">
+                                                                    <span class="checkmark"></span> Land Rover
+                                                                </label>
                                                             </div>
                                                         </div>
                                                         <!-- /View All -->
@@ -267,26 +287,26 @@
                                         <div id="checkBoxes2">
                                             <div class="selectBox-cont">
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" class="category-filter" value="Conversível">
-                                                    <span class="checkmark"></span> Conversível (25)
+                                                    <input type="checkbox" class="category-filter" value="Economic">
+                                                    <span class="checkmark"></span> Económico
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" class="category-filter" value="Cupê">
-                                                    <span class="checkmark"></span> Cupê (15)
+                                                    <input type="checkbox" class="category-filter" value="Standard">
+                                                    <span class="checkmark"></span> Intermédio
                                                 </label>
-                                                <label class="custom_check w-100">
+                                                {{-- <label class="custom_check w-100">
                                                     <input type="checkbox" class="category-filter" value="Sedã">
                                                     <span class="checkmark"></span> Sedã (10)
-                                                </label>
+                                                </label> --}}
                                                 <!-- View All -->
                                                 <div class="view-content">
                                                     <div class="viewall-One">
                                                         <label class="custom_check w-100">
                                                             <input type="checkbox" class="category-filter"
-                                                                value="Luxuoso">
-                                                            <span class="checkmark"></span> Luxuoso (06)
+                                                                value="Luxury">
+                                                            <span class="checkmark"></span> Luxuoso
                                                         </label>
-                                                        <label class="custom_check w-100">
+                                                        {{-- <label class="custom_check w-100">
                                                             <input type="checkbox" class="category-filter"
                                                                 value="SUV">
                                                             <span class="checkmark"></span> SUV (6)
@@ -295,7 +315,7 @@
                                                             <input type="checkbox" class="category-filter"
                                                                 value="Camião">
                                                             <span class="checkmark"></span> Camião (5)
-                                                        </label>
+                                                        </label> --}}
                                                     </div>
                                                 </div>
                                                 <!-- /View All -->
@@ -322,35 +342,42 @@
                                         <div id="checkBoxes3">
                                             <div class="selectBox-cont">
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
+                                                    <input type="checkbox" class="year-filter" value="2024"
+                                                        name="username">
                                                     <span class="checkmark"></span> 2024
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
+                                                    <input type="checkbox" class="year-filter" value="2023"
+                                                        name="username">
+                                                    <span class="checkmark"></span> 2023
+                                                </label>
+                                                <label class="custom_check w-100">
+                                                    <input type="checkbox" class="year-filter" value="2022"
+                                                        name="username">
                                                     <span class="checkmark"></span> 2022
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
+                                                    <input type="checkbox" class="year-filter" value="2021"
+                                                        name="username">
                                                     <span class="checkmark"></span> 2021
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> 2020
                                                 </label>
                                                 <!-- View All -->
                                                 <div class="view-content">
                                                     <div class="viewall-One">
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
+                                                            <input type="checkbox" class="year-filter" value="2020"
+                                                                name="username">
+                                                            <span class="checkmark"></span> 2020
+                                                        </label>
+                                                        <label class="custom_check w-100">
+                                                            <input type="checkbox" class="year-filter" value="2019"
+                                                                name="username">
                                                             <span class="checkmark"></span> 2019
                                                         </label>
                                                         <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
+                                                            <input type="checkbox" class="year-filter" value="2018"
+                                                                name="username">
                                                             <span class="checkmark"></span> 2018
-                                                        </label>
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> 2019
                                                         </label>
                                                     </div>
                                                 </div>
@@ -360,196 +387,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="accordion" id="accordionMain4">
-                                <div class="card-header-new" id="headingfuel">
-                                    <h6 class="filter-title">
-                                        <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
-                                            data-bs-target="#collapsefuel" aria-expanded="true"
-                                            aria-controls="collapsefuel">
-                                            Fuel Type
-                                            <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div id="collapsefuel" class="collapse" aria-labelledby="headingfuel"
-                                    data-bs-parent="#accordionExample2">
-                                    <div class="card-body-chat">
-                                        <div class="fuel-list">
-                                            <ul>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="color" id="petrol"
-                                                            value="red" checked="">
-                                                        <label for="petrol">Petrol</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="color" id="diesel"
-                                                            value="red" checked="">
-                                                        <label for="diesel">Diesel</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="color" id="electric"
-                                                            value="red" checked="">
-                                                        <label for="electric">Electric</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="color" id="cng"
-                                                            value="red" checked="">
-                                                        <label for="cng">CNG</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="accordion" id="accordionMain5">
-                                <div class="card-header-new" id="headingmileage">
-                                    <h6 class="filter-title">
-                                        <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
-                                            data-bs-target="#collapsemileage" aria-expanded="true"
-                                            aria-controls="collapsemileage">
-                                            Mileage
-                                            <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div id="collapsemileage" class="collapse" aria-labelledby="headingmileage"
-                                    data-bs-parent="#accordionExample2">
-                                    <div class="card-body-chat">
-                                        <div class="fuel-list">
-                                            <ul>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="mileage" id="limited"
-                                                            value="red" checked="">
-                                                        <label for="limited">Limited</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="mileage" id="unlimited"
-                                                            value="red" checked="">
-                                                        <label for="unlimited">Unlimited</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="accordion" id="accordionMain06">
-                                <div class="card-header-new" id="headingrental">
-                                    <h6 class="filter-title">
-                                        <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
-                                            data-bs-target="#collapserental" aria-expanded="true"
-                                            aria-controls="collapserental">
-                                            Rental Type
-                                            <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div id="collapserental" class="collapse" aria-labelledby="headingrental"
-                                    data-bs-parent="#accordionExample2">
-                                    <div class="card-body-chat">
-                                        <div class="fuel-list">
-                                            <ul>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="any" id="any">
-                                                        <label for="any">Any</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="day" id="day"
-                                                            checked="">
-                                                        <label for="day">Per Day</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="hour" id="hour"
-                                                            checked="">
-                                                        <label for="hour">Per Hour</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-selection">
-                                                        <input type="radio" name="week" id="week">
-                                                        <label for="week">Per Week</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="accordion" id="accordionMain6">
-                                <div class="card-header-new" id="headingspec">
-                                    <h6 class="filter-title">
-                                        <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
-                                            data-bs-target="#collapsespec" aria-expanded="true"
-                                            aria-controls="collapsespec">
-                                            Car Specifications
-                                            <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div id="collapsespec" class="collapse" aria-labelledby="headingspec"
-                                    data-bs-parent="#accordionExample2">
-                                    <div class="card-body-chat">
-                                        <div id="checkBoxes02">
-                                            <div class="selectBox-cont">
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Air Conditioners
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Keyless
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Panoramic
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span> Bluetooth
-                                                </label>
-                                                <!-- View All -->
-                                                <div class="view-content">
-                                                    <div class="viewall-One">
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Aux
-                                                        </label>
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Top Window
-                                                        </label>
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Speakers
-                                                        </label>
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Automatic Window
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <!-- /View All -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="accordion" id="accordionMain7">
                                 <div class="card-header-new" id="headingColor">
                                     <h6 class="filter-title">
@@ -568,65 +405,51 @@
                                             <ul>
                                                 <li>
                                                     <div class="input-themeselects">
-                                                        <input type="radio" name="color" id="greenColor"
-                                                            value="red" checked="">
+                                                        <input type="radio" class="color-filter" name="color"
+                                                            id="greenColor" value="Verde" checked="">
                                                         <label for="greenColor" class="green-clr"></label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="input-themeselects">
-                                                        <input type="radio" name="color" id="yellowColor"
-                                                            value="yellow">
+                                                        <input type="radio" class="color-filter" name="color"
+                                                            id="yellowColor" value="Amarelo">
                                                         <label for="yellowColor" class="yellow-clr"></label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="input-themeselects">
-                                                        <input type="radio" name="color" id="brownColor"
-                                                            value="blue">
+                                                        <input type="radio" class="color-filter" name="color"
+                                                            id="brownColor" value="Cinza">
                                                         <label for="brownColor" class="brown-clr"></label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="input-themeselects">
-                                                        <input type="radio" name="color" id="blackColor"
-                                                            value="green">
+                                                        <input type="radio" class="color-filter" name="color"
+                                                            id="blackColor" value="Preto">
                                                         <label for="blackColor" class="black-clr"></label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="input-themeselects">
-                                                        <input type="radio" name="color" id="redColor"
-                                                            value="red" checked="">
+                                                        <input type="radio" class="color-filter" name="color"
+                                                            id="redColor" value="Vermelho" checked="">
                                                         <label for="redColor" class="red-clr"></label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="input-themeselects">
-                                                        <input type="radio" name="color" id="grayColor"
-                                                            value="blue">
-                                                        <label for="grayColor" class="gray-clr"></label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-themeselects">
-                                                        <input type="radio" name="color" id="gray100Color"
-                                                            value="green">
+                                                        <input type="radio" class="color-filter" name="color"
+                                                            id="gray100Color" value="Branco">
                                                         <label for="gray100Color" class="gray100-clr"></label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="input-themeselects">
-                                                        <input type="radio" name="color" id="blueColor"
-                                                            value="yellow">
+                                                        <input type="radio" class="color-filter" name="color"
+                                                            id="blueColor" value="Azul">
                                                         <label for="blueColor" class="blue-clr"></label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-themeselects">
-                                                        <input type="radio" name="color" id="whiteColor"
-                                                            value="yellow">
-                                                        <label for="whiteColor" class="white-clr"></label>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -651,19 +474,23 @@
                                         <div id="checkBoxes6">
                                             <div class="selectBox-cont">
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="bystatus">
+                                                    <input type="checkbox" class="seat-filter" value="2"
+                                                        name="bystatus">
                                                     <span class="checkmark"></span> 2 Assentos
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="bystatus">
+                                                    <input type="checkbox" class="seat-filter" value="4"
+                                                        name="bystatus">
                                                     <span class="checkmark"></span> 4 Assentos
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="bystatus">
+                                                    <input type="checkbox" class="seat-filter" value="5"
+                                                        name="bystatus">
                                                     <span class="checkmark"></span> 5 Assentos
                                                 </label>
                                                 <label class="custom_check w-100">
-                                                    <input type="checkbox" name="bystatus">
+                                                    <input type="checkbox" class="seat-filter" value="7"
+                                                        name="bystatus">
                                                     <span class="checkmark"></span> 7 Assentos
                                                 </label>
                                             </div>
@@ -709,20 +536,22 @@
                                             <ul>
                                                 <li>
                                                     <div class="input-selection">
-                                                        <input type="radio" name="transmission" id="manual"
-                                                            checked="">
+                                                        <input type="radio" class="transmission-filter" value="Manual"
+                                                            name="transmission" id="manual" checked="">
                                                         <label for="manual">Manual </label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="input-selection">
-                                                        <input type="radio" name="transmission" id="semi">
+                                                        <input type="radio" class="transmission-filter" value="Semi"
+                                                            name="transmission" id="semi">
                                                         <label for="semi">Semi Automático</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="input-selection">
-                                                        <input type="radio" name="transmission" id="automatic">
+                                                        <input type="radio" class="transmission-filter"
+                                                            value="Automático" name="transmission" id="automatic">
                                                         <label for="automatic">Automático</label>
                                                     </div>
                                                 </li>
@@ -731,120 +560,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="accordion" id="accordionMain10">
-                                <div class="card-header-new" id="headingFive">
-                                    <h6 class="filter-title">
-                                        <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseFive" aria-expanded="true"
-                                            aria-controls="collapseFive">
-                                            Rating
-                                            <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                                    data-bs-parent="#accordionExample5">
-                                    <div class="card-body-chat">
-                                        <div id="checkBoxes4">
-                                            <div class="selectBox-cont">
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="category">
-                                                    <span class="checkmark"></span>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <span class="rating-count">5.0</span>
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="category">
-                                                    <span class="checkmark"></span>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <span class="rating-count">4.0</span>
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="category">
-                                                    <span class="checkmark"></span>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <span class="rating-count">3.0</span>
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="category">
-                                                    <span class="checkmark"></span>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <span class="rating-count">2.0</span>
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="username">
-                                                    <span class="checkmark"></span>
-                                                    <i class="fas fa-star filled"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <span class="rating-count">1.0</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="accordion" id="accordionMain11">
-                                <div class="card-header-new" id="headingSix">
-                                    <h6 class="filter-title">
-                                        <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseSix" aria-expanded="true"
-                                            aria-controls="collapseSix">
-                                            Customer Recommendation
-                                            <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
-                                    data-bs-parent="#accordionExample6">
-                                    <div class="card-body-chat">
-                                        <div id="checkBoxes5">
-                                            <div class="selectBox-cont">
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="category">
-                                                    <span class="checkmark"></span> 70% & up
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="category">
-                                                    <span class="checkmark"></span> 60% & up
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="category">
-                                                    <span class="checkmark"></span> 50% & up
-                                                </label>
-                                                <label class="custom_check w-100">
-                                                    <input type="checkbox" name="category">
-                                                    <span class="checkmark"></span> 40% & up
-                                                </label>
-                                                <div class="viewall-Two">
-                                                    <label class="custom_check w-100">
-                                                        <input type="checkbox" name="username">
-                                                        <span class="checkmark"></span>30% & up
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                         <button type="submit"
                             class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary filter-btn">
@@ -862,7 +577,10 @@
                                 $imagePath = !empty($car->images) ? trim($car->images) : $car->image ?? 'default.jpg';
                             @endphp
 
-                            <div class="listview-car car-card" data-brand="{{ $car->brand->name ?? '' }}" data-category="{{ $car->category ?? '' }}">
+                            <div class="listview-car car-card" data-brand="{{ $car->brand->name ?? '' }}"
+                                data-category="{{ $car->category ?? '' }}" data-year="{{ $car->manufacture_date ?? '' }}"
+                                data-color="{{ $car->color ?? '' }}" data-seat="{{ $car->number_of_seats ?? '' }}"
+                                data-transmission="{{ $car->transmission ?? '' }}">
                                 <div class="card">
                                     <div class="blog-widget d-flex">
                                         <!-- Imagem única do carro -->
@@ -962,8 +680,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                   <div class="listing-button">
-                                                        <a href="{{ route('car.details', ['car_id' => $car->id]) }}" class="btn btn-order">
+                                                    <div class="listing-button">
+                                                        <a href="{{ route('car.details', ['car_id' => $car->id]) }}"
+                                                            class="btn btn-order">
                                                             <span><i class="feather-calendar me-2"></i></span>Alugar Agora
                                                         </a>
                                                     </div>
@@ -987,32 +706,55 @@
                     document.addEventListener('DOMContentLoaded', () => {
                         const brandCheckboxes = document.querySelectorAll('.brand-filter');
                         const categoryCheckboxes = document.querySelectorAll('.category-filter');
+                        const yearCheckboxes = document.querySelectorAll('.year-filter');
+                        const colorCheckboxes = document.querySelectorAll('.color-filter');
+                        const seatCheckboxes = document.querySelectorAll('.seat-filter');
+                        const transmissionCheckboxes = document.querySelectorAll('.transmission-filter');
                         const cars = document.querySelectorAll('#car-list .car-card');
 
                         function filterCars() {
                             const selectedBrands = [...brandCheckboxes].filter(ch => ch.checked).map(ch => ch.value);
                             const selectedCategories = [...categoryCheckboxes].filter(ch => ch.checked).map(ch => ch.value);
+                            const selectedYears = [...yearCheckboxes].filter(ch => ch.checked).map(ch => ch.value);
+                            const selectedColors = [...colorCheckboxes].filter(ch => ch.checked).map(ch => ch.value);
+                            const selectedSeats = [...seatCheckboxes].filter(ch => ch.checked).map(ch => ch.value);
+                            const selectedTransmissions = [...transmissionCheckboxes].filter(ch => ch.checked).map(ch => ch
+                                .value);
 
                             cars.forEach(car => {
-                                const brand = car.dataset.brand;
-                                const category = car.dataset.category;
+                                const brand = car.dataset.brand || '';
+                                const category = car.dataset.category || '';
+                                const year = car.dataset.year || '';
+                                const color = car.dataset.color || '';
+                                const seat = car.dataset.seat || '';
+                                const transmission = car.dataset.transmission || '';
 
-                                const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(brand);
-                                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(
+                                const brandMatch = !selectedBrands.length || selectedBrands.includes(brand);
+                                const categoryMatch = !selectedCategories.length || selectedCategories.includes(
                                     category);
+                                const yearMatch = !selectedYears.length || selectedYears.includes(year);
+                                const colorMatch = !selectedColors.length || selectedColors.includes(color);
+                                const seatMatch = !selectedSeats.length || selectedSeats.includes(seat);
+                                const transmissionMatch = !selectedTransmissions.length || selectedTransmissions
+                                    .includes(transmission);
 
-                                // Exibe se atende aos dois filtros ao mesmo tempo
-                                if (brandMatch && categoryMatch) {
-                                    car.style.display = 'block';
-                                } else {
-                                    car.style.display = 'none';
-                                }
+                                // Só esconde quando falhar em filtros ativos
+                                car.style.display = (brandMatch && categoryMatch && yearMatch && colorMatch &&
+                                        seatMatch && transmissionMatch) ?
+                                    '' :
+                                    'none';
                             });
                         }
 
-                        [...brandCheckboxes, ...categoryCheckboxes].forEach(cb => {
-                            cb.addEventListener('change', filterCars);
-                        });
+                        // Ouvinte para TODOS os filtros
+                        [
+                            ...brandCheckboxes,
+                            ...categoryCheckboxes,
+                            ...yearCheckboxes,
+                            ...colorCheckboxes,
+                            ...seatCheckboxes,
+                            ...transmissionCheckboxes
+                        ].forEach(cb => cb.addEventListener('change', filterCars));
                     });
                 </script>
 
