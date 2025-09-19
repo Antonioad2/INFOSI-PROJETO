@@ -4,10 +4,6 @@
 
 	
 	<div class="main-wrapper">
-	
-		<!-- Header -->
-		
-		<!-- /Header -->
 		
 		<!-- Breadscrumb Section -->
 		<div class="breadcrumb-bar">
@@ -1838,7 +1834,6 @@
 			</div>
 		</div>
 		<!-- /Custom Date Modal -->
-	
 				
 	</div>
 

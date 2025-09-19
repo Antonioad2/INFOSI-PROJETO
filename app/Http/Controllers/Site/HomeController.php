@@ -120,6 +120,33 @@ class HomeController extends Controller
         return view('site.reservation.car-services.index', compact('cars'));
     }
 
+    public function carBilling()
+    {
+        // Fetch all cars with their related data (brand, models, color, fuel)
+        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available')->get(); // 🔹 só traz disponíveis;
+
+        // Pass the cars to the view
+        return view('site.reservation.car-billing.index', compact('cars'));
+    }
+
+    public function carPayment()
+    {
+        // Fetch all cars with their related data (brand, models, color, fuel)
+        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available')->get(); // 🔹 só traz disponíveis;
+
+        // Pass the cars to the view
+        return view('site.reservation.car-payment.index', compact('cars'));
+    }
+
+    public function carConfirmed()
+    {
+        // Fetch all cars with their related data (brand, models, color, fuel)
+        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available')->get(); // 🔹 só traz disponíveis;
+
+        // Pass the cars to the view
+        return view('site.reservation.car-confirmed.index', compact('cars'));
+    }
+
     /*     public function aboutUs()
     {
         return view('site.about_us.index');
