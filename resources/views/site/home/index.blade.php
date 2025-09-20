@@ -415,7 +415,7 @@
                                     <div class="listing-features d-flex align-items-center justify-content-between">
                                         <div class="list-rating">
                                             <h3 class="listing-title">
-                                                <a href="{{ route('car.details', $car->id) }}">{{ $car->name }}</a>
+                                                <a href="{{ route('car.details', $car->id) }}">{{ $car->brand->name }} {{$car->models->name}}</a>
                                             </h3>
                                             <div class="list-rating">
                                                 @for ($i = 0; $i < 5; $i++)
@@ -460,7 +460,7 @@
 
 
                 <div class="view-all-btn text-center aos" data-aos="fade-down">
-                    <a href="listing-grid.html" class="btn btn-secondary d-inline-flex align-items-center">Ver Mais
+                    <a href="{{ route('site.car-list')}}" class="btn btn-secondary d-inline-flex align-items-center">Ver Mais
                         Carros<i class="bx bx-right-arrow-alt ms-1"></i></a>
                 </div>
 
