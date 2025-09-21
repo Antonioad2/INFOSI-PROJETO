@@ -22,20 +22,8 @@ Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])
     ->name('site.reservation.confirm');
 
 /* Checkouts (pode usar como atalhos ou redirecionamentos) */
-Route::get('/reservation/checkout', function () {
-    // Decide dinamicamente qual view mostrar de acordo com a etapa salva na sessão
-    $stage = session('reservation_stage', 1);
-    switch ($stage) {
-        case 1:
-            return view('site.reservation.book-checkout.index');
-        case 2:
-            return view('site.reservation.details-checkout.index');
-        case 3:
-            return view('site.reservation.payment.index');
-        default:
-            return view('site.reservation.finish.index');
-    }
-})->name('site.reservation.checkout');
+Route::get('/reservation/checkout', [ReservationController::class, 'checkout'])
+    ->name('site.reservation.checkout');
 
 /* Página final */
 Route::get('/car-confirmed', [HomeController::class, 'carConfirmed'])
