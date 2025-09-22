@@ -19,32 +19,89 @@ class HomeController extends Controller
     }
 
     public function carList(Request $request)
-    {
-        $pickup_location = $request->input('pickup_location');
-        $dropoff_location = $request->input('dropoff_location');
-        $pickup_datetime = $request->input('pickup_datetime');
-        $dropoff_datetime = $request->input('dropoff_datetime');
-        $category = $request->input('category'); // se você quiser filtrar por categoria
+{
+    // Retrieve filter inputs
+    $pickup_location = $request->input('pickup_location');
+    $dropoff_location = $request->input('dropoff_location');
+    $pickup_datetime = $request->input('pickup_datetime');
+    $dropoff_datetime = $request->input('dropoff_datetime');
+    $brands = $request->input('brands', []); // Array of selected brands
+    $categories = $request->input('categories', []); // Array of selected categories
+    $years = $request->input('years', []); // Array of selected years
+    $colors = $request->input('colors', []); // Array of selected colors
+    $seats = $request->input('seats', []); // Array of selected seat counts
+    $transmissions = $request->input('transmissions', []); // Array of selected transmissions
+    $min_price = $request->input('min_price');
+    $max_price = $request->input('max_price');
 
-        // Query inicial: só disponíveis
-        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available');
+    // Base query: only available cars
+    $query = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available');
 
-        // Aplica filtros se existirem
-        if ($category) {
-            $cars->where('category', $category);
-        }
-        if ($pickup_location) {
-            $cars->where('pickup_location', $pickup_location); // suposição que tenha coluna
-        }
-        if ($dropoff_location) {
-            $cars->where('dropoff_location', $dropoff_location); // suposição que tenha coluna
-        }
-
-        $cars = $cars->get();
-
-        // Retorna para a view de listagem de carros
-        return view('site.reservation.car-list.index', compact('cars', 'pickup_location', 'dropoff_location', 'pickup_datetime', 'dropoff_datetime', 'category'));
+    // Apply filters
+    if (!empty($pickup_location)) {
+        $query->where('location', 'LIKE', "%{$pickup_location}%"); // Assuming 'location' column exists
     }
+
+    if (!empty($dropoff_location)) {
+        $query->where('location', 'LIKE', "%{$dropoff_location}%"); // Assuming 'location' column exists
+    }
+
+    if (!empty($brands)) {
+        $query->whereIn('brand_id', function ($subQuery) use ($brands) {
+            $subQuery->select('id')->from('brands')->whereIn('name', $brands);
+        });
+    }
+
+    if (!empty($categories)) {
+        $query->whereIn('category', $categories);
+    }
+
+    if (!empty($years)) {
+        $query->whereIn('manufacture_date', $years);
+    }
+
+    if (!empty($colors)) {
+        $query->whereIn('color_id', function ($subQuery) use ($colors) {
+            $subQuery->select('id')->from('colors')->whereIn('name', $colors);
+        });
+    }
+
+    if (!empty($seats)) {
+        $query->whereIn('number_of_seats', $seats);
+    }
+
+    if (!empty($transmissions)) {
+        $query->whereIn('transmission', $transmissions);
+    }
+
+    if (!empty($min_price) && !empty($max_price)) {
+        $query->whereBetween('price_per_day', [$min_price, $max_price]);
+    } elseif (!empty($min_price)) {
+        $query->where('price_per_day', '>=', $min_price);
+    } elseif (!empty($max_price)) {
+        $query->where('price_per_day', '<=', $max_price);
+    }
+
+    // Execute the query
+    $cars = $query->get();
+
+    // Return to the view with the filtered cars and filter values
+    return view('site.reservation.car-list.index', compact(
+        'cars',
+        'pickup_location',
+        'dropoff_location',
+        'pickup_datetime',
+        'dropoff_datetime',
+        'brands',
+        'categories',
+        'years',
+        'colors',
+        'seats',
+        'transmissions',
+        'min_price',
+        'max_price'
+    ));
+}
 
 
     public function carLocation()
@@ -98,3 +155,7 @@ class HomeController extends Controller
         return view('site.reservation.car-details.index', compact('car'));
     }
 }
+
+
+    
+  

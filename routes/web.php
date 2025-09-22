@@ -28,3 +28,9 @@ Route::get('/reservation/checkout', [ReservationController::class, 'checkout'])
 /* Página final */
 Route::get('/car-confirmed', [HomeController::class, 'carConfirmed'])
     ->name('site.car-confirmed');
+
+//sobre nós
+Route::view('/about-us', 'site.reservation.about.index')->name('site.about-us');
+
+//blog
+Route::view('/blog', 'site.reservation.blog.index')->name('site.blog');

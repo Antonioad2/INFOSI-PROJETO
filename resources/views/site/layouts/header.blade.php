@@ -27,70 +27,8 @@
                 </div>
                 <ul class="main-nav">
                     <li class="has-submenu megamenu active">
-                        <a href="{{ route('home')}}">Início {{-- <i class="fas fa-chevron-down"></i> --}}</a>
-                        {{-- <ul class="submenu mega-submenu">
-                            <li>
-                                <div class="megamenu-wrapper">
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <div class="single-demo active">
-                                                <div class="demo-img">
-                                                    <a href="index.html">
-                                                        <img src="{{ url('assets/user/img/menu/home-01.svg') }}"
-                                                            class="img-fluid " alt="img">
-                                                    </a>
-                                                </div>
-                                                <div class="demo-info">
-                                                    <a href="index.html">Car Rental<span class="new">New</span> </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="single-demo">
-                                                <div class="demo-img">
-                                                    <a href="index-2.html">
-                                                        <img src="{{ url('assets/user/img/menu/home-02.svg') }}"
-                                                            class="img-fluid " alt="img">
-                                                    </a>
-                                                </div>
-                                                <div class="demo-info">
-                                                    <a href="index-2.html">Car Rental 1<span class="hot">Hot</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="single-demo">
-                                                <div class="demo-img">
-                                                    <a href="index-3.html">
-                                                        <img src="{{ url('assets/user/img/menu/home-03.svg') }}"
-                                                            class="img-fluid " alt="img">
-                                                    </a>
-                                                </div>
-                                                <div class="demo-info">
-                                                    <a href="index-3.html">Bike Rental<span class="new">New</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="single-demo">
-                                                <div class="demo-img">
-                                                    <a href="index-4.html">
-                                                        <img src="{{ url('assets/user/img/menu/home-04.svg') }}"
-                                                            class="img-fluid " alt="img">
-                                                    </a>
-                                                </div>
-                                                <div class="demo-info">
-                                                    <a href="index-4.html">Yacht Rental<span class="new">New</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul> --}}
+                        <a href="{{ route('home')}}">Início </a>
+                        
                     </li>
                     <li class="has-submenu">
                         <a href="{{ route('site.car-list') }}">Carros <i class="fas fa-chevron-down"></i></a>
@@ -130,83 +68,23 @@
                                     <li><a href="error-500.html">500 Error</a></li>
                                 </ul>
                             </li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="testimonial.html">Testimonials</a></li>
-                            <li><a href="terms-condition.html">Terms & Conditions</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                            <li><a href="maintenance.html">Maintenance</a></li>
-                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                          
                         </ul>
                     </li>
 
                     <li class="has-submenu">
-                        <a href="#">Ofertas <i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="blog-list.html">Blog List</a></li>
-                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
+                        <a href="{{route('site.blog')}}">Ofertas <i class="fas fa-chevron-down"></i></a>
+                       
                     </li>
 
                     <li class="has-submenu">
-                        <a href="#">Sobre Nós <i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="blog-list.html">Blog List</a></li>
-                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
+                        <a href="{{route('site.about-us')}}">Sobre Nós </a>                   
                     </li>
 
-                    {{-- BLOGUE --}}
-
-                    {{-- <li class="has-submenu">
-								<a href="#">Blog <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-								    <li><a href="blog-list.html">Blog List</a></li>
-									<li><a href="blog-grid.html">Blog Grid</a></li>
-									<li><a href="blog-details.html">Blog Details</a></li>																		
-								</ul>
-							</li> --}}
+                   
 
                     {{-- Dashboard --}}
 
-                    {{-- <li class="has-submenu">
-								<a href="#">Dashboard <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li class="has-submenu">
-										<a href="javascript:void(0);">User Dashboard</a>
-										<ul class="submenu">
-											<li><a href="user-dashboard.html">Dashboard</a></li>
-											<li><a href="user-bookings.html">My Bookings</a></li>
-											<li><a href="user-reviews.html">Reviews</a></li>
-											<li><a href="user-wishlist.html">Wishlist</a></li>
-											<li><a href="user-messages.html">Messages</a></li>
-											<li><a href="user-wallet.html">My Wallet</a></li>
-											<li><a href="user-payment.html">Payments</a></li>
-											<li><a href="user-settings.html">Settings</a></li>			
-										</ul>
-									</li>		
-									<li class="has-submenu">
-										<a href="javascript:void(0);">Admin Dashboard</a>
-										<ul class="submenu">
-											<li><a href="admin/index.html">Dashboard</a></li>
-											<li><a href="admin/reservations.html">Bookings</a></li>
-											<li><a href="admin/customers.html">Manage</a></li>
-											<li><a href="admin/cars.html">Rentals</a></li>
-											<li><a href="admin/invoices.html">Finance & Accounts</a></li>
-											<li><a href="admin/coupons.html">Others</a></li>
-											<li><a href="admin/pages.html">CMS</a></li>			
-											<li><a href="admin/contact-messages.html">Support</a></li>			
-											<li><a href="admin/users.html">User Management</a></li>			
-											<li><a href="admin/earnings-report.html">Reports</a></li>			
-											<li><a href="admin/profile-setting.html">Settings & Configuration</a></li>		
-										</ul>
-									</li>				
-								</ul>
-							</li> --}}
                     <li class="login-link">
                         <a href="register.html">Cadastra-se</a>
                     </li>
