@@ -2,36 +2,29 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\HomeController;
+use App\Http\Controllers\Site\ReservationController;
 
-    /* Rota Principal */
+/* Páginas principais e listagem de carros */
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-    /* Rotas para listagem de carros */
-    
-Route::get('/car/{car_id}', [HomeController::class, 'carDetails'])->name('car.details');
 Route::get('/car-list', [HomeController::class, 'carList'])->name('site.car-list');
-Route::get('/car/{id}/book', [HomeController::class, 'carBook'])->name('car.book');
-Route::get('/car-location', [HomeController::class, 'carLocation'])->name('site.car-location');
-Route::get('/car-services', [HomeController::class, 'carServices'])->name('site.car-services');
-Route::get('/car-billing', [HomeController::class, 'carBilling'])->name('site.car-billing');
-Route::get('/car-payment', [HomeController::class, 'carPayment'])->name('site.car-payment');
-Route::get('/car-confirmed', [HomeController::class, 'carConfirmed'])->name('site.car-confirmed');
+Route::get('/car/{car_id}', [HomeController::class, 'carDetails'])->name('car.details');
+Route::get('/car/{car_id}/book', [HomeController::class, 'carBook'])->name('car.book');
 
-Route::get('service', function () {
-    return view('site.reservation.book-checkout.index');
-});
+/* Etapas da reserva */
+Route::post('/reservation/step1/{car_id}', [ReservationController::class, 'step1'])
+    ->name('site.reservation.step1');
+Route::post('/reservation/step2/{car_id}', [ReservationController::class, 'step2'])
+    ->name('site.reservation.step2');
+Route::post('/reservation/step3/{car_id}', [ReservationController::class, 'step3'])
+    ->name('site.reservation.step3');
+Route::post('/reservation/confirm', [ReservationController::class, 'confirm'])
+    ->name('site.reservation.confirm');
 
-Route::get('details-checkout', function () {
-    return view('site.reservation.details-checkout.index');
-});
+/* Checkouts (pode usar como atalhos ou redirecionamentos) */
+Route::get('/reservation/checkout', [ReservationController::class, 'checkout'])
+    ->name('site.reservation.checkout');
 
-Route::get('payment', function () {
-    return view('site.reservation.payment.index');
-});
-
-Route::get('finish', function () {
-    return view('site.reservation.finish.index');
-});
-
-
-
+/* Página final */
+Route::get('/car-confirmed', [HomeController::class, 'carConfirmed'])
+    ->name('site.car-confirmed');

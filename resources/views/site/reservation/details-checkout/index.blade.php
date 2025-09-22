@@ -67,7 +67,9 @@
                 <div class="row" style="transform: none;">
                     <div class="col-lg-8">
                         <div class="booking-information-main">
-                            <form action="https://dreamsrent.dreamstechnologies.com/html/template/booking-payment.html">
+                            <form action="{{ route('site.reservation.step3', ['car_id' => $car->id])}}"
+                                method="POST">
+                                @csrf
                                 <div class="booking-information-card">
                                     <div class="booking-info-head justify-content-between">
                                         <div class="d-flex align-items-center">
@@ -83,17 +85,35 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="input-block">
-                                                    <label class="form-label">Nome <span class="text-danger"> *</span></label>
-                                                    <input type="text" class="form-control" placeholder="Digite o Nome">
+                                                    <label class="form-label">Nome Completo <span class="text-danger"> *</span></label>
+                                                    <input type="text" name="name" class="form-control" placeholder="Digite o Nome">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-block">
-                                                    <label class="form-label">Sobrenome <span class="text-danger"> *</span></label>
-                                                    <input type="text" class="form-control" placeholder="Digite o Sobrenome">
+                                                    <label class="form-label">Bilhete de Identidade <span class="text-danger"> *</span></label>
+                                                    <input type="text" name="bi" class="form-control" placeholder="Digite o Número do seu BI">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
+                                                <div class="input-block">
+                                                    <label class="form-label">Endereço de E-mail <span class="text-danger"> *</span></label>
+                                                    <input type="text" name="email" class="form-control" placeholder="Digite o E-mail">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-block">
+                                                    <label class="form-label">Número de Telefone <span class="text-danger"> *</span></label>
+                                                    <input type="text" name="phone" class="form-control" placeholder="Digite o Número de Telefone">
+                                                </div>
+                                            </div>
+                                            {{-- <div class="col-md-6">
+                                                <div class="input-block">
+                                                    <label class="form-label">Sobrenome <span class="text-danger"> *</span></label>
+                                                    <input type="text" class="form-control" placeholder="Digite o Sobrenome">
+                                                </div>
+                                            </div> --}}
+                                            {{-- <div class="col-md-6">
                                                 <div class="input-block">
                                                     <label class="form-label">Número de Pessoas <span class="text-danger"> *</span></label>
                                                     <select class="form-control select select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
@@ -107,14 +127,14 @@
                                                     <label class="form-label">Empresa</label>
                                                     <input type="text" class="form-control" placeholder="Digite o Nome da Empresa">
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-md-12">
                                                 <div class="input-block">
                                                     <label class="form-label">Endereço <span class="text-danger"> *</span></label>
-                                                    <input type="text" class="form-control" placeholder="Digite o Endereço">
+                                                    <input type="text" name="address" class="form-control" placeholder="Digite o Endereço">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            {{-- <div class="col-md-4">
                                                 <div class="input-block">
                                                     <label class="form-label">País <span class="text-danger"> *</span></label>
                                                     <select class="form-control select select2-hidden-accessible" data-select2-id="4" tabindex="-1" aria-hidden="true">
@@ -129,25 +149,13 @@
                                                     <label class="form-label">Cidade <span class="text-danger"> *</span></label>
                                                     <input type="text" class="form-control" placeholder="Cidade">
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
+                                            </div> --}}
+                                            {{-- <div class="col-md-4">
                                                 <div class="input-block">
                                                     <label class="form-label">CEP <span class="text-danger"> *</span></label>
                                                     <input type="text" class="form-control" placeholder="Digite o CEP">
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="input-block">
-                                                    <label class="form-label">Endereço de E-mail <span class="text-danger"> *</span></label>
-                                                    <input type="text" class="form-control" placeholder="Digite o E-mail">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="input-block">
-                                                    <label class="form-label">Número de Telefone <span class="text-danger"> *</span></label>
-                                                    <input type="text" class="form-control" placeholder="Digite o Número de Telefone">
-                                                </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-md-12">
                                                 <div class="input-block">
                                                     <label class="form-label">Informações Adicionais</label>

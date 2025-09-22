@@ -63,7 +63,9 @@
 					<div class="row">
 						<div class="col-lg-8">
 							<div class="booking-information-main">
-								<form action="https://dreamsrent.dreamstechnologies.com/html/template/booking-detail.html">
+								<form action="{{ route('site.reservation.step2', ['car_id' => $car->id])}}"
+									method="POST">
+									@csrf
 									<div class="booking-information-card">
 										<div class="booking-info-head justify-content-between">
 											<div class="d-flex align-items-center">
