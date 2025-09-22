@@ -14,11 +14,7 @@
                     </h2>
                     <nav aria-label="migalhas de pão" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a>
-                                    <font dir="auto" style="vertical-align: inherit;">
-                                        <font dir="auto" style="vertical-align: inherit;">Lar</font>
-                                    </font>
-                                </a></li>
+                          
                             <li class="breadcrumb-item active" aria-current="page">
                                 <font dir="auto" style="vertical-align: inherit;">
                                     <font dir="auto" style="vertical-align: inherit;">Confira</font>
@@ -33,81 +29,47 @@
     <!-- /Breadscrumb Section -->
 
     <!-- Booking Success -->
-    <div class="booking-new-module">
-        <div class="container">
-            <div class="booking-wizard-head">
-                <div class="row align-items-center">
-                    <div class="col-xl-4 col-lg-3">
-                        <div class="booking-head-title">
-                            <h4>
-                                <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Reserve seu carro</font>
-                                </font>
-                            </h4>
-                            <p>
-                                <font dir="auto" style="vertical-align: inherit;">
-                                    <font dir="auto" style="vertical-align: inherit;">Conclua as seguintes etapas
-                                    </font>
-                                </font>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-xl-8 col-lg-9">
-                        <div class="booking-wizard-lists">
-                            <ul>
-                                <li class="active activated">
-                                    <span><img src="assets/user/img/icon/booking-head-icon-01.svg"
-                                            alt="Ícone de reserva"></span>
-                                    <h6>
-                                        <font dir="auto" style="vertical-align: inherit;">
-                                            <font dir="auto" style="vertical-align: inherit;">Localização e hora
-                                            </font>
-                                        </font>
-                                    </h6>
-                                </li>
-                                <li class="active activated">
-                                    <span><img src="assets/user/img/icon/booking-head-icon-02.svg"
-                                            alt="Ícone de reserva"></span>
-                                    <h6>
-                                        <font dir="auto" style="vertical-align: inherit;">
-                                            <font dir="auto" style="vertical-align: inherit;">Complementos</font>
-                                        </font>
-                                    </h6>
-                                </li>
-                                <li class="active activated">
-                                    <span><img src="assets/user/img/icon/booking-head-icon-03.svg"
-                                            alt="Ícone de reserva"></span>
-                                    <h6>
-                                        <font dir="auto" style="vertical-align: inherit;">
-                                            <font dir="auto" style="vertical-align: inherit;">Detalhe</font>
-                                        </font>
-                                    </h6>
-                                </li>
-                                <li class="active activated">
-                                    <span><img src="assets/user/img/icon/booking-head-icon-04.svg"
-                                            alt="Ícone de reserva"></span>
-                                    <h6>
-                                        <font dir="auto" style="vertical-align: inherit;">
-                                            <font dir="auto" style="vertical-align: inherit;">Confira</font>
-                                        </font>
-                                    </h6>
-                                </li>
-                                <li class="active">
-                                    <span><img src="assets/user/img/icon/booking-head-icon-05.svg"
-                                            alt="Ícone de reserva"></span>
-                                    <h6>
-                                        <font dir="auto" style="vertical-align: inherit;">
-                                            <font dir="auto" style="vertical-align: inherit;">Reserva confirmada
-                                            </font>
-                                        </font>
-                                    </h6>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="booking-card">
+
+     <div class="booking-new-module">
+			<div class="container">
+				<div class="booking-wizard-head">
+					<div class="row align-items-center">
+						<div class="col-xl-4 col-lg-3">
+							<div class="booking-head-title">
+								<h4>Reserve Seu Carro</h4>
+								<p>Complete as seguintes etapas</p>
+							</div>
+						</div>
+						<div class="col-xl-8 col-lg-9">
+							<div class="booking-wizard-lists">
+								<ul>
+									<li class="active activated">
+										<span><img src="{{ url('assets/user/img/icons/booking-head-icon-01.svg')}}" alt="Ícone de Reserva"></span>
+										<h6>Localização e Horário</h6>
+									</li>
+									<li class="active activated">
+										<span><img src="{{ url('assets/user/img/icons/booking-head-icon-02.svg')}}" alt="Ícone de Reserva"></span>
+										<h6>Serviços Extras</h6>
+									</li>
+									<li class="active activated">
+										<span><img src="{{ url('assets/user/img/icons/booking-head-icon-03.svg')}}" alt="Ícone de Reserva"></span>
+										<h6>Detalhes</h6>
+									</li>
+									<li class="active activated">
+										<span><img src="{{ url('assets/user/img/icons/booking-head-icon-04.svg')}}" alt="Ícone de Reserva"></span>
+										<h6>Checkout</h6>
+									</li>
+									<li class="active">
+										<span><img src="{{ url('assets/user/img/icons/booking-head-icon-05.svg')}}" alt="Ícone de Reserva"></span>
+										<h6>Reserva Confirmada</h6>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+		        <div class="booking-card">
+>>>>>>> e5515b63fc8a4d50d9c8469646306e25188a6962
                 <div class="success-book">
                     <span class="success-icon">
                         <i class="fa-solid fa-check-double"></i>

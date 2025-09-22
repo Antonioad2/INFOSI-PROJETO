@@ -438,7 +438,7 @@
                                             <li>
                                                 <img src="{{ url('assets/user/img/icons/car-parts-02.svg') }}"
                                                     alt="Quilometragem">
-                                                <p>{{ $car->km }} KM</p>
+                                                <p>{{ $car->mileage }} KM</p>
                                             </li>
                                             <li>
                                                 <img src="{{ url('assets/user/img/icons/car-parts-03.svg') }}"
@@ -448,7 +448,7 @@
                                             <li>
                                                 <img src="{{ url('assets/user/img/icons/car-parts-05.svg') }}"
                                                     alt="Ano">
-                                                <p>{{ $car->year }}</p>
+                                                <p>{{ $car->manufacture_date ?? 'N/A' }}</p>
                                             </li>
                                         </ul>
                                     </div>

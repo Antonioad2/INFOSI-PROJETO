@@ -95,9 +95,9 @@
                         <a href="{{ route('site.car-list') }}">Carros <i class="fas fa-chevron-down"></i></a>
                         <ul class="submenu">
                             <li><a href="listing-grid.html">Listing Grid</a></li>
-                            <li><a href="{{ route('site.car-list') }}">Listing List</a></li>
+                            <li><a href="{{ route('site.car-list') }}">Listagem de Carro</a></li>
                             <li><a href="listing-map.html">Listing With Map</a></li>
-                            <li><a href="listing-details.html">Listing Details</a></li>
+                            <li><a href="listing-details.html">Detalhes do Carro</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
@@ -141,22 +141,15 @@
                         </ul>
                     </li>
 
+                  
                     <li class="has-submenu">
-                        <a href="#">Ofertas <i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="blog-list.html">Blog List</a></li>
-                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
+                        <a href="{{route('site.blog')}}">Ofertas </i></a>
+                       
                     </li>
 
                     <li class="has-submenu">
-                        <a href="#">Sobre Nós <i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="blog-list.html">Blog List</a></li>
-                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
+                        <a href="{{route('site.about-us')}}">Sobre Nós</a>
+                       
                     </li>
 
                     {{-- BLOGUE --}}
