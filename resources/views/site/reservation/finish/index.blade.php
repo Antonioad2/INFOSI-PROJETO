@@ -1,5 +1,5 @@
 @extends('site.reservation.layouts.main')
-@section('title', 'AngoCars Detalhes Checkout')
+@section('title', 'AngoCars  Reserva Concluída')
 @section('content')
 
 <body data-aos-easing="ease" data-aos-duration="1200" data-aos-delay="0">
