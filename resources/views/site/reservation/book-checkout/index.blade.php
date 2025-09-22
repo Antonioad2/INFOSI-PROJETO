@@ -282,14 +282,14 @@
 										</div>
 										<div class="booking-info-body">
 											<ul class="booking-radio-btns">
-												<li>
+												{{-- <li>
 													<label class="booking_custom_check">
 														<input type="radio" name="driver_type" id="self_driver" checked>
 														<span class="booking_checkmark">
 															<span class="checked-title">Motorista Próprio</span>
 														</span>							
 													</label>
-												</li>
+												</li> --}}
 												<li>
 													<label class="booking_custom_check">
 														<input type="radio" name="driver_type" id="acting_driver">
@@ -299,7 +299,7 @@
 													</label>
 												</li>
 											</ul>
-											<div class="booking-timings self-driver-info">
+											{{-- <div class="booking-timings self-driver-info">
 												<div class="row">
 													<div class="col-md-12">
 														<div class="form-title-head">
@@ -362,7 +362,7 @@
 														</div>
 													</div>
 												</div>
-											</div>
+											</div> --}}
 											<div class="booking-timings acting-driver-info">
 												<div class="form-title-head">
 													<h5>Motorista</h5>
@@ -371,12 +371,15 @@
 													<li>
 														<div class="driver-profile-info">
 															<span class="driver-profile"><img src="{{ url('assets/user/img/drivers/driver-02.jpg')}}" alt="Imagem"></span>
-															<div class="driver-name">
-																<h5>Ruban</h5>
-																<ul>
-																	<li>Número de Viagens Concluídas: 32</li>
-																	<li>Preço: $100</li>
-																</ul>
+															<div class="driver-name" id="driverSelect">
+																<label for="driver_id">Escolha o motorista:</label>
+																<select name="driver_id" id="driver_id" class="form-select">
+                                                                    @foreach($drivers as $driver)
+                                                                        <option value="{{ $driver->id }}">
+                                                                            {{ $driver->full_name }} ( {{ formatKz($driver->daily_price) }} Kz / dia)
+                                                                        </option>
+                                                                    @endforeach
+                                                                </select>
 															</div>
 														</div>
 													</li>

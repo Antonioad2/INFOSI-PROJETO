@@ -425,7 +425,7 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <h4 class="price">${{ $car->price }} <span>/ Dia</span></h4>
+                                            <h4 class="price">{{formatKz($car->price)}}  <span>/ Dia</span></h4>
                                         </div>
                                     </div>
                                     <div class="listing-details-group">
@@ -614,7 +614,7 @@
                                 <div class="amount-icon">
                                     <span class="day-amt">
                                         <p>Apartir de</p>
-                                        <h6>{{ number_format($car->price, 0, ',', '.') }} Kz <span> /dia</span></h6>
+                                        <h6>{{formatKz($car->price)}}  <span> /dia</span></h6>
                                     </span>
                                 </div>
                             </div>

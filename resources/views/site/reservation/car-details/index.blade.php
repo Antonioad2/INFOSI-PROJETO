@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="review-sec pb-0">
+                        {{-- <div class="review-sec pb-0">
                             <div class="review-header">
                                 <h4>Serviço Extra</h4>
                             </div>
@@ -170,7 +170,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <!-- Listing Section -->
                         <div class="review-sec mb-0">
@@ -372,10 +372,10 @@
                                     <input type="radio" name="price_rate" checked="">
                                     <span class="booking_checkmark">
                                         <span class="checked-title">Diário</span>
-                                        <span class="price-rate">$300</span>
+                                        <span class="price-rate">{{formatKz($car->price)}} Kz</span>
                                     </span>
                                 </label>
-                                <label class="booking_custom_check bookin-check-2">
+                                {{-- <label class="booking_custom_check bookin-check-2">
                                     <input type="radio" name="price_rate">
                                     <span class="booking_checkmark">
                                         <span class="checked-title">Semanalmente</span>
@@ -395,10 +395,10 @@
                                         <span class="checked-title">Anual</span>
                                         <span class="price-rate">$9400</span>
                                     </span>
-                                </label>
+                                </label> --}}
                             </div>
                             <div class="location-content">
-                                <div class="delivery-tab">
+                                {{-- <div class="delivery-tab">
                                     <ul class="nav">
                                         <li>
                                             <label class="booking_custom_check">
@@ -417,7 +417,7 @@
                                             </label>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                                 <div class="tab-content">
                                     <div class="tab-pane fade active show" id="delivery">
                                         <form action="{{ route('site.reservation.step1', ['car_id' => $car->id]) }}"
@@ -528,9 +528,9 @@
                                                                 class="btn btn-primary check-available w-100">
                                                                 Reservar
                                                             </button>
-                                                            <a href="javascript:void(0);" data-bs-toggle="modal"
+                                                            {{-- <a href="javascript:void(0);" data-bs-toggle="modal"
                                                                 data-bs-target="#enquiry"
-                                                                class="btn btn-theme">Consulte-nos</a>
+                                                                class="btn btn-theme">Consulte-nos</a> --}}
                                                         </div>
                                                     </div>
                                                 </li>
@@ -699,14 +699,14 @@
                                     Whatsapp</a>
                             </div>
                         </div>
-                        <div class="review-sec share-car mt-0">
+                        {{-- <div class="review-sec share-car mt-0">
                             <div class="review-header">
                                 <h4>Ver localização do carro</h4>
                             </div>
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6509170.989457427!2d-123.80081967108484!3d37.192957227641294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sin!4v1669181581381!5m2!1sen!2sin"
                                 class="iframe-video"></iframe>
-                        </div>
+                        </div> --}}
                         <div class="review-sec share-car mt-0 mb-0">
                             <div class="review-header">
                                 <h4>Compartilhar</h4>

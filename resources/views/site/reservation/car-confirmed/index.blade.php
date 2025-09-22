@@ -56,8 +56,7 @@
                         <div class="booking-wizard-lists">
                             <ul>
                                 <li class="active activated">
-                                    <span><img
-                                            src="assets/user/img/icon/booking-head-icon-01.svg"
+                                    <span><img src="assets/user/img/icon/booking-head-icon-01.svg"
                                             alt="Ícone de reserva"></span>
                                     <h6>
                                         <font dir="auto" style="vertical-align: inherit;">
@@ -67,8 +66,7 @@
                                     </h6>
                                 </li>
                                 <li class="active activated">
-                                    <span><img
-                                            src="assets/user/img/icon/booking-head-icon-02.svg"
+                                    <span><img src="assets/user/img/icon/booking-head-icon-02.svg"
                                             alt="Ícone de reserva"></span>
                                     <h6>
                                         <font dir="auto" style="vertical-align: inherit;">
@@ -77,8 +75,7 @@
                                     </h6>
                                 </li>
                                 <li class="active activated">
-                                    <span><img
-                                            src="assets/user/img/icon/booking-head-icon-03.svg"
+                                    <span><img src="assets/user/img/icon/booking-head-icon-03.svg"
                                             alt="Ícone de reserva"></span>
                                     <h6>
                                         <font dir="auto" style="vertical-align: inherit;">
@@ -87,8 +84,7 @@
                                     </h6>
                                 </li>
                                 <li class="active activated">
-                                    <span><img
-                                            src="assets/user/img/icon/booking-head-icon-04.svg"
+                                    <span><img src="assets/user/img/icon/booking-head-icon-04.svg"
                                             alt="Ícone de reserva"></span>
                                     <h6>
                                         <font dir="auto" style="vertical-align: inherit;">
@@ -97,8 +93,7 @@
                                     </h6>
                                 </li>
                                 <li class="active">
-                                    <span><img
-                                            src="assets/user/img/icon/booking-head-icon-05.svg"
+                                    <span><img src="assets/user/img/icon/booking-head-icon-05.svg"
                                             alt="Ícone de reserva"></span>
                                     <h6>
                                         <font dir="auto" style="vertical-align: inherit;">
@@ -483,8 +478,7 @@
                                 </ul>
                                 <div class="driver-info">
                                     <span>
-                                        <img src="assets/user/img/drivers/driver-02.jpg"
-                                            alt="imagem">
+                                        <img src="assets/user/img/drivers/driver-02.jpg" alt="imagem">
                                     </span>
                                     <div class="driver-name">
                                         <h6>
@@ -639,10 +633,8 @@
                 </div>
             </div>
             <div class="print-btn text-center">
-                <a href="javascript:void(0);" class="btn btn-secondary">
-                    <font dir="auto" style="vertical-align: inherit;">
-                        <font dir="auto" style="vertical-align: inherit;">Ordem de impressão</font>
-                    </font>
+                <a href="{{ route('reservation.pdf', ['id' => $reservation->id]) }}" class="btn btn-secondary">
+                    Imprimir Reserva
                 </a>
             </div>
         </div>

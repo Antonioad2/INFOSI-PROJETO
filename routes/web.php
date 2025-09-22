@@ -28,3 +28,9 @@ Route::get('/reservation/checkout', [ReservationController::class, 'checkout'])
 /* Página final */
 Route::get('/car-confirmed', [HomeController::class, 'carConfirmed'])
     ->name('site.car-confirmed');
+
+/* Rota para baixar pdf da reserva */
+// Geração de PDF da reserva
+Route::get('/reservation/pdf/{id}', [ReservationController::class, 'generatePdf'])
+    ->name('reservation.pdf');
+

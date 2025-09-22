@@ -85,11 +85,19 @@ class HomeController extends Controller
 
     public function carConfirmed()
     {
-        // Fetch all cars with their related data (brand, models, color, fuel)
-        $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available')->get(); // 🔹 só traz disponíveis;
+        // Pega o ID da última reserva criada na sessão
+        $reservationId = session('last_reservation_id');
 
-        // Pass the cars to the view
-        return view('site.reservation.car-confirmed.index', compact('cars'));
+        if (!$reservationId) {
+            return redirect()->route('home')
+                ->with('error', 'Reserva não encontrada ou sessão expirada.');
+        }
+
+        // Busca a reserva no banco
+        $reservation = \App\Model\Reserve::with(['car', 'client', 'driver'])
+            ->findOrFail($reservationId);
+
+        return view('site.reservation.car-confirmed.index', compact('reservation'));
     }
 
     public function carDetails($car_id)

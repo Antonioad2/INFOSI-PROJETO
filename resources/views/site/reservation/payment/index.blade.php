@@ -107,13 +107,34 @@
                 </div>
             </div>
             <div class="booking-detail-info">
+
+                @if (session('debug'))
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ session('debug') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Erros encontrados:</strong>
+                        <ul>
+                            @foreach ($errors->all() as $erro)
+                                <li>{{ $erro }}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                    </div>
+                @endif
+
+
+
                 <div class="row">
 
                     <div class="col-lg-12">
                         <div class="booking-information-main">
-                            <form action="{{ route('site.reservation.confirm', ['car_id' => $car->id])}}"
-								method="POST">
-								@csrf
+                            <form action="{{ route('site.reservation.confirm', ['car_id' => $car->id]) }}" method="POST">
+                                @csrf
                                 <div class="booking-information-card payment-info-card">
                                     <div class="booking-info-head">
                                         <div class="d-flex align-items-center">
@@ -425,5 +446,36 @@
         </svg>
     </div>
     <!-- scrollToTop end -->
+
+    @if (session('debug'))
+        <script>
+            // Exibe alerta pop-up com a mensagem do servidor
+            alert("{{ session('debug') }}");
+            console.log("DEBUG:", "{{ session('debug') }}");
+        </script>
+    @endif
+
+    <script>
+        // Log de eventos importantes no front
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Página de pagamento carregada.');
+
+            // Quando o botão de submit for clicado
+            const form = document.querySelector('form');
+            form.addEventListener('submit', () => {
+                console.log('Formulário enviado para processamento do pagamento.');
+                alert('Enviando pagamento... Aguarde.');
+            });
+
+            // Quando selecionar um método de pagamento
+            document.querySelectorAll('input[name="payment_card"]').forEach(input => {
+                input.addEventListener('change', () => {
+                    console.log('Método de pagamento selecionado:', input.id);
+                    alert('Método selecionado: ' + input.id);
+                });
+            });
+        });
+    </script>
+
 
 @endsection

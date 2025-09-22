@@ -620,7 +620,7 @@
                                                             @endfor
                                                             <span>({{ $car->reviews_count ?? 0 }} Avaliações)</span>
                                                         </div>
-                                                        <h6>${{ $car->price_per_day ?? $car->price }} <span>/ Dia</span>
+                                                        <h6> {{formatKz($car->price)}} <span>/ Dia</span>
                                                         </h6>
                                                     </div>
                                                 </div>

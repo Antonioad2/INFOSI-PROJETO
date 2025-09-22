@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Model\Card;
 use App\Model\CompanyAccount;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReservationController extends Controller
 {
@@ -99,6 +100,14 @@ class ReservationController extends Controller
     {
         $data         = session('reservation_data');
         $dataServices = session('reservation_services');
+
+        Log::info('Confirm(): dados sessão', [
+            'data' => $data,
+            'dataServices' => $dataServices,
+            'request' => $request->all(),
+        ]);
+
+
         if (!$data || !$dataServices) {
             return redirect()->route('site.home')
                 ->with('error', 'Sessão expirada, faça a reserva novamente.');
@@ -132,10 +141,22 @@ class ReservationController extends Controller
                 ->first();
 
             if (!$card) {
-                return back()->withErrors(['card_number' => 'Cartão não encontrado.']);
+                Log::warning('Falha no pagamento: ', [
+                    'motivo' => 'Cartão não encontrado',
+                    'input' => $request->card_number
+                ]);
+                return back()
+                    ->withInput()
+                    ->with('error', 'Cartão não encontrado. Verifique o número e tente novamente.');
             }
             if ($card->balance < $price) {
-                return back()->withErrors(['card_number' => 'Saldo insuficiente.']);
+                Log::warning('Falha no pagamento: ', [
+                    'motivo' => 'Saldo Insuficiente'
+                ]);
+
+                return back()
+                    ->withInput()
+                    ->with('error', 'Saldo insuficiente. Carregue a sua conta.');
             }
 
             $card->balance -= $price;
@@ -157,7 +178,13 @@ class ReservationController extends Controller
                 'status'          => 'in_progress',
             ]);
 
+            session(['last_reservation_id' => $reserva->id]);
+
             DB::commit();
+
+            Log::info('Reserva criada com sucesso', ['reserva_id' => $reserva->id]);
+
+            session(['reservation_stage' => 4]); // <-- Novo: 4 significa "finalizado"
 
             try {
                 Mail::to($reserva->client->email)->send(new ConfirmacaoReservaMail($reserva));
@@ -165,7 +192,9 @@ class ReservationController extends Controller
                 Log::error('Erro ao enviar email: ' . $e->getMessage());
             }
 
-            session()->forget(['reservation_data', 'reservation_services', 'reservation_client', 'car_id']);
+            session()->forget(['reservation_data', 'reservation_services', 'reservation_client']);
+            // deixa car_id e reservation_stage até o utilizador sair/novo fluxo
+
 
             return redirect()->route('site.car-confirmed')->with('success', 'Reserva confirmada!');
         } catch (\Exception $e) {
@@ -188,13 +217,33 @@ class ReservationController extends Controller
 
         switch ($stage) {
             case 1:
-                return view('site.reservation.book-checkout.index', compact('car'));
+                $drivers = \App\Model\Driver::all(); // garante que a variável existe
+                return view('site.reservation.book-checkout.index', compact('car', 'drivers'));
             case 2:
                 return view('site.reservation.details-checkout.index', compact('car'));
             case 3:
                 return view('site.reservation.payment.index', compact('car'));
+            case 4:
+                return redirect()->route('site.car-confirmed');
             default:
-                return view('site.reservation.finish.index', compact('car'));
+                return redirect()->route('home')
+                    ->with('error', 'Sessão inválida ou finalizada.');
         }
+    }
+
+    public function generatePdf($id)
+    {
+        $reservation = Reserve::with(['car', 'client', 'driver'])->findOrFail($id);
+
+        // Decodifica o JSON dos extras
+        $reservation->decoded_resources = $reservation->resources
+            ? json_decode($reservation->resources, true)
+            : [];
+
+        $pdf = Pdf::loadView('site.reservation.pdf.index', compact('reservation'))
+
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download("reserva_{$reservation->id}.pdf");
     }
 }
