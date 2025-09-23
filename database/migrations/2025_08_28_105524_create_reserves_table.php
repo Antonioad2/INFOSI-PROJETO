@@ -22,9 +22,6 @@ class CreateReservesTable extends Migration
             $table->date('end_date');
             $table->decimal('total_amount', 10, 2);
             $table->json('resources')->nullable(); // agora plural e JSON
-            $table->string('drop_location');
-            $table->time('pickup_time');
-            $table->time('drop_time');
             $table->enum('status', ['in_progress',  'completed', 'cancelled'])->default('in_progress');
             $table->foreignId('driver_id')->nullable()->constrained('drivers')->nullOnDelete();
             $table->timestamps();
