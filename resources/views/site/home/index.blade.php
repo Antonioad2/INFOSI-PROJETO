@@ -35,14 +35,14 @@
                                             <p>utilizaram nossos serviços de aluguel </p>
                                         </div>
                                     </div>
-                                    <div class="view-all d-flex align-items-center gap-3">
+                                    {{-- <div class="view-all d-flex align-items-center gap-3">
                                         <a href="listing-grid.html"
                                             class="btn btn-primary d-inline-flex align-items-center">Alugue um Carro<i
                                                 class="bx bx-right-arrow-alt ms-1"></i></a>
                                         <a href="add-listing.html"
                                             class="btn btn-secondary d-inline-flex align-items-center"><i
                                                 class="bx bxs-plus-circle me-1"></i>Adicione seu Carro</a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -255,7 +255,7 @@
                         </div>
 
                         <div class="view-all-btn text-center aos" data-aos="fade-down">
-                            <a href="listing-grid.html" class="btn btn-secondary">Ver Todos<i
+                            <a href="{{ route('site.car-list') }}" class="btn btn-secondary">Ver Todos<i
                                     class="bx bx-right-arrow-alt ms-1"></i></a>
                         </div>
                     </div>
