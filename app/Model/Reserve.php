@@ -18,7 +18,10 @@ class Reserve extends Model
         'total_amount',
         'resources', // agora plural
         'driver_id',
-        'status'
+        'status',
+        'return_location', 
+        'delivery_time', 
+        'return_time'
     ];
 
     protected $casts = [

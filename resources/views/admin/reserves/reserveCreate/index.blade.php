@@ -102,6 +102,15 @@
                                         @error('pickup_location') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
 
+                                    <!-- Local para Retorno do Carro -->
+                                    <div class="col-lg-4 mb-4">
+                                        <label  class="form-label">Local de Retorno <span class="text-danger">*</span></label>
+                                        <input  type="text" name="return_location" 
+                                                class="form-control @error('return_location') is-invalid @enderror"
+                                                value="{{ old('return_location') }}" placeholder="Digite um local seguro para si" required>
+                                        @error('return_location') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                                    </div>
+
                                     <!-- DATAS (mantém como tens) -->
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Data de Início <span class="text-danger">*</span></label>
@@ -110,11 +119,28 @@
                                         @error('start_date') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
 
+                                    <!-- horas (mantém como tens) -->
+                                    <div class="col-lg-4 mb-4">
+                                        <label class="form-label">Hora de Entrega</label>
+                                        <input type="time" name="delivery_time" class="form-control @error('delivery_time') is-invalid @enderror"
+                                               value="{{ old('delivery_time') }}">
+                                        @error('delivery_time') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                                    </div>
+                                    
+                                    <!-- DATAS (mantém como tens) -->
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Data de Término <span class="text-danger">*</span></label>
                                         <input type="date" name="end_date" class="form-control @error('end_date') is-invalid @enderror"
                                             value="{{ old('end_date') }}" min="{{ now()->format('Y-m-d') }}" required>
                                         @error('end_date') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                                    </div>
+
+                                    <!-- horas (mantém como tens) -->
+                                    <div class="col-lg-4 mb-4">
+                                        <label class="form-label">Hora de Retorno</label>
+                                        <input type="time" name="return_time" class="form-control @error('return_time') is-invalid @enderror"
+                                               value="{{ old('return_time') }}">
+                                        @error('return_time') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
 
                                     <!-- Status -->

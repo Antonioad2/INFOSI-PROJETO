@@ -41,15 +41,18 @@ class ReserveController extends Controller
         $allowedResources = implode(',', array_keys(config('resources.extras')));
 
         $request->validate([
-            'client_id'  => 'required|exists:clients,id',
-            'car_id'     => 'required|exists:cars,id',
-            'pickup_location' => 'required|string|max:255',
-            'start_date' => 'required|date',
-            'end_date'   => 'required|date|after_or_equal:start_date',
-            'resources'  => 'nullable|array',
-            'resources.*'=> "in:{$allowedResources}",
-            'driver_id'  => 'nullable|exists:drivers,id',
-            'status'     => 'nullable|in:in_progress,completed,cancelled'
+            'client_id'        => 'required|exists:clients,id',
+            'car_id'           => 'required|exists:cars,id',
+            'pickup_location'  => 'required|string|max:255',
+            'return_location'  => 'required|string|max:255',
+            'start_date'       => 'required|date',
+            'end_date'         => 'required|date|after_or_equal:start_date',
+            'delivery_time'    => 'required|date_format:H:i',
+            'return_time'      => 'required|date_format:H:i',
+            'resources'        => 'nullable|array',
+            'resources.*'      => "in:{$allowedResources}",
+            'driver_id'        => 'nullable|exists:drivers,id',
+            'status'           => 'nullable|in:in_progress,completed,cancelled'
         ]);
 
         // calcular total
@@ -75,15 +78,18 @@ class ReserveController extends Controller
 
         // Criar reserva e guardar na variável
         $reserve = Reserve::create([
-            'client_id'    => $request->client_id,
-            'car_id'       => $request->car_id,
-            'pickup_location' => $request->pickup_location,
-            'start_date'   => $request->start_date,
-            'end_date'     => $request->end_date,
-            'resources'    => $resources,
-            'driver_id'    => $request->driver_id,
-            'status'       => $request->status ?? 'in_progress',
-            'total_amount' => $totalAmount,
+            'client_id'        => $request->client_id,
+            'car_id'           => $request->car_id,
+            'pickup_location'  => $request->pickup_location,
+            'return_location'  => $request->return_location,
+            'start_date'       => $request->start_date,
+            'end_date'         => $request->end_date,
+            'delivery_time'    => $request->delivery_time,
+            'return_time'      => $request->return_time,
+            'resources'        => $resources,
+            'driver_id'        => $request->driver_id,
+            'status'           => $request->status ?? 'in_progress',
+            'total_amount'     => $totalAmount,
         ]);
 
         // Enviar email sem travar o fluxo
@@ -97,7 +103,6 @@ class ReserveController extends Controller
 
         return redirect()->route('reserves.index')->with('success', 'Reserva criada e email enviado com sucesso!');
     }
-
 
     /**
      * Mostrar detalhes de uma reserva
@@ -127,18 +132,19 @@ class ReserveController extends Controller
     {
         $allowedResources = implode(',', array_keys(config('resources.extras')));
 
-     
-
         $request->validate([
-            'client_id'  => 'required|exists:clients,id',
-            'car_id'     => 'required|exists:cars,id',
-            'pickup_location' => 'required|string|max:255', // validação para o novo campo
-            'start_date' => 'required|date',
-            'end_date'   => 'required|date|after_or_equal:start_date',
-            'resources'  => 'nullable|array',
-            'resources.*'=> "in:{$allowedResources}",
-            'driver_id'  => 'nullable|exists:drivers,id',
-            'status'     => 'required|in:in_progress,completed,cancelled',
+            'client_id'        => 'required|exists:clients,id',
+            'car_id'           => 'required|exists:cars,id',
+            'pickup_location'  => 'required|string|max:255',
+            'return_location'  => 'required|string|max:255',
+            'start_date'       => 'required|date',
+            'end_date'         => 'required|date|after_or_equal:start_date',
+            'delivery_time'    => 'required|date_format:H:i',
+            'return_time'      => 'required|date_format:H:i',
+            'resources'        => 'nullable|array',
+            'resources.*'      => "in:{$allowedResources}",
+            'driver_id'        => 'nullable|exists:drivers,id',
+            'status'           => 'required|in:in_progress,completed,cancelled',
         ]);
 
         $reserve = Reserve::findOrFail($id);
@@ -154,7 +160,7 @@ class ReserveController extends Controller
         // Recursos
         $resources = $request->resources ?? [];
         $resourcesTotal = collect($resources)->sum(
-            fn($r) => config("resources.extras.{$r}.price", 0) // <-- corrigido
+            fn($r) => config("resources.extras.{$r}.price", 0)
         );
 
         // Motorista
@@ -169,17 +175,19 @@ class ReserveController extends Controller
 
         // Atualizar
         $reserve->update([
-            'client_id'    => $request->client_id,
-            'car_id'       => $request->car_id,
-            'pickup_location' => $request->pickup_location,
-            'start_date'   => $request->start_date,
-            'end_date'     => $request->end_date,
-            'resources'    => $resources, // <-- aqui sem json_encode
-            'driver_id'    => $request->driver_id,
-            'status'       => $request->status,
-            'total_amount' => $totalAmount,
+            'client_id'        => $request->client_id,
+            'car_id'           => $request->car_id,
+            'pickup_location'  => $request->pickup_location,
+            'return_location'  => $request->return_location,
+            'start_date'       => $request->start_date,
+            'end_date'         => $request->end_date,
+            'delivery_time'    => $request->delivery_time,
+            'return_time'      => $request->return_time,
+            'resources'        => $resources,
+            'driver_id'        => $request->driver_id,
+            'status'           => $request->status,
+            'total_amount'     => $totalAmount,
         ]);
-
 
         return redirect()->route('reserves.index')->with('success', 'Reserva atualizada com sucesso!');
     }
@@ -195,5 +203,3 @@ class ReserveController extends Controller
         return redirect()->route('reserves.index')->with('success', 'Reserva removida com sucesso!');
     }
 }
-
-

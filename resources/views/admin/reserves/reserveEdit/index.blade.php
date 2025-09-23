@@ -75,17 +75,34 @@
                                         <input type="hidden" name="pickup_location" value="{{ $reserve->pickup_location }}">
                                     </div>
 
+                                    <!-- Local para Retorno do Carro -->
+                                    <div class="col-lg-4 mb-4">
+                                        <label  class="form-label">Local de Retorno</label>
+                                        <input type="text" class="form-control" value="{{$reserve->return_location}}"  readonly>
+                                        <input type="hidden" name="return_location" value="{{( $reserve->return_location)}}">
+                                    </div>
+
                                     <!-- DATAS -->
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Data de Início</label>
                                         <input type="date" name="start_date" class="form-control" 
                                             value="{{ $reserve->start_date }}" readonly>
                                     </div>
+                                    <!-- horas (mantém como tens) -->
+                                    <div class="col-lg-4 mb-4">
+                                        <label class="form-label">Hora de Entrega</label>
+                                        <input type="time" name="delivery_time" class="form-control"  value="{{ $reserve->delivery_time }}">
+                                    </div>
 
                                     <div class="col-lg-4 mb-4">
                                         <label class="form-label">Data de Término</label>
                                         <input type="date" name="end_date" class="form-control" 
                                             value="{{ $reserve->end_date }}" readonly>
+                                    </div>
+                                    <!-- horas (mantém como tens) -->
+                                    <div class="col-lg-4 mb-4">
+                                        <label class="form-label">Hora de Retorno</label>
+                                        <input type="time" name="return_time" class="form-control"  value="{{ $reserve->return_time }}">
                                     </div>
 
                                     <!-- STATUS -->
