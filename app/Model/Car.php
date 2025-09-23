@@ -13,6 +13,7 @@ class Car extends Model
     protected $fillable = [
         'chassi',
         'category',
+        'type_car',
         'models_id',
         'color_id',
         'brand_id',
