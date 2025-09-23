@@ -65,9 +65,12 @@ class ReservationController extends Controller
             $driverTotal = $driver->daily_price * $days;
         }
 
+        $extrasInput = $request->input('extras', '');
+        $extrasArray = $extrasInput !== '' ? explode(',', $extrasInput) : [];
+
         session([
             'reservation_services' => [
-                'extras'    => $request->input('extras', []),
+                'extras'    => $extrasArray,
                 'driver_id' => $request->input('driver_id'),
             ]
         ]);
@@ -126,12 +129,14 @@ class ReservationController extends Controller
             $price += $driver ? $days * $driver->daily_price : 0;
         }
 
-        if (!empty($data['extras'])) {
-            foreach ($data['extras'] as $extra) {
+        $dataServices = session('reservation_services');
+        if (!empty($dataServices['extras'])) {
+            foreach ($dataServices['extras'] as $extra) {
                 $config = config("resources.extras.$extra");
                 $price += $config['price'] ?? 0;
             }
         }
+
 
         DB::beginTransaction();
         try {
@@ -196,7 +201,8 @@ class ReservationController extends Controller
             // deixa car_id e reservation_stage até o utilizador sair/novo fluxo
 
 
-            return redirect()->route('site.car-confirmed')->with('success', 'Reserva confirmada!');
+            return redirect()->route('car.confirmed', ['id' => $reserva->id])->with('success', 'Reserva confirmada!');
+
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->withErrors(['error' => 'Erro no pagamento: ' . $e->getMessage()]);
@@ -215,21 +221,100 @@ class ReservationController extends Controller
                 ->with('error', 'Carro não encontrado ou sessão expirada.');
         }
 
+        // 🟢 Lê dados guardados nos passos anteriores
+        $data        = session('reservation_data', []);
+        $services    = session('reservation_services', []);
+        $extrasKeys  = $services['extras'] ?? [];
+        $driverId    = $services['driver_id'] ?? null;
+
+        // ➕ Adiciona estas linhas:
+        $pickup_location = $data['pickup_location'] ?? '';
+        $start_date = $data['start_date'] ?? '';
+        $end_date = $data['end_date'] ?? '';
+
+        // 🟢 Calcula dias e preço base
+        $days  = 1;
+        $price = $car->price;
+        if (!empty($data['start_date']) && !empty($data['end_date'])) {
+            $start = new \Carbon\Carbon($data['start_date']);
+            $end   = new \Carbon\Carbon($data['end_date']);
+            $days  = $end->diffInDays($start) ?: 1;
+            $price = $days * $car->price;
+        }
+
+        // 🟢 Monta extras selecionados
+        $selectedExtras = [];
+        $extrasTotal    = 0;
+        foreach ((array)$extrasKeys as $key) {
+            $extra = config("resources.extras.$key");
+            if ($extra) {
+                $selectedExtras[] = $extra;
+                $extrasTotal += $extra['price'];
+            }
+        }
+
+        // 🟢 Monta motorista
+        $selectedDriver = null;
+        $driverTotal    = 0;
+        if ($driverId) {
+            $selectedDriver = Driver::find($driverId);
+            if ($selectedDriver) {
+                $driverTotal = $selectedDriver->daily_price * $days;
+            }
+        }
+
+        // 🟢 Calcula total
+        $totalEstimate = $price + $extrasTotal + $driverTotal;
+
         switch ($stage) {
             case 1:
-                $drivers = \App\Model\Driver::all(); // garante que a variável existe
-                return view('site.reservation.book-checkout.index', compact('car', 'drivers'));
+                $drivers = Driver::all();
+                return view('site.reservation.book-checkout.index', compact(
+                    'car',
+                    'pickup_location',
+                    'start_date',
+                    'end_date',
+                    'drivers',
+                    'selectedExtras',
+                    'selectedDriver',
+                    'totalEstimate'
+                ));
             case 2:
-                return view('site.reservation.details-checkout.index', compact('car'));
+                return view('site.reservation.details-checkout.index', compact(
+                    'car',
+                    'pickup_location',
+                    'start_date',
+                    'end_date',
+                    'selectedExtras',
+                    'selectedDriver',
+                    'totalEstimate'
+                ));
             case 3:
-                return view('site.reservation.payment.index', compact('car'));
+                return view('site.reservation.payment.index', compact(
+                    'car',
+                    'pickup_location',
+                    'start_date',
+                    'end_date',
+                    'selectedExtras',
+                    'selectedDriver',
+                    'totalEstimate'
+                ));
             case 4:
-                return redirect()->route('site.car-confirmed');
+                return redirect()->route('site.car-confirmed', compact(
+                    'car',
+                    'pickup_location',
+                    'start_date',
+                    'end_date',
+                    'selectedExtras',
+                    'selectedDriver',
+                    'totalEstimate'
+                ));
             default:
                 return redirect()->route('home')
                     ->with('error', 'Sessão inválida ou finalizada.');
         }
     }
+
 
     public function generatePdf($id)
     {

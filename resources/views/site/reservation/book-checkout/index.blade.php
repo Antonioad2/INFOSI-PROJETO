@@ -64,12 +64,15 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="booking-detail-info">
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="booking-information-main">
                                 <form action="{{ route('site.reservation.step2', ['car_id' => $car->id]) }}" method="POST">
                                     @csrf
+
+                                    <!-- Serviços Extras -->
                                     <div class="booking-information-card">
                                         <div class="booking-info-head justify-content-between">
                                             <div class="d-flex align-items-center">
@@ -87,7 +90,9 @@
                                                                 <span class="adon-icon"><i
                                                                         class="{{ $extra['icon'] }}"></i></span>
                                                                 <div class="adon-name">
-                                                                    <h6>{{ $extra['label'] }}</h6>
+                                                                    <h6 data-extra-id="{{ $key }}"
+                                                                        data-price="{{ $extra['price'] }}">
+                                                                        {{ $extra['label'] }}</h6>
                                                                     <a href="javascript:void(0);"
                                                                         class="d-inline-flex align-items-center adon-info-btn">
                                                                         <i class="bx bx-info-circle me-2"></i>
@@ -97,8 +102,7 @@
                                                                 </div>
                                                             </div>
                                                             <span
-                                                                class="adon-price">{{ number_format($extra['price'], 2, ',', '.') }}
-                                                                Kz</span>
+                                                                class="adon-price">{{ number_format($extra['price'], 2, ',', '.') }}Kz</span>
                                                             <a href="#" class="btn add-addon-btn"><i
                                                                     class="bx bx-plus-circle me-2"></i>Adicionar</a>
                                                         </div>
@@ -111,6 +115,7 @@
                                         </div>
                                     </div>
 
+                                    <!-- Motorista -->
                                     <div class="booking-information-card">
                                         <div class="booking-info-head">
                                             <span><i class="bx bx-user-pin"></i></span>
@@ -118,14 +123,6 @@
                                         </div>
                                         <div class="booking-info-body">
                                             <ul class="booking-radio-btns">
-                                                {{-- <li>
-													<label class="booking_custom_check">
-														<input type="radio" name="driver_type" id="self_driver" checked>
-														<span class="booking_checkmark">
-															<span class="checked-title">Motorista Próprio</span>
-														</span>							
-													</label>
-												</li> --}}
                                                 <li>
                                                     <label class="booking_custom_check">
                                                         <input type="radio" name="driver_type" id="acting_driver">
@@ -135,70 +132,10 @@
                                                     </label>
                                                 </li>
                                             </ul>
-                                            {{-- <div class="booking-timings self-driver-info">
-												<div class="row">
-													<div class="col-md-12">
-														<div class="form-title-head">
-															<h5>Detalhes do Motorista</h5>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="input-block date-widget">	
-															<label class="form-label">Nome <span class="text-danger"> *</span></label>											
-															<input type="text" class="form-control" placeholder="Digite o Nome">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="input-block date-widget">	
-															<label class="form-label">Sobrenome <span class="text-danger"> *</span></label>										
-															<input type="text" class="form-control" placeholder="Digite o Sobrenome">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="input-block date-widget">	
-															<label class="form-label">Idade do Motorista <span class="text-danger"> *</span></label>										
-															<input type="text" class="form-control" placeholder="Digite a Idade do Motorista">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="input-block date-widget">	
-															<label class="form-label">Número de Celular <span class="text-danger"> *</span></label>										
-															<input type="text" class="form-control" placeholder="Digite o Número de Telefone">
-														</div>
-													</div>
-													<div class="col-md-12">
-														<div class="input-block date-widget">	
-															<label class="form-label">Número da Carteira de Motorista <span class="text-danger"> *</span></label>										
-															<input type="text" class="form-control" placeholder="Digite o Número da Carteira de Motorista">
-														</div>
-													</div>
-													<div class="col-md-12">
-														<div class="input-block date-widget">	
-															<label class="form-label">Enviar Documento <span class="text-danger"> *</span></label>										
-															<div class="upload-div">
-																<input type="file">
-																<div class="upload-photo-drag">
-																	<span><i class="fa fa-upload me-2"></i> Enviar Foto</span>
-																	<h6>ou Arraste Fotos</h6>
-																</div>
-															</div>
-															<div class="upload-list">
-																<ul>
-																	<li>O tamanho máximo da foto é 8 MB. Formatos: jpeg, jpg, png. Coloque a foto principal primeiro</li>
-																</ul>
-															</div>
-														</div>
-													</div>
-													<div class="col-md-12">
-														<div class="input-block m-0">
-															<label class="custom_check d-inline-flex location-check m-0"><span>Confirmo que a idade do motorista é superior a 20 anos</span>
-																<input type="checkbox" name="remeber">
-																<span class="checkmark"></span>
-															</label>
-														</div>
-													</div>
-												</div>
-											</div> --}}
+
+                                            <!-- Hidden input para extras selecionados -->
+                                            <input type="hidden" name="extras" id="selected_extras" value="">
+
                                             <div class="booking-timings acting-driver-info">
                                                 <div class="form-title-head">
                                                     <h5>Motorista</h5>
@@ -213,9 +150,10 @@
                                                                 <label for="driver_id">Escolha o motorista:</label>
                                                                 <select name="driver_id" id="driver_id" class="form-select">
                                                                     @foreach ($drivers as $driver)
-                                                                        <option value="{{ $driver->id }}">
-                                                                            {{ $driver->full_name }} (
-                                                                            {{ formatKz($driver->daily_price) }} Kz / dia)
+                                                                        <option value="{{ $driver->id }}"
+                                                                            data-price="{{ $driver->daily_price }}">
+                                                                            {{ $driver->full_name }}
+                                                                            ({{ formatKz($driver->daily_price) }} Kz / dia)
                                                                         </option>
                                                                     @endforeach
                                                                 </select>
@@ -226,7 +164,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="booking-information-card pb-1">
+
+                                    <!-- Seguro -->
+                                    {{-- <div class="booking-information-card pb-1">
                                         <div class="booking-info-head">
                                             <span><i class="bx bx-file-blank"></i></span>
                                             <h5>Seguro</h5>
@@ -245,7 +185,7 @@
                                                 </div>
                                                 <div class="text-end">
                                                     <span class="d-block mb-1">Viagem Única</span>
-                                                    <h6 class="fw-normal">$200</h6>
+                                                    <h6 class="fw-normal">100.000,00 Kz</h6>
                                                 </div>
                                             </div>
                                             <div class="insurance-select custom-checkbox">
@@ -261,11 +201,12 @@
                                                 </div>
                                                 <div class="text-end">
                                                     <span class="d-block mb-1">Viagem Única</span>
-                                                    <h6 class="fw-normal">$200</h6>
+                                                    <h6 class="fw-normal">40.000,00 Kz</h6>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
+
                                     <div class="booking-info-btns d-flex justify-content-end">
                                         <a href="booking-checkout.html" class="btn btn-secondary">Voltar para Localização
                                             e Horário</a>
@@ -275,162 +216,73 @@
                                 </form>
                             </div>
                         </div>
+
+                        <!-- Sidebar -->
                         <div class="col-lg-4 theiaStickySidebar">
                             <div class="booking-sidebar">
-                                <div class="booking-sidebar-card">
-                                    <div class="accordion-item border-0 mb-4">
-                                        <div class="accordion-header">
-                                            <div class="accordion-button collapsed" role="button"
-                                                data-bs-toggle="collapse" data-bs-target="#accordion_collapse_one"
-                                                aria-expanded="true">
-                                                <div class="booking-sidebar-head">
-                                                    <h5>Detalhes da Reserva<i class="fas fa-chevron-down"></i></h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="accordion_collapse_one" class="accordion-collapse collapse">
-                                            <div class="booking-sidebar-body">
-                                                <div class="booking-car-detail">
-                                                    <span class="car-img">
-                                                        <img src="{{ url('assets/user/img/car-list-4.jpg') }}"
-                                                            class="img-fluid" alt="Carro">
-                                                    </span>
-                                                    <div class="care-more-info">
-                                                        <h5>Chevrolet Camaro</h5>
-                                                        <p>Miami St, Destin, FL 32550, EUA</p>
-                                                        <a href="listing-details.html">Ver Detalhes do Carro</a>
-                                                    </div>
-                                                </div>
-                                                <div class="booking-vehicle-rates">
-                                                    <ul>
-                                                        <li>
-                                                            <div class="rental-charge">
-                                                                <h6>Taxa de Aluguel <span> (1 dia)</span></h6>
-                                                                <span class="text-danger">(Não inclui combustível)</span>
-                                                            </div>
-                                                            <h5>+ $300</h5>
-                                                        </li>
-                                                        <li>
-                                                            <h6>Entrega na Porta</h6>
-                                                            <h5>+ $60</h5>
-                                                        </li>
-                                                        <li>
-                                                            <h6>Taxas de Proteção de Viagem</h6>
-                                                            <h5>+ $25</h5>
-                                                        </li>
-                                                        <li>
-                                                            <h6>Taxas de Conveniência</h6>
-                                                            <h5>+ $2</h5>
-                                                        </li>
-                                                        <li>
-                                                            <h6>Imposto</h6>
-                                                            <h5>+ $2</h5>
-                                                        </li>
-                                                        <li>
-                                                            <h6>Depósito Reembolsável</h6>
-                                                            <h5>+$1200</h5>
-                                                        </li>
-                                                        <li>
-                                                            <h6>Seguro Premium Completo <i
-                                                                    class="bx bxs-x-circle text-danger"></i></h6>
-                                                            <h5>+$200</h5>
-                                                        </li>
-                                                        <li class="total-rate">
-                                                            <h6>Subtotal</h6>
-                                                            <h5>+$1604</h5>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                @php
+                                    $imagePath = !empty($car->images)
+                                        ? trim($car->images)
+                                        : $car->image ?? 'default.jpg';
+                                @endphp
+                                <!-- Resumo do Carro -->
+                                <div class="vehicle-card">
+                                    <span class="badge bg-primary">{{ formatKz($car->price) }}
+                                        Kz/dia</span>
+                                    <div class="vehicle-card-img">
+                                        <img src="{{ url('uploads/car/car_images/' . $imagePath) }}" class="img-fluid"
+                                            alt="{{ $car->brand->name ?? 'Carro' }}">
+                                    </div>
+                                    <div class="vehicle-card-body" style="padding: 1rem">
+                                        <h5 style="margin-bottom: 7px">{{ $car->brand->name }} {{ $car->models->name }}</h5>
+                                        <ul class="list-unstyled mb-2">
+                                            <li><i class="bx bx-group me-1"></i> {{ $car->number_of_seats }} Lugares</li>
+                                            <li><i class="bx bx-gas-pump me-1"></i> {{ ucfirst($car->fuel->name) }}</li>
+                                            <li><i class="bx bx-cog me-1"></i> {{ ucfirst($car->engine) }}</li>
+                                        </ul>
+
                                     </div>
                                 </div>
-                                <div class="booking-sidebar-card">
-                                    <div class="accordion-item border-0 mb-4">
-                                        <div class="accordion-header p-3 d-flex align-center justify-content-between">
-                                            <div class="accordion-button collapsed" role="button"
-                                                data-bs-toggle="collapse" data-bs-target="#accordion_collapse_three"
-                                                aria-expanded="true">
-                                                <div
-                                                    class="booking-sidebar-head p-0 d-flex justify-content-between align-items-center">
-                                                    <h5>Localização e Horário<i class="fas fa-chevron-down"></i></h5>
-                                                </div>
-                                            </div>
-                                            <a href="booking-checkout.html"
-                                                class="d-flex align-items-center sidebar-edit"><i
-                                                    class="bx bx-edit-alt me-2"></i>Editar</a>
-                                        </div>
-                                        <div id="accordion_collapse_three" class="accordion-collapse collapse">
-                                            <div class="booking-sidebar-body">
-                                                <ul class="location-address-info">
-                                                    <li>
-                                                        <h6>Tipo de Aluguel</h6>
-                                                        <p>Entrega</p>
-                                                    </li>
-                                                    <li>
-                                                        <h6>Tipo de Reserva</h6>
-                                                        <p>Dias</p>
-                                                    </li>
-                                                    <li>
-                                                        <h6>Localização e Horário de Entrega</h6>
-                                                        <p>1230 E Springs Rd, Los Angeles, CA, EUA</p>
-                                                        <p>18/04/2024 - 14:00</p>
-                                                    </li>
-                                                    <li>
-                                                        <h6>Localização e Horário de Devolução</h6>
-                                                        <p>Cruzeiro Caribenho Norueguês Los Angeles, CA 90025</p>
-                                                        <p>27/04/2024 - 03:00</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                <div style="border: 1px solid #FFA633"></div>
+
+                                <!-- Detalhes da Reserva -->
+                                @php
+                                    $data = session('reservation_data', []);
+                                @endphp
+
+                                <div class="booking-summary" style="padding: 1rem">
+                                    <h5 style="margin-bottom: 7px">Detalhes da Reserva</h5>
+                                    <p><strong>Local:</strong> {{ $pickup_location }}</p>
+                                    <p><strong>Início:</strong> {{ \Carbon\Carbon::parse($start_date)->format('d/m/Y') }}</p>
+                                    <p><strong>Fim:</strong> {{ \Carbon\Carbon::parse($end_date)->format('d/m/Y') }}</p>
                                 </div>
-                                <div class="booking-sidebar-card">
-                                    <div class="accordion-item border-0 mb-4">
-                                        <div class="accordion-header d-flex align-center justify-content-between p-3">
-                                            <div class="accordion-button collapsed" role="button"
-                                                data-bs-toggle="collapse" data-bs-target="#accordion_collapse_two"
-                                                aria-expanded="true">
-                                                <div
-                                                    class="booking-sidebar-head p-0 d-flex justify-content-between align-items-center">
-                                                    <h5>Cupom<i class="fas fa-chevron-down"></i></h5>
-                                                </div>
-                                                <a href="#" class="coupon-view">Ver Cupons</a>
-                                            </div>
-                                        </div>
-                                        <div id="accordion_collapse_two" class="accordion-collapse collapse">
-                                            <div class="booking-sidebar-body">
-                                                <form
-                                                    action="https://dreamsrent.dreamstechnologies.com/html/template/booking-checkout.html">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="form-custom flex-fill">
-                                                            <input type="text" class="form-control mb-0"
-                                                                placeholder="Código do cupom">
-                                                        </div>
-                                                        <button type="submit"
-                                                            class="btn btn-secondary apply-coupon-btn d-flex align-items-center ms-2">Aplicar<i
-                                                                class="feather-arrow-right ms-2"></i></button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+                                <!-- Total Estimado -->
                                 <div class="total-rate-card">
-                                    <div class="vehicle-total-price">
+                                    <div class="vehicle-total-price d-flex justify-content-between align-items-center">
                                         <h5>Total Estimado</h5>
-                                        <span>$3541</span>
+                                        <span id="total_price">{{ number_format($car->price, 2, ',', '.') }} Kz</span>
                                     </div>
                                 </div>
+
+                                <!-- Botão Continuar -->
+                                <div class="mt-3">
+                                    <button type="submit" form="extras-form" class="btn btn-primary w-100">
+                                        Continuar a Reserva
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
+                        <!-- FIM Sidebar -->
+
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Início do ScrollToTop -->
+        <!-- ScrollToTop -->
         <div class="progress-wrap active-progress">
             <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
                 <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
@@ -438,6 +290,77 @@
                 </path>
             </svg>
         </div>
-        <!-- Fim do ScrollToTop -->
 
-    @endsection
+    </div>
+
+    <!-- JS para extras + motorista + total -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectedExtras = new Set();
+            const totalPriceEl = document.getElementById('total_price');
+            const carBasePrice = parseFloat({{ $car->price }});
+
+            function updateTotal() {
+                let total = carBasePrice;
+
+                // ➕ Soma extras
+                selectedExtras.forEach(extraId => {
+                    const el = document.querySelector(`h6[data-extra-id='${extraId}']`);
+                    if (el) total += parseFloat(el.dataset.price);
+                });
+
+                // ➕ Soma motorista SOMENTE se opção contratada estiver marcada
+                const driverTypeChecked = document.getElementById('acting_driver')?.checked;
+                const driverSelect = document.getElementById('driver_id');
+                if (driverTypeChecked && driverSelect && driverSelect.value) {
+                    const selectedOption = driverSelect.options[driverSelect.selectedIndex];
+                    total += parseFloat(selectedOption.dataset.price);
+                }
+
+                totalPriceEl.innerText = total.toLocaleString('pt-PT') + ' Kz';
+            }
+
+            // Extras
+            document.querySelectorAll('.add-addon-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const li = btn.closest('li');
+                    const h6 = li.querySelector('h6');
+                    const extraId = h6.dataset.extraId;
+
+                    if (selectedExtras.has(extraId)) {
+                        selectedExtras.delete(extraId);
+                        btn.innerHTML = '<i class="bx bx-plus-circle me-2"></i>Adicionar';
+                        li.classList.remove('addon-selected');
+                    } else {
+                        selectedExtras.add(extraId);
+                        btn.innerHTML = '<i class="bx bx-minus-circle me-2"></i>Remover';
+                        li.classList.add('addon-selected');
+                    }
+
+                    document.getElementById('selected_extras').value = Array.from(selectedExtras)
+                        .join(',');
+                    updateTotal();
+                });
+            });
+
+            // Motorista (quando muda o select ou marca o radio)
+            const driverSelect = document.getElementById('driver_id');
+            if (driverSelect) driverSelect.addEventListener('change', updateTotal);
+            const driverTypeRadio = document.getElementById('acting_driver');
+            if (driverTypeRadio) driverTypeRadio.addEventListener('change', updateTotal);
+
+            updateTotal();
+        });
+    </script>
+
+    <style>
+        .addon-selected .add-addon-btn {
+            background-color: #2a2c2e;
+            border-left: 4px solid #ffffff;
+            color: #ffffff;
+            padding-left: 10px;
+        }
+    </style>
+
+@endsection

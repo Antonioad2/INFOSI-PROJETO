@@ -94,13 +94,13 @@
                     <li class="has-submenu">
                         <a href="{{ route('site.car-list') }}">Carros <i class="fas fa-chevron-down"></i></a>
                         <ul class="submenu">
-                            <li><a href="listing-grid.html">Listing Grid</a></li>
+                            {{-- <li><a href="listing-grid.html">Listing Grid</a></li> --}}
                             <li><a href="{{ route('site.car-list') }}">Listagem de Carro</a></li>
-                            <li><a href="listing-map.html">Listing With Map</a></li>
-                            <li><a href="listing-details.html">Detalhes do Carro</a></li>
+                            {{-- <li><a href="listing-map.html">Listing With Map</a></li>
+                            <li><a href="listing-details.html">Detalhes do Carro</a></li> --}}
                         </ul>
                     </li>
-                    <li class="has-submenu">
+                    {{-- <li class="has-submenu">
                         <a href="#">Serviços <i class="fas fa-chevron-down"></i></a>
                         <ul class="submenu">
                             <li><a href="about-us.html">About Us</a></li>
@@ -139,9 +139,8 @@
                             <li><a href="maintenance.html">Maintenance</a></li>
                             <li><a href="coming-soon.html">Coming Soon</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
-                  
                     <li class="has-submenu">
                         <a href="{{route('site.blog')}}">Ofertas </i></a>
                        

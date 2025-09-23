@@ -456,7 +456,7 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li class="column-group-main">
+                                                {{-- <li class="column-group-main">
                                                     <div class="input-block">
                                                         <label class="custom_check d-inline-flex location-check m-0"><span>Retornar
                                                                 ao mesma local</span>
@@ -478,7 +478,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </li>
+                                                </li> --}}
                                                 <li class="column-group-main">
                                                     <div class="input-block m-0">
                                                         <label>Data de Entrega</label>
