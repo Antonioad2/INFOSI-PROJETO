@@ -276,7 +276,7 @@
                 <div class="card-body-chat">
                     <div class="theme-colorsset">
                         <ul>
-                            @foreach (['Verde', 'Amarelo', 'Cinza', 'Preto', 'Vermelho', 'Branco', 'Azul'] as $color)
+                            @foreach (['green', 'yellow', 'brown', 'black', 'red', 'white', 'blue'] as $color)
                                 <li>
                                     <div class="input-themeselects">
                                         <input type="radio" class="color-filter" name="colors[]" id="{{ $color }}Color" value="{{ $color }}" {{ in_array($color, $colors ?? []) ? 'checked' : '' }}>

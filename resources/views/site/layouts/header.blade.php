@@ -73,7 +73,7 @@
                     </li> --}}
 
                     <li class="has-submenu">
-                        <a href="{{route('site.blog')}}">Ofertas <i class="fas fa-chevron-down"></i></a>
+                        <a href="{{route('site.blog')}}">Ofertas</a>
                        
                     </li>
 
