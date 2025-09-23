@@ -92,13 +92,13 @@
                         </ul> --}}
                     </li>
                     <li class="has-submenu">
-                        <a href="{{ route('site.car-list') }}">Carros <i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
+                        <a href="{{ route('site.car-list') }}">Carros<!--  <i class="fas fa-chevron-down"></i> --></a>
+                        <!-- <ul class="submenu">
                             {{-- <li><a href="listing-grid.html">Listing Grid</a></li> --}}
                             <li><a href="{{ route('site.car-list') }}">Listagem de Carro</a></li>
                             {{-- <li><a href="listing-map.html">Listing With Map</a></li>
                             <li><a href="listing-details.html">Detalhes do Carro</a></li> --}}
-                        </ul>
+                        </ul> -->
                     </li>
                     {{-- <li class="has-submenu">
                         <a href="#">Serviços <i class="fas fa-chevron-down"></i></a>
@@ -143,12 +143,10 @@
 
                     <li class="has-submenu">
                         <a href="{{route('site.blog')}}">Ofertas </i></a>
-                       
                     </li>
 
                     <li class="has-submenu">
                         <a href="{{route('site.about-us')}}">Sobre Nós</a>
-                       
                     </li>
 
                     {{-- BLOGUE --}}

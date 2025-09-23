@@ -15,7 +15,7 @@
                                     — carros para relaxar com quem você ama.
                                 </p>
                                 <div class="customer-list">
-                                    <div class="users-wrap">
+                                    <!-- <div class="users-wrap">
                                         <ul class="users-list">
                                             <li>
                                                 <img src="{{ url('assets/user/img/profiles/avatar-11.jpg') }}"
@@ -42,7 +42,8 @@
                                         <a href="add-listing.html"
                                             class="btn btn-secondary d-inline-flex align-items-center"><i
                                                 class="bx bxs-plus-circle me-1"></i>Adicione seu Carro</a>
-                                    </div> --}}
+                                    </div> -->
+
                                 </div>
                             </div>
                         </div>
@@ -662,12 +663,10 @@
                                 <span><img src="{{ url('assets/user/img/icons/spec-02.svg') }}"
                                         alt="img">Power</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-03.svg') }}"
-                                        alt="img">{{ $car->km }} K</span>
+                                        alt="img">{{ $car->mileage }} (Km)</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-04.svg') }}" alt="img">AC</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"
                                         alt="img">{{ $car->fuel->name ?? 'Combustível' }}</span>
-                                <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"
-                                        alt="img">{{ $car->passengers }} Pessoas</span>
                             </div>
                             <a href="{{ route('car.details', $car->id) }}" class="btn btn-primary">Alugue Agora</a>
                         </div>
