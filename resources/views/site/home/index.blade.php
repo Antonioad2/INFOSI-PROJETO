@@ -70,11 +70,30 @@
                             <div class="input-block">
                                 <label>Local de Retirada</label>
                                 <select class="select" name="pickup_location">
-                                    <option value="">Escolha o local</option>
-                                    <option value="New York">New York</option>
-                                    <option value="Dallas">Dallas</option>
-                                    <option value="Chicago">Chicago</option>
-                                    <option value="San Diego">San Diego</option>
+                                    <option value="">Seleciona Localização</option>
+                                <option value="Belas">Belas</option>
+                                <option value="Cacuaco">Cacuaco</option>
+                                <option value="Camama">Camama</option>
+                                <option value="Cazenga">Cazenga</option>
+                                <option value="Estalagem">Estalagem</option>
+                                <option value="Hoji ya Henda">Hoji ya Henda</option>
+                                <option value="Ingombota">Ingombota</option>
+                                <option value="Kilamba">Kilamba</option>
+                                <option value="Kilamba Kiaxi">Kilamba Kiaxi</option>
+                                <option value="Maianga">Maianga</option>
+                                <option value="Mulenvos">Mulenvos</option>
+                                <option value="Mussulo">Mussulo</option>
+                                <option value="Ngola Kiluanje">Ngola Kiluanje</option>
+                                <option value="Quiçama">Quiçama</option>
+                                <option value="Rangel">Rangel</option>
+                                <option value="Samba">Samba</option>
+                                <option value="Sambizanga">Sambizanga</option>
+                                <option value="Sequele">Sequele</option>
+                                <option value="Talatona">Talatona</option>
+                                <option value="Viana">Viana</option>
+                                <option value="Bom Jesus">Bom Jesus</option>
+                                <option value="Cabo Ledo">Cabo Ledo</option>
+                                <option value="Calumbo">Calumbo</option>
                                 </select>
                             </div>
                         </div>
@@ -82,11 +101,30 @@
                             <div class="input-block">
                                 <label>Local de Devolução</label>
                                 <select class="select" name="dropoff_location">
-                                    <option value="">Escolha o local</option>
-                                    <option value="San Francisco">San Francisco</option>
-                                    <option value="Austin">Austin</option>
-                                    <option value="Boston">Boston</option>
-                                    <option value="Chicago">Chicago</option>
+                                <option value="">Seleciona Localização</option>
+                                <option value="Belas">Belas</option>
+                                <option value="Cacuaco">Cacuaco</option>
+                                <option value="Camama">Camama</option>
+                                <option value="Cazenga">Cazenga</option>
+                                <option value="Estalagem">Estalagem</option>
+                                <option value="Hoji ya Henda">Hoji ya Henda</option>
+                                <option value="Ingombota">Ingombota</option>
+                                <option value="Kilamba">Kilamba</option>
+                                <option value="Kilamba Kiaxi">Kilamba Kiaxi</option>
+                                <option value="Maianga">Maianga</option>
+                                <option value="Mulenvos">Mulenvos</option>
+                                <option value="Mussulo">Mussulo</option>
+                                <option value="Ngola Kiluanje">Ngola Kiluanje</option>
+                                <option value="Quiçama">Quiçama</option>
+                                <option value="Rangel">Rangel</option>
+                                <option value="Samba">Samba</option>
+                                <option value="Sambizanga">Sambizanga</option>
+                                <option value="Sequele">Sequele</option>
+                                <option value="Talatona">Talatona</option>
+                                <option value="Viana">Viana</option>
+                                <option value="Bom Jesus">Bom Jesus</option>
+                                <option value="Cabo Ledo">Cabo Ledo</option>
+                                <option value="Calumbo">Calumbo</option>
                                 </select>
                             </div>
                         </div>
@@ -96,7 +134,7 @@
                                 <div class="input-wrap">
                                     <input type="text" class="form-control flatpickr-datetime" name="pickup_datetime"
                                         value="2025-03-14 12:00">
-                                    <span class="input-icon"><i class="bx bx-chevron-down"></i></span>
+                                    <span class="input-icon"></span>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +144,7 @@
                                 <div class="input-wrap">
                                     <input type="text" class="form-control flatpickr-datetime" name="dropoff_datetime"
                                         value="2025-03-15 12:00">
-                                    <span class="input-icon"><i class="bx bx-chevron-down"></i></span>
+                                    <span class="input-icon"></span>
                                 </div>
                             </div>
                         </div>

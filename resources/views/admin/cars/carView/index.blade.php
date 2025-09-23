@@ -291,6 +291,62 @@
                             @endif
                         </div>
                     </div>
+                    <!-- Seção para Imagens adicionais do carro -->
+                    
+                     <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Imagem Exterior</div>
+                        <div class="col-lg-10 hstack gap-3">
+                            @if ($car->exterior_image)
+                                <div class="hstack gap-2">
+                                    <div class="avatar-image">
+                                        <a href="{{ asset($car->exterior_image) }}" target="_blank">
+                                            <img src="{{ asset($car->exterior_image) }}" alt="Imagem do Exterior" width="50" height="50" class="img-fluid">
+                                        </a>
+                                    </div>
+                                    <span>Imagem do Exterior</span>
+                                </div>
+                            @else
+                                <span>Sem Imagem do Exterior</span>
+                            @endif
+                        </div>
+                    </div>
+
+                     <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Imagem do Interior</div>
+                        <div class="col-lg-10 hstack gap-3">
+                            @if ($car->interior_image)
+                                <div class="hstack gap-2">
+                                    <div class="avatar-image">
+                                        <a href="{{ asset($car->interior_image) }}" target="_blank">
+                                            <img src="{{ asset($car->interior_image) }}" alt="Imagem do Interior" width="50" height="50" class="img-fluid">
+                                        </a>
+                                    </div>
+                                    <span>Imagem do Interior</span>
+                                </div>
+                            @else
+                                <span>Sem Imagem do Interior</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Imagem Lateral</div>
+                        <div class="col-lg-10 hstack gap-3">
+                            @if ($car->lateral_image)
+                                <div class="hstack gap-2">
+                                    <div class="avatar-image">
+                                        <a href="{{ asset($car->lateral_image) }}" target="_blank">
+                                            <img src="{{ asset($car->lateral_image) }}" alt="Imagem Lateral" width="50" height="50" class="img-fluid">
+                                        </a>
+                                    </div>
+                                    <span>Imagem Lateral</span>
+                                </div>
+                            @else
+                                <span>Sem Imagem Lateral</span>
+                            @endif
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

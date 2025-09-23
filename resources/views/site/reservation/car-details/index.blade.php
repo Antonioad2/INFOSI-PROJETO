@@ -80,22 +80,40 @@
                                     </div>
                                 @else
                                     <div class="product-img">
-                                        <img src="{{ url('assets/user/img/cars/slider-01.jpg') }}" alt="Slider">
+                                        <img src="{{url('uploads/car/car_images/' . $car->image)}}" alt="Slider">
                                     </div>
                                 @endif
-                                <!-- Imagens estáticas adicionais -->
+                               
+                                 @if ($car->interior_image)
+                                    <div class="product-img">
+                                        <img src="{{ asset($car->interior_image) }}" alt="Imagem do Interior" class="img-fluid">
+                                    </div>
+                                @else
+                                    <div class="product-img">
+                                        <img src="{{url('uploads/car/car_images/' . $car->image)}}" alt="Slider">
+                                    </div>
+                                @endif
+                                
+                                @if($car->interior_image)
                                 <div class="product-img">
-                                    <img src="{{ url('assets/user/img/cars/slider-02.jpg') }}" alt="Slider">
+                                    <img src="{{ asset($car->exterior_image) }}" alt="Imagem do exterior" class="img-fluid">
                                 </div>
+                                @else
                                 <div class="product-img">
-                                    <img src="{{ url('assets/user/img/cars/slider-03.jpg') }}" alt="Slider">
+                                    <img src="{{ url('uploads/car/car_images/' . $car->image)}}" alt="Slider">
                                 </div>
+                                @endif
+
+                                 
+                                @if($car->lateral_image)
                                 <div class="product-img">
-                                    <img src="{{ url('assets/user/img/cars/slider-04.jpg') }}" alt="Slider">
+                                    <img src="{{ asset($car->lateral_image) }}" alt="Imagem lateral" class="img-fluid">
                                 </div>
+                                @else
                                 <div class="product-img">
-                                    <img src="{{ url('assets/user/img/cars/slider-05.jpg') }}" alt="Slider">
+                                    <img src="{{ url('uploads/car/car_images/' . $car->image)}}" alt="Slider">
                                 </div>
+                                @endif
                             </div>
                         </div>
                         {{-- <div class="review-sec pb-0">

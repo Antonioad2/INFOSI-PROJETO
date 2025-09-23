@@ -62,15 +62,18 @@ class CarController extends Controller
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
             'license_plate'     => 'required|string|unique:cars,license_plate',
-            'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
             'car_insurance'     => 'nullable|string',
-            'car_insurance_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_insurance_upload' => 'nullable|mimes:pdf|max:4096',
             'car_document'      => 'required|string|max:255',  
-            'car_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'car_document_upload' => 'nullable|mimes:pdf|max:4096',
             'inspection_date'   => 'nullable|date',
-            'inspection_document_upload' => 'nullable|mimes:pdf|max:2048',
+            'inspection_document_upload' => 'nullable|mimes:pdf|max:4096',
             'price'             => 'required|numeric|min:0',
             'status'            => 'required|in:available,reserved,rented,maintenance,unavailabe',
+            'interior_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
+            'lateral_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
+            'exterior_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
         ]);
 
         // Diretórios
@@ -81,7 +84,17 @@ class CarController extends Controller
             $request->image->move($uploadPath . '/car/car_images', $fileName);
             $validated['image'] = $fileName;
         }
-
+        
+         // Processar uploads de imagens adicionais
+        $additionalImageFields = ['interior_image', 'lateral_image', 'exterior_image'];
+        foreach ($additionalImageFields as $field) {
+            if ($request->hasFile($field)) {
+                $fileName = time() . "_{$field}." . $request->file($field)->getClientOriginalExtension();
+                $request->file($field)->move($uploadPath . '/car/car_others_image', $fileName);
+                $validated[$field] = 'uploads/car/car_others_image/' . $fileName; // Salvar caminho relativo
+            }
+         }
+       
         if ($request->hasFile('car_insurance_upload')) {
             $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
             $request->car_insurance_upload->move($uploadPath . '/car/insurance_documents', $fileName);
@@ -154,7 +167,7 @@ class CarController extends Controller
             'manufacture_date'  => 'required|integer|between:2010,' . now()->year,
             'registration_date' => 'required|date',
             'observations'      => 'nullable|string',
-            'image'             => 'nullable|image|mimes:jpg,jpeg,png,pdf|max:2048',
+            'image'             => 'nullable|image|mimes:jpg,jpeg,png,pdf|max:4096',
             'car_insurance'     => 'nullable|string',
             'car_insurance_upload' => 'nullable|mimes:pdf',
             'car_document'      => 'required|string|max:255',
@@ -163,6 +176,9 @@ class CarController extends Controller
             'inspection_document_upload' => 'nullable|mimes:pdf,doc,docx',
             'price'             => 'required|numeric|min:0',
             'status'            => 'required|in:available,reserved,rented,maintenance,unavailabe',
+            'interior_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
+            'lateral_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
+            'exterior_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
         ]);
 
 
@@ -173,6 +189,20 @@ class CarController extends Controller
             $request->image->move($uploadPath . '/car/car_images', $fileName);
             $validated['image'] = $fileName;
         }
+
+        // Processar uploads de imagens adicionais
+        $additionalImageFields = ['interior_image', 'lateral_image', 'exterior_image'];
+        foreach ($additionalImageFields as $field) {
+        if ($request->hasFile($field)) {
+            // Excluir imagem antiga, se existir
+            if ($car->$field && File::exists(public_path($car->$field))) {
+                File::delete(public_path($car->$field));
+            }
+            $fileName = time() . "_{$field}." . $request->file($field)->getClientOriginalExtension();
+            $request->file($field)->move($uploadPath . '/car/car_others_image', $fileName);
+            $validated[$field] = 'uploads/car/car_others_image/' . $fileName;
+        }
+    }
 
         if ($request->hasFile('car_insurance_upload')) {
             $fileName = time() . '_insurance.' . $request->car_insurance_upload->getClientOriginalExtension();
