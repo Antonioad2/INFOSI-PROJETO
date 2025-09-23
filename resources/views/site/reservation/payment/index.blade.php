@@ -228,7 +228,7 @@
                                                                 </span>
                                                             </label>
                                                         </li>
-                                                        <li>
+                                                        {{-- <li>
                                                             <label class="payment_custom_check">
                                                                 <input type="radio" name="payment_card"
                                                                     id="credit_card">
@@ -253,7 +253,7 @@
                                                                     </small>
                                                                 </span>
                                                             </label>
-                                                        </li>
+                                                        </li> --}}
                                                         <li>
                                                             <label class="payment_custom_check">
                                                                 <input type="radio" name="payment_card"
