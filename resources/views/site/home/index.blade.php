@@ -15,7 +15,7 @@
                                     — carros para relaxar com quem você ama.
                                 </p>
                                 <div class="customer-list">
-                                    <div class="users-wrap">
+                                    <!-- <div class="users-wrap">
                                         <ul class="users-list">
                                             <li>
                                                 <img src="{{ url('assets/user/img/profiles/avatar-11.jpg') }}"
@@ -34,15 +34,15 @@
                                             <h4>6 mil + clientes</h4>
                                             <p>utilizaram nossos serviços de aluguel </p>
                                         </div>
-                                    </div>
-                                    <div class="view-all d-flex align-items-center gap-3">
+                                    </div> -->
+                                   <!--  <div class="view-all d-flex align-items-center gap-3">
                                         <a href="listing-grid.html"
                                             class="btn btn-primary d-inline-flex align-items-center">Alugue um Carro<i
                                                 class="bx bx-right-arrow-alt ms-1"></i></a>
                                         <a href="add-listing.html"
                                             class="btn btn-secondary d-inline-flex align-items-center"><i
                                                 class="bx bxs-plus-circle me-1"></i>Adicione seu Carro</a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
