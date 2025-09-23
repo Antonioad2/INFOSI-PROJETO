@@ -35,7 +35,10 @@ class Car extends Model
         'inspection_date',
         'inspection_document_upload',
         'price',
-        'status'
+        'status',
+        'interior_image',
+         'lateral_image', 
+         'exterior_image'
     ];
 
     public function models()

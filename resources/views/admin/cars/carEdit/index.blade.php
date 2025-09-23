@@ -212,9 +212,47 @@
                                     <small class="form-text text-muted">Deixe em branco para manter o arquivo atual.</small>
                                 </div>
 
+                                             <!-- Campos de Fotos Adicionais -->
+                                 <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Foto do Interior</label>
+                                    <input type="file" name="interior_image" class="form-control" accept="image/jpeg,image/png,image/jpg">
+                                    @if ($car->interior_image)
+                                        <div class="mt-2">
+                                            <img src="{{ asset($car->interior_image) }}" alt="Imagem do Interior" style="max-width: 100px; max-height: 100px;">
+                                            <p class="text-muted">Imagem atual</p>
+                                        </div>
+                                    @endif
+                                    <small class="form-text text-muted">Deixe em branco para manter a imagem atual.</small>
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Foto Lateral</label>
+                                    <input type="file" name="lateral_image" class="form-control" accept="image/jpeg,image/png,image/jpg">
+                                    @if ($car->lateral_image)
+                                        <div class="mt-2">
+                                            <img src="{{ asset($car->lateral_image) }}" alt="Imagem Lateral" style="max-width: 100px; max-height: 100px;">
+                                            <p class="text-muted">Imagem atual</p>
+                                        </div>
+                                    @endif
+                                    <small class="form-text text-muted">Deixe em branco para manter a imagem atual.</small>
+                                </div>
+
+                                <div class="col-lg-4 mb-3">
+                                    <label class="form-label">Foto do Exterior</label>
+                                    <input type="file" name="exterior_image" class="form-control" accept="image/jpeg,image/png,image/jpg">
+                                    @if ($car->exterior_image)
+                                        <div class="mt-2">
+                                            <img src="{{ asset($car->exterior_image) }}" alt="Imagem do Exterior" style="max-width: 100px; max-height: 100px;">
+                                            <p class="text-muted">Imagem atual</p>
+                                        </div>
+                                    @endif
+                                    <small class="form-text text-muted">Deixe em branco para manter a imagem atual.</small>
+                                </div>
+
+
 
                                  <!-- Campo combinado para Inspeção -->
-                                <div class="col-lg-6 mb-3">
+                                <div class="col-lg-4 mb-3">
                                     <label class="form-label">Inspeção</label>
                                     <div class="input-group">
                                         <input type="date" name="inspection_date" class="form-control" value="{{ old('inspection_date', $car->inspection_date) }}" placeholder="Data da Inspeção">
@@ -226,7 +264,7 @@
                                 </div>
 
                                 <!-- Campo de Preço -->
-                                <div class="col-lg-6 mb-3">
+                                <div class="col-lg-4 mb-3">
                                     <label class="form-label">Preço</label>
                                     <input type="number" name="price" class="form-control" value="{{ old('price', $car->price) }}" step="0.01" min="0" placeholder="Preço do Carro">
                                 </div>
