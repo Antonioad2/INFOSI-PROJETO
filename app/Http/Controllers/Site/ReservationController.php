@@ -23,15 +23,28 @@ class ReservationController extends Controller
     {
         $car = Car::findOrFail($car_id);
 
-        // Converter datas para formato MySQL
-        $startDate = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('start_date'))->format('Y-m-d');
-        $endDate   = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('end_date'))->format('Y-m-d');
+        \Log::info('Valores recebidos no step1', $request->only([
+    'start_date', 'end_date', 'delivery_time', 'return_time'
+]));
+
+
+                   // Converter datas para formato MySQL
+                $startDate = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('start_date'))->format('Y-m-d');
+                $endDate   = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('end_date'))->format('Y-m-d');
+
+                $delivery_time = \Carbon\Carbon::createFromFormat('H:i:s', $request->input('delivery_time'))->format('H:i:s');
+                $return_time   = \Carbon\Carbon::createFromFormat('H:i:s', $request->input('return_time'))->format('H:i:s');
+
 
         $data = [
             'car_id'          => $car->id,
             'pickup_location' => $request->input('pickup_location'),
+            'return_location' => $request->input('return_location'),
             'start_date'      => $startDate,
             'end_date'        => $endDate,
+            'delivery_time'   => $delivery_time,
+            'return_time'   => $return_time,
+
         ];
 
         // 🔹 Salvar na sessão
@@ -52,6 +65,8 @@ class ReservationController extends Controller
 
         $start = new \Carbon\Carbon($data['start_date']);
         $end   = new \Carbon\Carbon($data['end_date']);
+        $delivery = new \Carbon\Carbon($data['delivery_time']);
+        $return = new \Carbon\Carbon($data['return_time']);
         $days  = $end->diffInDays($start) ?: 1;
 
         $resources    = $request->resources ?? [];
@@ -106,6 +121,7 @@ class ReservationController extends Controller
 
         Log::info('Confirm(): dados sessão', [
             'data' => $data,
+            'time' => $data,
             'dataServices' => $dataServices,
             'request' => $request->all(),
         ]);
@@ -176,8 +192,11 @@ class ReservationController extends Controller
                 'client_id'       => $client->id,
                 'driver_id'       => $data['driver_id'] ?? null,
                 'pickup_location' => $data['pickup_location'],
+                'return_location' => $data['return_location'],
                 'start_date'      => $data['start_date'],
                 'end_date'        => $data['end_date'],
+                'delivery_time'   => $data['delivery_time'],
+                'return_time'   => $data['return_time'],
                 'resources'       => !empty($data['extras']) ? json_encode($data['extras']) : null,
                 'total_amount'    => $price,
                 'status'          => 'in_progress',
@@ -229,8 +248,12 @@ class ReservationController extends Controller
 
         // ➕ Adiciona estas linhas:
         $pickup_location = $data['pickup_location'] ?? '';
-        $start_date = $data['start_date'] ?? '';
-        $end_date = $data['end_date'] ?? '';
+        $return_location = $data['return_location'] ?? '';
+        $start_date     = $data['start_date'] ?? '';
+        $end_date       = $data['end_date'] ?? '';
+        $delivery_time  = $data['delivery_time'] ?? '';
+        $return_time    = $data['return_time'] ?? '';
+
 
         // 🟢 Calcula dias e preço base
         $days  = 1;
@@ -238,6 +261,8 @@ class ReservationController extends Controller
         if (!empty($data['start_date']) && !empty($data['end_date'])) {
             $start = new \Carbon\Carbon($data['start_date']);
             $end   = new \Carbon\Carbon($data['end_date']);
+            $delivery   = new \Carbon\Carbon($data['delivery_time']);
+            $return   = new \Carbon\Carbon($data['return_time']);
             $days  = $end->diffInDays($start) ?: 1;
             $price = $days * $car->price;
         }
@@ -272,8 +297,11 @@ class ReservationController extends Controller
                 return view('site.reservation.book-checkout.index', compact(
                     'car',
                     'pickup_location',
+                    'return_location',
                     'start_date',
                     'end_date',
+                    'delivery_time',
+                    'return_time',
                     'drivers',
                     'selectedExtras',
                     'selectedDriver',
@@ -283,8 +311,11 @@ class ReservationController extends Controller
                 return view('site.reservation.details-checkout.index', compact(
                     'car',
                     'pickup_location',
+                    'return_location',
                     'start_date',
                     'end_date',
+                    'delivery_time',
+                    'return_time',
                     'selectedExtras',
                     'selectedDriver',
                     'totalEstimate'
@@ -293,8 +324,11 @@ class ReservationController extends Controller
                 return view('site.reservation.payment.index', compact(
                     'car',
                     'pickup_location',
+                    'return_location',
                     'start_date',
                     'end_date',
+                    'delivery_time',
+                    'return_time',
                     'selectedExtras',
                     'selectedDriver',
                     'totalEstimate'
@@ -303,8 +337,11 @@ class ReservationController extends Controller
                 return redirect()->route('site.car-confirmed', compact(
                     'car',
                     'pickup_location',
+                    'return_location',
                     'start_date',
                     'end_date',
+                    'delivery_time',
+                    'return_time',
                     'selectedExtras',
                     'selectedDriver',
                     'totalEstimate'
@@ -331,4 +368,5 @@ class ReservationController extends Controller
 
         return $pdf->download("reserva_{$reservation->id}.pdf");
     }
+    
 }

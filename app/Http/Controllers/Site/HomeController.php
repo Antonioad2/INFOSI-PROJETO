@@ -38,14 +38,7 @@ class HomeController extends Controller
         // Base query: only available cars
         $query = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available');
 
-        // Apply filters
-        if (!empty($pickup_location)) {
-            $query->where('location', 'LIKE', "%{$pickup_location}%"); // Assuming 'location' column exists
-        }
-
-        if (!empty($dropoff_location)) {
-            $query->where('location', 'LIKE', "%{$dropoff_location}%"); // Assuming 'location' column exists
-        }
+       
 
         if (!empty($brands)) {
             $query->whereIn('brand_id', function ($subQuery) use ($brands) {

@@ -64,96 +64,49 @@
                     </div>
                 </div>
                 <div class="banner-search">
-                    <form action="{{ route('site.car-list') }}" class="form-block d-flex align-items-center" method="GET">
-                        @csrf
-                        <div class="search-input">
-                            <div class="input-block">
-                                <label>Local de Retirada</label>
-                                <select class="select" name="pickup_location">
-                                    <option value="">Seleciona Localização</option>
-                                <option value="Belas">Belas</option>
-                                <option value="Cacuaco">Cacuaco</option>
-                                <option value="Camama">Camama</option>
-                                <option value="Cazenga">Cazenga</option>
-                                <option value="Estalagem">Estalagem</option>
-                                <option value="Hoji ya Henda">Hoji ya Henda</option>
-                                <option value="Ingombota">Ingombota</option>
-                                <option value="Kilamba">Kilamba</option>
-                                <option value="Kilamba Kiaxi">Kilamba Kiaxi</option>
-                                <option value="Maianga">Maianga</option>
-                                <option value="Mulenvos">Mulenvos</option>
-                                <option value="Mussulo">Mussulo</option>
-                                <option value="Ngola Kiluanje">Ngola Kiluanje</option>
-                                <option value="Quiçama">Quiçama</option>
-                                <option value="Rangel">Rangel</option>
-                                <option value="Samba">Samba</option>
-                                <option value="Sambizanga">Sambizanga</option>
-                                <option value="Sequele">Sequele</option>
-                                <option value="Talatona">Talatona</option>
-                                <option value="Viana">Viana</option>
-                                <option value="Bom Jesus">Bom Jesus</option>
-                                <option value="Cabo Ledo">Cabo Ledo</option>
-                                <option value="Calumbo">Calumbo</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="search-input">
-                            <div class="input-block">
-                                <label>Local de Devolução</label>
-                                <select class="select" name="dropoff_location">
-                                <option value="">Seleciona Localização</option>
-                                <option value="Belas">Belas</option>
-                                <option value="Cacuaco">Cacuaco</option>
-                                <option value="Camama">Camama</option>
-                                <option value="Cazenga">Cazenga</option>
-                                <option value="Estalagem">Estalagem</option>
-                                <option value="Hoji ya Henda">Hoji ya Henda</option>
-                                <option value="Ingombota">Ingombota</option>
-                                <option value="Kilamba">Kilamba</option>
-                                <option value="Kilamba Kiaxi">Kilamba Kiaxi</option>
-                                <option value="Maianga">Maianga</option>
-                                <option value="Mulenvos">Mulenvos</option>
-                                <option value="Mussulo">Mussulo</option>
-                                <option value="Ngola Kiluanje">Ngola Kiluanje</option>
-                                <option value="Quiçama">Quiçama</option>
-                                <option value="Rangel">Rangel</option>
-                                <option value="Samba">Samba</option>
-                                <option value="Sambizanga">Sambizanga</option>
-                                <option value="Sequele">Sequele</option>
-                                <option value="Talatona">Talatona</option>
-                                <option value="Viana">Viana</option>
-                                <option value="Bom Jesus">Bom Jesus</option>
-                                <option value="Cabo Ledo">Cabo Ledo</option>
-                                <option value="Calumbo">Calumbo</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="search-input">
-                            <div class="input-block">
-                                <label>Data e Hora de Retirada</label>
-                                <div class="input-wrap">
-                                    <input type="text" class="form-control flatpickr-datetime" name="pickup_datetime"
-                                        value="2025-03-14 12:00">
-                                    <span class="input-icon"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="search-input input-end">
-                            <div class="input-block">
-                                <label>Data e Hora de Devolução</label>
-                                <div class="input-wrap">
-                                    <input type="text" class="form-control flatpickr-datetime" name="dropoff_datetime"
-                                        value="2025-03-15 12:00">
-                                    <span class="input-icon"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="search-btn">
-                            <button class="btn btn-primary" type="submit"><i class="bx bx-search-alt"></i></button>
-                        </div>
-                    </form>
-
+    <form action="{{ route('site.car-list') }}" class="form-block d-flex align-items-center" method="GET">
+        @csrf
+        <div class="search-input">
+            <div class="input-block">
+                <label>Local de Retirada</label>
+                <div class="input-wrap">
+                    <input type="text" class="form-control" name="pickup_location" placeholder="Digite o local de retirada (ex: Belas, Cacuaco ou outro)" value="">
+                    <span class="input-icon"></span>
                 </div>
+            </div>
+        </div>
+        <div class="search-input">
+            <div class="input-block">
+                <label>Local de Devolução</label>
+                <div class="input-wrap">
+                    <input type="text" class="form-control" name="return_location" placeholder="Digite o local de devolução (ex: Viana, Talatona ou outro)" value="">
+                    <span class="input-icon"></span>
+                </div>
+            </div>
+        </div>
+        <div class="search-input">
+            <div class="input-block">
+                <label>Data e Hora de Retirada</label>
+                <div class="input-wrap">
+                    <input type="text" class="form-control flatpickr-datetime" name="pickup_datetime" value="2025-03-14 12:00">
+                    <span class="input-icon"></span>
+                </div>
+            </div>
+        </div>
+        <div class="search-input input-end">
+            <div class="input-block">
+                <label>Data e Hora de Devolução</label>
+                <div class="input-wrap">
+                    <input type="text" class="form-control flatpickr-datetime" name="dropoff_datetime" value="2025-03-15 12:00">
+                    <span class="input-icon"></span>
+                </div>
+            </div>
+        </div>
+        <div class="search-btn">
+            <button class="btn btn-primary" type="submit"><i class="bx bx-search-alt"></i></button>
+        </div>
+    </form>
+</div>
             </div>
             <div class="banner-bgs">
                 <img src="{{ url('assets/user/img/bg/banner-bg-01.png') }}" class="bg-01 img-fluid" alt="img">

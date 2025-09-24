@@ -448,7 +448,7 @@
                                                         <div class="group-img">
                                                             <div class="form-wrap">
                                                                 <input type="text" name="pickup_location" class="form-control"
-                                                                    placeholder="45, Malanje - Angola">
+                                                                    placeholder="digite o lugar para entrega">
                                                                 <span class="form-icon">
                                                                     <i class="fa-solid fa-location-crosshairs"></i>
                                                                 </span>
@@ -464,21 +464,21 @@
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
-                                                </li>
+                                                </li>--}}
                                                 <li class="column-group-main">
                                                     <div class="input-block">
                                                         <label>Local De devolução</label>
                                                         <div class="group-img">
                                                             <div class="form-wrap">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="45, Malanje - Angola">
+                                                                <input type="text" name="return_location" class="form-control"
+                                                                    placeholder="digite o lugar para retorno">
                                                                 <span class="form-icon">
                                                                     <i class="fa-solid fa-location-crosshairs"></i>
                                                                 </span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </li> --}}
+                                                </li> 
                                                 <li class="column-group-main">
                                                     <div class="input-block m-0">
                                                         <label>Data de Entrega</label>
@@ -499,7 +499,7 @@
                                                         <div class="input-block">
                                                             <div class="group-img">
                                                                 <div class="form-wrap">
-                                                                    <input type="text" class="form-control timepicker"
+                                                                    <input type="text" name="delivery_time" class="form-control timepicker"
                                                                         placeholder="11:00 AM">
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-clock"></i>
@@ -529,7 +529,7 @@
                                                         <div class="input-block">
                                                             <div class="group-img">
                                                                 <div class="form-wrap">
-                                                                    <input type="text" class="form-control timepicker"
+                                                                    <input type="text" name="return_time" class="form-control timepicker"
                                                                         placeholder="11:00 AM">
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-clock"></i>
@@ -556,9 +556,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane fade" id="pickup">
-                                        <form class=""
-                                            action="{{ route('site.reservation.step1', ['car_id' => $car->id]) }}"
-                                            method="POST">
+                                        <form action="{{ route('site.reservation.step1', ['car_id' => $car->id]) }}" method="POST">
                                             @csrf
                                             <ul>
                                                 <li class="column-group-main">
@@ -566,28 +564,29 @@
                                                         <label>Local de Entrega</label>
                                                         <div class="group-img">
                                                             <select class="select" name="pickup_location">
-                                                                <option>Newyork Office - 78, 10th street Laplace USA
-                                                                </option>
+                                                                <option>Newyork Office - 78, 10th street Laplace USA</option>
                                                                 <option>Newyork Office - 12, 5th street USA</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </li>
+
                                                 <li class="column-group-main">
                                                     <div class="input-block">
-                                                        <label class="custom_check d-inline-flex location-check m-0"><span>Retornar
-                                                                ao mesmo local</span>
-                                                            <input type="checkbox" name="remeber">
+                                                        <label class="custom_check d-inline-flex location-check m-0">
+                                                            <span>Retornar ao mesmo local</span>
+                                                            <input type="checkbox" name="remember">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                 </li>
+
                                                 <li class="column-group-main">
                                                     <div class="input-block">
                                                         <label>Local de Retorno</label>
                                                         <div class="group-img">
                                                             <div class="form-wrap">
-                                                                <input type="text" class="form-control"
+                                                                <input type="text" name="return_location" class="form-control"
                                                                     placeholder="78, 10th street Laplace USA">
                                                                 <span class="form-icon">
                                                                     <i class="fa-solid fa-location-crosshairs"></i>
@@ -596,6 +595,7 @@
                                                         </div>
                                                     </div>
                                                 </li>
+
                                                 <li class="column-group-main">
                                                     <div class="input-block m-0">
                                                         <label>Data de Entrega</label>
@@ -604,8 +604,7 @@
                                                         <div class="input-block me-2">
                                                             <div class="group-img">
                                                                 <div class="form-wrap">
-                                                                    <input type="text" name="start_date"
-                                                                        class="form-control datetimepicker"
+                                                                    <input type="text" name="start_date" class="form-control datetimepicker"
                                                                         placeholder="04/11/2023">
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-calendar-days"></i>
@@ -616,7 +615,7 @@
                                                         <div class="input-block">
                                                             <div class="group-img">
                                                                 <div class="form-wrap">
-                                                                    <input type="text" class="form-control timepicker"
+                                                                    <input type="text" name="delivery_time" class="form-control timepicker"
                                                                         placeholder="11:00 AM">
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-clock"></i>
@@ -626,6 +625,7 @@
                                                         </div>
                                                     </div>
                                                 </li>
+
                                                 <li class="column-group-main">
                                                     <div class="input-block m-0">
                                                         <label>Data de Retorno</label>
@@ -634,8 +634,7 @@
                                                         <div class="input-block me-2">
                                                             <div class="group-img">
                                                                 <div class="form-wrap">
-                                                                    <input type="text" name="end_date"
-                                                                        class="form-control datetimepicker"
+                                                                    <input type="text" name="end_date" class="form-control datetimepicker"
                                                                         placeholder="04/11/2023">
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-calendar-days"></i>
@@ -646,7 +645,7 @@
                                                         <div class="input-block">
                                                             <div class="group-img">
                                                                 <div class="form-wrap">
-                                                                    <input type="text" class="form-control timepicker"
+                                                                    <input type="text" name="return_time" class="form-control timepicker"
                                                                         placeholder="11:00 AM">
                                                                     <span class="form-icon">
                                                                         <i class="fa-regular fa-clock"></i>
@@ -656,20 +655,22 @@
                                                         </div>
                                                     </div>
                                                 </li>
+
                                                 <li class="column-group-last">
                                                     <div class="input-block mb-0">
                                                         <div class="search-btn">
                                                             <button type="submit" class="btn btn-primary check-available w-100">
-                                                                Reservar</button>
+                                                                Reservar
+                                                            </button>
                                                             <a href="javascript:void(0);" data-bs-toggle="modal"
-                                                                data-bs-target="#enquiry"
-                                                                class="btn btn-theme">Consulte-nos</a>
+                                                                data-bs-target="#enquiry" class="btn btn-theme">Consulte-nos</a>
                                                         </div>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </form>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

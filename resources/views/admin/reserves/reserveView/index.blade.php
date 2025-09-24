@@ -103,6 +103,19 @@
                         </div>
                     </div>
 
+                    <!-- Local de Devoluçao -->
+                    <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium">Local de Retorno</div>
+                        <div class="col-lg-10 hstack gap-1">
+                            <a href="javascript:void(0);" class="hstack gap-2">
+                                <div class="avatar-text avatar-sm">
+                                    <i class="feather-map-pin"></i>
+                                </div>
+                                <span>{{ $reserve->return_location }}</span>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="row mb-4">
                         <div class="col-lg-2 fw-medium">Valor Total</div>
                         <div class="col-lg-10 hstack gap-1">
@@ -114,22 +127,24 @@
                     </div>
 
                     <div class="row mb-4">
-                        <div class="col-lg-2 fw-medium">Data de Início</div>
+                        <div class="col-lg-2 fw-medium">Data e hora de Início</div>
                         <div class="col-lg-10 hstack gap-1">
                             <div class="avatar-text avatar-sm">
                                 <i class="feather-calendar"></i>
                             </div>
-                            <span>{{ \Carbon\Carbon::parse($reserve->start_date)->format('d/m/Y') }}</span>
+                            <span>{{ \Carbon\Carbon::parse($reserve->start_date)->format('d/m/Y') }} ||</span>
+                            <span>{{ \Carbon\Carbon::parse($reserve->delivery_time)->format('h:m') }}</span>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <div class="col-lg-2 fw-medium">Data de Término</div>
+                        <div class="col-lg-2 fw-medium">Data e hora de Término</div>
                         <div class="col-lg-10 hstack gap-1">
                             <div class="avatar-text avatar-sm">
                                 <i class="feather-calendar"></i>
                             </div>
-                            <span>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }}</span>
+                            <span>{{ \Carbon\Carbon::parse($reserve->end_date)->format('d/m/Y') }} ||</span>
+                            <span>{{ \Carbon\Carbon::parse($reserve->return_time)->format('h:m') }}</span>
                         </div>
                     </div>
 

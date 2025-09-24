@@ -20,7 +20,7 @@
     <!-- /Breadscrumb Section -->
 
     <!-- Search -->
-    <div class="section-search page-search">
+   <!--  <div class="section-search page-search">
         <div class="container">
             <div class="search-box-banner">
                 <form action="https://dreamsrent.dreamstechnologies.com/html/template/listing-grid.html">
@@ -85,7 +85,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /Search -->
 
     <!-- Sort By -->
@@ -95,9 +95,9 @@
                 <div class="sorting-div">
                     <div class="row d-flex align-items-center">
                         <div class="col-xl-4 col-lg-3 col-sm-12 col-12">
-                            <div class="count-search">
+                           <!--  <div class="count-search">
                                 <p>Mostrando 1-9 de 154 Carros</p>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-xl-8 col-lg-9 col-sm-12 col-12">
                             <div class="product-filter-group">
@@ -115,7 +115,7 @@
                                                 </select>
                                             </div>
                                         </li>
-                                        <li>
+                                      <!--   <li>
                                             <span class="sortbytitle">Ordenar Por </span>
                                             <div class="sorting-select select-two">
                                                 <select class="form-control select">
@@ -128,10 +128,10 @@
                                                     <option>Popularidade</option>
                                                 </select>
                                             </div>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
-                                <div class="grid-listview">
+                                <!-- <div class="grid-listview">
                                     <ul>
                                         <li>
                                             <a href="listing-grid.html">
@@ -149,7 +149,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -464,7 +464,7 @@
                                                             <div class="address-info">
                                                                 <h6>
                                                                     <i class="feather-map-pin"></i>
-                                                                    {{ $car->location ?? 'Luanda, Angola' }}
+                                                                    {{  $car->supplier->address  ?? 'Luanda, Angola' }}
                                                                 </h6>
                                                             </div>
                                                             <div class="list-km">
