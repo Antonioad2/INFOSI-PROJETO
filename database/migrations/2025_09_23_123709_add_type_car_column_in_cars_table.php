@@ -15,7 +15,7 @@ class AddTypeCarColumnInCarsTable extends Migration
     {
         Schema::table('cars', function (Blueprint $table) {
             //
-            $table->enum('type_car', ['sedan','suv','compact','station_wagon','sports_car','minivan','compact_suv','coupe','sports_coupe'])->default('available');
+            $table->enum('type_car', ['sedan','suv','compact','station_wagon','sports_car','minivan','compact_suv','coupe','sports_coupe'])->default('compact');
         });
     }
 
