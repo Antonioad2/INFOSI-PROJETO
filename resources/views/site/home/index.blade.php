@@ -103,7 +103,7 @@
             </div>
         </div>
         <div class="search-btn">
-            <button class="btn btn-primary" type="submit"><i class="bx bx-search-alt"></i></button>
+            <button class="btn btn-primary" type="submit"><div style="color:black" >PESQUIZA O SEU CARRO</div></button>
         </div>
     </form>
 </div>
