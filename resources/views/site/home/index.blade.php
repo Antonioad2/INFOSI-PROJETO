@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
-        <div class="search-btn">
+        <div class="customer-info">
             <button class="btn btn-primary" type="submit"><div style="color:black" >PESQUIZA O SEU CARRO</div></button>
         </div>
     </form>
