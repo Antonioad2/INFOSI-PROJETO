@@ -195,10 +195,6 @@ class CarController extends Controller
         $additionalImageFields = ['interior_image', 'lateral_image', 'exterior_image'];
         foreach ($additionalImageFields as $field) {
         if ($request->hasFile($field)) {
-            // Excluir imagem antiga, se existir
-            if ($car->$field && File::exists(public_path($car->$field))) {
-                File::delete(public_path($car->$field));
-            }
             $fileName = time() . "_{$field}." . $request->file($field)->getClientOriginalExtension();
             $request->file($field)->move($uploadPath . '/car/car_others_image', $fileName);
             $validated[$field] = 'uploads/car/car_others_image/' . $fileName;
