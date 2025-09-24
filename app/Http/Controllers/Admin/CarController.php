@@ -10,6 +10,7 @@ use App\Model\Supplier;
 use App\Model\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class CarController extends Controller
 {

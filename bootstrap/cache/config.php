@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:adiXXnk653bKFiETfoPcIkjczTI+nAgNlEC+DIvG0/w=',
+    'key' => 'base64:ED2l5PWxB/D707ovXdPScchlFtKzabs5NV48THN2jjk=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -176,7 +176,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -340,12 +340,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\app',
+        'root' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\app/public',
+        'root' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -361,7 +361,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\US\\Music\\INFOSI-PROJETO\\public\\storage' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\app/public',
+      'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\public\\storage' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -395,13 +395,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -451,7 +451,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -463,11 +463,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.mailtrap.io',
-        'port' => '2525',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'smtp.gmail.com',
+        'port' => '587',
+        'encryption' => 'tls',
+        'username' => 'brauliosn57@gmail.com',
+        'password' => 'azdlytsjtpcxruvh',
       ),
       'ses' => 
       array (
@@ -490,15 +490,15 @@
     ),
     'from' => 
     array (
-      'address' => NULL,
-      'name' => 'Laravel',
+      'address' => 'brauliosn57@gmail.com',
+      'name' => 'Rent Car Angola',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -600,7 +600,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -620,9 +620,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\resources\\views',
+      0 => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\framework\\views',
     'expires' => true,
   ),
   'dompdf' => 
@@ -632,10 +632,10 @@
     'convert_entities' => true,
     'options' => 
     array (
-      'font_dir' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\fonts',
-      'font_cache' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO\\storage\\fonts',
-      'temp_dir' => 'C:\\Users\\US\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\Users\\US\\Music\\INFOSI-PROJETO',
+      'font_dir' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\fonts',
+      'font_cache' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO\\storage\\fonts',
+      'temp_dir' => 'C:\\Users\\HP\\AppData\\Local\\Temp',
+      'chroot' => 'C:\\Users\\HP\\Documents\\Projetos\\INFOSI-PROJETO',
       'allowed_protocols' => 
       array (
         'file://' => 
