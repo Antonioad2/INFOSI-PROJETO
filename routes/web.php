@@ -41,3 +41,6 @@ Route::view('/about-us', 'site.reservation.about.index')->name('site.about-us');
 //blog
 Route::view('/blog', 'site.reservation.blog.index')->name('site.blog');
 
+//cliente criar e entrar
+Route::view('/client/create', 'site.reservation.client.create.index')->name('site.client-create');
+Route::view('/client/login', 'site.reservation.client.login.index')->name('site.client-login');

@@ -47,8 +47,8 @@
                             <li class="has-submenu">
                                 <a href="javascript:void(0);">Authentication</a>
                                 <ul class="submenu">
-                                    <li><a href="register.html">Cadastra-se</a></li>
-                                    <li><a href="login.html">Conecte-se</a></li>
+                                    <li><a href="{{route('site.client-create')}}">Cadastra-se</a></li>
+                                    <li><a href="{{route('site.client-login')}}">Conecte-se</a></li>
                                     <li><a href="forgot-password.html">Forgot Password</a></li>
                                     <li><a href="reset-password.html">Reset Password</a></li>
                                 </ul>
@@ -95,11 +95,11 @@
             </div>
             <ul class="nav header-navbar-rht">
                 <li class="nav-item user-link">
-                    <a class="nav-link btn-secondary btn d-inline-flex align-items-center" href="login.html"><i
+                    <a class="nav-link btn-secondary btn d-inline-flex align-items-center" href="{{route('site.client-login')}}"><i
                             class="bx bx-user me-1"></i>Conecte-se</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link header-reg  d-inline-flex align-items-center" href="register.html"><span><i
+                    <a class="nav-link header-reg  d-inline-flex align-items-center" href="{{route('site.client-create')}}"><span><i
                                 class="bx bx-lock"></i></span>Cadastra-se</a>
                 </li>
             </ul>
