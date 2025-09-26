@@ -43,4 +43,7 @@ Route::view('/blog', 'site.reservation.blog.index')->name('site.blog');
 
 //cliente criar e entrar
 Route::view('/client/create', 'site.reservation.client.create.index')->name('site.client-create');
+Route::post('/client-create', [HomeController::class, 'client_create'])->name('client_create');
+/* login */
 Route::view('/client/login', 'site.reservation.client.login.index')->name('site.client-login');
+Route::post('/client-login', [HomeController::class, 'login'])->name('client_login');

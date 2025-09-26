@@ -102,6 +102,8 @@
                     <a class="nav-link header-reg  d-inline-flex align-items-center" href="{{route('site.client-create')}}"><span><i
                                 class="bx bx-lock"></i></span>Cadastra-se</a>
                 </li>
+
+                
             </ul>
         </nav>
     </div>

@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Model\Car; // Correct namespace for the Car model
 use App\Model\Driver;
 use App\Model\Reserve;
+use App\Model\Client;
+use Illuminate\Support\Facades\Hash;
+
 
 class HomeController extends Controller
 {
@@ -138,5 +141,75 @@ class HomeController extends Controller
     {
         $car = Car::with(['brand', 'models', 'color', 'fuel', 'supplier'])->findOrFail($car_id);
         return view('site.reservation.car-details.index', compact('car'));
+    }
+
+
+    public function client_create(Request $request)
+    {
+        $validated = $request->validate([
+            'name'                   => 'required|string|max:255|unique:clients,name',
+            'email'                  => 'required|email|unique:clients,email',
+            'password'               => 'required|string|min:8',
+            'phone'                  => 'nullable|string|max:20',
+            'bi'                     => 'nullable|string|max:50',
+            'bi_upload'              => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:4096',
+            'driver_license'         => 'nullable|string|max:20|unique:clients,driver_license',
+            'driver_license_upload'  => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:4096',
+            'address'                => 'nullable|string|max:255',
+        ]);
+
+        // Hashear a senha antes de salvar
+    $validated['password'] = Hash::make($validated['password']);
+
+        // Diretórios
+        $uploadPath = public_path('uploads');
+
+        if ($request->hasFile('driver_license_upload')) {
+            $fileName = time() . '_document.' . $request->driver_license_upload->getClientOriginalExtension();
+            $request->driver_license_upload->move($uploadPath . '/client/driver_license_upload', $fileName);
+            $validated['driver_license_upload'] = $fileName;
+        }
+
+        if ($request->hasFile('bi_upload')) {
+            $fileName = time() . '_document.' . $request->bi_upload->getClientOriginalExtension();
+            $request->bi_upload->move($uploadPath . '/client/client_bi_upload', $fileName);
+            $validated['bi_upload'] = $fileName;
+        }
+
+        Client::create($validated);
+
+        return redirect()->route('site.client-login')->with('success', 'cliente criado com sucesso!');
+    }
+
+    public function login(Request $request)
+{
+    $credentials = $request->validate([
+        'email'    => 'required|email',
+        'password' => 'required|string|min:8',
+    ]);
+
+    // Procurar cliente
+    $client = Client::where('email', $credentials['email'])->first();
+
+    if (!$client) {
+        \Log::info('Usuário não encontrado para o email: ' . $credentials['email']);
+        return back()->withErrors(['email' => 'Credenciais inválidas'])->withInput();
+    }
+
+    if (!Hash::check($credentials['password'], $client->password)) {
+        \Log::info('Senha incorreta para o email: ' . $credentials['email']);
+        return back()->withErrors(['email' => 'Credenciais inválidas'])->withInput();
+    }
+
+    // Login bem-sucedido
+    $request->session()->put('client', $client);
+
+    return redirect()->route('home')->with('success', 'Login realizado com sucesso!');
+}
+
+    public function logout(Request $request)
+    {
+        $request->session()->forget('client');
+        return redirect()->route('site.client-login')->with('success', 'Saiu da sessão.');
     }
 }
