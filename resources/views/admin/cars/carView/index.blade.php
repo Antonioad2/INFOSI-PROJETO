@@ -1,4 +1,4 @@
-@extends('admin.cars.carView.Layout.principal')
+@extends('admin.cars.carView.layout.principal')
 @section('title', 'Duralux || Car View')
 @section('content-carView')
 
@@ -203,6 +203,13 @@
                         <div class="col-lg-2 fw-medium">Descrição</div>
                         <div class="col-lg-8 hstack gap-1">{{$car->observations}}</div>
                     </div>
+
+                        <!-- tipo de carro-->
+                       <div class="row mb-4">
+                        <div class="col-lg-2 fw-medium"><table>Tipo de Carro</table></div>
+                        <div class="col-lg-8 hstack gap-1">{{$car->type_car}}</div>
+                    </div>                    
+
 
                     <!--Status do Carro-->
                     <div class="row mb-4">

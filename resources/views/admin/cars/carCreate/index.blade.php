@@ -221,6 +221,22 @@
                                     <input type="number" name="price" class="form-control" value="{{ old('price') }}" step="0.01" min="0" placeholder="Preço do Carro">
                                 </div>
 
+                                <!-- tipo de carro-->
+                                            <div class="col-lg-12 mb-3">
+                                                <label class="form-label">Tipo de Carro</label>
+                                                <select name="type_car" id="type_car" class="form-control" required>
+                                                    <option value="sedan" {{ old('type_car') == 'sedan' ? 'selected' : '' }}>Sedan</option>
+                                                    <option value="suv"{{ old('type_car') == 'suv' ? 'selected' : '' }}>SUV</option>
+                                                    <option value="compact"{{ old('type_car') == 'compact' ? 'selected' : '' }}>Compact</option>
+                                                    <option value="station_wagon"{{ old('type_car') == 'station_wagon' ? 'selected' : '' }}>station_wagon</option>
+                                                    <option value="sports_car"{{ old('type_car') == 'sports_car' ? 'selected' : '' }}>sports_car</option>
+                                                    <option value="minivan"{{ old('type_car') == 'minivan' ? 'selected' : '' }}>Minivan</option>
+                                                    <option value="compact_suv"{{ old('type_car') == 'compact_suv' ? 'selected' : '' }}>Compact_suv</option>
+                                                    <option value="coupe"{{ old('type_car') == 'coupe' ? 'selected' : '' }}>Coupe</option>
+                                                    <option value="sports_coupe"{{ old('type_car') == 'sports_coupe' ? 'selected' : '' }}>sports_coupe</option>
+                                                </select>
+                                            </div>
+
                                 <div class="col-lg-12 mb-3">
                                     <label class="form-label">Observações</label>
                                     <textarea name="observations" class="form-control" rows="3">{{ old('observations') }}</textarea>

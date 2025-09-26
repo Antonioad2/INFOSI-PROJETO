@@ -246,7 +246,7 @@
                         </div>
 
                         <div class="view-all-btn text-center aos" data-aos="fade-down">
-                            <a href="listing-grid.html" class="btn btn-secondary">Ver Todos<i
+                            <a href="{{ route('site.car-list') }}" class="btn btn-secondary">Ver Todos<i
                                     class="bx bx-right-arrow-alt ms-1"></i></a>
                         </div>
                     </div>
@@ -615,8 +615,8 @@
                                 <span><img src="{{ url('assets/user/img/icons/spec-02.svg') }}"
                                         alt="img">Power</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-03.svg') }}"
-                                        alt="img">{{ $car->km }} K</span>
-                                <span><img src="{{ url('assets/user/img/icons/spec-04.svg') }}" alt="img">AC</span>
+                                        alt="img">{{ $car->mileage}} </span>
+                                <!--<span><img src="{{ url('assets/user/img/icons/spec-04.svg') }}" alt="img">AC</span>-->
                                 <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"
                                         alt="img">{{ $car->fuel->name ?? 'Combustível' }}</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"

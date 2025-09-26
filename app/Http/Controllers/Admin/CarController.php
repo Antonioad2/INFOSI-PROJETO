@@ -75,6 +75,8 @@ class CarController extends Controller
             'interior_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
             'lateral_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
             'exterior_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
+            'type_car' => 'required|in:sedan,suv,compact,station_wagon,sports_car,minivan,compact_suv,coupe,sports_coupe',
+
         ]);
 
         // Diretórios
@@ -180,6 +182,8 @@ class CarController extends Controller
             'interior_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
             'lateral_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
             'exterior_image' => 'nullable|file|mimes:jpeg,png,jpg|max:4096',
+            'type_car' => 'required|in:sedan,suv,compact,station_wagon,sports_car,minivan,compact_suv,coupe,sports_coupe',
+
         ]);
 
 
