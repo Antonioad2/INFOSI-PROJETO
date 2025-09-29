@@ -273,15 +273,15 @@
                                             <div class="col-lg-12 mb-3">
                                                 <label class="form-label">Tipo de Carro</label>
                                                 <select name="type_car" id="type_car" class="form-control" required>
-                                                    <option value="sedan" {{ old('type_car', $car->type_car) == 'sedan' ? 'selected' : '' }}>Sedan</option>
-                                                    <option value="suv"{{ old('type_car', $car->type_car) == 'suv' ? 'selected' : '' }}>SUV</option>
-                                                    <option value="compact"{{ old('type_car', $car->type_car) == 'compact' ? 'selected' : '' }}>Compact</option>
-                                                    <option value="station_wagon"{{ old('type_car', $car->type_car) == 'station_wagon' ? 'selected' : '' }}>station_wagon</option>
-                                                    <option value="sports_car"{{ old('type_car', $car->type_car) == 'sports_car' ? 'selected' : '' }}>sports_car</option>
-                                                    <option value="minivan"{{ old('type_car', $car->type_car) == 'minivan' ? 'selected' : '' }}>Minivan</option>
-                                                    <option value="compact_suv"{{ old('type_car', $car->type_car) == 'compact_suv' ? 'selected' : '' }}>Compact_suv</option>
-                                                    <option value="coupe"{{ old('type_car', $car->type_car) == 'coupe' ? 'selected' : '' }}>Coupe</option>
-                                                    <option value="sports_coupe"{{ old('type_car', $car->type_car) == 'sports_coupe' ? 'selected' : '' }}>sports_coupe</option>
+                                                    <option value="sedan" {{ old('type_car', $car->type_car) == 'sedan' ? 'selected' : '' }}>Executivo</option>
+                                                    <option value="suv"{{ old('type_car', $car->type_car) == 'suv' ? 'selected' : '' }}>Aventura</option>
+                                                    <option value="compact"{{ old('type_car', $car->type_car) == 'compact' ? 'selected' : '' }}>Urbano</option>
+                                                    <option value="station_wagon"{{ old('type_car', $car->type_car) == 'station_wagon' ? 'selected' : '' }}>Turismo</option>
+                                                    <option value="sports_car"{{ old('type_car', $car->type_car) == 'sports_car' ? 'selected' : '' }}>Esportivo</option>
+                                                    <option value="minivan"{{ old('type_car', $car->type_car) == 'minivan' ? 'selected' : '' }}>Viagem</option>
+                                                    <option value="compact_suv"{{ old('type_car', $car->type_car) == 'compact_suv' ? 'selected' : '' }}>Familia</option>
+                                                    <option value="coupe"{{ old('type_car', $car->type_car) == 'coupe' ? 'selected' : '' }}>Gala</option>
+                                                    <option value="sports_coupe"{{ old('type_car', $car->type_car) == 'sports_coupe' ? 'selected' : '' }}>Gala Esportivo</option>
                                                 </select>
                                             </div>
 

@@ -36,7 +36,7 @@
                                         </div>
                                     </div>
                                     <div class="view-all d-flex align-items-center gap-3">
-                                        <a href="listing-grid.html"
+                                        <a href="{{route('site.car-list')}}"
                                             class="btn btn-primary d-inline-flex align-items-center">Alugue um Carro<i
                                                 class="bx bx-right-arrow-alt ms-1"></i></a>
                                         <a href="add-listing.html"
@@ -134,10 +134,10 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="listing-grid.html">Coupé Esportivo</a></h6>
-                                            <p>14 Carros</p>
+                                            <h6 class="title"><a href="{{route('site.car-list', ['type_car' => 'suv'])}}">Aventura</a></h6>
+                                            <p>{{$suvCount}}</p>
                                         </div>
-                                        <a href="listing-grid.html" class="link-icon"><i
+                                        <a href="{{route('site.car-list', ['type_car' => 'suv'])}}" class="link-icon"><i
                                                 class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
@@ -153,10 +153,10 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="listing-grid.html">Sedã</a></h6>
-                                            <p>12 Carros</p>
+                                            <h6 class="title"><a href="{{route('site.car-list', ['type_car' => 'sedan'])}}">Executivo</a></h6>
+                                            <p>{{$sedanCount}}</p>
                                         </div>
-                                        <a href="listing-grid.html" class="link-icon"><i
+                                        <a href="{{route('site.car-list', ['type_car' => 'sedan'])}}" class="link-icon"><i
                                                 class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
@@ -172,10 +172,10 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="listing-grid.html">Carros Esportivos</a></h6>
-                                            <p>35 Carros</p>
+                                            <h6 class="title"><a href="{{route('site.car-list', ['type_car' => 'sports_car'])}}">Esportivos</a></h6>
+                                            <p>{{$sports_carCount}}</p>
                                         </div>
-                                        <a href="listing-grid.html" class="link-icon"><i
+                                        <a href="{{route('site.car-list', ['type_car' => 'sports_car'])}}" class="link-icon"><i
                                                 class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
@@ -191,10 +191,10 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="listing-grid.html">Carrinha</a></h6>
-                                            <p>35 Carrinha</p>
+                                            <h6 class="title"><a href="{{route('site.car-list', ['type_car' => 'minivan'])}}">Viagem</a></h6>
+                                            <p>{{$minivanCount}}</p>
                                         </div>
-                                        <a href="listing-grid.html" class="link-icon"><i
+                                        <a href="{{route('site.car-list', ['type_car' => 'minivan'])}}" class="link-icon"><i
                                                 class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
@@ -210,10 +210,10 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="listing-grid.html">Multiuso</a></h6>
-                                            <p>35 Carros</p>
+                                            <h6 class="title"><a href="{{route('site.car-list',['type_car' => 'compact_suv'])}}">Familia</a></h6>
+                                            <p>{{$compact_suvCount}}</p>
                                         </div>
-                                        <a href="listing-grid.html" class="link-icon"><i
+                                        <a href="{{route('site.car-list',['type_car' => 'compact_suv'])}}" class="link-icon"><i
                                                 class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
@@ -229,10 +229,10 @@
                                 <div class="category-item flex-fill">
                                     <div class="category-info d-flex align-items-center justify-content-between">
                                         <div>
-                                            <h6 class="title"><a href="listing-grid.html">SUV Compacto</a></h6>
-                                            <p>30 Carros</p>
+                                            <h6 class="title"><a href="{{route('site.car-list',['type_car' => 'compact_suv'])}}">Urbano</a></h6>
+                                            <p>{{$compactCount}}</p>
                                         </div>
-                                        <a href="listing-grid.html" class="link-icon"><i
+                                        <a href="{{route('site.car-list',['type_car' => 'compact_suv'])}}" class="link-icon"><i
                                                 class="bx bx-right-arrow-alt"></i></a>
                                     </div>
                                     <div class="category-img">
@@ -613,14 +613,14 @@
                                 <span><img src="{{ url('assets/user/img/icons/spec-01.svg') }}"
                                         alt="img">{{ $car->transmission }}</span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-02.svg') }}"
-                                        alt="img">Power</span>
+                                        alt="img">{{ $car->manufacture_date}} </span>
                                 <span><img src="{{ url('assets/user/img/icons/spec-03.svg') }}"
                                         alt="img">{{ $car->mileage}} </span>
                                 <!--<span><img src="{{ url('assets/user/img/icons/spec-04.svg') }}" alt="img">AC</span>-->
                                 <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"
                                         alt="img">{{ $car->fuel->name ?? 'Combustível' }}</span>
-                                <span><img src="{{ url('assets/user/img/icons/spec-05.svg') }}"
-                                        alt="img">{{ $car->passengers }} Pessoas</span>
+                                <!-- <span><img src="{{ url('assets/user/img/icons/car-parts-06.svg') }}"
+                                        alt="img">{{ $car->number_of_seats }} Pessoas</span> -->
                             </div>
                             <a href="{{ route('car.details', $car->id) }}" class="btn btn-primary">Alugue Agora</a>
                         </div>
@@ -716,7 +716,7 @@
                 </div>
 
                 <div class="view-all-btn text-center aos" data-aos="fade-down">
-                    <a href="listing-grid.html" class="btn btn-secondary">Ver Todos<i
+                    <a href="{{route('site.car-list')}}" class="btn btn-secondary">Ver Todos<i
                             class="bx bx-right-arrow-alt ms-1"></i></a>
                 </div>
 

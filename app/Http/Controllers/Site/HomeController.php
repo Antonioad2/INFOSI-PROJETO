@@ -15,15 +15,31 @@ class HomeController extends Controller
 {
     public function index()
     {
+
+        //quantidade de carros por tipo
+        $sedanCount = Car::where('type_car', 'sedan')->where('status', 'available')->count();
+        $suvCount = Car::where('type_car', 'suv')->where('status', 'available')->count();
+        $compactCount = Car::where('type_car', 'compact')->where('status', 'available')->count();
+        $station_wagonCount = Car::where('type_car', 'station_wagon')->where('status', 'available')->count();
+        $sports_carCount = Car::where('type_car', 'sports_car')->where('status', 'available')->count();
+        $minivanCount = Car::where('type_car', 'minivan')->where('status', 'available')->count();
+        $compact_suvCount = Car::where('type_car', 'compact_suv')->where('status', 'available')->count();
+        $coupeCount = Car::where('type_car', 'coupe')->where('status', 'available')->count();
+        $sports_coupeCount = Car::where('type_car', 'sports_coupe')->where('status', 'available')->count();  
+        $coupeCount = Car::where('type_car', 'coupe')->where('status', 'available')->count();
+        $sports_coupeCount = Car::where('type_car', 'sports_coupe')->where('status', 'available')->count();
+
         // Fetch all cars with their related data (brand, models, color, fuel)
         $cars = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available')->get(); // 🔹 só traz disponíveis;
 
         // Pass the cars to the view
-        return view('site.home.index', compact('cars')); // Add 'cars' to compact()
+        return view('site.home.index', compact('cars','sedanCount','suvCount','compactCount','station_wagonCount','sports_carCount','minivanCount','compact_suvCount','coupeCount','sports_coupeCount')); // Add 'cars' to compact()
     }
 
     public function carList(Request $request)
     {
+         $type_car = $request->input('type_car'); // traga o tipo clicado
+
         // Retrieve filter inputs
         $pickup_location = $request->input('pickup_location');
         $dropoff_location = $request->input('dropoff_location');
@@ -41,7 +57,9 @@ class HomeController extends Controller
         // Base query: only available cars
         $query = Car::with(['brand', 'models', 'color', 'fuel'])->where('status', 'available');
 
-       
+       if (!empty($type_car)) {
+        $query->where('type_car', $type_car); // 🔹 filtra pelo tipo específico
+        }
 
         if (!empty($brands)) {
             $query->whereIn('brand_id', function ($subQuery) use ($brands) {
@@ -96,7 +114,8 @@ class HomeController extends Controller
             'seats',
             'transmissions',
             'min_price',
-            'max_price'
+            'max_price',
+            'type_car' 
         ));
     }
 
@@ -212,4 +231,6 @@ class HomeController extends Controller
         $request->session()->forget('client');
         return redirect()->route('home')->with('success', 'Saiu da sessão.');
     }
+
+    
 }
