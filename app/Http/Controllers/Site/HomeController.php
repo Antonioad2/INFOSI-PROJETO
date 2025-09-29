@@ -210,6 +210,6 @@ class HomeController extends Controller
     public function logout(Request $request)
     {
         $request->session()->forget('client');
-        return redirect()->route('site.client-login')->with('success', 'Saiu da sessão.');
+        return redirect()->route('home')->with('success', 'Saiu da sessão.');
     }
 }

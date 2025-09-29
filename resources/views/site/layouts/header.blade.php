@@ -103,8 +103,22 @@
                                 class="bx bx-lock"></i></span>Cadastra-se</a>
                 </li>
 
-                
+                <li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+								<span class="user-img">
+									<img class="rounded-circle" src="{{ url('assets/user/img/profiles/avatar-14.jpg')}}" alt="Profile">
+								</span>
+								<span class="user-text">{{ $client->name ?? 'Visitante' }}</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								
+								<a class="dropdown-item" href="{{route('client_logout')}}">
+									<i class="feather-power"></i> Logout
+								</a>
+							</div>
+						</li>
             </ul>
+            
         </nav>
     </div>
 </header>

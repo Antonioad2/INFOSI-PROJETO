@@ -47,3 +47,7 @@ Route::post('/client-create', [HomeController::class, 'client_create'])->name('c
 /* login */
 Route::view('/client/login', 'site.reservation.client.login.index')->name('site.client-login');
 Route::post('/client-login', [HomeController::class, 'login'])->name('client_login');
+
+/* logout */
+/* DEVE SER POST ESTA ASSIM AINDA PARA TESTE */
+Route::get('/client-logout', [HomeController::class, 'logout'])->name('client_logout');

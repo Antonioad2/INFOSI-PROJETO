@@ -114,6 +114,7 @@
                                     <li><a href="reset-password.html">Reset Password</a></li>
                                 </ul>
                             </li>
+                            
                             <li class="has-submenu">
                                 <a href="javascript:void(0);">Booking</a>
                                 <ul class="submenu">
@@ -159,7 +160,7 @@
 									<li><a href="blog-details.html">Blog Details</a></li>																		
 								</ul>
 							</li> --}}
-
+                            
                     {{-- Dashboard --}}
 
                     {{-- <li class="has-submenu">
@@ -213,7 +214,26 @@
                     <a class="nav-link header-reg" href="{{route('site.client-login')}}"><span><i
                                 class="fa-solid fa-lock"></i></span>Conecte-se</a>
                 </li>
+
+                 <li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+								<span class="user-img">
+									<img class="rounded-circle" src="{{ url('assets/user/img/profiles/avatar-14.jpg')}}" alt="Profile">
+								</span>
+								<span class="user-text">{{ $client->name ?? 'Visitante' }}</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								
+								<a class="dropdown-item" href="user-settings.html">
+									<i class="feather-settings"></i> Settings
+								</a>
+								<a class="dropdown-item" href="{{route('client_logout')}}">
+									<i class="feather-power"></i> Logout
+								</a>
+							</div>
+						</li>
             </ul>
+           
         </nav>
     </div>
 </header>
